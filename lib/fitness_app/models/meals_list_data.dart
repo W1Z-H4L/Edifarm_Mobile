@@ -17,8 +17,8 @@ class MealsListData {
 
   static List<MealsListData> tabIconsList = <MealsListData>[
     MealsListData(
-      imagePath: 'assets/fitness_app/breakfast.png',
-      titleTxt: 'Breakfast',
+      imagePath: 'assets/gambar_schedule.png',
+      titleTxt: 'Jadwal',
       kacl: 525,
       meals: <String>['Bread,', 'Peanut butter,', 'Apple'],
       startColor: '#FA7D82',
