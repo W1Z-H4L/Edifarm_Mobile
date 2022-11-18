@@ -1,4 +1,7 @@
+import 'dart:js_util';
+
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 import '../fitness_app_theme.dart';
 
@@ -17,10 +20,10 @@ class _AreaListViewState extends State<AreaListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<String> areaListData = <String>[
-    'assets/fitness_app/area1.png',
-    'assets/fitness_app/area2.png',
-    'assets/fitness_app/area3.png',
-    'assets/fitness_app/area1.png',
+    'penyiraman',
+    'pemupukan',
+    'siram lagi',
+    'pupuk lagi',
   ];
 
   @override
@@ -76,10 +79,10 @@ class _AreaListViewState extends State<AreaListView>
                     },
                   ),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 24.0,
-                    crossAxisSpacing: 24.0,
-                    childAspectRatio: 1.0,
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 25,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 6 / 1,
                   ),
                 ),
               ),
@@ -114,37 +117,45 @@ class AreaView extends StatelessWidget {
             transform: Matrix4.translationValues(
                 0.0, 50 * (1.0 - animation!.value), 0.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: FitnessAppTheme.white,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    bottomLeft: Radius.circular(8.0),
-                    bottomRight: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: FitnessAppTheme.grey.withOpacity(0.4),
-                      offset: const Offset(1.1, 1.1),
-                      blurRadius: 10.0),
-                ],
-              ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  focusColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  splashColor: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
-                  onTap: () {},
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 16, left: 16, right: 16),
-                        child: Image.asset(imagepath!),
-                      ),
-                    ],
+              child: DottedBorder(
+                strokeWidth: 1,
+                borderType: BorderType.RRect,
+                radius: Radius.circular(25),
+
+                // decoration: BoxDecoration(
+
+                color: Color.fromARGB(255, 1, 104, 97),
+                // borderRadius: const BorderRadius.only(
+                //     topLeft: Radius.circular(8.0),
+                //     bottomLeft: Radius.circular(8.0),
+                //     bottomRight: Radius.circular(8.0),
+                //     topRight: Radius.circular(8.0)),
+                // boxShadow: <BoxShadow>[
+                //   BoxShadow(
+                //       color: FitnessAppTheme.grey.withOpacity(0.4),
+                //       offset: const Offset(1.1, 1.1),
+                //       blurRadius: 10.0),
+                // ],),
+
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    focusColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                    splashColor:
+                        FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
+                    onTap: () {},
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16, left: 16, right: 16),
+                          child: Text(imagepath!),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

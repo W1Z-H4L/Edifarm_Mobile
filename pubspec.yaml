@@ -35,6 +35,9 @@ dependencies:
   animations: ^2.0.3
   shared_preferences: ^2.0.15
   percent_indicator: ^3.4.0
+  dotted_border: ^1.0.0
+  date_format: ^1.0.0
+
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -25,8 +25,8 @@ class WorkoutView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
-                    FitnessAppTheme.nearlyDarkBlue,
-                    HexColor("#6F56E8")
+                    Color.fromARGB(255, 1, 87, 83),
+                    Color.fromARGB(255, 255, 255, 255)
                   ], begin: Alignment.topLeft, end: Alignment.bottomRight),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(8.0),
@@ -35,9 +35,9 @@ class WorkoutView extends StatelessWidget {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.6),
+                        color: Color.fromARGB(255, 116, 232, 222),
                         offset: Offset(1.1, 1.1),
-                        blurRadius: 10.0),
+                        blurRadius: 5.0),
                   ],
                 ),
                 child: Padding(
@@ -47,7 +47,7 @@ class WorkoutView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Next workout',
+                        'diisi chart',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: FitnessAppTheme.fontName,
@@ -60,7 +60,7 @@ class WorkoutView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: const Text(
-                          'Legs Toning and\nGlutes Workout at Home',
+                          'GAMBAR CHART',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontFamily: FitnessAppTheme.fontName,
@@ -82,50 +82,50 @@ class WorkoutView extends StatelessWidget {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(left: 4),
-                              child: Icon(
-                                Icons.timer,
-                                color: FitnessAppTheme.white,
-                                size: 16,
-                              ),
+                              // child: Icon(
+                              //   Icons.timer,
+                              //   color: FitnessAppTheme.white,
+                              //   size: 16,
+                              // ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 4.0),
-                              child: const Text(
-                                '68 min',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: FitnessAppTheme.fontName,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  letterSpacing: 0.0,
-                                  color: FitnessAppTheme.white,
-                                ),
-                              ),
+                              // child: const Text(
+                              //   '68 min',
+                              //   textAlign: TextAlign.center,
+                              //   style: TextStyle(
+                              //     fontFamily: FitnessAppTheme.fontName,
+                              //     fontWeight: FontWeight.w500,
+                              //     fontSize: 14,
+                              //     letterSpacing: 0.0,
+                              //     color: FitnessAppTheme.white,
+                              //   ),
+                              // ),
                             ),
                             Expanded(
                               child: SizedBox(),
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: FitnessAppTheme.nearlyWhite,
-                                shape: BoxShape.circle,
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                      color: FitnessAppTheme.nearlyBlack
-                                          .withOpacity(0.4),
-                                      offset: Offset(8.0, 8.0),
-                                      blurRadius: 8.0),
-                                ],
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child: Icon(
-                                  Icons.arrow_right,
-                                  color: HexColor("#6F56E8"),
-                                  size: 44,
-                                ),
-                              ),
-                            )
+                            // Container(
+                            //   decoration: BoxDecoration(
+                            //     color: FitnessAppTheme.nearlyWhite,
+                            //     shape: BoxShape.circle,
+                            //     boxShadow: <BoxShadow>[
+                            //       BoxShadow(
+                            //           color: FitnessAppTheme.nearlyBlack
+                            //               .withOpacity(0.4),
+                            //           offset: Offset(8.0, 8.0),
+                            //           blurRadius: 8.0),
+                            //     ],
+                            //   ),
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.all(0.0),
+                            //     // child: Icon(
+                            //     //   Icons.arrow_right,
+                            //     //   color: HexColor("#6F56E8"),
+                            //     //   size: 44,
+                            //     // ),
+                            //   ),
+                            // )
                           ],
                         ),
                       )
