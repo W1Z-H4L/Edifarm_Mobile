@@ -27,21 +27,21 @@ class RunningView extends StatelessWidget {
                     clipBehavior: Clip.none,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 16, bottom: 16),
+                        padding: const EdgeInsets.only(top: 10, bottom: 16),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: FitnessAppTheme.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8.0),
-                                bottomLeft: Radius.circular(8.0),
-                                bottomRight: Radius.circular(8.0),
-                                topRight: Radius.circular(8.0)),
-                            boxShadow: <BoxShadow>[
-                              BoxShadow(
-                                  color: FitnessAppTheme.grey.withOpacity(0.4),
-                                  offset: Offset(1.1, 1.1),
-                                  blurRadius: 10.0),
-                            ],
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            border: Border.all(
+                                color: Color.fromARGB(31, 1, 72, 58)),
+
+                            borderRadius: BorderRadius.circular(10),
+
+                            // boxShadow: <BoxShadow>[
+                            //   BoxShadow(
+                            //       color: FitnessAppTheme.grey.withOpacity(0.4),
+                            //       offset: Offset(1.1, 1.1),
+                            //       blurRadius: 10.0),
+                            // ],
                           ),
                           child: Stack(
                             alignment: Alignment.topLeft,
@@ -53,8 +53,8 @@ class RunningView extends StatelessWidget {
                                   height: 74,
                                   child: AspectRatio(
                                     aspectRatio: 1.714,
-                                    child: Image.asset(
-                                        "assets/fitness_app/back.png"),
+                                    // child: Image.asset(
+                                    //     "assets/fitness_app/back.png"),
                                   ),
                                 ),
                               ),
@@ -70,7 +70,7 @@ class RunningView extends StatelessWidget {
                                           top: 16,
                                         ),
                                         child: Text(
-                                          "You're doing great!",
+                                          "Hari ini,",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontFamily:
@@ -92,18 +92,18 @@ class RunningView extends StatelessWidget {
                                       top: 4,
                                       right: 16,
                                     ),
-                                    child: Text(
-                                      "Keep it up\nand stick to your plan!",
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10,
-                                        letterSpacing: 0.0,
-                                        color: FitnessAppTheme.grey
-                                            .withOpacity(0.5),
-                                      ),
-                                    ),
+                                    // child: Text(
+                                    //   "Keep it up\nand stick to your plan!",
+                                    //   textAlign: TextAlign.left,
+                                    //   style: TextStyle(
+                                    //     fontFamily: FitnessAppTheme.fontName,
+                                    //     fontWeight: FontWeight.w500,
+                                    //     fontSize: 10,
+                                    //     letterSpacing: 0.0,
+                                    //     color: FitnessAppTheme.grey
+                                    //         .withOpacity(0.5),
+                                    //   ),
+                                    // ),
                                   ),
                                 ],
                               ),
@@ -117,7 +117,7 @@ class RunningView extends StatelessWidget {
                         child: SizedBox(
                           width: 110,
                           height: 110,
-                          child: Image.asset("assets/fitness_app/runner.png"),
+                          // child: Image.asset("assets/fitness_app/runner.png"),
                         ),
                       )
                     ],
