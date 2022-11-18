@@ -1,5 +1,5 @@
-import 'package:edifarm/fitness_app/fitness_app_theme.dart';
-import 'package:edifarm/fitness_app/ui_view/wave_view.dart';
+import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/ui_view/wave_view.dart';
 import 'package:edifarm/main.dart';
 import 'package:flutter/material.dart';
 

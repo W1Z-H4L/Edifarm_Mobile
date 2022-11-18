@@ -1,10 +1,10 @@
-import 'package:edifarm/fitness_app/fitness_app_theme.dart';
-import 'package:edifarm/fitness_app/my_diary/meals_list_view.dart';
-import 'package:edifarm/fitness_app/my_diary/water_view.dart';
-import 'package:edifarm/fitness_app/models/body_measurement.dart';
-import 'package:edifarm/fitness_app/ui_view/glass_view.dart';
-import 'package:edifarm/fitness_app/ui_view/mediterranean_diet_view.dart';
-import 'package:edifarm/fitness_app/ui_view/title_view.dart';
+import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/my_diary/meals_list_view.dart';
+import 'package:edifarm/dashboard/my_diary/water_view.dart';
+import 'package:edifarm/dashboard/models/body_measurement.dart';
+import 'package:edifarm/dashboard/ui_view/glass_view.dart';
+import 'package:edifarm/dashboard/ui_view/mediterranean_diet_view.dart';
+import 'package:edifarm/dashboard/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 
 class MyHomeScreen extends StatefulWidget {
