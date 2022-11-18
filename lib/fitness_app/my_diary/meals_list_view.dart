@@ -129,8 +129,8 @@ class MealsView extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                           bottomRight: Radius.circular(8.0),
                           bottomLeft: Radius.circular(8.0),
-                          topLeft: Radius.circular(8.0),
-                          topRight: Radius.circular(54.0),
+                          topLeft: Radius.circular(44.0),
+                          topRight: Radius.circular(44.0),
                         ),
                       ),
                       child: Padding(
@@ -235,22 +235,22 @@ class MealsView extends StatelessWidget {
                   ),
                   Positioned(
                     top: 0,
-                    left: 0,
+                    left: 24,
                     child: Container(
                       width: 84,
                       height: 84,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyWhite.withOpacity(0.2),
+                        color: FitnessAppTheme.nearlyWhite.withOpacity(0.6),
                         shape: BoxShape.circle,
                       ),
                     ),
                   ),
                   Positioned(
                     top: 0,
-                    left: 8,
+                    left: 32,
                     child: SizedBox(
-                      width: 80,
-                      height: 80,
+                      width: 60,
+                      height: 60,
                       child: Image.asset(mealsListData!.imagePath),
                     ),
                   )

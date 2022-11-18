@@ -4,7 +4,6 @@ import 'package:edifarm/fitness_app/fitness_app_home_screen.dart';
 import 'package:edifarm/splash_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'navigation_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main(List<String> args) => runApp(MyApp());
