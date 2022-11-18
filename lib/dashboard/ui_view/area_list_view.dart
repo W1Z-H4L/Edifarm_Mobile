@@ -19,12 +19,7 @@ class AreaListView extends StatefulWidget {
 class _AreaListViewState extends State<AreaListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<String> areaListData = <String>[
-    'penyiraman',
-    'pemupukan',
-    'siram lagi',
-    'pupuk lagi',
-  ];
+  List<String> areaListData = <String>[];
 
   @override
   void initState() {
@@ -53,36 +48,26 @@ class _AreaListViewState extends State<AreaListView>
               aspectRatio: 1.0,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
-                child: GridView(
-                  padding: const EdgeInsets.only(
-                      left: 16, right: 16, top: 16, bottom: 16),
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  children: List<Widget>.generate(
-                    areaListData.length,
-                    (int index) {
-                      final int count = areaListData.length;
-                      final Animation<double> animation =
-                          Tween<double>(begin: 0.0, end: 1.0).animate(
-                        CurvedAnimation(
-                          parent: animationController!,
-                          curve: Interval((1 / count) * index, 1.0,
-                              curve: Curves.fastOutSlowIn),
-                        ),
-                      );
-                      animationController?.forward();
-                      return AreaView(
-                        imagepath: areaListData[index],
-                        animation: animation,
-                        animationController: animationController!,
-                      );
-                    },
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 25,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 6 / 1,
+                child: ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) => Container(
+                    child: DottedBorder(
+                          strokeWidth: 1,
+                          borderType: BorderType.RRect,
+                          radius: Radius.circular(25)),
+
+                    width: MediaQuery.of(context).size.width,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                    // child: Container(
+                    //   width: MediaQuery.of(context).size.width,
+                    //   padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      
+                      // child: Container(
+                      //
+                      // ),
+                    ),
                   ),
                 ),
               ),
@@ -144,15 +129,15 @@ class AreaView extends StatelessWidget {
                     highlightColor: Colors.transparent,
                     hoverColor: Colors.transparent,
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    splashColor:
-                        FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
+                    // splashColor:
+                    //     FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
                     onTap: () {},
                     child: Column(
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(
                               top: 16, left: 16, right: 16),
-                          child: Text(imagepath!),
+                          child: Text('v' + imagepath!),
                         ),
                       ],
                     ),
