@@ -1,5 +1,5 @@
-import 'package:edifarm/fitness_app/fitness_app_theme.dart';
-import 'package:edifarm/fitness_app/models/meals_list_data.dart';
+import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/models/meals_list_data.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';

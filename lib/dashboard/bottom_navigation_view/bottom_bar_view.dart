@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:edifarm/fitness_app/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -141,18 +141,18 @@ class _BottomBarViewState extends State<BottomBarView>
                     child: Container(
                       // alignment: Alignment.center,s
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.splash,
+                        color: FitnessAppTheme.green,
                         gradient: LinearGradient(
                             colors: [
-                              FitnessAppTheme.splash,
-                              FitnessAppTheme.splash
+                              FitnessAppTheme.green,
+                              FitnessAppTheme.green
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight),
                         shape: BoxShape.circle,
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: FitnessAppTheme.splash.withOpacity(0.4),
+                              color: FitnessAppTheme.green.withOpacity(0.4),
                               offset: const Offset(8.0, 16.0),
                               blurRadius: 16.0),
                         ],
