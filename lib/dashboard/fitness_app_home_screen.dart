@@ -3,6 +3,7 @@ import 'package:edifarm/calender/calender_screen.dart';
 import 'package:edifarm/dashboard/models/tabIcon_data.dart';
 import 'package:edifarm/dashboard/training/training_screen.dart';
 import 'package:flutter/material.dart';
+import '../jenispadi/jenispadi.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
 import 'my_diary/my_diary_screen.dart';
@@ -117,8 +118,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      TrainingScreen(animationController: animationController);
+                  tabBody = jenisPadi(animationController: animationController);
                 });
               });
             } else if (index == 4) {

@@ -1,24 +1,20 @@
-import 'package:edifarm/calender/calendar_popup_view.dart';
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/ui_view/area_list_view.dart';
-import 'package:edifarm/dashboard/ui_view/running_view.dart';
-import 'package:edifarm/dashboard/ui_view/title_view.dart';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class CalenderScreen extends StatefulWidget {
-  const CalenderScreen({Key? key, this.animationController}) : super(key: key);
+class jenisPadi extends StatefulWidget {
+  const jenisPadi({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _CalenderScreenState createState() => _CalenderScreenState();
+  _jenisPadiState createState() => _jenisPadiState();
 }
 
-class _CalenderScreenState extends State<CalenderScreen>
-    with TickerProviderStateMixin {
+class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
-
-  List<Widget> gridViews = <Widget>[];
+  List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
 
@@ -58,26 +54,18 @@ class _CalenderScreenState extends State<CalenderScreen>
   void addAllListData() {
     const int count = 5;
 
-    gridViews.add(
-      TitleView(
-        titleTxt: 'Kalender Tanam',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    gridViews.add(
-      CalendarPopupView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
+    // @override
+    // Widget build(BuildContext context) {
+    //   return
+    // Container(
+    //   alignment: Alignment.center,
+    //   padding: const EdgeInsets.all(32),
+    //   decoration: const BoxDecoration(
+    //     image: DecorationImage(
+    //       image: AssetImage('assets/gambar_jenispadi.png'),
+    //     ),
+    //   ),
+    // );
   }
 
   Future<bool> getData() async {
@@ -119,11 +107,11 @@ class _CalenderScreenState extends State<CalenderScreen>
                   24,
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
-            itemCount: gridViews.length,
-            scrollDirection: Axis.horizontal,
+            itemCount: listViews.length,
+            scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
               widget.animationController?.forward();
-              return gridViews[index];
+              return listViews[index];
             },
           );
         }
@@ -175,7 +163,7 @@ class _CalenderScreenState extends State<CalenderScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Jadwal',
+                                  'Jenis Padi',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,

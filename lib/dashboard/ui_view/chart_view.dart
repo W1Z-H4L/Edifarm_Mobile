@@ -1,5 +1,9 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:edifarm/main.dart';
 import 'package:flutter/material.dart';
+import 'package:pie_chart/pie_chart.dart';
 import '../fitness_app_theme.dart';
 
 class WorkoutView extends StatelessWidget {
@@ -25,7 +29,7 @@ class WorkoutView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
-                    Color.fromARGB(255, 1, 87, 83),
+                    Color.fromARGB(255, 255, 255, 255),
                     Color.fromARGB(255, 255, 255, 255)
                   ], begin: Alignment.topLeft, end: Alignment.bottomRight),
                   borderRadius: BorderRadius.only(
@@ -35,28 +39,18 @@ class WorkoutView extends StatelessWidget {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: Color.fromARGB(255, 116, 232, 222),
+                        color: FitnessAppTheme.grey,
                         offset: Offset(1.1, 1.1),
                         blurRadius: 5.0),
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(right: 4.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'diisi chart',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: FitnessAppTheme.fontName,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14,
-                          letterSpacing: 0.0,
-                          color: FitnessAppTheme.white,
-                        ),
-                      ),
+                      pieChart(),
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: const Text(
@@ -82,50 +76,13 @@ class WorkoutView extends StatelessWidget {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(left: 4),
-                              // child: Icon(
-                              //   Icons.timer,
-                              //   color: FitnessAppTheme.white,
-                              //   size: 16,
-                              // ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 4.0),
-                              // child: const Text(
-                              //   '68 min',
-                              //   textAlign: TextAlign.center,
-                              //   style: TextStyle(
-                              //     fontFamily: FitnessAppTheme.fontName,
-                              //     fontWeight: FontWeight.w500,
-                              //     fontSize: 14,
-                              //     letterSpacing: 0.0,
-                              //     color: FitnessAppTheme.white,
-                              //   ),
-                              // ),
                             ),
                             Expanded(
                               child: SizedBox(),
                             ),
-                            // Container(
-                            //   decoration: BoxDecoration(
-                            //     color: FitnessAppTheme.nearlyWhite,
-                            //     shape: BoxShape.circle,
-                            //     boxShadow: <BoxShadow>[
-                            //       BoxShadow(
-                            //           color: FitnessAppTheme.nearlyBlack
-                            //               .withOpacity(0.4),
-                            //           offset: Offset(8.0, 8.0),
-                            //           blurRadius: 8.0),
-                            //     ],
-                            //   ),
-                            //   child: Padding(
-                            //     padding: const EdgeInsets.all(0.0),
-                            //     // child: Icon(
-                            //     //   Icons.arrow_right,
-                            //     //   color: HexColor("#6F56E8"),
-                            //     //   size: 44,
-                            //     // ),
-                            //   ),
-                            // )
                           ],
                         ),
                       )
@@ -139,4 +96,31 @@ class WorkoutView extends StatelessWidget {
       },
     );
   }
+}
+
+final dataMap = <String, double>{
+  "completed": 5,
+};
+
+final colorList = <Color>[
+  Color.fromARGB(255, 96, 150, 124),
+  Colors.brown,
+];
+
+@override
+Widget pieChart() {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 16),
+    child: PieChart(
+      dataMap: dataMap,
+      chartType: ChartType.ring,
+      ringStrokeWidth: 32,
+      baseChartColor: Color.fromARGB(255, 176, 170, 170)!.withOpacity(0.15),
+      colorList: colorList,
+      chartValuesOptions: ChartValuesOptions(
+        showChartValuesInPercentage: true,
+      ),
+      totalValue: 20,
+    ),
+  );
 }

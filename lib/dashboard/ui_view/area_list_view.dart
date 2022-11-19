@@ -152,7 +152,7 @@ class AreaView extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(
                               top: 16, left: 16, right: 16),
-                          child: Text(imagepath!),
+                          child: Text('n'),
                         ),
                       ],
                     ),

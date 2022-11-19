@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:edifarm/dashboard/fitness_app_home_screen.dart';
 import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/jenispadi/jenispadi.dart';
 import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_scren.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           '/sign-in': (context) => SignInPage(),
           '/home': (context) => FitnessAppHomeScreen(),
           '/act': (context) => const TrainingScreen(),
+          '/jenis': (context) => const jenisPadi(),
         });
   }
 }
