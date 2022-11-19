@@ -1,4 +1,5 @@
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/training/training_screen.dart';
 import 'package:flutter/material.dart';
 
 class TitleView extends StatelessWidget {
@@ -46,22 +47,27 @@ class TitleView extends StatelessWidget {
                     InkWell(
                       highlightColor: Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                      onTap: () {},
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Row(
                           children: <Widget>[
-                            Text(
-                              subTxt,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontFamily: FitnessAppTheme.fontName,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16,
-                                letterSpacing: 0.5,
-                                color: FitnessAppTheme.nearlyDarkBlue,
+                            TextButton(
+                              child: Text(
+                                subTxt,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontFamily: FitnessAppTheme.fontName,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16,
+                                  letterSpacing: 0.5,
+                                  color: FitnessAppTheme.splash,
+                                ),
                               ),
-                            ),
+                              onPressed: (() {
+                                Navigator.pushNamed(context, '/act');
+                              }),
+                            
+                            )
                             // SizedBox(
                             //   height: 38,
                             //   width: 26,

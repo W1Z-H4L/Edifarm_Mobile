@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:edifarm/dashboard/fitness_app_home_screen.dart';
+import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,7 +37,9 @@ class MyApp extends StatelessWidget {
         // ),
         routes: {
           '/': (context) => const SplashScreen(),
-          '/sign-in': (context) => FitnessAppHomeScreen()
+          '/sign-in': (context) => SignInPage(),
+          '/home': (context) => FitnessAppHomeScreen(),
+          '/act': (context) => const TrainingScreen(),
         });
   }
 }

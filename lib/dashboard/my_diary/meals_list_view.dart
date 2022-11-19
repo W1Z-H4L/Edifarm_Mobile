@@ -54,7 +54,7 @@ class _MealsListViewState extends State<MealsListView>
               width: double.infinity,
               child: ListView.builder(
                 padding: const EdgeInsets.only(
-                    top: 0, bottom: 0, right: 16, left: 16),
+                    top: 10, bottom: 0, right: 16, left: 16),
                 itemCount: mealsListData.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
@@ -114,7 +114,7 @@ class MealsView extends StatelessWidget {
                         boxShadow: <BoxShadow>[
                           BoxShadow(
                               color: HexColor(mealsListData!.endColor)
-                                  .withOpacity(0.6),
+                                  .withOpacity(0.4),
                               offset: const Offset(1.1, 4.0),
                               blurRadius: 8.0),
                         ],
@@ -135,10 +135,10 @@ class MealsView extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            top: 54, left: 16, right: 16, bottom: 8),
+                            top: 60, left: 12, right: 12, bottom: 8),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
                               mealsListData!.titleTxt,
@@ -156,11 +156,12 @@ class MealsView extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(top: 8, bottom: 8),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
                                       mealsListData!.meals!.join('\n'),
+                                      textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
@@ -173,61 +174,58 @@ class MealsView extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            mealsListData?.kacl != 0
-                                ? Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: <Widget>[
-                                      Text(
-                                        mealsListData!.kacl.toString(),
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontFamily: FitnessAppTheme.fontName,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 24,
-                                          letterSpacing: 0.2,
-                                          color: FitnessAppTheme.white,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 4, bottom: 3),
-                                        child: Text(
-                                          'kcal',
-                                          style: TextStyle(
-                                            fontFamily:
-                                                FitnessAppTheme.fontName,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 10,
-                                            letterSpacing: 0.2,
-                                            color: FitnessAppTheme.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Container(
-                                    decoration: BoxDecoration(
-                                      color: FitnessAppTheme.nearlyWhite,
-                                      shape: BoxShape.circle,
-                                      boxShadow: <BoxShadow>[
-                                        BoxShadow(
-                                            color: FitnessAppTheme.nearlyBlack
-                                                .withOpacity(0.4),
-                                            offset: Offset(8.0, 8.0),
-                                            blurRadius: 8.0),
-                                      ],
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: Icon(
-                                        Icons.add,
-                                        color:
-                                            HexColor(mealsListData!.endColor),
-                                        size: 24,
-                                      ),
-                                    ),
-                                  ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.start,
+                            //   crossAxisAlignment: CrossAxisAlignment.end,
+                            //   children: <Widget>[
+                            //     Text(
+                            //       mealsListData!.toString(),
+                            //       textAlign: TextAlign.center,
+                            //       style: TextStyle(
+                            //         fontFamily: FitnessAppTheme.fontName,
+                            //         fontWeight: FontWeight.w500,
+                            //         fontSize: 24,
+                            //         letterSpacing: 0.2,
+                            //         color: FitnessAppTheme.white,
+                            //       ),
+                            //     ),
+                            //     // Padding(
+                            //     //   padding:
+                            //     //       const EdgeInsets.only(left: 4, bottom: 3),
+                            //     //   child: Text(
+                            //     //     'kcal',
+                            //     //     style: TextStyle(
+                            //     //       fontFamily: FitnessAppTheme.fontName,
+                            //     //       fontWeight: FontWeight.w500,
+                            //     //       fontSize: 10,
+                            //     //       letterSpacing: 0.2,
+                            //     //       color: FitnessAppTheme.white,
+                            //     //     ),
+                            //     //   ),
+                            //     // ),
+                            //   ],
+                            // ),
+                            // Container(
+                            //   decoration: BoxDecoration(
+                            //     color: FitnessAppTheme.nearlyWhite,
+                            //     shape: BoxShape.circle,
+                            //     boxShadow: <BoxShadow>[
+                            //       BoxShadow(
+                            //           color: FitnessAppTheme.nearlyBlack
+                            //               .withOpacity(0.4),
+                            //           offset: Offset(8.0, 8.0),
+                            //           blurRadius: 8.0),
+                            //     ],
+                            //   ),
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.all(6.0),
+                            //     child: Icon(
+                            //       Icons.add,
+                            //       color: HexColor(mealsListData!.endColor),
+                            //       size: 24,
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
@@ -246,8 +244,8 @@ class MealsView extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 0,
-                    left: 32,
+                    top: 10,
+                    left: 36,
                     child: SizedBox(
                       width: 60,
                       height: 60,

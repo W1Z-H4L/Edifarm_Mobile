@@ -1,4 +1,5 @@
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/my_diary/info_list_view.dart';
 import 'package:edifarm/dashboard/my_diary/meals_list_view.dart';
 import 'package:edifarm/dashboard/my_diary/water_view.dart';
 import 'package:edifarm/dashboard/models/body_measurement.dart';
@@ -81,7 +82,6 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     listViews.add(
       TitleView(
         titleTxt: 'Menu',
-        subTxt: 'Customize',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -124,8 +124,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
+        titleTxt: 'Informasi',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -135,7 +134,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     );
 
     listViews.add(
-      WaterView(
+      InfoListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,

@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/training/training_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -164,11 +165,15 @@ class _BottomBarViewState extends State<BottomBarView>
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           onTap: widget.addClick,
-                          child: Icon(
-                            Icons.local_activity_outlined,
-                            color: FitnessAppTheme.white,
-                            size: 32,
-                          ),
+                          child: IconButton(
+                              icon: Icon(
+                                Icons.local_activity_outlined,
+                                color: FitnessAppTheme.white,
+                                size: 32,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/act');
+                              }),
                         ),
                       ),
                     ),
@@ -270,7 +275,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyDarkBlue,
+                        color: FitnessAppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -291,7 +296,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 4,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyDarkBlue,
+                        color: FitnessAppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -312,7 +317,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 6,
                       height: 6,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyDarkBlue,
+                        color: FitnessAppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),
