@@ -180,7 +180,7 @@ class InfoView extends StatelessWidget {
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                           topRight: Radius.circular(68.0)),
-                      child: Image.network(
+                      child: Image.asset(
                         infoListData!.imagePath,
                         width: 450,
                         height: 145,

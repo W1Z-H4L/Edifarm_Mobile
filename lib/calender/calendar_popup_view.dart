@@ -212,11 +212,14 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                   ],
                                 ),
                                 child: Material(
-                                  color: FitnessAppTheme.background,
+                                  color: FitnessAppTheme.green,
                                   child: InkWell(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(24.0)),
-                                    highlightColor: Colors.transparent,
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(24),
+                                        bottomLeft: Radius.circular(24),
+                                        bottomRight: Radius.circular(24),
+                                        topRight: Radius.circular(24)),
+                                    highlightColor: FitnessAppTheme.splash,
                                     onTap: () {
                                       try {
                                         // animationController.reverse().then((f) {

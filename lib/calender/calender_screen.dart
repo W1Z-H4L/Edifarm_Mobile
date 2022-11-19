@@ -94,6 +94,7 @@ class _CalenderScreenState extends State<CalenderScreen>
         body: Stack(
           children: <Widget>[
             getMainListViewUI(),
+            const CalendarPopupView(),
             getAppBarUI(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,

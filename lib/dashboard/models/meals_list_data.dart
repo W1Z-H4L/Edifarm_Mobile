@@ -38,18 +38,14 @@ class MealsListData {
     MealsListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Cuaca',
-      meals: <String>[
-        'Diagnosa Padi ',
-        'Laporkan Cuaca Buruk',
-        'Akhir - Akhir Ini'
-      ],
+      meals: <String>['Diagnosa Padi ', 'Laporkan Cuaca ', 'Buruk Akhir Ini'],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),
     MealsListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Diagnosa',
-      meals: <String>['Diagnosa Padi ', 'Laporkan Padi Rusak', 'Penyebabnya'],
+      meals: <String>['Diagnosa Padi ', 'Laporkan Padi', 'Rusak'],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),

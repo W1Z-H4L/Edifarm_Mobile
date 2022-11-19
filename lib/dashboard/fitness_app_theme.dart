@@ -133,8 +133,8 @@ class CalenderAppTheme {
   }
 
   static ThemeData buildLightTheme() {
-    final Color primaryColor = HexColor('#54D3C2');
-    final Color secondaryColor = HexColor('#54D3C2');
+    final Color primaryColor = HexColor('#BDE2E7');
+    final Color secondaryColor = HexColor('#BDE2E7');
     final ColorScheme colorScheme = const ColorScheme.light().copyWith(
       primary: primaryColor,
       secondary: secondaryColor,
