@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 import 'dart:io';
+=======
+import 'package:flutter/material.dart';
+import 'package:login/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:login/ui/pages/sign_in_page.dart';
+import 'package:login/ui/pages/splash_screen.dart';
+import 'package:login/ui/widgets/bottom_navigation/bottomNavigator.dart';
+>>>>>>> 2429c30 (edit home)
 
 import 'package:edifarm/dashboard/fitness_app_home_screen.dart';
 import 'package:edifarm/dashboard/training/training_screen.dart';
@@ -21,6 +29,7 @@ void main(List<String> args) => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     //   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     //     statusBarColor: Colors.transparent,
     //     statusBarIconBrightness: Brightness.dark,
@@ -43,6 +52,16 @@ class MyApp extends StatelessWidget {
           '/act': (context) => const TrainingScreen(),
           '/jenis': (context) => const jenisPadi(),
         });
+=======
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/sign-in': (context) => SignInPage(),
+        '/home': (context) => BottomNavigator(),
+      },
+    );
+>>>>>>> 2429c30 (edit home)
   }
 }
 
@@ -57,4 +76,7 @@ class HexColor extends Color {
     return int.parse(hexColor, radix: 16);
   }
 }
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 2429c30 (edit home)

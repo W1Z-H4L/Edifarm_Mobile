@@ -56,6 +56,16 @@ packages:
       name: date_format
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
+=======
+    version: "1.0.3"
+  date_format:
+    dependency: "direct main"
+    description:
+      name: date_format
+      url: "https://pub.dartlang.org"
+    source: hosted
+>>>>>>> 2429c30 (edit home)
     version: "1.0.9"
   dotted_border:
     dependency: "direct main"
@@ -115,6 +125,16 @@ packages:
     source: sdk
     version: "0.0.0"
   font_awesome_flutter:
+<<<<<<< HEAD
+=======
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "10.2.1"
+  google_fonts:
+>>>>>>> 2429c30 (edit home)
     dependency: "direct main"
     description:
       name: font_awesome_flutter
@@ -127,6 +147,30 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
+=======
+    version: "5.0.6"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.2"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.4"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+>>>>>>> 2429c30 (edit home)
     version: "0.17.0"
   js:
     dependency: transitive
@@ -178,6 +222,23 @@ packages:
     source: hosted
     version: "1.8.2"
   path_drawing:
+<<<<<<< HEAD
+=======
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1+1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
+  path_provider:
+>>>>>>> 2429c30 (edit home)
     dependency: transitive
     description:
       name: path_drawing
