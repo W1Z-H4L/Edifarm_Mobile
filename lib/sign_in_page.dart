@@ -41,10 +41,10 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           Text(
-            'WELCOME !!',
+            'Welcome !!',
             textAlign: TextAlign.center,
             style: AppTheme.custom1.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w900,
               fontSize: 20,
               color: AppTheme.green,
             ),
