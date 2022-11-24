@@ -1,8 +1,7 @@
 import 'dart:developer';
-
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/model/homelist.dart';
 import 'package:flutter/material.dart';
+import 'package:login/shared/Theme_App.dart';
+import 'package:login/ui/widgets/buttons.dart';
 
 class SignInPage extends StatelessWidget {
   // const SignInPage({Key? key}) : super(key: key);
@@ -45,10 +44,10 @@ class SignInPage extends StatelessWidget {
           Text(
             'WELCOME !!',
             textAlign: TextAlign.center,
-            style: FitnessAppTheme.custom1.copyWith(
+            style: AppTheme.custom1.copyWith(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: FitnessAppTheme.green,
+              color: AppTheme.green,
             ),
           ),
           Container(
@@ -77,16 +76,16 @@ class SignInPage extends StatelessWidget {
                 TextFormField(
                   showCursor: true,
                   cursorHeight: 25,
-                  style: FitnessAppTheme.custom2,
+                  style: AppTheme.custom2,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: FitnessAppTheme.green)),
+                        borderSide: BorderSide(color: AppTheme.green)),
                     labelText: 'Ussername',
                     hintText: 'Masukan Ussername Anda',
-                    hintStyle: FitnessAppTheme.custom,
-                    labelStyle: FitnessAppTheme.custom1,
-                    focusColor: FitnessAppTheme.green,
-                    fillColor: FitnessAppTheme.green,
+                    hintStyle: AppTheme.custom,
+                    labelStyle: AppTheme.custom1,
+                    focusColor: AppTheme.green,
+                    fillColor: AppTheme.green,
                   ),
                 ),
                 const SizedBox(
@@ -97,15 +96,15 @@ class SignInPage extends StatelessWidget {
                   controller: passwordController,
                   showCursor: true,
                   cursorHeight: 25,
-                  style: FitnessAppTheme.custom2,
+                  style: AppTheme.custom2,
                   obscureText: _isObsecure3,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: FitnessAppTheme.green)),
+                        borderSide: BorderSide(color: AppTheme.green)),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isObsecure3 ? Icons.visibility : Icons.visibility_off,
-                        color: FitnessAppTheme.green,
+                        color: AppTheme.green,
                       ),
                       onPressed: () {
                         setState() {
@@ -115,10 +114,10 @@ class SignInPage extends StatelessWidget {
                     ),
                     labelText: 'Password',
                     hintText: 'Masukan Password Anda',
-                    hintStyle: FitnessAppTheme.custom,
-                    labelStyle: FitnessAppTheme.custom1,
-                    focusColor: FitnessAppTheme.green,
-                    fillColor: FitnessAppTheme.green,
+                    hintStyle: AppTheme.custom,
+                    labelStyle: AppTheme.custom1,
+                    focusColor: AppTheme.green,
+                    fillColor: AppTheme.green,
                   ),
                 ),
                 const SizedBox(
