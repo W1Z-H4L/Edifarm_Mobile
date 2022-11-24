@@ -1,8 +1,6 @@
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:edifarm/dashboard/activity/title_activity.dart';
 
 class jenisPadi extends StatefulWidget {
   const jenisPadi({Key? key, this.animationController}) : super(key: key);
@@ -53,6 +51,18 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
 
   void addAllListData() {
     const int count = 5;
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
 
     // @override
     // Widget build(BuildContext context) {

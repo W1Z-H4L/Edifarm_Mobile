@@ -1,20 +1,20 @@
-import 'package:edifarm/dashboard/ui_view/area_list_view.dart';
-import 'package:edifarm/dashboard/ui_view/chart_view.dart';
-import 'package:edifarm/dashboard/ui_view/running_view.dart';
-import 'package:edifarm/dashboard/ui_view/title_view.dart';
+import 'package:edifarm/dashboard/activity/listview_activity.dart';
+import 'package:edifarm/dashboard/activity/chart_view.dart';
+import 'package:edifarm/dashboard/activity/activity_date.dart';
+import 'package:edifarm/dashboard/activity/title_activity.dart';
 import 'package:flutter/material.dart';
 
 import '../fitness_app_theme.dart';
 
-class TrainingScreen extends StatefulWidget {
-  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _TrainingScreenState createState() => _TrainingScreenState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _TrainingScreenState extends State<TrainingScreen>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -68,7 +68,7 @@ class _TrainingScreenState extends State<TrainingScreen>
       ),
     );
     listViews.add(
-      RunningView(
+      tanggalActivity(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -78,8 +78,9 @@ class _TrainingScreenState extends State<TrainingScreen>
     );
 
     listViews.add(
-      TitleView(
-        titleTxt: 'yang harus kamu lakukan hari ini',
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
         // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -90,7 +91,7 @@ class _TrainingScreenState extends State<TrainingScreen>
     );
 
     listViews.add(
-      AreaListView(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,

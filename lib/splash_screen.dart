@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:edifarm/dashboard/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ))),
           ),
           SizedBox(
-            height: 15,
+            height: 20,
           ),
 
           //   children: <Widget>[
@@ -53,8 +55,12 @@ class _SplashScreenState extends State<SplashScreen> {
           // ),
 
           Text(
-            "PROSES\n",
+            "Proses\n",
             textAlign: TextAlign.center,
+            style: GoogleFonts.montserrat(
+                color: Color(0xff006B6C),
+                fontSize: 24,
+                fontWeight: FontWeight.w700),
           ),
           SizedBox(
             height: 25,
@@ -62,6 +68,10 @@ class _SplashScreenState extends State<SplashScreen> {
           Text(
             "\n Sedang Memuat fitur \n Mohon Tunggu Sebentar ... \n \n",
             textAlign: TextAlign.center,
+            style: GoogleFonts.montserrat(
+                color: Color(0xff006B6C),
+                fontSize: 13,
+                fontWeight: FontWeight.w600),
           ),
 
           SizedBox(
@@ -73,8 +83,8 @@ class _SplashScreenState extends State<SplashScreen> {
             animationDuration: 7500,
             lineHeight: 22,
             percent: 1.0,
-            progressColor: Colors.green,
-            backgroundColor: Color.fromARGB(255, 157, 210, 219),
+            progressColor: Color(0xff006B6C),
+            backgroundColor: Color(0xffBDE2E7),
           ),
           // Container(
           //     height: 30,

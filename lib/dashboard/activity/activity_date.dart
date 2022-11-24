@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../fitness_app_theme.dart';
 
-class RunningView extends StatelessWidget {
+class tanggalActivity extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const RunningView({Key? key, this.animationController, this.animation})
+  const tanggalActivity({Key? key, this.animationController, this.animation})
       : super(key: key);
 
   @override
@@ -30,7 +31,7 @@ class RunningView extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 10, bottom: 16),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color(0xffBDE2E7),
                             border: Border.all(
                                 color: Color.fromARGB(31, 1, 72, 58)),
 
@@ -70,41 +71,62 @@ class RunningView extends StatelessWidget {
                                           top: 16,
                                         ),
                                         child: Text(
-                                          "Hari ini,",
+                                          "Hari ini, 23 - 11 - 22",
+
                                           textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontFamily:
-                                                FitnessAppTheme.fontName,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            letterSpacing: 0.0,
-                                            color:
-                                                FitnessAppTheme.nearlyDarkBlue,
-                                          ),
+                                          style: GoogleFonts.montserrat(
+                                              color: Color(0xff006B6C),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                          // TextStyle(
+                                          //   fontFamily:
+                                          //       FitnessAppTheme.fontName,
+                                          //   fontWeight: FontWeight.w500,
+                                          //   fontSize: 14,
+                                          //   letterSpacing: 0.0,
+                                          //   color:
+                                          //       FitnessAppTheme.nearlyDarkBlue,
+                                          // ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 100,
+                                          bottom: 12,
+                                          top: 4,
+                                          right: 16,
+                                        ),
+                                        child: Text(
+                                          "selamat beraktivitas",
+                                          textAlign: TextAlign.left,
+                                          style: GoogleFonts.montserrat(
+                                              color: Color(0xff006B6C),
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w600),
                                         ),
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 100,
-                                      bottom: 12,
-                                      top: 4,
-                                      right: 16,
-                                    ),
-                                    // child: Text(
-                                    //   "Keep it up\nand stick to your plan!",
-                                    //   textAlign: TextAlign.left,
-                                    //   style: TextStyle(
-                                    //     fontFamily: FitnessAppTheme.fontName,
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 10,
-                                    //     letterSpacing: 0.0,
-                                    //     color: FitnessAppTheme.grey
-                                    //         .withOpacity(0.5),
-                                    //   ),
-                                    // ),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(
+                                  //     left: 100,
+                                  //     bottom: 12,
+                                  //     top: 4,
+                                  //     right: 16,
+                                  //   ),
+                                  // child: Text(
+                                  //   "Keep it up\nand stick to your plan!",
+                                  //   textAlign: TextAlign.left,
+                                  //   style: TextStyle(
+                                  //     fontFamily: FitnessAppTheme.fontName,
+                                  //     fontWeight: FontWeight.w500,
+                                  //     fontSize: 10,
+                                  //     letterSpacing: 0.0,
+                                  //     color: FitnessAppTheme.grey
+                                  //         .withOpacity(0.5),
+                                  //   ),
+                                  // ),
+                                  // ),
                                 ],
                               ),
                             ],
@@ -115,9 +137,9 @@ class RunningView extends StatelessWidget {
                         top: -16,
                         left: 0,
                         child: SizedBox(
-                          width: 110,
-                          height: 110,
-                          // child: Image.asset("assets/fitness_app/runner.png"),
+                          width: 50,
+                          height: 50,
+                          child: Image.asset("assets/gambar_diagnose_hama.png"),
                         ),
                       )
                     ],

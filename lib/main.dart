@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:edifarm/dashboard/activity/activity.dart';
 import 'package:edifarm/dashboard/fitness_app_home_screen.dart';
-import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/dashboard/activity/activity.dart';
 import 'package:edifarm/jenispadi/jenispadi.dart';
 import 'package:edifarm/sign_in_page.dart';
-import 'package:edifarm/splash_scren.dart';
+import 'package:edifarm/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => const SplashScreen(),
           '/sign-in': (context) => SignInPage(),
           '/home': (context) => FitnessAppHomeScreen(),
-          '/act': (context) => const TrainingScreen(),
+          '/act': (context) => const activityPage(),
           '/jenis': (context) => const jenisPadi(),
         });
   }

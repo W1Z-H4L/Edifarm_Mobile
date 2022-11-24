@@ -1,8 +1,8 @@
 import 'package:edifarm/calender/calendar_popup_view.dart';
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/ui_view/area_list_view.dart';
-import 'package:edifarm/dashboard/ui_view/running_view.dart';
-import 'package:edifarm/dashboard/ui_view/title_view.dart';
+import 'package:edifarm/dashboard/activity/listview_activity.dart';
+import 'package:edifarm/dashboard/activity/activity_date.dart';
+import 'package:edifarm/dashboard/activity/title_activity.dart';
 
 import 'package:flutter/material.dart';
 
@@ -59,7 +59,7 @@ class _CalenderScreenState extends State<CalenderScreen>
     const int count = 5;
 
     gridViews.add(
-      TitleView(
+      TitleActivity(
         titleTxt: 'Kalender Tanam',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,

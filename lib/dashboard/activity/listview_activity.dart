@@ -3,18 +3,18 @@ import 'package:dotted_border/dotted_border.dart';
 
 import '../fitness_app_theme.dart';
 
-class AreaListView extends StatefulWidget {
-  const AreaListView(
+class ListViewActivity extends StatefulWidget {
+  const ListViewActivity(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _AreaListViewState createState() => _AreaListViewState();
+  _ListViewActivityState createState() => _ListViewActivityState();
 }
 
-class _AreaListViewState extends State<AreaListView>
+class _ListViewActivityState extends State<ListViewActivity>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<String> areaListData = <String>[

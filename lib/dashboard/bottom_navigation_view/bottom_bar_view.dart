@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/dashboard/activity/activity.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';

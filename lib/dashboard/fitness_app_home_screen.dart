@@ -1,7 +1,7 @@
 import 'package:edifarm/calender/calendar_popup_view.dart';
 import 'package:edifarm/calender/calender_screen.dart';
 import 'package:edifarm/dashboard/models/tabIcon_data.dart';
-import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/dashboard/activity/activity.dart';
 import 'package:flutter/material.dart';
 import '../jenispadi/jenispadi.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
@@ -109,7 +109,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 setState(() {
                   tabBody =
-                      TrainingScreen(animationController: animationController);
+                      activityPage(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -128,7 +128,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 setState(() {
                   tabBody =
-                      TrainingScreen(animationController: animationController);
+                      activityPage(animationController: animationController);
                 });
               });
             }

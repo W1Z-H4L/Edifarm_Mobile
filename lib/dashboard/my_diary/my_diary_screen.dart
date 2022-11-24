@@ -5,7 +5,7 @@ import 'package:edifarm/dashboard/my_diary/water_view.dart';
 import 'package:edifarm/dashboard/models/body_measurement.dart';
 import 'package:edifarm/dashboard/ui_view/glass_view.dart';
 import 'package:edifarm/dashboard/ui_view/mediterranean_diet_view.dart';
-import 'package:edifarm/dashboard/ui_view/title_view.dart';
+import 'package:edifarm/dashboard/activity/title_activity.dart';
 import 'package:flutter/material.dart';
 
 class MyHomeScreen extends StatefulWidget {
@@ -61,7 +61,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     const int count = 9;
 
     listViews.add(
-      TitleView(
+      TitleActivity(
         titleTxt: 'Progres Aktivitas',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -80,7 +80,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
       ),
     );
     listViews.add(
-      TitleView(
+      TitleActivity(
         titleTxt: 'Menu',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -102,7 +102,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
     );
 
     listViews.add(
-      TitleView(
+      TitleActivity(
         titleTxt: 'Aktivitas',
         subTxt: 'Today',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -123,7 +123,7 @@ class _MyHomeScreenState extends State<MyHomeScreen>
       ),
     );
     listViews.add(
-      TitleView(
+      TitleActivity(
         titleTxt: 'Informasi',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
