@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../fitness_app_theme.dart';
 
 class tanggalActivity extends StatelessWidget {
   final AnimationController? animationController;

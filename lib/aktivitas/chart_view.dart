@@ -1,10 +1,6 @@
-import 'dart:io';
-import 'dart:math';
-
-import 'package:edifarm/main.dart';
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
-import '../fitness_app_theme.dart';
 
 class WorkoutView extends StatelessWidget {
   final AnimationController? animationController;
@@ -39,7 +35,7 @@ class WorkoutView extends StatelessWidget {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: FitnessAppTheme.grey,
+                        color: AppTheme.grey,
                         offset: Offset(1.1, 1.1),
                         blurRadius: 5.0),
                   ],
@@ -57,11 +53,11 @@ class WorkoutView extends StatelessWidget {
                           'GAMBAR CHART',
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            fontFamily: FitnessAppTheme.fontName,
+                            fontFamily: AppTheme.fontName,
                             fontWeight: FontWeight.normal,
                             fontSize: 20,
                             letterSpacing: 0.0,
-                            color: FitnessAppTheme.white,
+                            color: AppTheme.white,
                           ),
                         ),
                       ),

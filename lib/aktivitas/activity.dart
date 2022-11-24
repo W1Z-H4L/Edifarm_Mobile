@@ -1,24 +1,23 @@
-import 'package:edifarm/calender/calendar_popup_view.dart';
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/activity/listview_activity.dart';
-import 'package:edifarm/dashboard/activity/activity_date.dart';
-import 'package:edifarm/dashboard/activity/title_activity.dart';
-
+import 'package:edifarm/aktivitas/listview_activity.dart';
+import 'package:edifarm/aktivitas/chart_view.dart';
+import 'package:edifarm/aktivitas/activity_date.dart';
+import 'package:edifarm/aktivitas/title_activity.dart';
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
-class CalenderScreen extends StatefulWidget {
-  const CalenderScreen({Key? key, this.animationController}) : super(key: key);
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _CalenderScreenState createState() => _CalenderScreenState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _CalenderScreenState extends State<CalenderScreen>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
-  List<Widget> gridViews = <Widget>[];
+  List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
 
@@ -58,24 +57,46 @@ class _CalenderScreenState extends State<CalenderScreen>
   void addAllListData() {
     const int count = 5;
 
-    gridViews.add(
-      TitleActivity(
-        titleTxt: 'Kalender Tanam',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    gridViews.add(
-      CalendarPopupView(
+    listViews.add(
+      WorkoutView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
                 Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      tanggalActivity(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      ListViewActivity(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController!,
+                curve: Interval((1 / count) * 5, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController!,
       ),
     );
   }
@@ -88,13 +109,12 @@ class _CalenderScreenState extends State<CalenderScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
             getMainListViewUI(),
-            const CalendarPopupView(),
             getAppBarUI(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
@@ -120,11 +140,11 @@ class _CalenderScreenState extends State<CalenderScreen>
                   24,
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
-            itemCount: gridViews.length,
-            scrollDirection: Axis.horizontal,
+            itemCount: listViews.length,
+            scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
               widget.animationController?.forward();
-              return gridViews[index];
+              return listViews[index];
             },
           );
         }
@@ -145,15 +165,14 @@ class _CalenderScreenState extends State<CalenderScreen>
                     0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 91, 86),
+                    color: AppTheme.green,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                       bottomRight: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -176,10 +195,10 @@ class _CalenderScreenState extends State<CalenderScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Jadwal',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,

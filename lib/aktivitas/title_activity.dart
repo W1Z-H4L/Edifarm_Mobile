@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:lib/dashboard/activity/title_activity.dart
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/activity/activity.dart';
-========
 import 'package:edifarm/shared/Theme_App.dart';
->>>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/pages/dashboard/komponen/title_view.dart
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,7 +36,7 @@ class TitleActivity extends StatelessWidget {
                       child: Text(
                         titleTxt,
                         textAlign: TextAlign.left,
-<<<<<<<< HEAD:lib/dashboard/activity/title_activity.dart
+
                         style: GoogleFonts.montserrat(
                             color: Color(0xff006B6C),
                             fontSize: 16,
@@ -53,15 +49,14 @@ class TitleActivity extends StatelessWidget {
                         //   letterSpacing: 0.5,
                         //   color: FitnessAppTheme.lightText,
                         // ),
-========
-                        style: TextStyle(
-                          fontFamily: AppTheme.fontName,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                          letterSpacing: 0.5,
-                          color: AppTheme.lightText,
-                        ),
->>>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/pages/dashboard/komponen/title_view.dart
+
+                        // style: TextStyle(
+                        //   fontFamily: AppTheme.fontName,
+                        //   fontWeight: FontWeight.w500,
+                        //   fontSize: 18,
+                        //   letterSpacing: 0.5,
+                        //   color: AppTheme.lightText,
+                        // ),
                       ),
                     ),
                     InkWell(

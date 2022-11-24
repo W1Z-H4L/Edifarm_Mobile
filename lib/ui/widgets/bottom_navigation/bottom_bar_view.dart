@@ -1,12 +1,7 @@
 import 'dart:math' as math;
-<<<<<<< HEAD:lib/dashboard/bottom_navigation_view/bottom_bar_view.dart
 
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/activity/activity.dart';
-=======
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
->>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/widgets/bottom_navigation/bottom_bar_view.dart
 import 'package:flutter/material.dart';
 
 class BottomBarView extends StatefulWidget {

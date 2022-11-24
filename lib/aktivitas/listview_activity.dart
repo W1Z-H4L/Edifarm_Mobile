@@ -1,7 +1,6 @@
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-
-import '../fitness_app_theme.dart';
 
 class ListViewActivity extends StatefulWidget {
   const ListViewActivity(
@@ -142,8 +141,7 @@ class AreaView extends StatelessWidget {
                     highlightColor: Colors.transparent,
                     hoverColor: Colors.transparent,
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    splashColor:
-                        FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
+                    splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
                     onTap: () {},
                     child: Column(
                       children: <Widget>[

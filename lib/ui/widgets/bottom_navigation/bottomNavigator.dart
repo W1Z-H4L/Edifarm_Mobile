@@ -1,14 +1,7 @@
-<<<<<<< HEAD:lib/dashboard/fitness_app_home_screen.dart
-import 'package:edifarm/calender/calendar_popup_view.dart';
-import 'package:edifarm/calender/calender_screen.dart';
-import 'package:edifarm/dashboard/models/tabIcon_data.dart';
-import 'package:edifarm/dashboard/activity/activity.dart';
-=======
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
 import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
->>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
 import 'package:flutter/material.dart';
 
 class BottomNavigator extends StatefulWidget {
@@ -112,11 +105,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-<<<<<<< HEAD:lib/dashboard/fitness_app_home_screen.dart
-                      activityPage(animationController: animationController);
-=======
                       HomeScreen(animationController: animationController);
->>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
                 });
               });
             } else if (index == 3) {
@@ -126,11 +115,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-<<<<<<< HEAD:lib/dashboard/fitness_app_home_screen.dart
-                      activityPage(animationController: animationController);
-=======
                       HomeScreen(animationController: animationController);
->>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
                 });
               });
             }

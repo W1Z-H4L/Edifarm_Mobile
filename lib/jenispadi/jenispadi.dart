@@ -1,6 +1,6 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
-import 'package:edifarm/dashboard/activity/title_activity.dart';
+import 'package:edifarm/aktivitas/title_activity.dart';
 
 class jenisPadi extends StatefulWidget {
   const jenisPadi({Key? key, this.animationController}) : super(key: key);
@@ -86,7 +86,7 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -149,8 +149,7 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -176,7 +175,7 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
                                   'Jenis Padi',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,

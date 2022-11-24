@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
