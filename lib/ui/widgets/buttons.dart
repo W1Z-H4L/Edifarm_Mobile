@@ -1,16 +1,5 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-class HomeList {
-  HomeList({
-    this.navigateScreen,
-    this.imagePath = '',
-  });
-
-  Widget? navigateScreen;
-  String imagePath;
-}
 
 class CustomFilledButton extends StatelessWidget {
   final String title;
@@ -34,15 +23,15 @@ class CustomFilledButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-            backgroundColor: FitnessAppTheme.green,
+            backgroundColor: subtitleColor2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(56))),
         child: Text(
           title,
-          style: FitnessAppTheme.custom.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: FitnessAppTheme.white),
+          style: whiteTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: semiBold,
+          ),
         ),
       ),
     );
@@ -75,7 +64,7 @@ class CustomTextButton extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: FitnessAppTheme.custom1.copyWith(
+          style: greyTextStyle.copyWith(
             fontSize: 16,
           ),
         ),
@@ -131,7 +120,7 @@ class ButtonSetting extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: FitnessAppTheme.white,
+          backgroundColor: whiteColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(0),
           ),
@@ -139,11 +128,9 @@ class ButtonSetting extends StatelessWidget {
         child: Text(
           title,
           textAlign: TextAlign.start,
-          style: FitnessAppTheme.custom3
-              .copyWith(fontSize: 24, color: Colors.black),
+          style: blackTextStyle.copyWith(fontSize: 13, color: Colors.black),
         ),
       ),
     );
-    // );
   }
 }

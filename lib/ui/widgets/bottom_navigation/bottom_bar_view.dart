@@ -1,11 +1,13 @@
 import 'dart:math' as math;
+<<<<<<< HEAD:lib/dashboard/bottom_navigation_view/bottom_bar_view.dart
 
 import 'package:edifarm/dashboard/fitness_app_theme.dart';
 import 'package:edifarm/dashboard/activity/activity.dart';
+=======
+import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
+>>>>>>> 960adc2e828b55ce62aad1680eaa20d6d79d8424:lib/ui/widgets/bottom_navigation/bottom_bar_view.dart
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
-import '../models/tabIcon_data.dart';
 
 class BottomBarView extends StatefulWidget {
   const BottomBarView(
@@ -35,6 +37,8 @@ class _BottomBarViewState extends State<BottomBarView>
 
   @override
   Widget build(BuildContext context) {
+    final VoidCallback? onPressed;
+
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: <Widget>[
@@ -44,7 +48,7 @@ class _BottomBarViewState extends State<BottomBarView>
             return Transform(
               transform: Matrix4.translationValues(0.0, 0.0, 0.0),
               child: PhysicalShape(
-                color: FitnessAppTheme.white,
+                color: AppTheme.white,
                 elevation: 16.0,
                 clipper: TabClipper(
                     radius: Tween<double>(begin: 0.0, end: 1.0)
@@ -142,18 +146,15 @@ class _BottomBarViewState extends State<BottomBarView>
                     child: Container(
                       // alignment: Alignment.center,s
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.green,
+                        color: AppTheme.green,
                         gradient: LinearGradient(
-                            colors: [
-                              FitnessAppTheme.green,
-                              FitnessAppTheme.green
-                            ],
+                            colors: [AppTheme.green, AppTheme.green],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight),
                         shape: BoxShape.circle,
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: FitnessAppTheme.green.withOpacity(0.4),
+                              color: AppTheme.green.withOpacity(0.4),
                               offset: const Offset(8.0, 16.0),
                               blurRadius: 16.0),
                         ],
@@ -168,7 +169,7 @@ class _BottomBarViewState extends State<BottomBarView>
                           child: IconButton(
                               icon: Icon(
                                 Icons.local_activity_outlined,
-                                color: FitnessAppTheme.white,
+                                color: AppTheme.white,
                                 size: 32,
                               ),
                               onPressed: () {
@@ -275,7 +276,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.green,
+                        color: AppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -296,7 +297,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 4,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.green,
+                        color: AppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -317,7 +318,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       width: 6,
                       height: 6,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.green,
+                        color: AppTheme.green,
                         shape: BoxShape.circle,
                       ),
                     ),

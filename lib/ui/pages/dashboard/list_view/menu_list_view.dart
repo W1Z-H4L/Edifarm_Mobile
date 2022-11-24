@@ -1,11 +1,10 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/models/meals_list_data.dart';
+import 'package:edifarm/main.dart';
+import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
-
-class MealsListView extends StatefulWidget {
-  const MealsListView(
+class MenuListView extends StatefulWidget {
+  const MenuListView(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
@@ -13,13 +12,13 @@ class MealsListView extends StatefulWidget {
   final Animation<double>? mainScreenAnimation;
 
   @override
-  _MealsListViewState createState() => _MealsListViewState();
+  _MenuListViewState createState() => _MenuListViewState();
 }
 
-class _MealsListViewState extends State<MealsListView>
+class _MenuListViewState extends State<MenuListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<MealsListData> mealsListData = MealsListData.tabIconsList;
+  List<MenuListData> mealsListData = MenuListData.tabIconsList;
 
   @override
   void initState() {
@@ -68,7 +67,7 @@ class _MealsListViewState extends State<MealsListView>
                                   curve: Curves.fastOutSlowIn)));
                   animationController?.forward();
 
-                  return MealsView(
+                  return MenuView(
                     mealsListData: mealsListData[index],
                     animation: animation,
                     animationController: animationController!,
@@ -83,12 +82,12 @@ class _MealsListViewState extends State<MealsListView>
   }
 }
 
-class MealsView extends StatelessWidget {
-  const MealsView(
+class MenuView extends StatelessWidget {
+  const MenuView(
       {Key? key, this.mealsListData, this.animationController, this.animation})
       : super(key: key);
 
-  final MealsListData? mealsListData;
+  final MenuListData? mealsListData;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -144,11 +143,11 @@ class MealsView extends StatelessWidget {
                               mealsListData!.titleTxt,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontFamily: FitnessAppTheme.fontName,
+                                fontFamily: AppTheme.fontName,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 letterSpacing: 0.2,
-                                color: FitnessAppTheme.white,
+                                color: AppTheme.white,
                               ),
                             ),
                             Expanded(
@@ -160,14 +159,14 @@ class MealsView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      mealsListData!.meals!.join('\n'),
+                                      mealsListData!.deskripsi!.join('\n'),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 10,
                                         letterSpacing: 0.2,
-                                        color: FitnessAppTheme.white,
+                                        color: AppTheme.white,
                                       ),
                                     ),
                                   ],
@@ -238,7 +237,7 @@ class MealsView extends StatelessWidget {
                       width: 84,
                       height: 84,
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyWhite.withOpacity(0.6),
+                        color: AppTheme.nearlyWhite.withOpacity(0.6),
                         shape: BoxShape.circle,
                       ),
                     ),

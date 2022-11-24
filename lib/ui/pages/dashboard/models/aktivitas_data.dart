@@ -1,12 +1,11 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
-class BodyMeasurementView extends StatelessWidget {
+class AktivitasDataView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const BodyMeasurementView(
-      {Key? key, this.animationController, this.animation})
+  const AktivitasDataView({Key? key, this.animationController, this.animation})
       : super(key: key);
 
   @override
@@ -24,7 +23,7 @@ class BodyMeasurementView extends StatelessWidget {
                   left: 24, right: 24, top: 16, bottom: 18),
               child: Container(
                 decoration: BoxDecoration(
-                  color: FitnessAppTheme.white,
+                  color: AppTheme.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
@@ -32,7 +31,7 @@ class BodyMeasurementView extends StatelessWidget {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.2),
+                        color: AppTheme.grey.withOpacity(0.2),
                         offset: Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
@@ -53,11 +52,11 @@ class BodyMeasurementView extends StatelessWidget {
                               'Kegiatan Hari Ini',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: FitnessAppTheme.fontName,
+                                  fontFamily: AppTheme.fontName,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16,
                                   letterSpacing: -0.1,
-                                  color: FitnessAppTheme.darkText),
+                                  color: AppTheme.darkText),
                             ),
                           ),
                           Row(
@@ -75,10 +74,10 @@ class BodyMeasurementView extends StatelessWidget {
                                       '3',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 32,
-                                        color: FitnessAppTheme.green,
+                                        color: AppTheme.green,
                                       ),
                                     ),
                                   ),
@@ -103,11 +102,11 @@ class BodyMeasurementView extends StatelessWidget {
                                       'Aktivitas',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 18,
                                         letterSpacing: -0.2,
-                                        color: FitnessAppTheme.green,
+                                        color: AppTheme.green,
                                       ),
                                     ),
                                   ),
@@ -122,8 +121,7 @@ class BodyMeasurementView extends StatelessWidget {
                                     children: <Widget>[
                                       Icon(
                                         Icons.access_time,
-                                        color: FitnessAppTheme.grey
-                                            .withOpacity(0.5),
+                                        color: AppTheme.grey.withOpacity(0.5),
                                         size: 16,
                                       ),
                                       Padding(
@@ -133,13 +131,12 @@ class BodyMeasurementView extends StatelessWidget {
                                           'Today 8:26 AM',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            fontFamily:
-                                                FitnessAppTheme.fontName,
+                                            fontFamily: AppTheme.fontName,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
                                             letterSpacing: 0.0,
-                                            color: FitnessAppTheme.grey
-                                                .withOpacity(0.5),
+                                            color:
+                                                AppTheme.grey.withOpacity(0.5),
                                           ),
                                         ),
                                       ),
@@ -152,11 +149,11 @@ class BodyMeasurementView extends StatelessWidget {
                                       '17 November 2022',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 14,
                                         letterSpacing: 0.0,
-                                        color: FitnessAppTheme.green,
+                                        color: AppTheme.green,
                                       ),
                                     ),
                                   ),
@@ -173,7 +170,7 @@ class BodyMeasurementView extends StatelessWidget {
                       child: Container(
                         height: 2,
                         decoration: BoxDecoration(
-                          color: FitnessAppTheme.background,
+                          color: AppTheme.background,
                           borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         ),
                       ),
@@ -192,12 +189,12 @@ class BodyMeasurementView extends StatelessWidget {
                                   '2',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16,
                                     letterSpacing: 1,
                                     wordSpacing: 1,
-                                    color: FitnessAppTheme.darkText,
+                                    color: AppTheme.darkText,
                                   ),
                                 ),
                                 Padding(
@@ -206,11 +203,10 @@ class BodyMeasurementView extends StatelessWidget {
                                     'Irigasi',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      fontFamily: FitnessAppTheme.fontName,
+                                      fontFamily: AppTheme.fontName,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
-                                      color:
-                                          FitnessAppTheme.grey.withOpacity(0.5),
+                                      color: AppTheme.grey.withOpacity(0.5),
                                     ),
                                   ),
                                 ),
@@ -230,11 +226,11 @@ class BodyMeasurementView extends StatelessWidget {
                                       '1',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16,
                                         letterSpacing: -0.2,
-                                        color: FitnessAppTheme.darkText,
+                                        color: AppTheme.darkText,
                                       ),
                                     ),
                                     Padding(
@@ -243,11 +239,10 @@ class BodyMeasurementView extends StatelessWidget {
                                         'Pemupukan',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          fontFamily: FitnessAppTheme.fontName,
+                                          fontFamily: AppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: FitnessAppTheme.grey
-                                              .withOpacity(0.5),
+                                          color: AppTheme.grey.withOpacity(0.5),
                                         ),
                                       ),
                                     ),
@@ -269,11 +264,11 @@ class BodyMeasurementView extends StatelessWidget {
                                       '0',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16,
                                         letterSpacing: -0.2,
-                                        color: FitnessAppTheme.darkText,
+                                        color: AppTheme.darkText,
                                       ),
                                     ),
                                     Padding(
@@ -282,11 +277,10 @@ class BodyMeasurementView extends StatelessWidget {
                                         'Pestisida',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          fontFamily: FitnessAppTheme.fontName,
+                                          fontFamily: AppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: FitnessAppTheme.grey
-                                              .withOpacity(0.5),
+                                          color: AppTheme.grey.withOpacity(0.5),
                                         ),
                                       ),
                                     ),
