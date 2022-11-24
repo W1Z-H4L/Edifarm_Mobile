@@ -1,7 +1,7 @@
+import 'package:edifarm/sign_in_page.dart';
+import 'package:edifarm/splash_scren.dart';
+import 'package:edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 import 'package:flutter/material.dart';
-import 'package:login/sign_in_page.dart';
-import 'package:login/splash_scren.dart';
-import 'package:login/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
 void main(List<String> args) => runApp(MyApp());
 // void main() async {

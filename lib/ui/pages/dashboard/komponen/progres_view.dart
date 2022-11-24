@@ -1,7 +1,7 @@
+import 'package:edifarm/main.dart';
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
-import 'package:login/main.dart';
 import 'dart:math' as math;
-import 'package:login/shared/Theme_App.dart';
 
 class MediterranesnDietView extends StatelessWidget {
   final AnimationController? animationController;

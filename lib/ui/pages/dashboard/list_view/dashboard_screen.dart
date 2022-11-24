@@ -1,10 +1,10 @@
+import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/dashboard/komponen/motivasi.dart';
+import 'package:edifarm/ui/pages/dashboard/komponen/title_view.dart';
+import 'package:edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
+import 'package:edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
+import 'package:edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
 import 'package:flutter/material.dart';
-import 'package:login/shared/Theme_App.dart';
-import 'package:login/ui/pages/dashboard/komponen/motivasi.dart';
-import 'package:login/ui/pages/dashboard/komponen/title_view.dart';
-import 'package:login/ui/pages/dashboard/list_view/info_list_view.dart';
-import 'package:login/ui/pages/dashboard/list_view/menu_list_view.dart';
-import 'package:login/ui/pages/dashboard/models/aktivitas_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.animationController}) : super(key: key);

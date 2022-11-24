@@ -1,8 +1,8 @@
+import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
+import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
-import 'package:login/shared/Theme_App.dart';
-import 'package:login/ui/widgets/bottom_navigation/bottom_bar_view.dart';
-import 'package:login/ui/pages/dashboard/list_view/dashboard_screen.dart';
-import 'package:login/ui/pages/dashboard/models/tabIcon_data.dart';
 
 class BottomNavigator extends StatefulWidget {
   @override

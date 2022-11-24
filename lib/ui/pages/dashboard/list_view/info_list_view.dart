@@ -1,6 +1,6 @@
+import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/dashboard/models/info_data.dart';
 import 'package:flutter/material.dart';
-import 'package:login/shared/Theme_App.dart';
-import 'package:login/ui/pages/dashboard/models/info_data.dart';
 
 class InfoListView extends StatefulWidget {
   const InfoListView(
