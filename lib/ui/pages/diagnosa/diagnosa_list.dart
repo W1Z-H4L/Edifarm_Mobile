@@ -173,11 +173,11 @@ class DiagView extends StatelessWidget {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 16, left: 16, right: 16),
+                                    top: 8, left: 8, right: 8),
                                 child: Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 8, bottom: 8),
+                                        top: 4, bottom: 4),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -188,7 +188,7 @@ class DiagView extends StatelessWidget {
                                             style: TextStyle(
                                               fontFamily: AppTheme.fontName,
                                               fontWeight: FontWeight.w500,
-                                              fontSize: 10,
+                                              fontSize: 14,
                                               letterSpacing: 0.2,
                                               color: AppTheme.black,
                                             )),
@@ -197,17 +197,16 @@ class DiagView extends StatelessWidget {
                                           style: TextStyle(
                                             fontFamily: AppTheme.fontName,
                                             fontWeight: FontWeight.w500,
-                                            fontSize: 10,
+                                            fontSize: 14,
                                             letterSpacing: 0.2,
                                             color: AppTheme.black,
                                           ),
                                         ),
-                                        const SizedBox(
-                                          width: 20,
-                                        ),
                                         Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 5),
                                           child: Checkbox(
-                                            value: true,
+                                            value: false,
                                             onChanged: (value) {},
                                           ),
                                         )
