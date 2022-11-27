@@ -1,4 +1,5 @@
 import 'package:edifarm/aktivitas/activity.dart';
+import 'package:edifarm/jenispadi/jenis_padi.dart';
 
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/ui/pages/calender/calender_screen.dart';
@@ -111,7 +112,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      DiagnosaScreen(animationController: animationController);
+                      activityPage(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -120,8 +121,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      activityPage(animationController: animationController);
+                  tabBody = jenisPadiPage();
                 });
               });
             }

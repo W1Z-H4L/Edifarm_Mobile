@@ -49,17 +49,17 @@ class WorkoutView extends StatelessWidget {
                       pieChartView(),
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
-                        // child: const Text(
-                        //   'GAMBAR CHART',
-                        //   textAlign: TextAlign.left,
-                        //   style: TextStyle(
-                        //     fontFamily: AppTheme.fontName,
-                        //     fontWeight: FontWeight.normal,
-                        //     fontSize: 20,
-                        //     letterSpacing: 0.0,
-                        //     color: AppTheme.white,
-                        //   ),
-                        // ),
+                        child: const Text(
+                          'jumat, 12 april 2020',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontFamily: AppTheme.fontName,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20,
+                            letterSpacing: 0.0,
+                            color: Color(0xFF006B6C),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 32,
@@ -105,11 +105,13 @@ final colorList = <Color>[
 
 @override
 Widget pieChartView() {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 16),
+  return Positioned(
+    top: 5,
+    left: 5,
     child: PieChart(
       dataMap: dataMap,
       chartType: ChartType.ring,
+      chartRadius: 75,
       ringStrokeWidth: 20,
       baseChartColor: Color.fromARGB(255, 174, 136, 136).withOpacity(0.15),
       colorList: colorList,
