@@ -1,3 +1,4 @@
+import 'package:edifarm/aktivitas/activity_data.dart';
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -16,17 +17,12 @@ class ListViewActivity extends StatefulWidget {
 class _ListViewActivityState extends State<ListViewActivity>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<String> areaListData = <String>[
-    'penyiraman',
-    'pemupukan',
-    'siram lagi',
-    'pupuk lagi',
-  ];
+  List<ActListData> tabactList = ActListData.tabactList;
 
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+        duration: const Duration(milliseconds: 200), vsync: this);
     super.initState();
   }
 
@@ -56,9 +52,9 @@ class _ListViewActivityState extends State<ListViewActivity>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    areaListData.length,
+                    tabactList.length,
                     (int index) {
-                      final int count = areaListData.length;
+                      final int count = tabactList.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -69,7 +65,7 @@ class _ListViewActivityState extends State<ListViewActivity>
                       );
                       animationController?.forward();
                       return AreaView(
-                        imagepath: areaListData[index],
+                        tabactList: tabactList[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -94,12 +90,12 @@ class _ListViewActivityState extends State<ListViewActivity>
 class AreaView extends StatelessWidget {
   const AreaView({
     Key? key,
-    this.imagepath,
+    this.tabactList,
     this.animationController,
     this.animation,
   }) : super(key: key);
 
-  final String? imagepath;
+  final ActListData? tabactList;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -144,14 +140,76 @@ class AreaView extends StatelessWidget {
                     splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
                     onTap: () {},
                     child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 16, left: 16, right: 16),
-                          child: Text('n'),
-                        ),
-                      ],
-                    ),
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 16, left: 16, right: 16),
+                            child: Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 8, bottom: 8),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                        padding:
+                                            EdgeInsets.only(top: 5, left: 5),
+                                        child: Text(tabactList!.aktivitas,
+                                            style: TextStyle(
+                                              fontFamily: AppTheme.fontName,
+                                              fontWeight: FontWeight.w800,
+                                              fontSize: 14,
+                                              letterSpacing: 0.2,
+                                              color: AppTheme.green,
+                                            ))),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Container(
+                                        padding:
+                                            EdgeInsets.only(top: 5, left: 5),
+                                        child: Text(tabactList!.tanggal,
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontFamily: AppTheme.fontName,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12,
+                                              letterSpacing: 0.2,
+                                              color: AppTheme.green,
+                                            ))),
+                                    Container(
+                                        padding:
+                                            EdgeInsets.only(top: 5, right: 5),
+                                        child: Text(tabactList!.jam,
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontFamily: AppTheme.fontName,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10,
+                                              letterSpacing: 0.2,
+                                              color: AppTheme.green,
+                                            ))),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Container(
+                                      alignment: Alignment.centerRight,
+                                      padding:
+                                          EdgeInsets.only(bottom: 5, right: 5),
+                                      child: Checkbox(
+                                        value: false,
+                                        onChanged: (value) {},
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ]),
                   ),
                 ),
               ),
