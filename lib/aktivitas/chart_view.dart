@@ -46,20 +46,20 @@ class WorkoutView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      pieChart(),
+                      pieChartView(),
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
-                        child: const Text(
-                          'GAMBAR CHART',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontFamily: AppTheme.fontName,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 20,
-                            letterSpacing: 0.0,
-                            color: AppTheme.white,
-                          ),
-                        ),
+                        // child: const Text(
+                        //   'GAMBAR CHART',
+                        //   textAlign: TextAlign.left,
+                        //   style: TextStyle(
+                        //     fontFamily: AppTheme.fontName,
+                        //     fontWeight: FontWeight.normal,
+                        //     fontSize: 20,
+                        //     letterSpacing: 0.0,
+                        //     color: AppTheme.white,
+                        //   ),
+                        // ),
                       ),
                       SizedBox(
                         height: 32,
@@ -104,14 +104,14 @@ final colorList = <Color>[
 ];
 
 @override
-Widget pieChart() {
+Widget pieChartView() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 16),
     child: PieChart(
       dataMap: dataMap,
       chartType: ChartType.ring,
-      ringStrokeWidth: 32,
-      baseChartColor: Color.fromARGB(255, 176, 170, 170)!.withOpacity(0.15),
+      ringStrokeWidth: 20,
+      baseChartColor: Color.fromARGB(255, 174, 136, 136).withOpacity(0.15),
       colorList: colorList,
       chartValuesOptions: ChartValuesOptions(
         showChartValuesInPercentage: true,

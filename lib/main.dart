@@ -1,3 +1,4 @@
+import 'package:edifarm/riwayat/riwayart_pupuk.dart';
 import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_screen.dart';
 import 'package:edifarm/ui/pages/setting/edit_akun.dart';
@@ -24,9 +25,13 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),
+<<<<<<< HEAD
         '/edit-bio': (context) => const EditProfilePage(),
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
+=======
+        '/riwayatpupuk': (context) => ListViewRiwayatPupuk(),
+>>>>>>> jenis
       },
     );
   }

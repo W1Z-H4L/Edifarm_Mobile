@@ -140,6 +140,7 @@ class AreaView extends StatelessWidget {
                     splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
                     onTap: () {},
                     child: Column(
+<<<<<<< HEAD
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -210,6 +211,16 @@ class AreaView extends StatelessWidget {
                             ),
                           )
                         ]),
+=======
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16, left: 16, right: 16),
+                          child: Text(''),
+                        ),
+                      ],
+                    ),
+>>>>>>> jenis
                   ),
                 ),
               ),

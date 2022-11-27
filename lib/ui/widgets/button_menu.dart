@@ -1,29 +1,21 @@
 import 'package:edifarm/aktivitas/activity.dart';
-<<<<<<< HEAD
-=======
 import 'package:edifarm/riwayat/riwayat.dart';
-import 'package:edifarm/riwayat/riwayat_page.dart';
->>>>>>> jenis
 import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
 import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
-import 'package:edifarm/ui/pages/diagnosa/diagnosa_list.dart';
-import 'package:edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
-import 'package:edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavigator extends StatefulWidget {
+class BottomMenu extends StatefulWidget {
   @override
-  _BottomNavigatorState createState() => _BottomNavigatorState();
+  _BottomMenuState createState() => _BottomMenuState();
 }
 
-class _BottomNavigatorState extends State<BottomNavigator>
-    with TickerProviderStateMixin {
+class _BottomMenuState extends State<BottomMenu> with TickerProviderStateMixin {
   AnimationController? animationController;
 
-  List<TabIconData> tabIconsList = TabIconData.tabIconsList;
+  List<MenuListData> tabMenuList = MenuListData.tabMenuList;
 
   Widget tabBody = Container(
     color: AppTheme.background,
@@ -31,11 +23,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
 
   @override
   void initState() {
-    tabIconsList.forEach((TabIconData tab) {
-      tab.isSelected = false;
-    });
-    tabIconsList[0].isSelected = true;
-
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
     tabBody = HomeScreen(animationController: animationController);
@@ -85,7 +72,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
           child: SizedBox(),
         ),
         BottomBarView(
-          tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
             if (index == 0) {
@@ -105,7 +91,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      CalenderScreen(animationController: animationController);
+                      HomeScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
@@ -115,7 +101,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      DiagnosaScreen(animationController: animationController);
+                      HomeScreen(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -125,19 +111,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-<<<<<<< HEAD
-                      EditProfilePage(animationController: animationController);
-                });
-              });
-            } else if (index == 4) {
-              animationController?.reverse().then<dynamic>((data) {
-                if (!mounted) {
-                  return;
-                }
-                setState(() {
-                  tabBody =
-=======
->>>>>>> jenis
                       activityPage(animationController: animationController);
                 });
               });

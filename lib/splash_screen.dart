@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: ListView(
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 150),
             padding: const EdgeInsets.all(25),
             width: 250,
             height: 250,
