@@ -1,22 +1,21 @@
 import 'package:edifarm/aktivitas/activity.dart';
 import 'package:edifarm/riwayat/riwayat.dart';
-import 'package:edifarm/riwayat/riwayat_page.dart';
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
 import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
 import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavigator extends StatefulWidget {
+class BottomMenu extends StatefulWidget {
   @override
-  _BottomNavigatorState createState() => _BottomNavigatorState();
+  _BottomMenuState createState() => _BottomMenuState();
 }
 
-class _BottomNavigatorState extends State<BottomNavigator>
-    with TickerProviderStateMixin {
+class _BottomMenuState extends State<BottomMenu> with TickerProviderStateMixin {
   AnimationController? animationController;
 
-  List<TabIconData> tabIconsList = TabIconData.tabIconsList;
+  List<MenuListData> tabMenuList = MenuListData.tabMenuList;
 
   Widget tabBody = Container(
     color: AppTheme.background,
@@ -24,11 +23,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
 
   @override
   void initState() {
-    tabIconsList.forEach((TabIconData tab) {
-      tab.isSelected = false;
-    });
-    tabIconsList[0].isSelected = true;
-
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
     tabBody = HomeScreen(animationController: animationController);
@@ -78,7 +72,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
           child: SizedBox(),
         ),
         BottomBarView(
-          tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
             if (index == 0) {

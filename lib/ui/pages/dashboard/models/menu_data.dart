@@ -4,6 +4,7 @@ class MenuListData {
     this.titleTxt = '',
     this.startColor = '',
     this.endColor = '',
+    this.index = 0,
     this.deskripsi,
   });
 
@@ -11,14 +12,16 @@ class MenuListData {
   String titleTxt;
   String startColor;
   String endColor;
+  int index;
   List<String>? deskripsi;
 
-  static List<MenuListData> tabIconsList = <MenuListData>[
+  static List<MenuListData> tabMenuList = <MenuListData>[
     MenuListData(
       imagePath: 'assets/gambar_schedule.png',
       titleTxt: 'Jadwal',
       deskripsi: <String>['Lihat Ada', 'Jadwal Kegiatan', 'Apa Anda Hari Ini'],
       startColor: '#006B6C',
+      index: 0,
       endColor: '#CCE1E2',
     ),
     MenuListData(
@@ -30,6 +33,7 @@ class MenuListData {
         'Ditanam Dilahan'
       ],
       startColor: '#006B6C',
+      index: 1,
       endColor: '#CCE1E2',
     ),
     MenuListData(
@@ -37,6 +41,7 @@ class MenuListData {
       titleTxt: 'Hama',
       deskripsi: <String>['Diagnosa Padi', 'Laporkan Padi', 'Terserang Hama'],
       startColor: '#006B6C',
+      index: 2,
       endColor: '#CCE1E2',
     ),
     MenuListData(
@@ -48,11 +53,13 @@ class MenuListData {
         'Akhir - Akhir Ini'
       ],
       startColor: '#006B6C',
+      index: 3,
       endColor: '#CCE1E2',
     ),
     MenuListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Diagnosa',
+      index: 4,
       deskripsi: <String>[
         'Diagnosa Padi ',
         'Laporkan Padi Rusak',

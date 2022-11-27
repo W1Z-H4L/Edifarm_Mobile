@@ -2,18 +2,18 @@ import 'package:edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ListViewActivity extends StatefulWidget {
-  const ListViewActivity(
+class ListViewRiwayatPupuk extends StatefulWidget {
+  const ListViewRiwayatPupuk(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _ListViewActivityState createState() => _ListViewActivityState();
+  _ListViewRiwayatPupukState createState() => _ListViewRiwayatPupukState();
 }
 
-class _ListViewActivityState extends State<ListViewActivity>
+class _ListViewRiwayatPupukState extends State<ListViewRiwayatPupuk>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<String> areaListData = <String>[
@@ -106,33 +106,34 @@ class AreaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController!,
-      builder: (BuildContext context, Widget? child) {
-        return FadeTransition(
-          opacity: animation!,
-          child: Transform(
-            transform: Matrix4.translationValues(
-                0.0, 50 * (1.0 - animation!.value), 0.0),
-            child: Container(
-              child: DottedBorder(
-                strokeWidth: 1,
-                borderType: BorderType.RRect,
-                radius: Radius.circular(25),
+        animation: animationController!,
+        builder: (BuildContext context, Widget? child) {
+          return FadeTransition(
+            opacity: animation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 50 * (1.0 - animation!.value), 0.0),
+              child: Container(
+                // child: DottedBorder(
+                //   strokeWidth: 1,
+                //   borderType: BorderType.RRect,
+                // radius: Radius.circular(25),
 
-                // decoration: BoxDecoration(
-
-                color: Color.fromARGB(255, 1, 104, 97),
-                // borderRadius: const BorderRadius.only(
-                //     topLeft: Radius.circular(8.0),
-                //     bottomLeft: Radius.circular(8.0),
-                //     bottomRight: Radius.circular(8.0),
-                //     topRight: Radius.circular(8.0)),
-                // boxShadow: <BoxShadow>[
-                //   BoxShadow(
-                //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                //       offset: const Offset(1.1, 1.1),
-                //       blurRadius: 10.0),
-                // ],),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  border: Border.all(color: Color.fromARGB(255, 1, 104, 97)),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8.0),
+                      bottomLeft: Radius.circular(8.0),
+                      bottomRight: Radius.circular(8.0),
+                      topRight: Radius.circular(8.0)),
+                  // boxShadow: <BoxShadow>[
+                  //   BoxShadow(
+                  //       color: Colors.transparent,
+                  //       offset: const Offset(1.1, 1.1),
+                  //       blurRadius: 10.0),
+                  // ],
+                ),
 
                 child: Material(
                   color: Colors.transparent,
@@ -148,7 +149,7 @@ class AreaView extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(
                               top: 16, left: 16, right: 16),
-                          child: Text(''),
+                          child: Text('n'),
                         ),
                       ],
                     ),
@@ -156,9 +157,7 @@ class AreaView extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        );
-      },
-    );
+          );
+        });
   }
 }

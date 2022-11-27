@@ -18,7 +18,7 @@ class MenuListView extends StatefulWidget {
 class _MenuListViewState extends State<MenuListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<MenuListData> mealsListData = MenuListData.tabIconsList;
+  List<MenuListData> mealsListData = MenuListData.tabMenuList;
 
   @override
   void initState() {
