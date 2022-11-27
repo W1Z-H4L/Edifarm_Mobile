@@ -50,7 +50,7 @@ class _DiagListViewState extends State<DiagListView>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: AspectRatio(
-              aspectRatio: 1.0,
+              aspectRatio: 0.65,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: GridView(
@@ -81,7 +81,7 @@ class _DiagListViewState extends State<DiagListView>
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
                     mainAxisSpacing: 25,
-                    crossAxisSpacing: 10,
+                    crossAxisSpacing: 20,
                     childAspectRatio: 6 / 1,
                   ),
                 ),
@@ -147,98 +147,112 @@ class DiagView extends StatelessWidget {
         animation: animationController!,
         builder: (BuildContext context, Widget? child) {
           return FadeTransition(
-              opacity: animation!,
-              child: Transform(
-                transform: Matrix4.translationValues(
-                    0.0, 50 * (1.0 - animation!.value), 0.0),
-                child: Container(
-                  child: DottedBorder(
-                    strokeWidth: 1,
-                    borderType: BorderType.RRect,
-                    radius: Radius.circular(25),
-                    color: Color.fromARGB(255, 1, 104, 97),
-                    child: Material(
+            opacity: animation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 50 * (1.0 - animation!.value), 0.0),
+              child: Container(
+                child: DottedBorder(
+                  strokeWidth: 1,
+                  borderType: BorderType.RRect,
+                  radius: Radius.circular(25),
+                  color: Color.fromARGB(255, 1, 104, 97),
+                  child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        focusColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8.0)),
-                        splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
-                        onTap: () {},
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 8, left: 8, right: 8),
-                                child: Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 4, bottom: 4),
+                          focusColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8.0)),
+                          splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
+                          onTap: () {},
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Expanded(
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                      // Text(tabDiagList!.no,
+                                      //     style: TextStyle(
+                                      //       fontFamily:
+                                      //           AppTheme.fontName,
+                                      //       fontWeight:
+                                      //           FontWeight.w500,
+                                      //       fontSize: 10,
+                                      //       letterSpacing: 0.2,
+                                      //       color: AppTheme.black,
+                                      //     )),
+                                      Row(children: [
+                                        Padding(
+                                            padding: EdgeInsets.only(left: 1)),
                                         Text(tabDiagList!.no,
                                             style: TextStyle(
                                               fontFamily: AppTheme.fontName,
                                               fontWeight: FontWeight.w500,
-                                              fontSize: 14,
+                                              fontSize: 10,
                                               letterSpacing: 0.2,
                                               color: AppTheme.black,
                                             )),
-                                        Text(
-                                          tabDiagList!.answer,
-                                          style: TextStyle(
-                                            fontFamily: AppTheme.fontName,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            letterSpacing: 0.2,
-                                            color: AppTheme.black,
-                                          ),
+                                        SizedBox(
+                                          width: 1,
                                         ),
                                         Container(
-                                          padding:
-                                              const EdgeInsets.only(right: 5),
+                                          width: 220,
+                                          child: Text(
+                                            tabDiagList!.answer,
+                                            style: TextStyle(
+                                              fontFamily: AppTheme.fontName,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10,
+                                              letterSpacing: 0.2,
+                                              color: AppTheme.black,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 2,
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.only(top: 5),
                                           child: Checkbox(
+                                            checkColor: AppTheme.green,
+                                            focusColor: AppTheme.green,
                                             value: false,
                                             onChanged: (value) {},
                                           ),
                                         )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ]),
-                      ),
-                    ),
-                  ),
-                  // Positioned(
-                  //   top: 20,
-                  //   left: 8,
-                  //   right: 8,
-                  //   child: ClipRRect(
-                  //     borderRadius: BorderRadius.only(
-                  //         topLeft: Radius.circular(8.0),
-                  //         bottomLeft: Radius.circular(0),
-                  //         bottomRight: Radius.circular(0),
-                  //         topRight: Radius.circular(68.0)),
-                  //     child: Text(
-                  //       tabDiagList!.quetion,
-                  //     ),
-                  //   ),
-                  // ),
+                                      ])
+                                    ])),
+                              ]))),
                 ),
-              ));
-        });
+              ),
+            ),
+          );
+        } // Positioned(
+        //   top: 20,
+        //   left: 8,
+        //   right: 8,
+        //   child: ClipRRect(
+        //     borderRadius: BorderRadius.only(
+        //         topLeft: Radius.circular(8.0),
+        //         bottomLeft: Radius.circular(0),
+        //         bottomRight: Radius.circular(0),
+        //         topRight: Radius.circular(68.0)),
+        //     child: Text(
+        //       tabDiagList!.quetion,
+        //     ),
+        //   ),
+        // ),
+        );
   }
 }
+
   
 
 
