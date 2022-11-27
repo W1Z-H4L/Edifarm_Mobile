@@ -25,13 +25,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),
-<<<<<<< HEAD
         '/edit-bio': (context) => const EditProfilePage(),
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
-=======
         '/riwayatpupuk': (context) => ListViewRiwayatPupuk(),
->>>>>>> jenis
       },
     );
   }
