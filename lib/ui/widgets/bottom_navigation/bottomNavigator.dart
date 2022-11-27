@@ -1,6 +1,11 @@
+import 'package:edifarm/aktivitas/activity.dart';
 import 'package:edifarm/shared/Theme_App.dart';
+import 'package:edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
+import 'package:edifarm/ui/pages/diagnosa/diagnosa_list.dart';
+import 'package:edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 
@@ -95,7 +100,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      HomeScreen(animationController: animationController);
+                      CalenderScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
@@ -105,7 +110,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      HomeScreen(animationController: animationController);
+                      DiagnosaScreen(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -115,7 +120,17 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      HomeScreen(animationController: animationController);
+                      EditProfilePage(animationController: animationController);
+                });
+              });
+            } else if (index == 4) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      activityPage(animationController: animationController);
                 });
               });
             }

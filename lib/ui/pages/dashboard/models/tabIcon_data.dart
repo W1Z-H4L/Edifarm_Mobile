@@ -5,11 +5,13 @@ class TabIconData {
     this.imagePath = '',
     this.index = 0,
     this.selectedImagePath = '',
+    this.name = '',
     this.isSelected = false,
     this.animationController,
   });
 
   String imagePath;
+  String name;
   String selectedImagePath;
   bool isSelected;
   int index;
@@ -19,6 +21,7 @@ class TabIconData {
   static List<TabIconData> tabIconsList = <TabIconData>[
     TabIconData(
       imagePath: 'assets/icon_dashboard_kecil.png',
+      name: 'Dashboard',
       selectedImagePath: 'assets/icon_dashboard_selected.png',
       index: 0,
       isSelected: true,
@@ -32,8 +35,8 @@ class TabIconData {
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/icon_cuaca.png',
-      selectedImagePath: 'assets/icon_cuaca_selected.png',
+      imagePath: 'assets/icon_lahan.png',
+      selectedImagePath: 'assets/icon_lahan_selected.png',
       index: 2,
       isSelected: false,
       animationController: null,
@@ -42,6 +45,13 @@ class TabIconData {
       imagePath: 'assets/icon_profile.png',
       selectedImagePath: 'assets/icon_profile_selected.png',
       index: 3,
+      isSelected: false,
+      animationController: null,
+    ),
+    TabIconData(
+      imagePath: 'assets/icon_activity_center.png',
+      selectedImagePath: 'assets/icon_activity_center.png',
+      index: 4,
       isSelected: false,
       animationController: null,
     ),

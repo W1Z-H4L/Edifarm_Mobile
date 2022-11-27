@@ -1,3 +1,4 @@
+import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -120,7 +121,7 @@ class ButtonSetting extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: whiteColor,
+          backgroundColor: AppTheme.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(0),
           ),

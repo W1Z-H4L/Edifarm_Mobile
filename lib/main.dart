@@ -1,5 +1,8 @@
 import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_screen.dart';
+import 'package:edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:edifarm/ui/pages/setting/page/account/edit_password.dart';
+import 'package:edifarm/ui/pages/setting/page/account/edit_username.dart';
 import 'package:edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +24,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),
+        '/edit-bio': (context) => const EditProfilePage(),
+        '/edit-pass': (context) => EditPassword(),
+        '/edit-user': (context) => EditUsername(),
       },
     );
   }

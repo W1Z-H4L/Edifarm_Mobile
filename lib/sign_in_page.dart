@@ -126,12 +126,17 @@ class SignInPage extends StatelessWidget {
                 const SizedBox(
                   height: 90,
                 ),
-                CustomFilledButton(
-                  title: 'Login',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: CustomFilledButton(
+                    height: 50,
+                    width: 200,
+                    title: 'Login',
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    },
+                  ),
+                )
               ],
             ),
           ),

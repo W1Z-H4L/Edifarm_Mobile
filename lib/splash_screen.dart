@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 10),
+      const Duration(seconds: 1),
       () => Navigator.pushNamed(context, '/sign-in'),
     );
     super.initState();
@@ -79,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen> {
           LinearPercentIndicator(
             padding: EdgeInsets.only(left: 45, right: 45, bottom: 20),
             animation: true,
-            animationDuration: 7500,
+            animationDuration: 100,
             lineHeight: 22,
             percent: 1.0,
             progressColor: Color(0xff006B6C),

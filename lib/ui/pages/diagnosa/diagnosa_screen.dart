@@ -1,20 +1,21 @@
+import 'package:edifarm/aktivitas/listview_activity.dart';
+import 'package:edifarm/aktivitas/chart_view.dart';
+import 'package:edifarm/aktivitas/activity_date.dart';
+import 'package:edifarm/aktivitas/title_activity.dart';
 import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/komponen/motivasi.dart';
-import 'package:edifarm/ui/pages/dashboard/komponen/title_view.dart';
-import 'package:edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
-import 'package:edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
-import 'package:edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
+import 'package:edifarm/ui/pages/diagnosa/diagnosa_list.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, this.animationController}) : super(key: key);
+class DiagnosaScreen extends StatefulWidget {
+  const DiagnosaScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _DiagnosaScreenState createState() => _DiagnosaScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+class _DiagnosaScreenState extends State<DiagnosaScreen>
+    with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
   List<Widget> listViews = <Widget>[];
@@ -55,53 +56,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void addAllListData() {
-    const int count = 9;
-
+    const int count = 5;
     listViews.add(
       TitleActivity(
-        titleTxt: 'Progres Aktivitas',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      AktivitasDataView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      TitleActivity(
-        titleTxt: 'Menu',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
+        titleTxt: 'Beri Chek List Apabila Gejala Yang Dialami Sama',
 
-    listViews.add(
-      MenuListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
-
-    listViews.add(
-      TitleActivity(
-        titleTxt: 'Aktivitas',
-        subTxt: 'Today',
+        // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -109,45 +69,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         animationController: widget.animationController!,
       ),
     );
-
     listViews.add(
-      AktivitasDataView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      TitleActivity(
-        titleTxt: 'Informasi',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      InfoListView(
+      DiagListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
-                curve: Interval((1 / count) * 7, 1.0,
+                curve: Interval((1 / count) * 5, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
       ),
-    );
-    listViews.add(
-      MotivasiView(
-          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                  parent: widget.animationController!,
-                  curve: Interval((1 / count) * 8, 1.0,
-                      curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController!),
     );
   }
 
@@ -164,8 +94,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
-            getMainListViewUI(),
             getAppBarUI(),
+            getMainListViewUI(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
             )
@@ -215,10 +145,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppTheme.green.withOpacity(topBarOpacity),
+                    color: AppTheme.green,
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(32),
-                      bottomRight: Radius.circular(32),
+                      bottomLeft: Radius.circular(32.0),
+                      bottomRight: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
@@ -245,32 +175,28 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Welcome To Edifarm',
+                                  'Hama',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontFamily: AppTheme.fontName,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 22 + 6 - 6 * topBarOpacity,
-                                      letterSpacing: 1.2,
-                                      color: AppTheme.white,
-                                      decorationColor: AppTheme.black),
+                                    fontFamily: AppTheme.fontName,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    letterSpacing: 1.2,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(
                               height: 38,
                               width: 38,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/potoprofil.png',
-                                    ),
-                                    alignment: Alignment.centerRight,
-                                  ),
-                                ),
+                              child: InkWell(
+                                highlightColor: Colors.transparent,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(32.0)),
+                                onTap: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )

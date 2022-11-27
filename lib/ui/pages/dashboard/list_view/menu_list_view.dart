@@ -1,6 +1,7 @@
 import 'package:edifarm/main.dart';
 import 'package:edifarm/shared/Theme_App.dart';
 import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
+import 'package:edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:flutter/material.dart';
 
 class MenuListView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MenuListViewState extends State<MenuListView>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+        duration: const Duration(milliseconds: 200), vsync: this);
     super.initState();
   }
 
@@ -44,39 +45,41 @@ class _MenuListViewState extends State<MenuListView>
       animation: widget.mainScreenAnimationController!,
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
-          opacity: widget.mainScreenAnimation!,
-          child: Transform(
-            transform: Matrix4.translationValues(
-                0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
-            child: Container(
-              height: 216,
-              width: double.infinity,
-              child: ListView.builder(
-                padding: const EdgeInsets.only(
-                    top: 10, bottom: 0, right: 16, left: 16),
-                itemCount: mealsListData.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  final int count =
-                      mealsListData.length > 10 ? 10 : mealsListData.length;
-                  final Animation<double> animation =
-                      Tween<double>(begin: 0.0, end: 1.0).animate(
-                          CurvedAnimation(
-                              parent: animationController!,
-                              curve: Interval((1 / count) * index, 1.0,
-                                  curve: Curves.fastOutSlowIn)));
-                  animationController?.forward();
+            opacity: widget.mainScreenAnimation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
+              child: InkWell(
+                onTap: () => const DiagnosaScreen(),
+                child: Container(
+                  height: 216,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.only(
+                        top: 10, bottom: 0, right: 16, left: 16),
+                    itemCount: mealsListData.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      final int count =
+                          mealsListData.length > 10 ? 10 : mealsListData.length;
+                      final Animation<double> animation =
+                          Tween<double>(begin: 0.0, end: 1.0).animate(
+                              CurvedAnimation(
+                                  parent: animationController!,
+                                  curve: Interval((1 / count) * index, 1.0,
+                                      curve: Curves.fastOutSlowIn)));
+                      animationController?.forward();
 
-                  return MenuView(
-                    mealsListData: mealsListData[index],
-                    animation: animation,
-                    animationController: animationController!,
-                  );
-                },
+                      return MenuView(
+                        menuListData: mealsListData[index],
+                        animation: animation,
+                        animationController: animationController!,
+                      );
+                    },
+                  ),
+                ),
               ),
-            ),
-          ),
-        );
+            ));
       },
     );
   }
@@ -84,10 +87,10 @@ class _MenuListViewState extends State<MenuListView>
 
 class MenuView extends StatelessWidget {
   const MenuView(
-      {Key? key, this.mealsListData, this.animationController, this.animation})
+      {Key? key, this.menuListData, this.animationController, this.animation})
       : super(key: key);
 
-  final MenuListData? mealsListData;
+  final MenuListData? menuListData;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -112,15 +115,15 @@ class MenuView extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: HexColor(mealsListData!.endColor)
+                              color: HexColor(menuListData!.endColor)
                                   .withOpacity(0.4),
                               offset: const Offset(1.1, 4.0),
                               blurRadius: 8.0),
                         ],
                         gradient: LinearGradient(
                           colors: <HexColor>[
-                            HexColor(mealsListData!.startColor),
-                            HexColor(mealsListData!.endColor),
+                            HexColor(menuListData!.startColor),
+                            HexColor(menuListData!.endColor),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -140,7 +143,7 @@ class MenuView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              mealsListData!.titleTxt,
+                              menuListData!.titleTxt,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: AppTheme.fontName,
@@ -159,7 +162,7 @@ class MenuView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      mealsListData!.deskripsi!.join('\n'),
+                                      menuListData!.deskripsi!.join('\n'),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
@@ -248,7 +251,7 @@ class MenuView extends StatelessWidget {
                     child: SizedBox(
                       width: 60,
                       height: 60,
-                      child: Image.asset(mealsListData!.imagePath),
+                      child: Image.asset(menuListData!.imagePath),
                     ),
                   )
                 ],
