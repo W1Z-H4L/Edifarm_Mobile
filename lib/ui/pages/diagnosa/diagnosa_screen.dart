@@ -1,9 +1,10 @@
-import 'package:edifarm/aktivitas/listview_activity.dart';
-import 'package:edifarm/aktivitas/chart_view.dart';
-import 'package:edifarm/aktivitas/activity_date.dart';
-import 'package:edifarm/aktivitas/title_activity.dart';
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/diagnosa/diagnosa_list.dart';
+import 'package:Edifarm/aktivitas/listview_activity.dart';
+import 'package:Edifarm/aktivitas/chart_view.dart';
+import 'package:Edifarm/aktivitas/activity_date.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
+import 'package:Edifarm/ui/pages/diagnosa/upload_foto.dart';
 import 'package:flutter/material.dart';
 
 class DiagnosaScreen extends StatefulWidget {
@@ -96,6 +97,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
           children: <Widget>[
             getAppBarUI(),
             getMainListViewUI(),
+            PotoView(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
             )

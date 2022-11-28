@@ -1,6 +1,6 @@
-import 'package:edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
-import 'package:edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
 
 class jenisPadi extends StatefulWidget {
   const jenisPadi({Key? key, this.animationController}) : super(key: key);

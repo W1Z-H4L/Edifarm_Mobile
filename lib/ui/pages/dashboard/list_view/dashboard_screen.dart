@@ -1,9 +1,9 @@
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/komponen/motivasi.dart';
-import 'package:edifarm/ui/pages/dashboard/komponen/title_view.dart';
-import 'package:edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
-import 'package:edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
-import 'package:edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/motivasi.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/title_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,8 +1,8 @@
-import 'package:edifarm/aktivitas/listview_activity.dart';
-import 'package:edifarm/aktivitas/chart_view.dart';
-import 'package:edifarm/aktivitas/activity_date.dart';
-import 'package:edifarm/aktivitas/title_activity.dart';
-import 'package:edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/aktivitas/listview_activity.dart';
+import 'package:Edifarm/aktivitas/chart_view.dart';
+import 'package:Edifarm/aktivitas/activity_date.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
 class activityPage extends StatefulWidget {

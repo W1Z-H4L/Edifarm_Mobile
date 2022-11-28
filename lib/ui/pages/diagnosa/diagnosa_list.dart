@@ -1,8 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/models/info_data.dart';
-import 'package:edifarm/ui/pages/diagnosa/pertanyaan_data.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/shared/theme.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/info_data.dart';
+import 'package:Edifarm/ui/pages/diagnosa/pertanyaan_data.dart';
 import 'package:flutter/material.dart';
+
+import '../calender/calendar_popup_view.dart';
 
 class DiagListView extends StatefulWidget {
   const DiagListView(
@@ -50,7 +53,7 @@ class _DiagListViewState extends State<DiagListView>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: AspectRatio(
-              aspectRatio: 0.65,
+              aspectRatio: 0.7,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: GridView(

@@ -1,10 +1,11 @@
-import 'package:edifarm/riwayat/riwayart_pupuk.dart';
-import 'package:edifarm/sign_in_page.dart';
-import 'package:edifarm/splash_screen.dart';
-import 'package:edifarm/ui/pages/setting/edit_akun.dart';
-import 'package:edifarm/ui/pages/setting/page/account/edit_password.dart';
-import 'package:edifarm/ui/pages/setting/page/account/edit_username.dart';
-import 'package:edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
+import 'package:Edifarm/riwayat/riwayart_pupuk.dart';
+import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/splash_screen.dart';
+import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
+import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
+
 import 'package:flutter/material.dart';
 
 void main(List<String> args) => runApp(MyApp());

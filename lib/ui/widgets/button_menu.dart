@@ -1,10 +1,10 @@
-import 'package:edifarm/aktivitas/activity.dart';
-import 'package:edifarm/riwayat/riwayat.dart';
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
-import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
-import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
-import 'package:edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
+import 'package:Edifarm/aktivitas/activity.dart';
+import 'package:Edifarm/riwayat/riwayat.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
+import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomMenu extends StatefulWidget {
