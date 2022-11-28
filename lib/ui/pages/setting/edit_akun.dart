@@ -5,6 +5,7 @@ import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key, this.animationController, this.animation})
@@ -68,11 +69,28 @@ class _EditProfilePageState extends State<EditProfilePage>
 
   File? image;
 
-  Future getImageGalerry() async {
+  Future<void> getImageGalerry() async {
+    var galleryPermission = Permission.storage;
+
+    if (galleryPermission.status == PermissionStatus.denied) {
+      galleryPermission.request();
+      if (galleryPermission.status == PermissionStatus.permanentlyDenied) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(""))
+          ]),
+        );
+      }
+    }
+
     final ImagePicker picker = ImagePicker();
-    final XFile? imagePicked =
-        await picker.pickImage(source: ImageSource.gallery);
-    image = File(imagePicked!.path);
+    final imagePicked = await picker.pickImage(source: ImageSource.gallery);
+    image = File(imagePicked?.path ?? "");
     setState(() {});
   }
 
@@ -107,7 +125,7 @@ class _EditProfilePageState extends State<EditProfilePage>
               Center(
                 child: Stack(
                   children: [
-                    image! == null
+                    image == null
                         ? Container(
                             width: 130,
                             height: 130,
@@ -147,9 +165,14 @@ class _EditProfilePageState extends State<EditProfilePage>
                                 ],
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: Image.file(image!)
-                                        as ImageProvider<Object>)),
+                                  fit: BoxFit.cover,
+                                  // image: Image.file(
+                                  //   image ?? File(""),
+                                  // ) as ImageProvider<Object>),
+                                  image: FileImage(
+                                    image ?? File(""),
+                                  ),
+                                )),
                           ),
                     Positioned(
                         bottom: 0,
@@ -165,9 +188,12 @@ class _EditProfilePageState extends State<EditProfilePage>
                             ),
                             color: AppTheme.green,
                           ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
+                          child: InkWell(
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.white,
+                            ),
+                            onTap: () => getImageGalerry(),
                           ),
                         )),
                   ],
@@ -201,17 +227,32 @@ class _EditProfilePageState extends State<EditProfilePage>
                   color: Colors.black,
                 ),
               ),
-              Container(
-                  padding: EdgeInsets.only(left: 45, right: 45, bottom: 5),
-                  child: Text(
-                    'Edit Biodata',
-                    textAlign: TextAlign.start,
-                    style: greenTextStyle2.copyWith(
-                      fontSize: 18,
-                      fontWeight: extraBold,
-                      color: subtitleColor2,
-                    ),
-                  )),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: [
+                  Container(
+                    height: 20,
+                    width: 20,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage('assets/logo.png'),
+                    )),
+                  ),
+                  Container(
+                      padding: EdgeInsets.only(left: 5, right: 45, bottom: 5),
+                      child: Text(
+                        'Edit Biodata',
+                        textAlign: TextAlign.start,
+                        style: greenTextStyle2.copyWith(
+                          fontSize: 18,
+                          fontWeight: extraBold,
+                          color: subtitleColor2,
+                        ),
+                      )),
+                ],
+              ),
               SizedBox(
                 height: 10,
               ),

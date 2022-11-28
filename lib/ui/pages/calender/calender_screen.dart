@@ -78,7 +78,7 @@ class _CalenderScreenState extends State<CalenderScreen>
   }
 
   Future<bool> getData() async {
-    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
+    await Future<dynamic>.delayed(const Duration(milliseconds: 5));
     return true;
   }
 

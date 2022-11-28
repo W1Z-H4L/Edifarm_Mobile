@@ -4,6 +4,7 @@ import 'package:Edifarm/aktivitas/activity_date.dart';
 import 'package:Edifarm/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
+import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:Edifarm/ui/pages/diagnosa/upload_foto.dart';
 import 'package:flutter/material.dart';
 
@@ -58,8 +59,9 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
 
   void addAllListData() {
     const int count = 5;
+
     listViews.add(
-      TitleActivity(
+      TextDiag(
         titleTxt: 'Beri Chek List Apabila Gejala Yang Dialami Sama',
 
         // subTxt: 'more',
@@ -70,14 +72,24 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
         animationController: widget.animationController!,
       ),
     );
+
     listViews.add(
-      DiagListView(
+      ListViewDiag(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
                 curve: Interval((1 / count) * 5, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      PotoPadi(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
       ),
     );
   }
@@ -97,7 +109,6 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
           children: <Widget>[
             getAppBarUI(),
             getMainListViewUI(),
-            PotoView(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
             )

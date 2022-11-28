@@ -41,21 +41,35 @@ class _SettingsPage extends State<SettingsPage> {
         backgroundColor: AppTheme.background,
         body: ListView(
           children: <Widget>[
-            Container(
-                padding: EdgeInsets.only(
-                  left: 45,
-                  right: 45,
-                  top: 45,
-                ),
-                child: Text(
-                  'Account',
-                  textAlign: TextAlign.start,
-                  style: greenTextStyle2.copyWith(
-                    fontWeight: bold,
-                    fontSize: 18,
-                    color: subtitleColor2,
-                  ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(children: [
+              SizedBox(
+                width: 60,
+              ),
+              Container(
+                height: 20,
+                width: 20,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/icon_edit_account.png'),
                 )),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Container(
+                  child: Text(
+                'Account',
+                textAlign: TextAlign.start,
+                style: greenTextStyle2.copyWith(
+                  fontWeight: bold,
+                  fontSize: 18,
+                  color: subtitleColor2,
+                ),
+              )),
+            ]),
             SizedBox(
               height: 6,
             ),
@@ -94,10 +108,11 @@ class _SettingsPage extends State<SettingsPage> {
                 alignment: Alignment.centerLeft,
                 child: Row(children: [
                   Container(
+                      padding: EdgeInsets.only(right: 20),
                       alignment: Alignment.centerLeft,
                       child: ButtonSetting(
                           title: 'Edit Passsword',
-                          height: 50,
+                          height: 10,
                           width: 200,
                           onPressed: () {
                             Navigator.pushNamed(context, '/edit-pass');
@@ -113,21 +128,37 @@ class _SettingsPage extends State<SettingsPage> {
                       )),
                 ])),
             SizedBox(
-              height: 20,
+              height: 50,
             ),
-            Container(
-                color: AppTheme.background,
-                padding:
-                    EdgeInsets.only(left: 25, right: 25, top: 25, bottom: 6),
-                child: Text(
-                  'Profile',
-                  textAlign: TextAlign.start,
-                  style: greenTextStyle2.copyWith(
-                    fontWeight: bold,
-                    fontSize: 18,
-                    color: subtitleColor2,
-                  ),
+            Row(children: [
+              SizedBox(
+                width: 60,
+              ),
+              Container(
+                height: 20,
+                width: 20,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/icon_edit_qprofile.png'),
                 )),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Container(
+                  color: AppTheme.background,
+                  // padding:
+                  //     EdgeInsets.only(left: 25, right: 25, top: 25, bottom: 6),
+                  child: Text(
+                    'Profile',
+                    textAlign: TextAlign.start,
+                    style: greenTextStyle2.copyWith(
+                      fontWeight: bold,
+                      fontSize: 18,
+                      color: subtitleColor2,
+                    ),
+                  )),
+            ]),
 
             Container(
                 color: AppTheme.background,
