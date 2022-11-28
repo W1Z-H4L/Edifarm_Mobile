@@ -1,26 +1,21 @@
 import 'package:Edifarm/aktivitas/activity.dart';
-import 'package:Edifarm/jenispadi/jenis_padi.dart';
+import 'package:Edifarm/riwayat/riwayat.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
-import 'package:Edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
-import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
-import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
-import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
-
 import 'package:flutter/material.dart';
 
-class BottomNavigator extends StatefulWidget {
+class BottomMenu extends StatefulWidget {
   @override
-  _BottomNavigatorState createState() => _BottomNavigatorState();
+  _BottomMenuState createState() => _BottomMenuState();
 }
 
-class _BottomNavigatorState extends State<BottomNavigator>
-    with TickerProviderStateMixin {
+class _BottomMenuState extends State<BottomMenu> with TickerProviderStateMixin {
   AnimationController? animationController;
 
-  List<TabIconData> tabIconsList = TabIconData.tabIconsList;
+  List<MenuListData> tabMenuList = MenuListData.tabMenuList;
 
   Widget tabBody = Container(
     color: AppTheme.background,
@@ -28,11 +23,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
 
   @override
   void initState() {
-    tabIconsList.forEach((TabIconData tab) {
-      tab.isSelected = false;
-    });
-    tabIconsList[0].isSelected = true;
-
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
     tabBody = HomeScreen(animationController: animationController);
@@ -82,7 +72,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
           child: SizedBox(),
         ),
         BottomBarView(
-          tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
             if (index == 0) {
@@ -102,7 +91,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      CalenderScreen(animationController: animationController);
+                      HomeScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
@@ -112,7 +101,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      activityPage(animationController: animationController);
+                      HomeScreen(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -121,7 +110,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody = jenisPadiPage();
+                  tabBody =
+                      activityPage(animationController: animationController);
                 });
               });
             }

@@ -1,9 +1,11 @@
+import 'package:Edifarm/riwayat/riwayart_pupuk.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
+
 import 'package:flutter/material.dart';
 
 void main(List<String> args) => runApp(MyApp());
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/edit-bio': (context) => const EditProfilePage(),
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
+        '/riwayatpupuk': (context) => ListViewRiwayatPupuk(),
       },
     );
   }
