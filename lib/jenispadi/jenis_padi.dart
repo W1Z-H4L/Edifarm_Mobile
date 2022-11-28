@@ -15,7 +15,7 @@ class _jenisPadiPageState extends State<jenisPadiPage> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('gambar_jenispadi.png'),
+          image: AssetImage('gambar_baground_jenis.jpg'),
           opacity: 30,
           fit: BoxFit.fill,
         ),
