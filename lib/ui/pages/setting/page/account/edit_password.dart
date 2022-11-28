@@ -1,5 +1,5 @@
-import 'package:edifarm/shared/theme.dart';
-import 'package:edifarm/ui/widgets/buttons.dart';
+import 'package:Edifarm/shared/theme.dart';
+import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class EditPassword extends StatefulWidget {

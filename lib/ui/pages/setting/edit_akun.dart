@@ -1,9 +1,10 @@
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/shared/theme.dart';
-import 'package:edifarm/ui/pages/setting/pengaturan.dart';
-
-import 'package:edifarm/ui/widgets/buttons.dart';
+import 'dart:io';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/shared/theme.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key, this.animationController, this.animation})
@@ -65,6 +66,16 @@ class _EditProfilePageState extends State<EditProfilePage>
     return true;
   }
 
+  File? image;
+
+  Future getImageGalerry() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? imagePicked =
+        await picker.pickImage(source: ImageSource.gallery);
+    image = File(imagePicked!.path);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,27 +107,50 @@ class _EditProfilePageState extends State<EditProfilePage>
               Center(
                 child: Stack(
                   children: [
-                    Container(
-                      width: 130,
-                      height: 130,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1),
-                                offset: Offset(0, 10))
-                          ],
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                              ))),
-                    ),
+                    image! == null
+                        ? Container(
+                            width: 130,
+                            height: 130,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 4,
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor),
+                                boxShadow: [
+                                  BoxShadow(
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                      color: Colors.black.withOpacity(0.1),
+                                      offset: Offset(0, 10))
+                                ],
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                      "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                                    ))),
+                          )
+                        : Container(
+                            width: 130,
+                            height: 130,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 4,
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor),
+                                boxShadow: [
+                                  BoxShadow(
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                      color: Colors.black.withOpacity(0.1),
+                                      offset: Offset(0, 10))
+                                ],
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: Image.file(image!)
+                                        as ImageProvider<Object>)),
+                          ),
                     Positioned(
                         bottom: 0,
                         right: 0,

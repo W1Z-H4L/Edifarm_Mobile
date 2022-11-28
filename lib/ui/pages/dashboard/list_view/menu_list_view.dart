@@ -1,7 +1,7 @@
-import 'package:edifarm/main.dart';
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/models/menu_data.dart';
-import 'package:edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:Edifarm/main.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
+import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:flutter/material.dart';
 
 class MenuListView extends StatefulWidget {

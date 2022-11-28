@@ -1,4 +1,4 @@
-import 'package:edifarm/main.dart';
+import 'package:Edifarm/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:edifarm/shared/Theme_App.dart';
-import 'package:edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
 import 'package:flutter/material.dart';
 
 class BottomBarView extends StatefulWidget {
