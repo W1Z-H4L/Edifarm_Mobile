@@ -75,7 +75,7 @@ class _ListViewActivityState extends State<ListViewActivity>
                     crossAxisCount: 1,
                     mainAxisSpacing: 25,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 6 / 1,
+                    childAspectRatio: 5 / 1,
                   ),
                 ),
               ),
@@ -102,87 +102,106 @@ class AreaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController!,
-      builder: (BuildContext context, Widget? child) {
-        return FadeTransition(
-          opacity: animation!,
-          child: Transform(
-            transform: Matrix4.translationValues(
-                0.0, 50 * (1.0 - animation!.value), 0.0),
-            child: Container(
-              child: DottedBorder(
-                strokeWidth: 1,
-                borderType: BorderType.RRect,
-                radius: Radius.circular(25),
+        animation: animationController!,
+        builder: (BuildContext context, Widget? child) {
+          return FadeTransition(
+            opacity: animation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 50 * (1.0 - animation!.value), 0.0),
+              child: Container(
+                  child: DottedBorder(
+                      strokeWidth: 1,
+                      borderType: BorderType.RRect,
+                      radius: Radius.circular(25),
 
-                // decoration: BoxDecoration(
+                      // decoration: BoxDecoration(
 
-                color: Color.fromARGB(255, 1, 104, 97),
-                // borderRadius: const BorderRadius.only(
-                //     topLeft: Radius.circular(8.0),
-                //     bottomLeft: Radius.circular(8.0),
-                //     bottomRight: Radius.circular(8.0),
-                //     topRight: Radius.circular(8.0)),
-                // boxShadow: <BoxShadow>[
-                //   BoxShadow(
-                //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                //       offset: const Offset(1.1, 1.1),
-                //       blurRadius: 10.0),
-                // ],),
+                      color: Color.fromARGB(255, 1, 104, 97),
+                      // borderRadius: const BorderRadius.only(
+                      //     topLeft: Radius.circular(8.0),
+                      //     bottomLeft: Radius.circular(8.0),
+                      //     bottomRight: Radius.circular(8.0),
+                      //     topRight: Radius.circular(8.0)),
+                      // boxShadow: <BoxShadow>[
+                      //   BoxShadow(
+                      //       color: FitnessAppTheme.grey.withOpacity(0.4),
+                      //       offset: const Offset(1.1, 1.1),
+                      //       blurRadius: 10.0),
+                      // ],),
 
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    focusColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
-                    onTap: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 16, left: 16, right: 16),
-                            child: Expanded(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 8, bottom: 8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, left: 5),
-                                        child: Text(tabactList!.aktivitas,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w800,
-                                              fontSize: 14,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            ))),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, left: 5),
-                                        child: Text(tabactList!.tanggal,
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            ))),
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, right: 5),
+                      child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            focusColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8.0)),
+                            splashColor:
+                                AppTheme.nearlyDarkBlue.withOpacity(0.2),
+                            onTap: () {},
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 16, left: 16, right: 16),
+                                      child: Expanded(
+                                          child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 4, bottom: 2),
+                                        child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Container(
+                                                  padding: EdgeInsets.only(
+                                                      top: 0, left: 0),
+                                                  child: Text(
+                                                      tabactList!.aktivitas,
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            AppTheme.fontName,
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                        fontSize: 14,
+                                                        letterSpacing: 0.2,
+                                                        color: AppTheme.green,
+                                                      ))),
+                                              const Spacer(),
+                                              Container(
+                                                // alignment: Alignment.centerRight,
+                                                padding: EdgeInsets.only(
+                                                    bottom: 2, right: 6),
+                                                child: Checkbox(
+                                                  value: false,
+                                                  onChanged: (value) {},
+                                                ),
+                                              )
+                                            ]),
+                                      ))),
+                                  Row(
+                                    children: [
+                                      Container(
+                                          child: Padding(
+                                              padding: EdgeInsets.only(
+                                                top: 1,
+                                              ),
+                                              child: Text(tabactList!.tanggal,
+                                                  style: TextStyle(
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontWeight: FontWeight.w800,
+                                                    fontSize: 10,
+                                                    letterSpacing: 0.2,
+                                                    color: AppTheme.green,
+                                                  )))),
+                                      const Spacer(),
+                                      Container(
                                         child: Text(tabactList!.jam,
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
@@ -191,32 +210,14 @@ class AreaView extends StatelessWidget {
                                               fontSize: 10,
                                               letterSpacing: 0.2,
                                               color: AppTheme.green,
-                                            ))),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      padding:
-                                          EdgeInsets.only(bottom: 5, right: 5),
-                                      child: Checkbox(
-                                        value: false,
-                                        onChanged: (value) {},
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
-                        ]),
-                  ),
-                ),
-              ),
+                                            )),
+                                      )
+                                    ],
+                                  )
+                                ]),
+                          )))),
             ),
-          ),
-        );
-      },
-    );
+          );
+        });
   }
 }
