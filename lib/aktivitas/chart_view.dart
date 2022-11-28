@@ -16,14 +16,14 @@ class WorkoutView extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation!,
-          child: new Transform(
-            transform: new Matrix4.translationValues(
+          child: Transform(
+            transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 16, bottom: 18),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(colors: [
                     Color.fromARGB(255, 255, 255, 255),
                     Color.fromARGB(255, 255, 255, 255)
@@ -46,22 +46,16 @@ class WorkoutView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      pieChartView(),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: const Text(
-                          'jumat, 12 april 2020',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                            fontFamily: AppTheme.fontName,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 20,
-                            letterSpacing: 0.0,
-                            color: Color(0xFF006B6C),
-                          ),
-                        ),
+                      const SizedBox(
+                        height: 5,
+                        width: 5,
                       ),
-                      SizedBox(
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.only(top: 20, left: 10),
+                        child: pieChartView(),
+                      ),
+                      const SizedBox(
                         height: 32,
                       ),
                       Padding(
@@ -69,7 +63,7 @@ class WorkoutView extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(left: 4),
                             ),
@@ -105,17 +99,16 @@ final colorList = <Color>[
 
 @override
 Widget pieChartView() {
-  return Positioned(
-    top: 5,
-    left: 5,
+  return Container(
     child: PieChart(
       dataMap: dataMap,
       chartType: ChartType.ring,
+      chartLegendSpacing: 180,
       chartRadius: 75,
       ringStrokeWidth: 20,
       baseChartColor: Color.fromARGB(255, 174, 136, 136).withOpacity(0.15),
       colorList: colorList,
-      chartValuesOptions: ChartValuesOptions(
+      chartValuesOptions: const ChartValuesOptions(
         showChartValuesInPercentage: true,
       ),
       totalValue: 20,
