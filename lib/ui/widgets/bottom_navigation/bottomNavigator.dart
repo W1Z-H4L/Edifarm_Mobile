@@ -1,3 +1,4 @@
+import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
 import 'package:Edifarm/jenispadi/list_data_padi.dart';
@@ -134,8 +135,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      RiwayatIrigasi(animationController: animationController);
+                  tabBody = RiwayatPestisida(
+                      animationController: animationController);
                 });
               });
             }
