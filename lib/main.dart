@@ -1,4 +1,4 @@
-import 'package:Edifarm/riwayat_Pupuk/riwayart_pupuk_screen.dart';
+import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';

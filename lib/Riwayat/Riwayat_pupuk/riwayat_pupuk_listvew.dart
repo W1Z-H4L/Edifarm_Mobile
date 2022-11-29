@@ -1,5 +1,5 @@
 import 'package:Edifarm/aktivitas/activity_data.dart';
-import 'package:Edifarm/riwayat_Pupuk/riwayat_pupuk_data.dart';
+import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayat_pupuk_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
