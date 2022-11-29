@@ -198,8 +198,8 @@ class _SettingsPage extends State<SettingsPage> {
                   bottom: 50,
                 ),
                 child: CustomFilledButton(
-                  height: 50,
-                  width: 150,
+                  height: 30,
+                  width: 100,
                   title: 'Logout',
                   onPressed: () => SignInPage(),
                 ))

@@ -103,15 +103,15 @@ class AreaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController!,
-      builder: (BuildContext context, Widget? child) {
-        return FadeTransition(
-          opacity: animation!,
-          child: Transform(
-            transform: Matrix4.translationValues(
-                0.0, 50 * (1.0 - animation!.value), 0.0),
-            child: Container(
-              child: DottedBorder(
+        animation: animationController!,
+        builder: (BuildContext context, Widget? child) {
+          return FadeTransition(
+            opacity: animation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 50 * (1.0 - animation!.value), 0.0),
+              child: Container(
+                  child: DottedBorder(
                 strokeWidth: 1,
                 borderType: BorderType.RRect,
                 radius: Radius.circular(25),
@@ -134,76 +134,75 @@ class AreaView extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    focusColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
-                    onTap: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 12, left: 16, right: 16),
-                            child: Expanded(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 8, bottom: 8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, left: 5),
-                                        child: Text(tabDiagList!.no,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w800,
-                                              fontSize: 10,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            ))),
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, right: 5),
-                                        child: Text(tabDiagList!.answer,
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            ))),
-                                    Spacer(),
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      padding:
-                                          EdgeInsets.only(bottom: 5, right: 5),
-                                      child: Checkbox(
-                                        value: false,
-                                        onChanged: (value) {},
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
-                        ]),
-                  ),
+                      focusColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(8.0)),
+                      splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
+                      onTap: () {},
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 8, left: 8, right: 8),
+                                child: Expanded(
+                                    child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 4, bottom: 4),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                          padding:
+                                              const EdgeInsets.only(left: 5),
+                                          child: Text(tabDiagList!.no,
+                                              style: const TextStyle(
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 10,
+                                                letterSpacing: 0.2,
+                                                color: AppTheme.green,
+                                              ))),
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              top: 0, left: 0),
+                                          width: 220,
+                                          child: Text(tabDiagList!.answer,
+                                              textAlign: TextAlign.start,
+                                              style: const TextStyle(
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10,
+                                                letterSpacing: 0.2,
+                                                color: AppTheme.green,
+                                              ))),
+                                      const Spacer(),
+                                      Container(
+                                        // alignment: Alignment.centerRight,
+                                        padding: EdgeInsets.only(
+                                            bottom: 2, right: 6),
+                                        child: Checkbox(
+                                          value: false,
+                                          onChanged: (value) {},
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )))
+                          ])),
                 ),
-              ),
+              )),
             ),
-          ),
-        );
-      },
-    );
+          );
+        });
   }
 }
+
  
 //import 'package:dotted_border/dotted_border.dart';
 // import 'package:Edifarm/shared/Theme_App.dart';

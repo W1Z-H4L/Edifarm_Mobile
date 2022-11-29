@@ -211,45 +211,27 @@ class _PotoPadiState extends State<PotoPadi> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.only(top: 10),
+                          alignment: Alignment.topCenter,
+                          child: const Text(
+                            'Masukan Gambar Untuk Membantu Identifikasi !!',
+                            style: TextStyle(
+                              fontFamily: AppTheme.fontName,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 10,
+                              letterSpacing: 0.2,
+                              color: AppTheme.grey,
+                            ),
+                          ),
+                        ),
                         InkWell(
                           onTap: () => _potoBottomSheet(),
                           child: Container(
-                            padding: EdgeInsets.all(15),
+                            height: 190,
                             decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage('camera.png'))),
-                            child: const Text(
-                                'Masukan Gambar Untuk Membantu Identifikasi !!'),
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            CancelFilledButton(
-                              onPressed: () => const HomeScreen(),
-                              height: 30,
-                              width: 100,
-                              title: 'Cancel',
-
-                              // onPressed: () {},
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 10),
-                              child: CustomFilledButton(
-                                onPressed: () {},
-                                height: 30,
-                                width: 100,
-                                title: 'Save',
-                                // onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(
-                            left: 100,
-                            bottom: 12,
-                            top: 4,
-                            right: 16,
+                                    image: AssetImage('assets/camera.png'))),
                           ),
                         ),
                       ],
