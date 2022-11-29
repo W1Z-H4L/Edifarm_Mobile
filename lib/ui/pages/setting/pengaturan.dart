@@ -1,5 +1,6 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
+import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -200,7 +201,7 @@ class _SettingsPage extends State<SettingsPage> {
                   height: 50,
                   width: 150,
                   title: 'Logout',
-                  onPressed: () {},
+                  onPressed: () => SignInPage(),
                 ))
           ],
         ));

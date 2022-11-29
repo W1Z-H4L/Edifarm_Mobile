@@ -1,5 +1,6 @@
 import 'package:Edifarm/aktivitas/activity_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/diagnosa/pertanyaan_data.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
@@ -17,7 +18,7 @@ class ListViewDiag extends StatefulWidget {
 class _ListViewDiagState extends State<ListViewDiag>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<ActListData> tabactList = ActListData.tabactList;
+  List<DiagnosaListData> tabDiagList = DiagnosaListData.tabDiagList;
 
   @override
   void initState() {
@@ -52,9 +53,9 @@ class _ListViewDiagState extends State<ListViewDiag>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    tabactList.length,
+                    tabDiagList.length,
                     (int index) {
-                      final int count = tabactList.length;
+                      final int count = tabDiagList.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -65,7 +66,7 @@ class _ListViewDiagState extends State<ListViewDiag>
                       );
                       animationController?.forward();
                       return AreaView(
-                        tabactList: tabactList[index],
+                        tabDiagList: tabDiagList[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -90,12 +91,12 @@ class _ListViewDiagState extends State<ListViewDiag>
 class AreaView extends StatelessWidget {
   const AreaView({
     Key? key,
-    this.tabactList,
+    this.tabDiagList,
     this.animationController,
     this.animation,
   }) : super(key: key);
 
-  final ActListData? tabactList;
+  final DiagnosaListData? tabDiagList;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -145,7 +146,7 @@ class AreaView extends StatelessWidget {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 16, left: 16, right: 16),
+                                top: 12, left: 16, right: 16),
                             child: Expanded(
                               child: Padding(
                                 padding:
@@ -157,33 +158,18 @@ class AreaView extends StatelessWidget {
                                     Container(
                                         padding:
                                             EdgeInsets.only(top: 5, left: 5),
-                                        child: Text(tabactList!.aktivitas,
+                                        child: Text(tabDiagList!.no,
                                             style: TextStyle(
                                               fontFamily: AppTheme.fontName,
                                               fontWeight: FontWeight.w800,
-                                              fontSize: 14,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            ))),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, left: 5),
-                                        child: Text(tabactList!.tanggal,
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
+                                              fontSize: 10,
                                               letterSpacing: 0.2,
                                               color: AppTheme.green,
                                             ))),
                                     Container(
                                         padding:
                                             EdgeInsets.only(top: 5, right: 5),
-                                        child: Text(tabactList!.jam,
+                                        child: Text(tabDiagList!.answer,
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                               fontFamily: AppTheme.fontName,
@@ -192,9 +178,7 @@ class AreaView extends StatelessWidget {
                                               letterSpacing: 0.2,
                                               color: AppTheme.green,
                                             ))),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
+                                    Spacer(),
                                     Container(
                                       alignment: Alignment.centerRight,
                                       padding:
