@@ -44,7 +44,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
+        duration: const Duration(milliseconds: 0), vsync: this);
     if (widget.initialStartDate != null) {
       startDate = widget.initialStartDate;
     }
@@ -212,6 +212,11 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                   ],
                                 ),
                                 child: Material(
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(24),
+                                      bottomLeft: Radius.circular(24),
+                                      bottomRight: Radius.circular(24),
+                                      topRight: Radius.circular(24)),
                                   color: AppTheme.green,
                                   child: InkWell(
                                     borderRadius: const BorderRadius.only(

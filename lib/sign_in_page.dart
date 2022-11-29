@@ -7,7 +7,7 @@ class SignInPage extends StatelessWidget {
   // const SignInPage({Key? key}) : super(key: key);
   bool _isObsecure3 = true;
   bool visible = false;
-  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     bool _obscureText = true;
@@ -77,7 +77,7 @@ class SignInPage extends StatelessWidget {
                   showCursor: true,
                   cursorHeight: 25,
                   style: AppTheme.custom2,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: AppTheme.green)),
                     labelText: 'Ussername',
@@ -99,7 +99,7 @@ class SignInPage extends StatelessWidget {
                   style: AppTheme.custom2,
                   obscureText: _isObsecure3,
                   decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: AppTheme.green)),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -130,8 +130,8 @@ class SignInPage extends StatelessWidget {
                 Container(
                   alignment: Alignment.center,
                   child: CustomFilledButton(
-                    height: 50,
-                    width: 200,
+                    height: 30,
+                    width: 100,
                     title: 'Login',
                     onPressed: () {
                       Navigator.pushNamed(context, '/home');

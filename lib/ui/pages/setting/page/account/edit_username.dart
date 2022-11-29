@@ -31,7 +31,7 @@ class _EditUsername extends State<EditUsername> {
           shadowColor: Color.fromARGB(255, 47, 101, 88),
           backgroundColor: Color.fromARGB(255, 47, 101, 88),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),

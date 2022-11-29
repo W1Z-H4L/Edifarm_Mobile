@@ -114,7 +114,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      activityPage(animationController: animationController);
+                      DiagnosaScreen(animationController: animationController);
                 });
               });
             } else if (index == 3) {
@@ -124,7 +124,17 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      RiwayatPupuk(animationController: animationController);
+                      EditProfilePage(animationController: animationController);
+                });
+              });
+            } else if (index == 4) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      activityPage(animationController: animationController);
                 });
               });
             }

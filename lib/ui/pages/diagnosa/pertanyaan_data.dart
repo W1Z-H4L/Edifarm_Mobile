@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class DiagnosaListData {
   DiagnosaListData({
     this.no = '',
@@ -9,6 +11,7 @@ class DiagnosaListData {
   String no;
   String quetion;
   String answer;
+
   List<String>? description;
 
   static List<DiagnosaListData> tabDiagList = <DiagnosaListData>[
