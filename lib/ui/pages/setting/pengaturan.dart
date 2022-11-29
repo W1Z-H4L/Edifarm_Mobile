@@ -16,7 +16,7 @@ class _SettingsPage extends State<SettingsPage> {
         appBar: AppBar(
           brightness: Brightness.dark,
           toolbarHeight: 70,
-          title: Text(
+          title: const Text(
             "Pengaturan",
             textAlign: TextAlign.center,
           ),
@@ -31,7 +31,7 @@ class _SettingsPage extends State<SettingsPage> {
                 bottomRight: Radius.circular(20)),
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),
@@ -42,11 +42,11 @@ class _SettingsPage extends State<SettingsPage> {
         backgroundColor: AppTheme.background,
         body: ListView(
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(children: [
-              SizedBox(
+              const SizedBox(
                 width: 60,
               ),
               Container(
@@ -57,7 +57,7 @@ class _SettingsPage extends State<SettingsPage> {
                   image: AssetImage('assets/icon_edit_account.png'),
                 )),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Container(
@@ -71,7 +71,7 @@ class _SettingsPage extends State<SettingsPage> {
                 ),
               )),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 6,
             ),
             Container(
@@ -93,7 +93,7 @@ class _SettingsPage extends State<SettingsPage> {
                       alignment: Alignment.centerRight,
                       child: IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: AppTheme.grey,
                         ),
@@ -122,17 +122,17 @@ class _SettingsPage extends State<SettingsPage> {
                       alignment: Alignment.centerRight,
                       child: IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: AppTheme.grey,
                         ),
                       )),
                 ])),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(children: [
-              SizedBox(
+              const SizedBox(
                 width: 60,
               ),
               Container(
@@ -143,7 +143,7 @@ class _SettingsPage extends State<SettingsPage> {
                   image: AssetImage('assets/icon_edit_qprofile.png'),
                 )),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Container(
@@ -163,8 +163,8 @@ class _SettingsPage extends State<SettingsPage> {
 
             Container(
                 color: AppTheme.background,
-                padding:
-                    EdgeInsets.only(left: 25, top: 25, right: 5, bottom: 6),
+                padding: const EdgeInsets.only(
+                    left: 25, top: 25, right: 5, bottom: 6),
                 alignment: Alignment.centerLeft,
                 child: Row(children: [
                   Container(
@@ -180,19 +180,19 @@ class _SettingsPage extends State<SettingsPage> {
                       alignment: Alignment.centerRight,
                       child: IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: AppTheme.grey,
                         ),
                       )),
                 ])),
-            SizedBox(
+            const SizedBox(
               height: 45,
             ),
             Container(
                 // height: 30,
                 // width: 150,
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 90,
                   right: 90,
                   bottom: 50,

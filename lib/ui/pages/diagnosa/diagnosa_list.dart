@@ -44,7 +44,7 @@ class _ListViewDiagState extends State<ListViewDiag>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: AspectRatio(
-              aspectRatio: 1.0,
+              aspectRatio: 0.75,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: GridView(
@@ -76,7 +76,7 @@ class _ListViewDiagState extends State<ListViewDiag>
                     crossAxisCount: 1,
                     mainAxisSpacing: 25,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 6 / 1,
+                    childAspectRatio: 5 / 1,
                   ),
                 ),
               ),
@@ -147,11 +147,11 @@ class AreaView extends StatelessWidget {
                           children: <Widget>[
                             Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 8, left: 8, right: 8),
+                                    top: 16, left: 16, right: 16),
                                 child: Expanded(
                                     child: Padding(
                                   padding:
-                                      const EdgeInsets.only(top: 4, bottom: 4),
+                                      const EdgeInsets.only(top: 8, bottom: 8),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -164,28 +164,24 @@ class AreaView extends StatelessWidget {
                                               style: const TextStyle(
                                                 fontFamily: AppTheme.fontName,
                                                 fontWeight: FontWeight.w800,
-                                                fontSize: 10,
+                                                fontSize: 8,
                                                 letterSpacing: 0.2,
                                                 color: AppTheme.green,
                                               ))),
-                                      Container(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 0),
-                                          width: 220,
-                                          child: Text(tabDiagList!.answer,
-                                              textAlign: TextAlign.start,
-                                              style: const TextStyle(
-                                                fontFamily: AppTheme.fontName,
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 10,
-                                                letterSpacing: 0.2,
-                                                color: AppTheme.green,
-                                              ))),
+                                      Text(tabDiagList!.answer,
+                                          textAlign: TextAlign.start,
+                                          style: const TextStyle(
+                                            fontFamily: AppTheme.fontName,
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 8,
+                                            letterSpacing: 0.2,
+                                            color: AppTheme.green,
+                                          )),
                                       const Spacer(),
                                       Container(
                                         // alignment: Alignment.centerRight,
-                                        padding: EdgeInsets.only(
-                                            bottom: 2, right: 6),
+                                        padding: const EdgeInsets.only(
+                                            top: 16, right: 6, bottom: 16),
                                         child: Checkbox(
                                           value: false,
                                           onChanged: (value) {},
