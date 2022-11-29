@@ -1,4 +1,4 @@
-import 'package:Edifarm/riwayat/riwayart_pupuk.dart';
+import 'package:Edifarm/riwayat_Pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/edit-bio': (context) => const EditProfilePage(),
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
-        '/riwayatpupuk': (context) => ListViewRiwayatPupuk(),
+        '/riwayatpupuk': (context) => RiwayatPupuk(),
       },
     );
   }
