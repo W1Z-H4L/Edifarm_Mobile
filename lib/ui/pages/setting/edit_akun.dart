@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/pages/setting/popup.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -100,6 +101,68 @@ class _EditProfilePageState extends State<EditProfilePage>
     image = File(imagePicked!.path);
     setState(() {});
   }
+
+  // Widget popup() {
+  //   return Scaffold(
+  //     backgroundColor: Colors.transparent,
+  //     body: Container(
+  //       alignment: Alignment.center,
+  //       child: Column(
+  //         children: <Widget>[
+  //           const Text(
+  //             'Apakah Anda Yakin Ingin Merubah Data Diri ?',
+  //             style: TextStyle(
+  //               fontFamily: AppTheme.fontName,
+  //               fontSize: 12,
+  //               color: AppTheme.green,
+  //             ),
+  //           ),
+  //           Row(
+  //             children: [
+  //               Container(
+  //                 alignment: Alignment.center,
+  //                 height: 30,
+  //                 width: 60,
+  //                 decoration: BoxDecoration(
+  //                     color: Colors.transparent,
+  //                     border: Border.all(color: AppTheme.orange),
+  //                     borderRadius: BorderRadius.circular(10)),
+  //                 child: const Text(
+  //                   'Tidak',
+  //                   textAlign: TextAlign.center,
+  //                   style: TextStyle(
+  //                       fontSize: 10,
+  //                       color: AppTheme.orange,
+  //                       fontFamily: AppTheme.fontName),
+  //                 ),
+  //               ),
+  //               const Spacer(),
+  //               Container(
+  //                 height: 30,
+  //                 width: 60,
+  //                 alignment: Alignment.center,
+  //                 decoration: BoxDecoration(
+  //                     color: AppTheme.orange,
+  //                     borderRadius: BorderRadius.circular(10)),
+  //                 child: const Text(
+  //                   'Ya',
+  //                   textAlign: TextAlign.center,
+  //                   style: TextStyle(
+  //                       fontSize: 10,
+  //                       color: Colors.white,
+  //                       fontFamily: AppTheme.fontName),
+  //                 ),
+  //               ),
+  //               const SizedBox(
+  //                 height: 50,
+  //               )
+  //             ],
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Future _potoBottomSheet() {
     return showModalBottomSheet(
@@ -527,38 +590,46 @@ class _EditProfilePageState extends State<EditProfilePage>
                 const SizedBox(
                   width: 80,
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 60,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border: Border.all(color: AppTheme.green),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: const Text(
-                    'Cancel',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: AppTheme.green,
-                        fontFamily: AppTheme.fontName),
+                InkWell(
+                  onTap: () => PopUp(),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 35,
+                    width: 90,
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border.all(color: AppTheme.green),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Text(
+                      'Cancel',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: AppTheme.green,
+                          fontFamily: AppTheme.fontName),
+                    ),
                   ),
                 ),
                 const Spacer(),
-                Container(
-                  height: 60,
-                  width: 90,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: AppTheme.green,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: const Text(
-                    'Submit',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
-                        fontFamily: AppTheme.fontName),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context, '/pop');
+                  },
+                  child: Container(
+                    height: 35,
+                    width: 90,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: AppTheme.green,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Text(
+                      'Submit',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                          fontFamily: AppTheme.fontName),
+                    ),
                   ),
                 ),
                 // Container(

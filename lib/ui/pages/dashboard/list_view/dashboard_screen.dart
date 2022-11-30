@@ -1,5 +1,6 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/komponen/motivasi.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/progres_view.dart';
 import 'package:Edifarm/ui/pages/dashboard/komponen/title_view.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
     );
     listViews.add(
-      AktivitasDataView(
+      MediterranesnDietView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:

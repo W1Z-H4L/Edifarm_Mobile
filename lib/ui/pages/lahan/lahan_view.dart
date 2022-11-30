@@ -223,6 +223,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                   // ),
 
                                   Expanded(
+                                      child: InkWell(
                                     child: Container(
                                       height: 48,
                                       decoration: BoxDecoration(
@@ -252,7 +253,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                         ),
                                       ),
                                     ),
-                                  ),
+                                  )),
                                   const SizedBox(
                                     height: 200,
                                   )
