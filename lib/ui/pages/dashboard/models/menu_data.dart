@@ -27,11 +27,7 @@ class MenuListData {
     MenuListData(
       imagePath: 'assets/gambar_variety.png',
       titleTxt: 'Jenis',
-      deskripsi: <String>[
-        'Informasi Jenis',
-        'Padi Yang Sedang',
-        'Ditanam Dilahan'
-      ],
+      deskripsi: <String>['Informasi Jenis', 'Yang Sedang', 'Ditanam Dilahan'],
       startColor: '#006B6C',
       index: 1,
       endColor: '#CCE1E2',
@@ -47,11 +43,7 @@ class MenuListData {
     MenuListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Cuaca',
-      deskripsi: <String>[
-        'Diagnosa Padi ',
-        'Laporkan Cuaca Buruk',
-        'Akhir - Akhir Ini'
-      ],
+      deskripsi: <String>['Diagnosa Padi ', 'Cuaca Buruk', 'Akhir - Akhir Ini'],
       startColor: '#006B6C',
       index: 3,
       endColor: '#CCE1E2',
@@ -60,11 +52,7 @@ class MenuListData {
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Diagnosa',
       index: 4,
-      deskripsi: <String>[
-        'Diagnosa Padi ',
-        'Laporkan Padi Rusak',
-        'Penyebabnya'
-      ],
+      deskripsi: <String>['Diagnosa Padi ', 'Padi Rusak', 'Penyebabnya'],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),

@@ -108,7 +108,7 @@ class _EditProfilePageState extends State<EditProfilePage>
       builder: (context) {
         return SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),
@@ -252,312 +252,338 @@ class _EditProfilePageState extends State<EditProfilePage>
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          child: ListView(
-            children: [
-              Container(
-                padding: EdgeInsets.only(right: 0),
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.settings,
-                    color: AppTheme.green,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => SettingsPage()));
-                  },
+          child: ListView(children: [
+            Container(
+              padding: EdgeInsets.only(right: 0),
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: AppTheme.green,
                 ),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => SettingsPage()));
+                },
               ),
-              SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: Stack(
-                  children: [
-                    image == null
-                        ? Container(
-                            width: 130,
-                            height: 130,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 4,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      blurRadius: 10,
-                                      color: Colors.black.withOpacity(0.1),
-                                      offset: Offset(0, 10))
-                                ],
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                      "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                                    ))),
-                          )
-                        : Container(
-                            width: 130,
-                            height: 130,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 4,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      blurRadius: 10,
-                                      color: Colors.black.withOpacity(0.1),
-                                      offset: Offset(0, 10))
-                                ],
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  // image: Image.file(
-                                  //   image ?? File(""),
-                                  // ) as ImageProvider<Object>),
-                                  image: FileImage(
-                                    image ?? File(""),
-                                  ),
-                                )),
-                          ),
-                    Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                            ),
-                            color: AppTheme.green,
-                          ),
-                          child: InkWell(
-                            child: Icon(
-                              Icons.edit,
-                              color: Colors.white,
-                            ),
-                            onTap: () => _potoBottomSheet(),
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              Text(
-                'Aditiya Gilang',
-                textAlign: TextAlign.center,
-                style: greenTextStyle2.copyWith(
-                  fontWeight: extraBold,
-                  fontSize: 20,
-                  color: subtitleColor2,
-                ),
-              ),
-              Text(
-                'Aditiya',
-                textAlign: TextAlign.center,
-                style: greenTextStyle2.copyWith(
-                  fontSize: 12,
-                  color: subtitleColor2,
-                ),
-              ),
-              Text(
-                'Semangat Bertani Yah Gais ;)',
-                textAlign: TextAlign.center,
-                style: greenTextStyle2.copyWith(
-                  fontSize: 12,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Center(
+              child: Stack(
                 children: [
-                  Container(
-                    height: 20,
-                    width: 20,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                      image: AssetImage('assets/logo.png'),
-                    )),
-                  ),
-                  Container(
-                      padding: EdgeInsets.only(left: 5, right: 45, bottom: 5),
-                      child: Text(
-                        'Edit Biodata',
-                        textAlign: TextAlign.start,
-                        style: greenTextStyle2.copyWith(
-                          fontSize: 18,
-                          fontWeight: extraBold,
-                          color: subtitleColor2,
+                  image == null
+                      ? Container(
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 4,
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor),
+                              boxShadow: [
+                                BoxShadow(
+                                    spreadRadius: 2,
+                                    blurRadius: 10,
+                                    color: Colors.black.withOpacity(0.1),
+                                    offset: Offset(0, 10))
+                              ],
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(
+                                    "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                                  ))),
+                        )
+                      : Container(
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 4,
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor),
+                              boxShadow: [
+                                BoxShadow(
+                                    spreadRadius: 2,
+                                    blurRadius: 10,
+                                    color: Colors.black.withOpacity(0.1),
+                                    offset: Offset(0, 10))
+                              ],
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                // image: Image.file(
+                                //   image ?? File(""),
+                                // ) as ImageProvider<Object>),
+                                image: FileImage(
+                                  image ?? File(""),
+                                ),
+                              )),
+                        ),
+                  Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            width: 4,
+                            color: Theme.of(context).scaffoldBackgroundColor,
+                          ),
+                          color: AppTheme.green,
+                        ),
+                        child: InkWell(
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                          ),
+                          onTap: () => _potoBottomSheet(),
                         ),
                       )),
                 ],
               ),
-              SizedBox(
-                height: 10,
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Text(
+              'Aditiya Gilang',
+              textAlign: TextAlign.center,
+              style: greenTextStyle2.copyWith(
+                fontWeight: extraBold,
+                fontSize: 20,
+                color: subtitleColor2,
               ),
-              Container(
-                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-                  child: TextFormField(
-                    showCursor: true,
-                    cursorHeight: 20,
-                    style: blackTextStyle2,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          Icons.edit_sharp,
-                          color: subtitleColor2,
-                        ),
-                        onPressed: () {},
+            ),
+            Text(
+              'Aditiya',
+              textAlign: TextAlign.center,
+              style: greenTextStyle2.copyWith(
+                fontSize: 12,
+                color: subtitleColor2,
+              ),
+            ),
+            Text(
+              'Semangat Bertani Ya Gais ;)',
+              textAlign: TextAlign.center,
+              style: greenTextStyle2.copyWith(
+                fontSize: 12,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 20,
+                  width: 20,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage('assets/icon_edit_biodata.png'),
+                  )),
+                ),
+                Container(
+                    padding: EdgeInsets.only(left: 5, right: 45, bottom: 5),
+                    child: Text(
+                      'Edit Biodata',
+                      textAlign: TextAlign.start,
+                      style: greenTextStyle2.copyWith(
+                        fontSize: 18,
+                        fontWeight: extraBold,
+                        color: subtitleColor2,
                       ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelText: 'Nama',
-                      hintText: 'Aditiya Gilang',
-                      hintStyle: subtitleTextStyle,
-                      labelStyle: greenTextStyle3,
-                      focusColor: subtitleColor2,
-                      fillColor: subtitleColor2,
-                    ),
-                  )),
-              SizedBox(
-                height: 3,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-                  child: TextFormField(
-                    showCursor: true,
-                    cursorHeight: 25,
-                    style: blackTextStyle2,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          Icons.edit_sharp,
-                          color: subtitleColor2,
-                        ),
-                        onPressed: () {},
+                    )),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                child: TextFormField(
+                  showCursor: true,
+                  cursorHeight: 20,
+                  style: blackTextStyle2,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.edit_sharp,
+                        color: subtitleColor2,
                       ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelText: 'Alamat',
-                      hintText: 'Jombang',
-                      hintStyle: subtitleTextStyle,
-                      labelStyle: greenTextStyle3,
-                      focusColor: subtitleColor2,
-                      fillColor: subtitleColor2,
+                      onPressed: () {},
                     ),
-                  )),
-              SizedBox(
-                height: 3,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-                  child: TextFormField(
-                    showCursor: true,
-                    cursorHeight: 20,
-                    style: blackTextStyle2,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          Icons.edit_sharp,
-                          color: subtitleColor2,
-                        ),
-                        onPressed: () {},
-                      ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelText: 'Nomer Telepon',
-                      hintText: '082232937743',
-                      hintStyle: subtitleTextStyle,
-                      labelStyle: greenTextStyle3,
-                      focusColor: subtitleColor2,
-                      fillColor: subtitleColor2,
-                    ),
-                  )),
-              SizedBox(
-                height: 3,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-                  child: TextFormField(
-                    enabled: false,
-                    showCursor: true,
-                    cursorHeight: 25,
-                    style: blackTextStyle2,
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelText: 'Tanggal Lahir',
-                      hintText: '21 November 2003',
-                      hintStyle: subtitleTextStyle,
-                      labelStyle: greenTextStyle3,
-                      focusColor: subtitleColor2,
-                      fillColor: subtitleColor2,
-                    ),
-                  )),
-              SizedBox(
-                height: 3,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-                  child: TextFormField(
-                    enabled: false,
-                    showCursor: true,
-                    cursorHeight: 25,
-                    style: blackTextStyle2,
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelText: 'Jenis Kelamin',
-                      hintText: 'Laki - Laki',
-                      hintStyle: subtitleTextStyle,
-                      labelStyle: greenTextStyle3,
-                      focusColor: subtitleColor2,
-                      fillColor: subtitleColor2,
-                    ),
-                  )),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                  // height: 30,
-                  // width: 150,
-                  padding: EdgeInsets.only(
-                    left: 25,
-                    right: 25,
-                    bottom: 90,
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelText: 'Nama',
+                    hintText: 'Aditiya Gilang',
+                    hintStyle: subtitleTextStyle,
+                    labelStyle: greenTextStyle3,
+                    focusColor: subtitleColor2,
+                    fillColor: subtitleColor2,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomFilledButton(
-                        onPressed: () {},
-                        height: 50,
-                        width: 150,
-                        title: 'Cancel',
-                        // onPressed: () {},
+                )),
+            SizedBox(
+              height: 3,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                child: TextFormField(
+                  showCursor: true,
+                  cursorHeight: 25,
+                  style: blackTextStyle2,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.edit_sharp,
+                        color: subtitleColor2,
                       ),
-                      Container(
-                        padding: EdgeInsets.only(left: 10),
-                        child: CustomFilledButton(
-                          onPressed: () {},
-                          height: 50,
-                          width: 150,
-                          title: 'Save',
-                          // onPressed: () {},
-                        ),
+                      onPressed: () {},
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelText: 'Alamat',
+                    hintText: 'Jombang',
+                    hintStyle: subtitleTextStyle,
+                    labelStyle: greenTextStyle3,
+                    focusColor: subtitleColor2,
+                    fillColor: subtitleColor2,
+                  ),
+                )),
+            SizedBox(
+              height: 3,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                child: TextFormField(
+                  showCursor: true,
+                  cursorHeight: 20,
+                  style: blackTextStyle2,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.edit_sharp,
+                        color: subtitleColor2,
                       ),
-                      SizedBox(
-                        height: 200,
-                      )
-                    ],
-                  ))
-            ],
-          ),
+                      onPressed: () {},
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelText: 'Nomer Telepon',
+                    hintText: '082232937743',
+                    hintStyle: subtitleTextStyle,
+                    labelStyle: greenTextStyle3,
+                    focusColor: subtitleColor2,
+                    fillColor: subtitleColor2,
+                  ),
+                )),
+            SizedBox(
+              height: 3,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                child: TextFormField(
+                  enabled: false,
+                  showCursor: true,
+                  cursorHeight: 25,
+                  style: blackTextStyle2,
+                  decoration: InputDecoration(
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelText: 'Tanggal Lahir',
+                    hintText: '21 November 2003',
+                    hintStyle: subtitleTextStyle,
+                    labelStyle: greenTextStyle3,
+                    focusColor: subtitleColor2,
+                    fillColor: subtitleColor2,
+                  ),
+                )),
+            SizedBox(
+              height: 3,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                child: TextFormField(
+                  enabled: false,
+                  showCursor: true,
+                  cursorHeight: 25,
+                  style: blackTextStyle2,
+                  decoration: InputDecoration(
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelText: 'Jenis Kelamin',
+                    hintText: 'Laki - Laki',
+                    hintStyle: subtitleTextStyle,
+                    labelStyle: greenTextStyle3,
+                    focusColor: subtitleColor2,
+                    fillColor: subtitleColor2,
+                  ),
+                )),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                const SizedBox(
+                  width: 80,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  height: 60,
+                  width: 90,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(color: AppTheme.green),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Text(
+                    'Cancel',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: AppTheme.green,
+                        fontFamily: AppTheme.fontName),
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  height: 60,
+                  width: 90,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: AppTheme.green,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Text(
+                    'Submit',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontFamily: AppTheme.fontName),
+                  ),
+                ),
+                // Container(
+                //   alignment: Alignment.center,
+                //   height: 30,
+                //   width: 60,
+                //   decoration: BoxDecoration(
+                //       color: Colors.transparent,
+                //       border: Border.all(color: AppTheme.green),
+                //       borderRadius: BorderRadius.circular(10)),
+                //   child: const Text(
+                //     'Cancel',
+                //     textAlign: TextAlign.center,
+                //     style: TextStyle(
+                //         fontSize: 10,
+                //         color: AppTheme.green,
+                //         fontFamily: AppTheme.fontName),
+                //   ),
+                // ),
+                const SizedBox(
+                  width: 80,
+                )
+              ],
+            )
+          ]),
         ),
       ),
     );

@@ -230,10 +230,75 @@ class _PotoPadiState extends State<PotoPadi> {
                           child: Container(
                             height: 190,
                             decoration: const BoxDecoration(
+                                color: Colors.transparent,
                                 image: DecorationImage(
                                     image: AssetImage('assets/camera.png'))),
                           ),
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 80,
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 30,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  border: Border.all(color: AppTheme.green),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Text(
+                                'Cancel',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    color: AppTheme.green,
+                                    fontFamily: AppTheme.fontName),
+                              ),
+                            ),
+                            const Spacer(),
+                            Container(
+                              height: 30,
+                              width: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: AppTheme.green,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Text(
+                                'Submit',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                    fontFamily: AppTheme.fontName),
+                              ),
+                            ),
+                            // Container(
+                            //   alignment: Alignment.center,
+                            //   height: 30,
+                            //   width: 60,
+                            //   decoration: BoxDecoration(
+                            //       color: Colors.transparent,
+                            //       border: Border.all(color: AppTheme.green),
+                            //       borderRadius: BorderRadius.circular(10)),
+                            //   child: const Text(
+                            //     'Cancel',
+                            //     textAlign: TextAlign.center,
+                            //     style: TextStyle(
+                            //         fontSize: 10,
+                            //         color: AppTheme.green,
+                            //         fontFamily: AppTheme.fontName),
+                            //   ),
+                            // ),
+                            const SizedBox(
+                              width: 80,
+                            )
+                          ],
+                        )
                       ],
                     ),
                   ],
