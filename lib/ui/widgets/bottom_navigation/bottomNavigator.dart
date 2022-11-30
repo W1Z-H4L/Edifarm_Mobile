@@ -10,6 +10,7 @@ import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 
@@ -115,8 +116,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      DiagnosaScreen(animationController: animationController);
+                  tabBody = CourseInfoScreen(
+                      animationController: animationController);
                 });
               });
             } else if (index == 3) {
