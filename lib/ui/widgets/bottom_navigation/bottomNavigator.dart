@@ -1,5 +1,9 @@
+import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
+import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
-import 'package:Edifarm/jenispadi/jenis_padi.dart';
+import 'package:Edifarm/jenispadi/list_data_padi.dart';
+import 'package:Edifarm/jenispadi/jenispadi.dart';
+import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
@@ -131,8 +135,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      activityPage(animationController: animationController);
+                  tabBody = RiwayatPestisida(
+                      animationController: animationController);
                 });
               });
             }
