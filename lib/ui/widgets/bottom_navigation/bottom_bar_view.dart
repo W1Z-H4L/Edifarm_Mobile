@@ -163,6 +163,7 @@ class _BottomBarViewState extends State<BottomBarView>
                             focusColor: Colors.transparent,
                             onTap: widget.addClick,
                             child: Container(
+                                padding: EdgeInsets.all(5),
                                 child: TabIcons(
                                     tabIconData: widget.tabIconsList?[4],
                                     removeAllSelect: () {
