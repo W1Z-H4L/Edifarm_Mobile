@@ -1,6 +1,7 @@
 import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
+import 'package:Edifarm/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/jenispadi/list_data_padi.dart';
 import 'package:Edifarm/jenispadi/jenispadi.dart';
 import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
@@ -137,7 +138,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      RiwayatIrigasi(animationController: animationController);
+                      JenisPadiPage(animationController: animationController);
                 });
               });
             }
