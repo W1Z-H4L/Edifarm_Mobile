@@ -288,6 +288,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                     child: Center(
                         child: Image.asset(
                       'assets/potoprofil.png',
+                      height: 115,
+                      width: 115,
                     )),
                   ),
                 ),
