@@ -136,8 +136,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody = RiwayatPestisida(
-                      animationController: animationController);
+                  tabBody =
+                      RiwayatIrigasi(animationController: animationController);
                 });
               });
             }
