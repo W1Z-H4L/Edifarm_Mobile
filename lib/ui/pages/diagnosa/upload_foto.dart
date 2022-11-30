@@ -277,23 +277,6 @@ class _PotoPadiState extends State<PotoPadi> {
                                     fontFamily: AppTheme.fontName),
                               ),
                             ),
-                            // Container(
-                            //   alignment: Alignment.center,
-                            //   height: 30,
-                            //   width: 60,
-                            //   decoration: BoxDecoration(
-                            //       color: Colors.transparent,
-                            //       border: Border.all(color: AppTheme.green),
-                            //       borderRadius: BorderRadius.circular(10)),
-                            //   child: const Text(
-                            //     'Cancel',
-                            //     textAlign: TextAlign.center,
-                            //     style: TextStyle(
-                            //         fontSize: 10,
-                            //         color: AppTheme.green,
-                            //         fontFamily: AppTheme.fontName),
-                            //   ),
-                            // ),
                             const SizedBox(
                               width: 80,
                             )

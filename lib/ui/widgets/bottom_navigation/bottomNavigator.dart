@@ -137,7 +137,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      RiwayatIrigasi(animationController: animationController);
+                      activityPage(animationController: animationController);
                 });
               });
             }

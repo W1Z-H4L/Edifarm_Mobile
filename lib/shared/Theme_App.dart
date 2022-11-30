@@ -23,6 +23,7 @@ class AppTheme {
   static const Color splash = Color(0xFFBDE2E7);
   static const Color green = Color(0xFF006B6C);
   static const Color black = Color(0xFF000000);
+  static const Color orange = Color(0xFFFFA722);
   static const String fontName = 'Montserrat';
 
   static const TextTheme textTheme = TextTheme(
