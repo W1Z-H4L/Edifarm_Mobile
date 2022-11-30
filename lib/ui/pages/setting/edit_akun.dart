@@ -369,7 +369,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                 ),
               ),
               Text(
-                'Semangat Bertani Yah Gais ;)',
+                'Semangat Bertani Ya Gais ;)',
                 textAlign: TextAlign.center,
                 style: greenTextStyle2.copyWith(
                   fontSize: 12,
@@ -386,7 +386,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                     width: 20,
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/logo.png'),
+                      image: AssetImage('assets/icon_edit_biodata.png'),
                     )),
                   ),
                   Container(

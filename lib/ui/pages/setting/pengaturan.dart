@@ -140,7 +140,7 @@ class _SettingsPage extends State<SettingsPage> {
                 width: 20,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('assets/icon_edit_qprofile.png'),
+                  image: AssetImage('assets/icon_edit_profile.png'),
                 )),
               ),
               const SizedBox(

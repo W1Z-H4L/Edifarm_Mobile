@@ -1,5 +1,6 @@
 import 'package:Edifarm/aktivitas/activity_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/pertanyaan_data.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -106,98 +107,98 @@ class AreaView extends StatelessWidget {
         animation: animationController!,
         builder: (BuildContext context, Widget? child) {
           return FadeTransition(
-            opacity: animation!,
-            child: Transform(
-              transform: Matrix4.translationValues(
-                  0.0, 50 * (1.0 - animation!.value), 0.0),
-              child: Container(
+              opacity: animation!,
+              child: Transform(
+                transform: Matrix4.translationValues(
+                    0.0, 50 * (1.0 - animation!.value), 0.0),
+                child: Container(
                   child: DottedBorder(
-                strokeWidth: 1,
-                borderType: BorderType.RRect,
-                radius: Radius.circular(25),
+                      strokeWidth: 1,
+                      borderType: BorderType.RRect,
+                      radius: Radius.circular(25),
 
-                // decoration: BoxDecoration(
+                      // decoration: BoxDecoration(
 
-                color: Color.fromARGB(255, 1, 104, 97),
-                // borderRadius: const BorderRadius.only(
-                //     topLeft: Radius.circular(8.0),
-                //     bottomLeft: Radius.circular(8.0),
-                //     bottomRight: Radius.circular(8.0),
-                //     topRight: Radius.circular(8.0)),
-                // boxShadow: <BoxShadow>[
-                //   BoxShadow(
-                //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                //       offset: const Offset(1.1, 1.1),
-                //       blurRadius: 10.0),
-                // ],),
+                      color: Color.fromARGB(255, 1, 104, 97),
+                      // borderRadius: const BorderRadius.only(
+                      //     topLeft: Radius.circular(8.0),
+                      //     bottomLeft: Radius.circular(8.0),
+                      //     bottomRight: Radius.circular(8.0),
+                      //     topRight: Radius.circular(8.0)),
+                      // boxShadow: <BoxShadow>[
+                      //   BoxShadow(
+                      //       color: FitnessAppTheme.grey.withOpacity(0.4),
+                      //       offset: const Offset(1.1, 1.1),
+                      //       blurRadius: 10.0),
+                      // ],),
 
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                      focusColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(8.0)),
-                      splashColor: AppTheme.nearlyDarkBlue.withOpacity(0.2),
-                      onTap: () {},
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 16, left: 16, right: 16),
-                                child: Expanded(
-                                    child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 8, bottom: 8),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                          padding:
-                                              const EdgeInsets.only(left: 5),
-                                          child: Text(tabDiagList!.no,
-                                              style: const TextStyle(
-                                                fontFamily: AppTheme.fontName,
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: 8,
-                                                letterSpacing: 0.2,
-                                                color: AppTheme.green,
-                                              ))),
-                                      Text(tabDiagList!.answer,
-                                          textAlign: TextAlign.start,
-                                          style: const TextStyle(
-                                            fontFamily: AppTheme.fontName,
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 8,
-                                            letterSpacing: 0.2,
-                                            color: AppTheme.green,
-                                          )),
-                                      const Spacer(),
-                                      Container(
-                                        // alignment: Alignment.centerRight,
-                                        padding: const EdgeInsets.only(
-                                            top: 16, right: 6, bottom: 16),
-                                        child: Checkbox(
-                                          value: false,
-                                          onChanged: (value) {},
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )))
-                          ])),
+                      child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                              focusColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8.0)),
+                              splashColor:
+                                  AppTheme.nearlyDarkBlue.withOpacity(0.2),
+                              onTap: () => const DiagnosaScreen(),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Container(
+                                              padding: EdgeInsets.only(
+                                                  top: 16, left: 10),
+                                              child: Text(tabDiagList!.no,
+                                                  style: const TextStyle(
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontWeight: FontWeight.w800,
+                                                    fontSize: 10,
+                                                    letterSpacing: 0.2,
+                                                    color: AppTheme.green,
+                                                  ))),
+                                          Container(
+                                            width: 220,
+                                            padding: EdgeInsets.only(top: 16),
+                                            child: Text(tabDiagList!.answer,
+                                                textAlign: TextAlign.start,
+                                                style: const TextStyle(
+                                                  fontFamily: AppTheme.fontName,
+                                                  fontWeight: FontWeight.w800,
+                                                  fontSize: 10,
+                                                  letterSpacing: 0.2,
+                                                  color: AppTheme.green,
+                                                )),
+                                          ),
+                                          const Spacer(),
+                                          Container(
+                                            // alignment: Alignment.centerRight,
+                                            padding: EdgeInsets.only(top: 5),
+                                            child: Checkbox(
+                                              value: false,
+                                              onChanged: (value) {},
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ])))),
                 ),
-              )),
-            ),
-          );
+              ));
         });
   }
 }
+
+
 
  
 //import 'package:dotted_border/dotted_border.dart';
