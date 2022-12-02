@@ -2,6 +2,7 @@ import 'package:Edifarm/shared/Theme_App.dart';
 
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatelessWidget {
   // const SignInPage({Key? key}) : super(key: key);
@@ -76,12 +77,12 @@ class SignInPage extends StatelessWidget {
                 TextFormField(
                   showCursor: true,
                   cursorHeight: 25,
-                  style: AppTheme.custom2,
+                  style: GoogleFonts.montserrat(),
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: AppTheme.green)),
-                    labelText: 'Ussername',
-                    hintText: 'Masukan Ussername Anda',
+                    labelText: 'Username',
+                    hintText: 'Masukan Username Anda',
                     hintStyle: AppTheme.custom,
                     labelStyle: AppTheme.custom1,
                     focusColor: AppTheme.green,
@@ -96,7 +97,7 @@ class SignInPage extends StatelessWidget {
                   controller: passwordController,
                   showCursor: true,
                   cursorHeight: 25,
-                  style: AppTheme.custom2,
+                  style: GoogleFonts.montserrat(),
                   obscureText: _isObsecure3,
                   decoration: InputDecoration(
                     focusedBorder: const OutlineInputBorder(

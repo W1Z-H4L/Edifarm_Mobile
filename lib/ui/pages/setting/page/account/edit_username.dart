@@ -1,6 +1,8 @@
+import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class EditUsername extends StatefulWidget {
   @override
@@ -256,19 +258,71 @@ class _EditUsername extends State<EditUsername> {
             height: 3,
           ),
           Container(
-              // height: 30,
-              // width: 150,
-              padding: EdgeInsets.only(
-                left: 90,
-                right: 90,
-                bottom: 50,
-              ),
-              child: CustomFilledButton(
-                height: 30,
-                width: 150,
-                title: 'Save',
-                onPressed: () {},
-              ))
+            // width: 65,
+            // height: 32,
+
+            padding: EdgeInsets.only(
+              left: 90,
+              right: 90,
+              bottom: 50,
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: AppTheme.green, onPrimary: Colors.white),
+              child: const Text("save"),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        child: AlertDialog(
+                          backgroundColor: Colors.white,
+                          title: Text(
+                            "Apakah anda yakin ingin mengganti username?",
+                            // selectionColor: Colors.white,
+                            style: GoogleFonts.montserrat(),
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("Tidak")),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("Ya"),
+                            )
+                          ],
+                        ),
+                      );
+                    });
+              },
+            ),
+            // child: CustomFilledButton(
+
+            //   height: 30,
+            //   width: 150,
+            //   title: 'Save',
+            //   onPressed: () {},
+            // )
+          )
         ]));
   }
+
+  // Widget popup() {
+  //   return AlertDialog(
+  //     title: Text('Sample Alert Dialog'),
+  //     content: Text(
+  //       'This is an implementation of the AlertDialog widget in Flutter',
+  //     ),
+  //     actions: [
+  //       OutlinedButton(
+  //         onPressed: () => Navigator.of(context).pop(),
+  //         child: Text('Close'),
+  //       )
+  //     ],
+  //   );
+  // }
 }
