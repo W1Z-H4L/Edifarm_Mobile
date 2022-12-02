@@ -256,10 +256,10 @@ class MediterranesnDietView extends StatelessWidget {
                                       height: 100,
                                       decoration: BoxDecoration(
                                         color: AppTheme.white,
-                                        borderRadius: BorderRadius.all(
+                                        borderRadius: const BorderRadius.all(
                                           Radius.circular(100.0),
                                         ),
-                                        border: new Border.all(
+                                        border: Border.all(
                                             width: 4,
                                             color: AppTheme.green
                                                 .withOpacity(0.2)),
@@ -273,7 +273,7 @@ class MediterranesnDietView extends StatelessWidget {
                                           Text(
                                             '${(1503 * animation!.value).toInt()}',
                                             textAlign: TextAlign.center,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontFamily: AppTheme.fontName,
                                               fontWeight: FontWeight.normal,
                                               fontSize: 24,

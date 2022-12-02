@@ -108,7 +108,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      CalenderScreen(animationController: animationController);
+                      DiagnosaScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
@@ -138,11 +138,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-<<<<<<< HEAD
-                      JenisPadiPage(animationController: animationController);
-=======
                       activityPage(animationController: animationController);
->>>>>>> 168eeba9779173ad7ae453d65b427dfcf4e922f8
                 });
               });
             }
