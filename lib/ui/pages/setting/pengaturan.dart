@@ -83,12 +83,14 @@ class _SettingsPage extends State<SettingsPage> {
                   Container(
                       alignment: Alignment.centerLeft,
                       child: ButtonSetting(
+                          alignment: Alignment.centerLeft,
                           title: 'Edit Username',
-                          height: 50,
-                          width: 200,
+                          height: 40,
+                          width: 300,
                           onPressed: () {
                             Navigator.pushNamed(context, '/edit-user');
                           })),
+                  Spacer(),
                   Container(
                       alignment: Alignment.centerRight,
                       child: IconButton(
@@ -104,20 +106,19 @@ class _SettingsPage extends State<SettingsPage> {
             // ),
             Container(
                 color: AppTheme.background,
-                padding:
-                    EdgeInsets.only(left: 25, top: 25, right: 5, bottom: 6),
+                padding: EdgeInsets.only(left: 25, right: 5, bottom: 6),
                 alignment: Alignment.centerLeft,
                 child: Row(children: [
                   Container(
-                      padding: EdgeInsets.only(right: 20),
                       alignment: Alignment.centerLeft,
                       child: ButtonSetting(
                           title: 'Edit Passsword',
-                          height: 10,
-                          width: 200,
+                          height: 40,
+                          width: 300,
                           onPressed: () {
                             Navigator.pushNamed(context, '/edit-pass');
                           })),
+                  Spacer(),
                   Container(
                       alignment: Alignment.centerRight,
                       child: IconButton(
@@ -171,11 +172,13 @@ class _SettingsPage extends State<SettingsPage> {
                       alignment: Alignment.centerLeft,
                       child: ButtonSetting(
                           title: 'Edit Akun',
-                          height: 50,
-                          width: 200,
+                          alignment: Alignment.centerLeft,
+                          height: 40,
+                          width: 300,
                           onPressed: () {
                             Navigator.pushNamed(context, '/edit-bio');
                           })),
+                  Spacer(),
                   Container(
                       alignment: Alignment.centerRight,
                       child: IconButton(

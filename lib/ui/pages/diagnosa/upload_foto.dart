@@ -97,11 +97,11 @@ class _PotoPadiState extends State<PotoPadi> {
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Color(0xFF2A2A72).withOpacity(0.1),
+                        color: AppTheme.green.withOpacity(0.1),
                       ),
                       child: const Icon(
                         Icons.camera_alt,
-                        color: Color(0xFF2A2A72),
+                        color: AppTheme.green,
                       ),
                     ),
                     title: Text("Upload dari Galeri",
@@ -133,11 +133,11 @@ class _PotoPadiState extends State<PotoPadi> {
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Color(0xFF2A2A72).withOpacity(0.1),
+                        color: AppTheme.green.withOpacity(0.1),
                       ),
                       child: const Icon(
                         Icons.image,
-                        color: Color(0xFF2A2A72),
+                        color: AppTheme.green,
                       ),
                     ),
                     title: Text("Upload dari Kamera",
