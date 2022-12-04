@@ -675,6 +675,9 @@ class _EditProfilePageState extends State<EditProfilePage>
                       });
                 },
               ),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),

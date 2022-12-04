@@ -77,7 +77,7 @@ class _SettingsPage extends State<SettingsPage> {
           ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(left: 25, top: 25, right: 5, bottom: 6),
+              padding: EdgeInsets.only(top: 25, right: 5, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
@@ -106,7 +106,7 @@ class _SettingsPage extends State<SettingsPage> {
           // ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(left: 25, right: 5, bottom: 6),
+              padding: EdgeInsets.only(right: 5, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
