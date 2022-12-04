@@ -1,3 +1,4 @@
+import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
@@ -270,19 +271,112 @@ class _EditPassword extends State<EditPassword> {
             height: 3,
           ),
           Container(
-              // height: 30,
-              // width: 150,
-              padding: EdgeInsets.only(
-                left: 90,
-                right: 90,
-                bottom: 50,
+            padding: const EdgeInsets.only(
+              top: 80,
+              left: 180,
+              right: 180,
+              bottom: 50,
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(),
+              autofocus: false,
+              child: Container(
+                height: 45,
+                width: 90,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: AppTheme.green,
+                    borderRadius: BorderRadius.circular(30)),
+                child: const Text(
+                  'Submit',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                      fontFamily: AppTheme.fontName),
+                ),
               ),
-              child: CustomFilledButton(
-                height: 30,
-                width: 150,
-                title: 'Save',
-                onPressed: () {},
-              ))
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        padding: EdgeInsets.only(top: 50, bottom: 50),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: AlertDialog(
+                          title: const Text(
+                            "Apakah anda yakin ingin mengganti password?",
+                            selectionColor: Colors.white,
+                            style: TextStyle(
+                                color: AppTheme.black,
+                                fontFamily: AppTheme.fontName,
+                                fontSize: 10),
+                          ),
+                          actions: [
+                            Container(
+                              height: 30,
+                              width: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: AppTheme.orange,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Tidak",
+                                    style: TextStyle(
+                                        color: AppTheme.white,
+                                        fontFamily: AppTheme.fontName,
+                                        fontSize: 10),
+                                  )),
+                            ),
+                            Container(
+                              height: 30,
+                              width: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.orange),
+                                  color: AppTheme.white,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Ya",
+                                    style: TextStyle(
+                                        color: AppTheme.orange,
+                                        fontFamily: AppTheme.fontName,
+                                        fontSize: 10),
+                                  )),
+                            ),
+                          ],
+                        ),
+                      );
+                    });
+              },
+            ),
+          )
+          // Container(
+          //     // height: 30,
+          //     // width: 150,
+          //     padding: EdgeInsets.only(
+          //       left: 90,
+          //       right: 90,
+          //       bottom: 50,
+          //     ),
+          //     child: CustomFilledButton(
+          //       height: 30,
+          //       width: 150,
+          //       title: 'Save',
+          //       onPressed: () {},
+          //     ))
         ]));
   }
 }
