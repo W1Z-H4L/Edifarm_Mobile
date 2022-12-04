@@ -120,14 +120,16 @@ class ButtonSetting extends StatelessWidget {
   final double width;
   final double height;
   final VoidCallback? onPressed;
+  final Alignment? alignment;
 
-  const ButtonSetting({
-    Key? key,
-    required this.title,
-    this.width = double.infinity,
-    this.height = 50,
-    this.onPressed,
-  }) : super(key: key);
+  const ButtonSetting(
+      {Key? key,
+      required this.title,
+      this.width = double.infinity,
+      this.height = 50,
+      this.onPressed,
+      this.alignment = Alignment.centerLeft})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

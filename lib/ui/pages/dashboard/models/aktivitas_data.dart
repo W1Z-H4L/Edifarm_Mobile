@@ -54,26 +54,25 @@ class AktivitasDataView extends StatelessWidget {
                               height: 25,
                             ),
                             InkWell(
-                                onTap: () => const DiagnosaScreen(),
                                 child: Container(
-                                  padding: const EdgeInsets.all(5),
-                                  height: 70,
-                                  width: 70,
-                                  decoration: BoxDecoration(
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                        'assets/icon_menu_jenis.png',
-                                      )),
-                                      gradient: const LinearGradient(
-                                        colors: [
-                                          AppTheme.orange,
-                                          AppTheme.white,
-                                        ],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                      ),
-                                      borderRadius: BorderRadius.circular(50)),
-                                )),
+                              padding: const EdgeInsets.all(5),
+                              height: 70,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                    'assets/icon_menu_jenis.png',
+                                  )),
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      AppTheme.orange,
+                                      AppTheme.white,
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50)),
+                            )),
                             const Spacer(),
                             InkWell(
                               onTap: () => const DiagnosaScreen(),
