@@ -611,42 +611,121 @@ class _EditProfilePageState extends State<EditProfilePage>
                   ),
                 ),
                 const Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context, '/pop');
-                  },
-                  child: Container(
-                    height: 35,
-                    width: 90,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: AppTheme.green,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Text(
-                      'Submit',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white,
-                          fontFamily: AppTheme.fontName),
+                Container(
+                  padding: const EdgeInsets.only(
+                    top: 80,
+                    left: 180,
+                    right: 180,
+                    bottom: 50,
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(),
+                    autofocus: false,
+                    child: Container(
+                      height: 45,
+                      width: 90,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: AppTheme.green,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: const Text(
+                        'Submit',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white,
+                            fontFamily: AppTheme.fontName),
+                      ),
                     ),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Container(
+                              padding: EdgeInsets.only(top: 50, bottom: 50),
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: AlertDialog(
+                                title: const Text(
+                                  "Apakah anda yakin ingin .....?",
+                                  selectionColor: Colors.white,
+                                  style: TextStyle(
+                                      color: AppTheme.black,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10),
+                                ),
+                                actions: [
+                                  Container(
+                                    height: 30,
+                                    width: 60,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        color: AppTheme.orange,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text(
+                                          "Tidak",
+                                          style: TextStyle(
+                                              color: AppTheme.white,
+                                              fontFamily: AppTheme.fontName,
+                                              fontSize: 10),
+                                        )),
+                                  ),
+                                  Container(
+                                    height: 30,
+                                    width: 60,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: Colors.orange),
+                                        color: AppTheme.white,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text(
+                                          "Ya",
+                                          style: TextStyle(
+                                              color: AppTheme.orange,
+                                              fontFamily: AppTheme.fontName,
+                                              fontSize: 10),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                            );
+                          });
+                    },
                   ),
                 ),
-                // Container(
-                //   alignment: Alignment.center,
-                //   height: 30,
-                //   width: 60,
-                //   decoration: BoxDecoration(
-                //       color: Colors.transparent,
-                //       border: Border.all(color: AppTheme.green),
-                //       borderRadius: BorderRadius.circular(10)),
-                //   child: const Text(
-                //     'Cancel',
-                //     textAlign: TextAlign.center,
-                //     style: TextStyle(
-                //         fontSize: 10,
+                // InkWell(
+                //   onTap: () {
+                //     Navigator.pop(context, '/pop');
+                //   },
+                //   child: Container(
+                //     height: 35,
+                //     width: 90,
+                //     alignment: Alignment.center,
+                //     decoration: BoxDecoration(
                 //         color: AppTheme.green,
-                //         fontFamily: AppTheme.fontName),
+                //         borderRadius: BorderRadius.circular(10)),
+                //     child: const Text(
+                //       'Submit',
+                //       textAlign: TextAlign.center,
+                //       style: TextStyle(
+                //           fontSize: 12,
+                //           color: Colors.white,
+                //           fontFamily: AppTheme.fontName),
+                //     ),
                 //   ),
                 // ),
                 const SizedBox(

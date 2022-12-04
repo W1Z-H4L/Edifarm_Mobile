@@ -258,71 +258,98 @@ class _EditUsername extends State<EditUsername> {
             height: 3,
           ),
           Container(
-            // width: 65,
-            // height: 32,
-
-            padding: EdgeInsets.only(
-              left: 90,
-              right: 90,
+            padding: const EdgeInsets.only(
+              top: 80,
+              left: 180,
+              right: 180,
               bottom: 50,
             ),
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: AppTheme.green, onPrimary: Colors.white),
-              child: const Text("save"),
+              style: ElevatedButton.styleFrom(),
+              autofocus: false,
+              child: Container(
+                height: 45,
+                width: 90,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: AppTheme.green,
+                    borderRadius: BorderRadius.circular(30)),
+                child: const Text(
+                  'Submit',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                      fontFamily: AppTheme.fontName),
+                ),
+              ),
               onPressed: () {
                 showDialog(
                     context: context,
                     builder: (context) {
                       return Container(
+                        padding: EdgeInsets.only(top: 50, bottom: 50),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         child: AlertDialog(
-                          backgroundColor: Colors.white,
-                          title: Text(
+                          title: const Text(
                             "Apakah anda yakin ingin mengganti username?",
-                            // selectionColor: Colors.white,
-                            style: GoogleFonts.montserrat(),
+                            selectionColor: Colors.white,
+                            style: TextStyle(
+                                color: AppTheme.black,
+                                fontFamily: AppTheme.fontName,
+                                fontSize: 10),
                           ),
                           actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text("Tidak")),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text("Ya"),
-                            )
+                            Container(
+                              height: 30,
+                              width: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: AppTheme.orange,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Tidak",
+                                    style: TextStyle(
+                                        color: AppTheme.white,
+                                        fontFamily: AppTheme.fontName,
+                                        fontSize: 10),
+                                  )),
+                            ),
+                            Container(
+                              height: 30,
+                              width: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.orange),
+                                  color: AppTheme.white,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Ya",
+                                    style: TextStyle(
+                                        color: AppTheme.orange,
+                                        fontFamily: AppTheme.fontName,
+                                        fontSize: 10),
+                                  )),
+                            ),
                           ],
                         ),
                       );
                     });
               },
             ),
-            // child: CustomFilledButton(
-
-            //   height: 30,
-            //   width: 150,
-            //   title: 'Save',
-            //   onPressed: () {},
-            // )
           )
         ]));
   }
-
-  // Widget popup() {
-  //   return AlertDialog(
-  //     title: Text('Sample Alert Dialog'),
-  //     content: Text(
-  //       'This is an implementation of the AlertDialog widget in Flutter',
-  //     ),
-  //     actions: [
-  //       OutlinedButton(
-  //         onPressed: () => Navigator.of(context).pop(),
-  //         child: Text('Close'),
-  //       )
-  //     ],
-  //   );
-  // }
 }
