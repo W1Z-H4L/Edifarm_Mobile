@@ -39,6 +39,61 @@ class CustomFilledButton extends StatelessWidget {
   }
 }
 
+class CustomMenuButton extends StatelessWidget {
+  final String title;
+  final DecorationImage? imagePath;
+  final double width;
+  final double height;
+  final VoidCallback? onPressed;
+
+  const CustomMenuButton({
+    Key? key,
+    required this.title,
+    this.width = double.infinity,
+    this.height = 80,
+    this.onPressed,
+    this.imagePath,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Container(
+        alignment: Alignment.center,
+        height: 70,
+        width: 70,
+        decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [
+                AppTheme.orange,
+                AppTheme.white,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+            borderRadius: BorderRadius.circular(50),
+            image: imagePath),
+        child: TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(56))),
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: whiteTextStyle.copyWith(
+              fontSize: 10,
+              fontWeight: semiBold,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class CancelFilledButton extends StatelessWidget {
   final String title;
   final double width;
