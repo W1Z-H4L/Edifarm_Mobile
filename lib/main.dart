@@ -1,15 +1,22 @@
+import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
+import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
+import 'package:Edifarm/jenispadi/jenispadi.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
+import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
 import 'package:Edifarm/ui/pages/setting/popup.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
 import 'package:flutter/material.dart';
 
 void main(List<String> args) => runApp(MyApp());
+
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
@@ -17,8 +24,28 @@ void main(List<String> args) => runApp(MyApp());
 //     DeviceOrientation.portraitDown
 //   ]).then((_) => runApp(MyApp()));
 // }
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key, this.animationController}) : super(key: key);
 
-class MyApp extends StatelessWidget {
+  final AnimationController? animationController;
+  @override
+  _MyApp createState() => _MyApp();
+}
+
+class _MyApp extends State<MyApp> with TickerProviderStateMixin {
+  AnimationController? animationController;
+  Animation<double>? animation;
+  @override
+  void initState() {
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 1000), vsync: this);
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: animationController!,
+        curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,11 +54,29 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),
-        '/edit-bio': (context) => const EditProfilePage(),
+        '/edit-bio': (context) =>
+            EditProfilePage(animationController: animationController),
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
         '/riwayatpupuk': (context) => const RiwayatPupuk(),
-        '/pop': (context) => PopUp(),
+        '/diag': (context) =>
+            DiagnosaScreen(animationController: animationController),
+        '/lahan': (context) => CourseInfoScreen(
+              animationController: animationController,
+            ),
+        '/jenis': (context) => jenisPadi(
+              animationController: animationController,
+            ),
+        '/sett': (context) => SettingsPage(),
+        '/iri': (context) => RiwayatIrigasi(
+              animationController: animationController,
+            ),
+        '/obat': (context) => RiwayatPestisida(
+              animationController: animationController,
+            ),
+        '/pupuk': (context) => RiwayatPupuk(
+              animationController: animationController,
+            ),
       },
     );
   }

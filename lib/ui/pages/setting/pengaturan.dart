@@ -1,6 +1,7 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -147,48 +148,8 @@ class _SettingsPage extends State<SettingsPage> {
               const SizedBox(
                 width: 20,
               ),
-              Container(
-                  color: AppTheme.background,
-                  // padding:
-                  //     EdgeInsets.only(left: 25, right: 25, top: 25, bottom: 6),
-                  child: Text(
-                    'Profile',
-                    textAlign: TextAlign.start,
-                    style: greenTextStyle2.copyWith(
-                      fontWeight: bold,
-                      fontSize: 18,
-                      color: subtitleColor2,
-                    ),
-                  )),
             ]),
 
-            Container(
-                color: AppTheme.background,
-                padding: const EdgeInsets.only(
-                    left: 25, top: 25, right: 5, bottom: 6),
-                alignment: Alignment.centerLeft,
-                child: Row(children: [
-                  Container(
-                      alignment: Alignment.centerLeft,
-                      child: ButtonSetting(
-                          title: 'Edit Akun',
-                          alignment: Alignment.centerLeft,
-                          height: 40,
-                          width: 300,
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/edit-bio');
-                          })),
-                  Spacer(),
-                  Container(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: AppTheme.grey,
-                        ),
-                      )),
-                ])),
             const SizedBox(
               height: 45,
             ),
@@ -204,7 +165,9 @@ class _SettingsPage extends State<SettingsPage> {
                   height: 30,
                   width: 100,
                   title: 'Logout',
-                  onPressed: () => SignInPage(),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-in');
+                  },
                 ))
           ],
         ));

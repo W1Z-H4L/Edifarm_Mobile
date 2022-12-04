@@ -26,7 +26,7 @@ class AktivitasDataView extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 24, right: 24, top: 16, bottom: 18),
                 child: Container(
-                  height: 180,
+                  height: 240,
                   width: 250,
                   decoration: BoxDecoration(
                     color: AppTheme.white,
@@ -51,80 +51,93 @@ class AktivitasDataView extends StatelessWidget {
                         width: 40,
                         height: 25,
                       ),
-                      Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                AppTheme.orange,
-                                AppTheme.white,
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                            borderRadius: BorderRadius.circular(50)),
-                        child: ElevatedButton(
+                      InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/jenis');
+                          },
                           child: Container(
-                            padding: const EdgeInsets.all(15),
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.all(10),
                             height: 70,
                             width: 70,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/icon_menu_jenis.png',
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
                                 ),
-                              ),
-                            ),
-                          ),
-                          onPressed: () => SettingsPage(),
-                        ),
-                      ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                                child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                'assets/icon_menu_jenis.png',
+                              ))),
+                            )),
+                          )),
                       const Spacer(),
                       InkWell(
-                        onTap: () => const DiagnosaScreen(),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/diag');
+                        },
                         child: Container(
-                          height: 70,
-                          width: 70,
-                          padding: const EdgeInsets.all(25),
-                          decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage(
+                            padding: const EdgeInsets.all(10),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
                                 'assets/icon_menu_diagnose.png',
-                              )),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  AppTheme.orange,
-                                  AppTheme.white,
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
+                              ))),
+                            )),
                       ),
                       const Spacer(),
                       InkWell(
-                        onTap: () => const DiagnosaScreen(),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/sett');
+                        },
                         child: Container(
-                          height: 70,
-                          width: 70,
-                          padding: const EdgeInsets.all(25),
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                'assets/icon_menu_irigasi.png',
-                              )),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  AppTheme.orange,
-                                  AppTheme.white,
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.all(10),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                'assets/icon_menu_setting.png',
+                              ))),
+                            )),
                       ),
                       const SizedBox(
                         width: 40,
@@ -133,7 +146,7 @@ class AktivitasDataView extends StatelessWidget {
                     Row(
                       children: const [
                         SizedBox(
-                          width: 50,
+                          width: 60,
                           height: 25,
                         ),
                         Text(
@@ -153,7 +166,142 @@ class AktivitasDataView extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Irigasi',
+                          'Setting',
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: AppTheme.black,
+                              fontFamily: AppTheme.fontName),
+                        ),
+                        SizedBox(
+                          width: 60,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(children: [
+                      const SizedBox(
+                        width: 40,
+                        height: 25,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/pupuk');
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.all(10),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                                child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                'assets/icon_menu_pupuk.png',
+                              ))),
+                            )),
+                          )),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/iri');
+                        },
+                        child: Container(
+                            padding: const EdgeInsets.all(10),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                'assets/icon_menu_irigasi.png',
+                              ))),
+                            )),
+                      ),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/obat');
+                        },
+                        child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.all(10),
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    AppTheme.orange,
+                                    AppTheme.white,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                'assets/icon_menu_pestisida.png',
+                              ))),
+                            )),
+                      ),
+                      const SizedBox(
+                        width: 40,
+                      )
+                    ]),
+                    Row(
+                      children: const [
+                        SizedBox(
+                          width: 50,
+                          height: 25,
+                        ),
+                        Text(
+                          'Riwayat Pupuk',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: AppTheme.black,
+                            fontFamily: AppTheme.fontName,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          'Riwayat Irigasi',
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: AppTheme.black,
+                              fontFamily: AppTheme.fontName),
+                        ),
+                        Spacer(),
+                        Text(
+                          'Riwayat Pestisida',
                           style: TextStyle(
                               fontSize: 10,
                               color: AppTheme.black,

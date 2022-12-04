@@ -108,7 +108,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 }
                 setState(() {
                   tabBody =
-                      DiagnosaScreen(animationController: animationController);
+                      CalenderScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
