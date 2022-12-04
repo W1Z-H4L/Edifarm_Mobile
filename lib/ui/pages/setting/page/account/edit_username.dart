@@ -27,11 +27,16 @@ class _EditUsername extends State<EditUsername> {
             "Edit Username",
             textAlign: TextAlign.center,
           ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
+          ),
           centerTitle: true,
           titleTextStyle: whiteTextStyle1,
           titleSpacing: 20,
-          shadowColor: Color.fromARGB(255, 47, 101, 88),
-          backgroundColor: Color.fromARGB(255, 47, 101, 88),
+          shadowColor: AppTheme.grey,
+          backgroundColor: AppTheme.green,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -49,7 +54,7 @@ class _EditUsername extends State<EditUsername> {
               Image.asset(
                 height: coverHeight,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 color: Color.fromARGB(154, 0, 106, 108),
                 colorBlendMode: BlendMode.modulate,
                 'assets/backgroun_profil.png',
@@ -257,99 +262,96 @@ class _EditUsername extends State<EditUsername> {
           SizedBox(
             height: 3,
           ),
-          Container(
-            padding: const EdgeInsets.only(
-              top: 80,
-              left: 180,
-              right: 180,
-              bottom: 50,
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(),
-              autofocus: false,
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 100, bottom: 50, right: 100),
               child: Container(
-                height: 45,
-                width: 90,
+                height: 40,
+                width: 70,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: AppTheme.green,
-                    borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(20)),
                 child: const Text(
-                  'Submit',
+                  'Simpan',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: Colors.white,
-                      fontFamily: AppTheme.fontName),
+                      fontFamily: AppTheme.fontName,
+                      fontWeight: FontWeight.w400),
                 ),
               ),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                        padding: EdgeInsets.only(top: 50, bottom: 50),
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: AlertDialog(
-                          title: const Text(
-                            "Apakah anda yakin ingin mengganti username?",
-                            selectionColor: Colors.white,
-                            style: TextStyle(
-                                color: AppTheme.black,
-                                fontFamily: AppTheme.fontName,
-                                fontSize: 10),
-                          ),
-                          actions: [
-                            Container(
-                              height: 30,
-                              width: 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.orange,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text(
-                                    "Tidak",
-                                    style: TextStyle(
-                                        color: AppTheme.white,
-                                        fontFamily: AppTheme.fontName,
-                                        fontSize: 10),
-                                  )),
-                            ),
-                            Container(
-                              height: 30,
-                              width: 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.orange),
-                                  color: AppTheme.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text(
-                                    "Ya",
-                                    style: TextStyle(
-                                        color: AppTheme.orange,
-                                        fontFamily: AppTheme.fontName,
-                                        fontSize: 10),
-                                  )),
-                            ),
-                          ],
-                        ),
-                      );
-                    });
-              },
             ),
-          )
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      padding: EdgeInsets.only(top: 50, bottom: 50),
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: AlertDialog(
+                        title: const Text(
+                          "Apakah Anda Yakin Ingin Merubah Username Anda ? \n ",
+                          selectionColor: Colors.white,
+                          style: TextStyle(
+                              color: AppTheme.black,
+                              fontFamily: AppTheme.fontName,
+                              fontSize: 12),
+                        ),
+                        actions: [
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: AppTheme.orange,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Tidak",
+                                  style: TextStyle(
+                                      color: AppTheme.white,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.orange),
+                                color: AppTheme.white,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/sign-in');
+                                },
+                                child: const Text(
+                                  "Ya",
+                                  style: TextStyle(
+                                      color: AppTheme.orange,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                        ],
+                      ),
+                    );
+                  });
+            },
+          ),
         ]));
   }
 }

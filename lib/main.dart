@@ -1,6 +1,7 @@
 import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
+import 'package:Edifarm/aktivitas/activity.dart';
 import 'package:Edifarm/jenispadi/jenispadi.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
@@ -75,6 +76,9 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
               animationController: animationController,
             ),
         '/pupuk': (context) => RiwayatPupuk(
+              animationController: animationController,
+            ),
+        '/act': (context) => activityPage(
               animationController: animationController,
             ),
       },

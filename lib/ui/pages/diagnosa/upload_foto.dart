@@ -243,39 +243,125 @@ class _PotoPadiState extends State<PotoPadi> {
                             const SizedBox(
                               width: 80,
                             ),
-                            Container(
-                              alignment: Alignment.center,
-                              height: 30,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  border: Border.all(color: AppTheme.green),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: const Text(
-                                'Cancel',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: AppTheme.green,
-                                    fontFamily: AppTheme.fontName),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 30,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    border: Border.all(color: AppTheme.green),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: const Text(
+                                  'Cancel',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppTheme.green,
+                                      fontFamily: AppTheme.fontName),
+                                ),
                               ),
                             ),
                             const Spacer(),
-                            Container(
-                              height: 30,
-                              width: 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.green,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: const Text(
-                                'Submit',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: Colors.white,
-                                    fontFamily: AppTheme.fontName),
+                            InkWell(
+                              child: Container(
+                                height: 30,
+                                width: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: AppTheme.green,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: const Text(
+                                  'Submit',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.white,
+                                      fontFamily: AppTheme.fontName),
+                                ),
                               ),
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Container(
+                                        padding: EdgeInsets.only(
+                                            top: 50, bottom: 50),
+                                        height: 150,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                        child: AlertDialog(
+                                          title: const Text(
+                                            "Apakah data yang anda masukan sudah sesuai ?",
+                                            selectionColor: Colors.white,
+                                            style: TextStyle(
+                                                color: AppTheme.black,
+                                                fontFamily: AppTheme.fontName,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          actions: [
+                                            Container(
+                                              height: 30,
+                                              width: 60,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  color: AppTheme.orange,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: const Text(
+                                                    "Tidak",
+                                                    style: TextStyle(
+                                                        color: AppTheme.white,
+                                                        fontFamily:
+                                                            AppTheme.fontName,
+                                                        fontSize: 10,
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  )),
+                                            ),
+                                            Container(
+                                              height: 30,
+                                              width: 60,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.orange),
+                                                  color: AppTheme.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: const Text(
+                                                    "Ya",
+                                                    style: TextStyle(
+                                                        color: AppTheme.orange,
+                                                        fontFamily:
+                                                            AppTheme.fontName,
+                                                        fontSize: 10,
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    });
+                              },
                             ),
                             const SizedBox(
                               width: 80,

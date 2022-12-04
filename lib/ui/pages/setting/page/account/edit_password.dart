@@ -34,11 +34,16 @@ class _EditPassword extends State<EditPassword> {
                   bottomRight: Radius.circular(20)),
             ),
           ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
+          ),
           centerTitle: true,
           titleTextStyle: whiteTextStyle1,
           titleSpacing: 20,
-          shadowColor: Color.fromARGB(255, 47, 101, 88),
-          backgroundColor: Color.fromARGB(255, 47, 101, 88),
+          shadowColor: AppTheme.grey,
+          backgroundColor: AppTheme.green,
         ),
         body: ListView(children: <Widget>[
           Stack(
@@ -48,7 +53,7 @@ class _EditPassword extends State<EditPassword> {
               Image.asset(
                 height: coverHeight,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 color: Color.fromARGB(154, 0, 106, 108),
                 colorBlendMode: BlendMode.modulate,
                 'assets/backgroun_profil.png',
@@ -270,25 +275,19 @@ class _EditPassword extends State<EditPassword> {
           SizedBox(
             height: 3,
           ),
-          Container(
-            padding: const EdgeInsets.only(
-              top: 80,
-              left: 180,
-              right: 180,
-              bottom: 50,
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(),
-              autofocus: false,
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 100, bottom: 50, right: 100),
               child: Container(
-                height: 45,
+                height: 40,
                 width: 90,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: AppTheme.green,
-                    borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(20)),
                 child: const Text(
-                  'Submit',
+                  'Simpan',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 10,
@@ -296,87 +295,90 @@ class _EditPassword extends State<EditPassword> {
                       fontFamily: AppTheme.fontName),
                 ),
               ),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                        padding: EdgeInsets.only(top: 50, bottom: 50),
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: AlertDialog(
-                          title: const Text(
-                            "Apakah anda yakin ingin mengganti password?",
-                            selectionColor: Colors.white,
-                            style: TextStyle(
-                                color: AppTheme.black,
-                                fontFamily: AppTheme.fontName,
-                                fontSize: 10),
-                          ),
-                          actions: [
-                            Container(
-                              height: 30,
-                              width: 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.orange,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text(
-                                    "Tidak",
-                                    style: TextStyle(
-                                        color: AppTheme.white,
-                                        fontFamily: AppTheme.fontName,
-                                        fontSize: 10),
-                                  )),
-                            ),
-                            Container(
-                              height: 30,
-                              width: 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.orange),
-                                  color: AppTheme.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text(
-                                    "Ya",
-                                    style: TextStyle(
-                                        color: AppTheme.orange,
-                                        fontFamily: AppTheme.fontName,
-                                        fontSize: 10),
-                                  )),
-                            ),
-                          ],
-                        ),
-                      );
-                    });
-              },
             ),
-          )
-          // Container(
-          //     // height: 30,
-          //     // width: 150,
-          //     padding: EdgeInsets.only(
-          //       left: 90,
-          //       right: 90,
-          //       bottom: 50,
-          //     ),
-          //     child: CustomFilledButton(
-          //       height: 30,
-          //       width: 150,
-          //       title: 'Save',
-          //       onPressed: () {},
-          //     ))
-        ]));
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      padding: EdgeInsets.only(top: 50, bottom: 50),
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: AlertDialog(
+                        title: const Text(
+                          "Apakah Anda Yakin Ingin Merubah Password Anda ? \n ",
+                          selectionColor: Colors.white,
+                          style: TextStyle(
+                              color: AppTheme.black,
+                              fontFamily: AppTheme.fontName,
+                              fontSize: 12),
+                        ),
+                        actions: [
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: AppTheme.orange,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Tidak",
+                                  style: TextStyle(
+                                      color: AppTheme.white,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.orange),
+                                color: AppTheme.white,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/sign-in');
+                                },
+                                child: const Text(
+                                  "Ya",
+                                  style: TextStyle(
+                                      color: AppTheme.orange,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                        ],
+                      ),
+                    );
+                  });
+            },
+          ),
+        ])
+        // Container(
+        //     // height: 30,
+        //     // width: 150,
+        //     padding: EdgeInsets.only(
+        //       left: 90,
+        //       right: 90,
+        //       bottom: 50,
+        //     ),
+        //     child: CustomFilledButton(
+        //       height: 30,
+        //       width: 150,
+        //       title: 'Save',
+        //       onPressed: () {},
+        //     ))
+        );
   }
 }

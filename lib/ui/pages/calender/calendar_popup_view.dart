@@ -236,12 +236,123 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                       } catch (_) {}
                                     },
                                     child: Center(
-                                      child: Text(
-                                        'Cari',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18,
-                                            color: Colors.white),
+                                      child: InkWell(
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: AppTheme.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: const Text(
+                                            'Cari',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.white,
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        onTap: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return Container(
+                                                  padding: EdgeInsets.only(
+                                                      top: 50, bottom: 50),
+                                                  height: 150,
+                                                  width: 150,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                  ),
+                                                  child: AlertDialog(
+                                                    title: Text(
+                                                      "Apakah Anda Ingin Melihat Aktivitas Ditanggal $startDate hingga tanggal $endDate ?  ",
+                                                      selectionColor:
+                                                          Colors.white,
+                                                      style: TextStyle(
+                                                          color: AppTheme.black,
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                    actions: [
+                                                      Container(
+                                                        height: 30,
+                                                        width: 60,
+                                                        alignment:
+                                                            Alignment.center,
+                                                        decoration: BoxDecoration(
+                                                            color:
+                                                                AppTheme.orange,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10)),
+                                                        child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            child: const Text(
+                                                              "Tidak",
+                                                              style: TextStyle(
+                                                                  color: AppTheme
+                                                                      .white,
+                                                                  fontFamily:
+                                                                      AppTheme
+                                                                          .fontName,
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400),
+                                                            )),
+                                                      ),
+                                                      Container(
+                                                        height: 30,
+                                                        width: 60,
+                                                        alignment:
+                                                            Alignment.center,
+                                                        decoration: BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .orange),
+                                                            color:
+                                                                AppTheme.white,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10)),
+                                                        child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator
+                                                                  .pushNamed(
+                                                                      context,
+                                                                      '/act');
+                                                            },
+                                                            child: const Text(
+                                                              "Ya",
+                                                              style: TextStyle(
+                                                                  color: AppTheme
+                                                                      .orange,
+                                                                  fontFamily:
+                                                                      AppTheme
+                                                                          .fontName,
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400),
+                                                            )),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              });
+                                        },
                                       ),
                                     ),
                                   ),
