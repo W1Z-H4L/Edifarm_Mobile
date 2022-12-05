@@ -220,7 +220,7 @@ class IrigasiAreaView extends StatelessWidget {
                                                 child: Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            top: 1, left: 10),
+                                                            top: 1, left: 20),
                                                     child: Text(
                                                         tabIrigasiList!.tanggal,
                                                         style: const TextStyle(
