@@ -14,162 +14,217 @@ class _SettingsPage extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          brightness: Brightness.dark,
-          toolbarHeight: 70,
-          title: const Text(
-            "Pengaturan",
-            textAlign: TextAlign.center,
-          ),
-          centerTitle: true,
-          titleTextStyle: whiteTextStyle1,
-          titleSpacing: 20,
-          shadowColor: Color.fromARGB(255, 47, 101, 88),
-          backgroundColor: Color.fromARGB(255, 47, 101, 88),
-          shape: const RoundedRectangleBorder(
+      appBar: AppBar(
+        brightness: Brightness.dark,
+        toolbarHeight: 70,
+        title: const Text(
+          "Pengaturan",
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
+        titleTextStyle: whiteTextStyle1,
+        titleSpacing: 20,
+        shadowColor: AppTheme.grey,
+        backgroundColor: AppTheme.green,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50),
-              ),
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50),
             ),
           ),
         ),
-        backgroundColor: AppTheme.background,
-        body: ListView(
-          children: <Widget>[
+      ),
+      backgroundColor: AppTheme.background,
+      body: ListView(
+        children: <Widget>[
+          const SizedBox(
+            height: 50,
+          ),
+          Row(children: [
             const SizedBox(
-              height: 50,
+              width: 60,
             ),
-            Row(children: [
-              const SizedBox(
-                width: 60,
-              ),
-              Container(
-                height: 20,
-                width: 20,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/icon_edit_account.png'),
-                )),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                  child: Text(
-                'Account',
-                textAlign: TextAlign.start,
-                style: greenTextStyle2.copyWith(
-                  fontWeight: bold,
-                  fontSize: 18,
-                  color: subtitleColor2,
-                ),
+            Container(
+              height: 20,
+              width: 20,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage('assets/icon_edit_account.png'),
               )),
-            ]),
+            ),
             const SizedBox(
-              height: 6,
+              width: 20,
             ),
             Container(
-                color: AppTheme.background,
-                padding:
-                    EdgeInsets.only(left: 25, top: 25, right: 5, bottom: 6),
-                alignment: Alignment.centerLeft,
-                child: Row(children: [
-                  Container(
-                      alignment: Alignment.centerLeft,
-                      child: ButtonSetting(
-                          alignment: Alignment.centerLeft,
-                          title: 'Edit Username',
-                          height: 40,
-                          width: 300,
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/edit-user');
-                          })),
-                  Spacer(),
-                  Container(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: AppTheme.grey,
-                        ),
-                      )),
-                ])),
-            // SizedBox(
-            //   height: 6,
-            // ),
-            Container(
-                color: AppTheme.background,
-                padding: EdgeInsets.only(left: 25, right: 5, bottom: 6),
-                alignment: Alignment.centerLeft,
-                child: Row(children: [
-                  Container(
-                      alignment: Alignment.centerLeft,
-                      child: ButtonSetting(
-                          title: 'Edit Passsword',
-                          height: 40,
-                          width: 300,
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/edit-pass');
-                          })),
-                  Spacer(),
-                  Container(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: AppTheme.grey,
-                        ),
-                      )),
-                ])),
-            const SizedBox(
-              height: 50,
-            ),
-            Row(children: [
-              const SizedBox(
-                width: 60,
+                child: Text(
+              'Account',
+              textAlign: TextAlign.start,
+              style: greenTextStyle2.copyWith(
+                fontWeight: bold,
+                fontSize: 18,
+                color: subtitleColor2,
               ),
-              Container(
-                height: 20,
-                width: 20,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/icon_edit_profile.png'),
-                )),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-            ]),
+            )),
+          ]),
+          const SizedBox(
+            height: 6,
+          ),
+          Container(
+              color: AppTheme.background,
+              padding: EdgeInsets.only(top: 25, right: 5, bottom: 6),
+              alignment: Alignment.centerLeft,
+              child: Row(children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: ButtonSetting(
+                        alignment: Alignment.centerLeft,
+                        title: 'Edit Username',
+                        height: 40,
+                        width: 300,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/edit-user');
+                        })),
+                Spacer(),
+                Container(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: AppTheme.grey,
+                      ),
+                    )),
+              ])),
+          // SizedBox(
+          //   height: 6,
+          // ),
+          Container(
+              color: AppTheme.background,
+              padding: EdgeInsets.only(right: 5, bottom: 6),
+              alignment: Alignment.centerLeft,
+              child: Row(children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: ButtonSetting(
+                        title: 'Edit Passsword',
+                        height: 40,
+                        width: 300,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/edit-pass');
+                        })),
+                Spacer(),
+                Container(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: AppTheme.grey,
+                      ),
+                    )),
+              ])),
+          const SizedBox(
+            height: 50,
+          ),
 
-            const SizedBox(
-              height: 45,
-            ),
-            Container(
-                // height: 30,
-                // width: 150,
-                padding: const EdgeInsets.only(
-                  left: 90,
-                  right: 90,
-                  bottom: 50,
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 100, bottom: 50, right: 100),
+              child: Container(
+                height: 40,
+                width: 70,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: AppTheme.green,
+                    borderRadius: BorderRadius.circular(30)),
+                child: const Text(
+                  'Keluar',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                      fontFamily: AppTheme.fontName,
+                      fontWeight: FontWeight.w400),
                 ),
-                child: CustomFilledButton(
-                  height: 30,
-                  width: 100,
-                  title: 'Logout',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sign-in');
-                  },
-                ))
-          ],
-        ));
+              ),
+            ),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      padding: EdgeInsets.only(top: 50, bottom: 50),
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: AlertDialog(
+                        title: const Text(
+                          "Apakah Anda Yakin Ingin Keluar Dari Aplikasi ? \n ",
+                          selectionColor: Colors.white,
+                          style: TextStyle(
+                              color: AppTheme.black,
+                              fontFamily: AppTheme.fontName,
+                              fontSize: 12),
+                        ),
+                        actions: [
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: AppTheme.orange,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Tidak",
+                                  style: TextStyle(
+                                      color: AppTheme.white,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                          Container(
+                            height: 30,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.orange),
+                                color: AppTheme.white,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/sign-in');
+                                },
+                                child: const Text(
+                                  "Ya",
+                                  style: TextStyle(
+                                      color: AppTheme.orange,
+                                      fontFamily: AppTheme.fontName,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                        ],
+                      ),
+                    );
+                  });
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -44,7 +44,7 @@ class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: AspectRatio(
-              aspectRatio: 1.0,
+              aspectRatio: 0.4,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: GridView(
@@ -76,7 +76,7 @@ class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
                     crossAxisCount: 1,
                     mainAxisSpacing: 25,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 5 / 1,
+                    childAspectRatio: 3 / 1,
                   ),
                 ),
               ),

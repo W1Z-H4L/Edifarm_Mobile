@@ -75,7 +75,7 @@ class _ListViewActivityState extends State<ListViewActivity>
                     crossAxisCount: 1,
                     mainAxisSpacing: 25,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 5 / 1,
+                    childAspectRatio: 3 / 1,
                   ),
                 ),
               ),
