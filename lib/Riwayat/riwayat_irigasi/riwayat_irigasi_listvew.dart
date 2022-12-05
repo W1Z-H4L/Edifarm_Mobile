@@ -176,38 +176,59 @@ class IrigasiAreaView extends StatelessWidget {
                                                           color: AppTheme.green,
                                                         ))),
                                                 const Spacer(),
-                                                Container(
-                                                    height: 20,
-                                                    width: 60,
-                                                    alignment: Alignment.center,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                          20,
-                                                        ),
-                                                        color: AppTheme.green),
-                                                    child: const Text('Selesai',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontFamily:
-                                                              AppTheme.fontName,
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                          fontSize: 10,
-                                                          letterSpacing: 0.2,
-                                                          color: AppTheme.white,
-                                                        ))
+                                                InkWell(
+                                                  child: Container(
+                                                      height: 20,
+                                                      width: 60,
+                                                      alignment:
+                                                          Alignment.center,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                            20,
+                                                          ),
+                                                          color:
+                                                              AppTheme.green),
+                                                      child: const Text(
+                                                          'Selesai',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontFamily: AppTheme
+                                                                .fontName,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                            fontSize: 10,
+                                                            letterSpacing: 0.2,
+                                                            color:
+                                                                AppTheme.white,
+                                                          ))
 
-                                                    // alignment: Alignment.centerRight,
-                                                    // padding: EdgeInsets.only(
-                                                    //     bottom: 2, right: 6),
-                                                    // child: Checkbox(
-                                                    //   value: false,
-                                                    //   onChanged: (value) {},
-                                                    // ),
-                                                    )
+                                                      // alignment: Alignment.centerRight,
+                                                      // padding: EdgeInsets.only(
+                                                      //     bottom: 2, right: 6),
+                                                      // child: Checkbox(
+                                                      //   value: false,
+                                                      //   onChanged: (value) {},
+                                                      // ),
+                                                      ),
+                                                  onTap: () {
+                                                    context:
+                                                    context;
+                                                    builder:
+                                                    (context) {
+                                                      return Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 20,
+                                                          width: 60,
+                                                          child: Text(
+                                                            'Selesai',
+                                                          ));
+                                                    };
+                                                  },
+                                                )
                                               ]),
                                         ))),
                                     Padding(
