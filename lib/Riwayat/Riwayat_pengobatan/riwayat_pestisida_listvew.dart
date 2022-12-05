@@ -149,7 +149,7 @@ class PestisidaAreaView extends StatelessWidget {
                                 children: <Widget>[
                                   Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 16, left: 16, right: 16),
+                                          top: 8, left: 16, right: 16),
                                       child: Expanded(
                                           child: Padding(
                                         padding: const EdgeInsets.only(
@@ -177,7 +177,7 @@ class PestisidaAreaView extends StatelessWidget {
                                                       ))),
                                               const Spacer(),
                                               Container(
-                                                  alignment: Alignment.topRight,
+                                                  alignment: Alignment.center,
                                                   height: 20,
                                                   width: 60,
                                                   child: Text(
@@ -194,37 +194,44 @@ class PestisidaAreaView extends StatelessWidget {
                                                   )
                                             ]),
                                       ))),
-                                  Row(
-                                    children: [
-                                      Container(
-                                          child: Padding(
-                                              padding: EdgeInsets.only(
-                                                top: 1,
-                                              ),
-                                              child: Text(
-                                                  tabPestisidaList!.tanggal,
-                                                  style: TextStyle(
-                                                    fontFamily:
-                                                        AppTheme.fontName,
-                                                    fontWeight: FontWeight.w800,
-                                                    fontSize: 10,
-                                                    letterSpacing: 0.2,
-                                                    color: AppTheme.green,
-                                                  )))),
-                                      const Spacer(),
-                                      Container(
-                                        child: Text(tabPestisidaList!.jam,
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily: AppTheme.fontName,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10,
-                                              letterSpacing: 0.2,
-                                              color: AppTheme.green,
-                                            )),
-                                      )
-                                    ],
-                                  )
+                                  Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 8, left: 16, right: 16),
+                                      child: Expanded(
+                                          child: Row(
+                                        children: [
+                                          Container(
+                                              child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 0, left: 0),
+                                                  child: Text(
+                                                      tabPestisidaList!.tanggal,
+                                                      style: const TextStyle(
+                                                        fontFamily:
+                                                            AppTheme.fontName,
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                        fontSize: 10,
+                                                        letterSpacing: 0.2,
+                                                        color: AppTheme.green,
+                                                      )))),
+                                          const Spacer(),
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                                right: 10),
+                                            child: Text(tabPestisidaList!.jam,
+                                                textAlign: TextAlign.start,
+                                                style: const TextStyle(
+                                                  fontFamily: AppTheme.fontName,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 10,
+                                                  letterSpacing: 0.2,
+                                                  color: AppTheme.green,
+                                                )),
+                                          )
+                                        ],
+                                      )))
                                 ]),
                           )))),
             ),

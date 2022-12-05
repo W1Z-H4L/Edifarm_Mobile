@@ -149,7 +149,7 @@ class IrigasiAreaView extends StatelessWidget {
                                   children: <Widget>[
                                     Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 16, left: 16, right: 16),
+                                            top: 8, left: 16, right: 16),
                                         child: Expanded(
                                             child: Padding(
                                           padding: const EdgeInsets.only(
@@ -212,7 +212,7 @@ class IrigasiAreaView extends StatelessWidget {
                                         ))),
                                     Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 16, left: 16, right: 16),
+                                            top: 8, left: 16, right: 16),
                                         child: Expanded(
                                             child: Row(
                                           children: [
@@ -220,7 +220,7 @@ class IrigasiAreaView extends StatelessWidget {
                                                 child: Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            top: 1, left: 20),
+                                                            top: 0, left: 0),
                                                     child: Text(
                                                         tabIrigasiList!.tanggal,
                                                         style: const TextStyle(
