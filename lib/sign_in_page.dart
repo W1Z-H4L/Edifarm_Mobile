@@ -1,37 +1,73 @@
+import 'dart:convert';
+import 'package:Edifarm/API/Api_connect.dart';
+import 'package:Edifarm/models/Remember_User.dart';
+import 'package:Edifarm/models/User_model.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
-
-import 'package:Edifarm/ui/widgets/buttons.dart';
+import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+class _SignInPageState extends State<SignInPage> {
   // const SignInPage({Key? key}) : super(key: key);
-  bool _isObsecure3 = true;
-  bool visible = false;
-  final TextEditingController passwordController = TextEditingController();
+  bool _secureText = true;
+
+  showHide() {
+    setState(() {
+      _secureText = !_secureText;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    username = TextEditingController();
+    password = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    username.dispose();
+    password.dispose();
+  }
+
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    bool _obscureText = true;
     return Scaffold(
-      // appBar: AppBar(
-      //   brightness: Brightness.dark,
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   flexibleSpace: Container(
-      //       decoration: BoxDecoration(
-      //     image: DecorationImage(
-      //       image: AssetImage('assets/logo.png'),
-      //     ),
-      //   )),
-      // ),
+        // appBar: AppBar(
+        //   brightness: Brightness.dark,
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   flexibleSpace: Container(
+        //       decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //       image: AssetImage('assets/logo.png'),
+        //     ),
+        //   )),
+        // ),
 
-      body: ListView(
-        padding: const EdgeInsets.only(
-          left: 24,
-          right: 24,
-          bottom: 24,
-        ),
-        children: <Widget>[
+        body: ListView(
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 24,
+              bottom: 24,
+            ),
+            children: <Widget>[
           Container(
             width: 121,
             height: 121,
@@ -65,95 +101,185 @@ class SignInPage extends StatelessWidget {
             height: 5,
           ),
           Container(
-            // padding: const EdgeInsets.all(22),
-            // decoration: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(0),
-            //   color: Colors.white,
-            // ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                // NOTE: INPUT EMAIL
-                TextFormField(
-                  showCursor: true,
-                  cursorHeight: 25,
-                  style: GoogleFonts.montserrat(),
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppTheme.green)),
-                    labelText: 'Username',
-                    hintText: 'Masukan Username Anda',
-                    hintStyle: AppTheme.custom,
-                    labelStyle: AppTheme.custom1,
-                    focusColor: AppTheme.green,
-                    fillColor: AppTheme.green,
-                  ),
+              // padding: const EdgeInsets.all(22),
+              // decoration: BoxDecoration(
+              //   borderRadius: BorderRadius.circular(0),
+              //   color: Colors.white,
+              // ),
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // NOTE: INPUT EMAIL
+              TextFormField(
+                showCursor: true,
+                cursorHeight: 25,
+                controller: username,
+                inputFormatters: [],
+                style: GoogleFonts.montserrat(),
+                decoration: const InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppTheme.green)),
+                  labelText: 'Username',
+                  hintText: 'Masukan Username Anda',
+                  hintStyle: AppTheme.custom,
+                  labelStyle: AppTheme.custom1,
+                  focusColor: AppTheme.green,
+                  fillColor: AppTheme.green,
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                // NOTE: INPUT PASSWORD
-                TextFormField(
-                  controller: passwordController,
-                  showCursor: true,
-                  cursorHeight: 25,
-                  style: GoogleFonts.montserrat(),
-                  obscureText: _isObsecure3,
-                  decoration: InputDecoration(
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: AppTheme.green)),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _isObsecure3 ? Icons.visibility : Icons.visibility_off,
-                        color: AppTheme.green,
-                      ),
-                      onPressed: () {
-                        setState() {
-                          _isObsecure3 = !_isObsecure3;
-                        }
-                      },
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              // NOTE: INPUT PASSWORD
+              TextFormField(
+                controller: password,
+                showCursor: true,
+                cursorHeight: 25,
+                style: GoogleFonts.montserrat(),
+                obscureText: _secureText,
+                decoration: InputDecoration(
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: AppTheme.green)),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _secureText ? Icons.visibility_off : Icons.visibility,
+                      color: AppTheme.green,
                     ),
-                    labelText: 'Password',
-                    hintText: 'Masukan Password Anda',
-                    hintStyle: AppTheme.custom,
-                    labelStyle: AppTheme.custom1,
-                    focusColor: AppTheme.green,
-                    fillColor: AppTheme.green,
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-
-                const SizedBox(
-                  height: 90,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: CustomFilledButton(
-                    height: 30,
-                    width: 100,
-                    title: 'Login',
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      showHide();
                     },
                   ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          // CustomTextButton(
-          //   title: 'Register',
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, '/sign-up');
-          //   },
-          // ),
-        ],
-      ),
+                  labelText: 'Password',
+                  hintText: 'Masukan Password Anda',
+                  hintStyle: AppTheme.custom,
+                  labelStyle: AppTheme.custom1,
+                  focusColor: AppTheme.green,
+                  fillColor: AppTheme.green,
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+
+              const SizedBox(
+                height: 90,
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(50),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.green,
+                      shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      )),
+                  child: Text('Login'),
+                  onPressed: () {
+                    // Navigator.pushNamed(
+                    //   context,
+                    //   '/home',
+                    // );
+                    verifyLogin();
+                  },
+                ),
+              ),
+
+              const SizedBox(
+                height: 50,
+              ),
+
+              // ),
+            ],
+          )),
+        ]));
+  }
+
+  void verifyLogin() {
+    if (username.text.isEmpty) {
+      Fluttertoast.showToast(
+        msg: "Username Harus Diisi",
+        backgroundColor: Colors.red[300],
+        fontSize: 12,
+      );
+    } else if (password.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Password Harus Diisi",
+          backgroundColor: Colors.red[300],
+          fontSize: 12);
+    } else {
+      login();
+    }
+  }
+
+  Future login() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.signin), body: {
+        "username": username.text.trim(),
+        "password": password.text.trim(),
+      });
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data['success'] == true) {
+          snackBarSucces();
+
+          User userInfo = User.fromJson(data['user']);
+          await RememberUser().storeUser(json.encode(userInfo));
+          // ignore: use_build_context_synchronously
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => true);
+          // sharePref(username);
+        } else {
+          snackBarFailed();
+        }
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+      print(e.toString());
+    }
+  }
+
+  snackBarFailed() {
+    {
+      Fluttertoast.showToast(
+        msg: 'Ussername Atau Password Salah \n Silahkan Login Kembali',
+        backgroundColor: Colors.red[300],
+        textColor: Colors.white,
+        fontSize: 12,
+      );
+    }
+  }
+
+  snackBarSucces() {
+    Fluttertoast.showToast(
+      msg: 'Berhasil Login',
+      backgroundColor: Colors.green[300],
+      fontSize: 12,
+      textColor: Colors.white,
     );
   }
+
+  // Future sharePref(username) async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     preferences.setInt("username", username);
+  //     preferences.commit();
+  //   });
+  // }
+
+  // var data;
+  // Future getPref() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     data = data['success'] == true;
+  //     data == "success" ? BottomNavigator() : SignInPage();
+  //   });
+  // }
+
+  safaedata() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.getString('username');
+    preferences.getString('password');
+  }
 }
-//

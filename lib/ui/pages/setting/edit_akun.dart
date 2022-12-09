@@ -1,4 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
+import 'package:Edifarm/controler/CurentUser.dart';
+import 'package:Edifarm/models/Remember_User.dart';
+import 'package:Edifarm/models/User_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
@@ -26,6 +33,15 @@ class _EditProfilePageState extends State<EditProfilePage>
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
+  User user = User();
+
+  void data() async {
+    var response = await http.get(Uri.parse(
+        "https://a4b1-125-166-116-224.ap.ngrok.io//EDIFARM/api/red_data.php"));
+    setState(() {
+      user = User();
+    });
+  }
 
   @override
   void initState() {
@@ -58,6 +74,9 @@ class _EditProfilePageState extends State<EditProfilePage>
       }
     });
     super.initState();
+    name = TextEditingController();
+    alamat = TextEditingController();
+    noHp = TextEditingController();
   }
 
   void addAllListData() {
@@ -102,68 +121,6 @@ class _EditProfilePageState extends State<EditProfilePage>
     setState(() {});
   }
 
-  // Widget popup() {
-  //   return Scaffold(
-  //     backgroundColor: Colors.transparent,
-  //     body: Container(
-  //       alignment: Alignment.center,
-  //       child: Column(
-  //         children: <Widget>[
-  //           const Text(
-  //             'Apakah Anda Yakin Ingin Merubah Data Diri ?',
-  //             style: TextStyle(
-  //               fontFamily: AppTheme.fontName,
-  //               fontSize: 12,
-  //               color: AppTheme.green,
-  //             ),
-  //           ),
-  //           Row(
-  //             children: [
-  //               Container(
-  //                 alignment: Alignment.center,
-  //                 height: 30,
-  //                 width: 60,
-  //                 decoration: BoxDecoration(
-  //                     color: Colors.transparent,
-  //                     border: Border.all(color: AppTheme.orange),
-  //                     borderRadius: BorderRadius.circular(10)),
-  //                 child: const Text(
-  //                   'Tidak',
-  //                   textAlign: TextAlign.center,
-  //                   style: TextStyle(
-  //                       fontSize: 10,
-  //                       color: AppTheme.orange,
-  //                       fontFamily: AppTheme.fontName),
-  //                 ),
-  //               ),
-  //               const Spacer(),
-  //               Container(
-  //                 height: 30,
-  //                 width: 60,
-  //                 alignment: Alignment.center,
-  //                 decoration: BoxDecoration(
-  //                     color: AppTheme.orange,
-  //                     borderRadius: BorderRadius.circular(10)),
-  //                 child: const Text(
-  //                   'Ya',
-  //                   textAlign: TextAlign.center,
-  //                   style: TextStyle(
-  //                       fontSize: 10,
-  //                       color: Colors.white,
-  //                       fontFamily: AppTheme.fontName),
-  //                 ),
-  //               ),
-  //               const SizedBox(
-  //                 height: 50,
-  //               )
-  //             ],
-  //           )
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Future _potoBottomSheet() {
     return showModalBottomSheet(
       context: context,
@@ -202,7 +159,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                   ),
                   ListTile(
                     onTap: () async {
-                      await getImageGalerry();
+                      await getImageCamera();
                     },
                     leading: Container(
                       width: 40,
@@ -216,7 +173,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                         color: Color(0xFF006B6C),
                       ),
                     ),
-                    title: Text("Unggah dari Galeri",
+                    title: Text("Unggah dari Camera",
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -238,7 +195,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                   ),
                   ListTile(
                     onTap: () async {
-                      await getImageCamera();
+                      await getImageGalerry();
                     },
                     leading: Container(
                       width: 40,
@@ -252,7 +209,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                         color: Color(0xFF006B6C),
                       ),
                     ),
-                    title: Text("Unggah dari Kamera",
+                    title: Text("Unggah dari Galeri",
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -281,31 +238,20 @@ class _EditProfilePageState extends State<EditProfilePage>
     );
   }
 
-  // Future<void> getImageGalerry() async {
-  //   var galleryPermission = Permission.storage;
+  final CurrentUser _currentUser = Get.put(CurrentUser());
 
-  //   if (galleryPermission.status == PermissionStatus.denied) {
-  //     galleryPermission.request();
-  //     if (galleryPermission.status == PermissionStatus.permanentlyDenied) {
-  //       showDialog(
-  //         context: context,
-  //         builder: (context) => AlertDialog(actions: [
-  //           ElevatedButton(
-  //               onPressed: () {
-  //                 Navigator.pop(context);
-  //               },
-  //               child: Text(""))
-  //         ]),
-  //       );
-  //     }
-  //   }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    name.dispose();
+    alamat.dispose();
+    alamat.dispose();
+  }
 
-  //   final ImagePicker picker = ImagePicker();
-  //   final imagePicked = await picker.pickImage(source: ImageSource.gallery);
-  //   image = File(imagePicked?.path ?? "");
-  //   setState(() {});
-  // }
-
+  TextEditingController name = TextEditingController();
+  TextEditingController alamat = TextEditingController();
+  TextEditingController noHp = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -415,7 +361,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                 height: 35,
               ),
               Text(
-                'Aditiya Gilang',
+                _currentUser.user.nama!,
                 textAlign: TextAlign.center,
                 style: greenTextStyle2.copyWith(
                   fontWeight: extraBold,
@@ -424,7 +370,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                 ),
               ),
               Text(
-                'Aditiya',
+                _currentUser.user.username!,
                 textAlign: TextAlign.center,
                 style: greenTextStyle2.copyWith(
                   fontSize: 12,
@@ -432,7 +378,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                 ),
               ),
               Text(
-                'Semangat Bertani Ya Gais ;)',
+                _currentUser.user.caption!,
                 textAlign: TextAlign.center,
                 style: greenTextStyle2.copyWith(
                   fontSize: 12,
@@ -471,6 +417,7 @@ class _EditProfilePageState extends State<EditProfilePage>
               Container(
                   padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
                   child: TextFormField(
+                    controller: name,
                     showCursor: true,
                     cursorHeight: 20,
                     style: blackTextStyle2,
@@ -484,7 +431,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Nama',
-                      hintText: 'Aditiya Gilang',
+                      hintText: _currentUser.user.nama,
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -497,6 +444,7 @@ class _EditProfilePageState extends State<EditProfilePage>
               Container(
                   padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
                   child: TextFormField(
+                    controller: alamat,
                     showCursor: true,
                     cursorHeight: 25,
                     style: blackTextStyle2,
@@ -510,7 +458,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Alamat',
-                      hintText: 'Jombang',
+                      hintText: _currentUser.user.alamat,
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -523,6 +471,7 @@ class _EditProfilePageState extends State<EditProfilePage>
               Container(
                   padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
                   child: TextFormField(
+                    controller: noHp,
                     showCursor: true,
                     cursorHeight: 20,
                     style: blackTextStyle2,
@@ -536,7 +485,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Nomer Telepon',
-                      hintText: '082232937743',
+                      hintText: _currentUser.user.noHp,
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -556,7 +505,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Tanggal Lahir',
-                      hintText: '21 November 2003',
+                      hintText: _currentUser.user.tanggalLahir,
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -576,7 +525,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Jenis Kelamin',
-                      hintText: 'Laki - Laki',
+                      hintText: _currentUser.user.jenisKelamin,
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -716,5 +665,28 @@ class _EditProfilePageState extends State<EditProfilePage>
             )),
       ),
     );
+  }
+
+  Future profil() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+            "https://a4b1-125-166-116-224.ap.ngrok.io//EDIFARM/api/login.php"),
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data['success'] == true) {
+          User userInfo = User.fromJson(data['user']);
+          await RememberUser().storeUser(json.encode(userInfo));
+          // ignore: use_build_context_synchronously
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => true);
+          // sharePref(username);
+        } else {}
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+      print(e.toString());
+    }
   }
 }
