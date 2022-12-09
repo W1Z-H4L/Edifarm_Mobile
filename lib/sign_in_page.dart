@@ -177,10 +177,6 @@ class _SignInPageState extends State<SignInPage> {
                       )),
                   child: Text('Login'),
                   onPressed: () {
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   '/home',
-                    // );
                     verifyLogin();
                   },
                 ),
@@ -189,8 +185,6 @@ class _SignInPageState extends State<SignInPage> {
               const SizedBox(
                 height: 50,
               ),
-
-              // ),
             ],
           )),
         ]));
@@ -225,10 +219,10 @@ class _SignInPageState extends State<SignInPage> {
         if (data['success'] == true) {
           snackBarSucces();
 
-          User userInfo = User.fromJson(data['user']);
+          User userInfo = User.fromJson(data['username']);
           await RememberUser().storeUser(json.encode(userInfo));
           // ignore: use_build_context_synchronously
-          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => true);
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
           // sharePref(username);
         } else {
           snackBarFailed();

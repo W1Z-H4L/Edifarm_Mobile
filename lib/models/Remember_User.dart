@@ -7,13 +7,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 class RememberUser {
   storeUser(userInfo) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('user', userInfo);
+    await prefs.setString('username', userInfo);
   }
 
   static Future<User> readUser() async {
     User currentUserInfo;
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    String? userInfo = preferences.getString('username ');
+    String? userInfo = preferences.getString('username');
     userInfo != null;
     Map<String, dynamic> userDataMap = jsonDecode(userInfo!);
     currentUserInfo = User.fromJson(userDataMap);

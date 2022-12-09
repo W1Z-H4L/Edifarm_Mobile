@@ -4,14 +4,16 @@ import 'package:get/get.dart';
 
 class CurrentUser extends GetxController {
   Rx<User> _currentUser = User(
-          idUser: '',
-          nama: '',
-          alamat: '',
-          password: '',
-          noHp: '',
-          tanggalLahir: '',
-          jenisKelamin: '')
-      .obs;
+    idUser: '',
+    nama: '',
+    alamat: '',
+    password: '',
+    noHp: '',
+    tanggalLahir: '',
+    jenisKelamin: '',
+    username: '',
+    caption: '',
+  ).obs;
 
   User get user => _currentUser.value;
 
