@@ -54,38 +54,6 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
   void addAllListData() {
     const int count = 5;
 
-    // listViews.add(
-    //   WorkoutView(
-    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-    //         parent: widget.animationController!,
-    //         curve:
-    //             Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
-    //     animationController: widget.animationController!,
-    //   ),
-    // );
-    // listViews.add(
-    //   tanggalActivity(
-    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-    //         parent: widget.animationController!,
-    //         curve:
-    //             Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
-    //     animationController: widget.animationController!,
-    //   ),
-    // );
-
-    // listViews.add(
-    //   TitleActivity(
-    //     titleTxt: 'Yang harus kamu lakukan hari ini',
-
-    //     // subTxt: 'more',
-    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-    //         parent: widget.animationController!,
-    //         curve:
-    //             Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-    //     animationController: widget.animationController!,
-    //   ),
-    // );
-
     listViews.add(
       ListRiwayatPupuk(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(

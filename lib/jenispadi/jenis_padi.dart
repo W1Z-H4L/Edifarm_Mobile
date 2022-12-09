@@ -130,27 +130,6 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                                     color: AppTheme.green,
                                   ),
                                 ),
-                                // Container(
-                                //   child: Row(
-                                //     children: <Widget>[
-                                //       const Text(
-                                //         '4.3',
-                                //         textAlign: TextAlign.left,
-                                //         style: TextStyle(
-                                //           fontWeight: FontWeight.w200,
-                                //           fontSize: 22,
-                                //           letterSpacing: 0.27,
-                                //           color: AppTheme.grey,
-                                //         ),
-                                //       ),
-                                //       Icon(
-                                //         Icons.star,
-                                //         color: DesignCourseAppTheme.nearlyBlue,
-                                //         size: 24,
-                                //       ),
-                                //     ],
-                                //   ),
-                                // )
                               ],
                             ),
                           ),
@@ -184,9 +163,9 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                               padding: const EdgeInsets.all(8),
                               child: Row(
                                 children: <Widget>[
-                                  getTimeBoxUI('Luas', '1000m²'),
-                                  getTimeBoxUI('Kota', 'Ponorogo'),
-                                  getTimeBoxUI('Pemilik', 'Lusy'),
+                                  getTimeBoxUI('Tanggal Tanam', '02/04/22'),
+                                  getTimeBoxUI('Lama Panen', '4 bulan'),
+                                  getTimeBoxUI('Tanggal Panen', '02/07/22'),
                                 ],
                               ),
                             ),
@@ -201,58 +180,6 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: const <Widget>[
-                                  // Container(
-                                  //   width: 48,
-                                  //   height: 48,
-                                  //   child: Container(
-                                  //     decoration: BoxDecoration(
-                                  //       color: AppTheme.nearlyWhite,
-                                  //       borderRadius: const BorderRadius.all(
-                                  //         Radius.circular(16.0),
-                                  //       ),
-                                  //       border: Border.all(
-                                  //           color: AppTheme.grey
-                                  //               .withOpacity(0.2)),
-                                  //     ),
-                                  //     // child: Icon(
-                                  //     //   Icons.add,
-                                  //     //   color: AppTheme.nearlyBlue,
-                                  //     //   size: 28,
-                                  //     // ),
-                                  //   ),
-                                  // ),
-
-                                  // Expanded(
-                                  //   child: Container(
-                                  //     height: 48,
-                                  //     decoration: BoxDecoration(
-                                  //       color: AppTheme.green,
-                                  //       borderRadius: const BorderRadius.all(
-                                  //         Radius.circular(16.0),
-                                  //       ),
-                                  //       boxShadow: <BoxShadow>[
-                                  //         BoxShadow(
-                                  //             color: AppTheme.green
-                                  //                 .withOpacity(0.5),
-                                  //             offset: const Offset(1.1, 1.1),
-                                  //             blurRadius: 10.0),
-                                  //       ],
-                                  //     ),
-                                  //     child: const Center(
-                                  //       child: Text(
-                                  //         'Lihat Identitas Pemilik',
-                                  //         textAlign: TextAlign.left,
-                                  //         style: TextStyle(
-                                  //           fontWeight: FontWeight.w600,
-                                  //           fontFamily: AppTheme.fontName,
-                                  //           fontSize: 18,
-                                  //           letterSpacing: 0.0,
-                                  //           color: AppTheme.nearlyWhite,
-                                  //         ),
-                                  //       ),
-                                  //     ),
-                                  //   ),
-                                  // ),
                                   const SizedBox(
                                     height: 200,
                                   )
@@ -282,16 +209,6 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100)),
                   elevation: 10.0,
-                  // child: Container(
-                  //   width: 120,
-                  //   height: 120,
-                  //   child: Center(
-                  //       child: Image.asset(
-                  //     'assets/potoprofil.png',
-                  //     height: 115,
-                  //     width: 115,
-                  //   )),
-                  // ),
                 ),
               ),
             ),

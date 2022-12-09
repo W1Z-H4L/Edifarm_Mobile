@@ -1,11 +1,12 @@
 import 'dart:convert';
+
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/models/Remember_User.dart';
 import 'package:Edifarm/models/User_model.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 
+import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -113,47 +114,19 @@ class _SignInPageState extends State<SignInPage> {
             children: <Widget>[
               // NOTE: INPUT EMAIL
               TextFormField(
-                  showCursor: true,
-                  cursorHeight: 25,
-                  controller: username,
-                  inputFormatters: [],
-                  style: GoogleFonts.montserrat(),
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppTheme.green)),
-                    labelText: 'Username',
-                    hintText: 'Masukan Username Anda',
-                    hintStyle: AppTheme.custom,
-                    labelStyle: AppTheme.custom1,
-                    focusColor: AppTheme.green,
-                    fillColor: AppTheme.green,
-                  )),
-              Container(
-                // padding: const EdgeInsets.all(22),
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(0),
-                //   color: Colors.white,
-                // ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      // NOTE: INPUT EMAIL
-                      TextFormField(
-                        showCursor: true,
-                        cursorHeight: 25,
-                        style: GoogleFonts.montserrat(),
-                        decoration: const InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: AppTheme.green)),
-                          labelText: 'Username',
-                          hintText: 'Masukan Username Anda',
-                          hintStyle: AppTheme.custom,
-                          labelStyle: AppTheme.custom1,
-                          focusColor: AppTheme.green,
-                          fillColor: AppTheme.green,
-                        ),
-                      ),
-                    ]),
+                showCursor: true,
+                cursorHeight: 25,
+                style: GoogleFonts.montserrat(),
+                decoration: const InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppTheme.green)),
+                  labelText: 'Username',
+                  hintText: 'Masukan Username Anda',
+                  hintStyle: AppTheme.custom,
+                  labelStyle: AppTheme.custom1,
+                  focusColor: AppTheme.green,
+                  fillColor: AppTheme.green,
+                ),
               ),
               const SizedBox(
                 height: 30,
@@ -170,7 +143,7 @@ class _SignInPageState extends State<SignInPage> {
                       borderSide: BorderSide(color: AppTheme.green)),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _secureText ? Icons.visibility_off : Icons.visibility,
+                      _secureText ? Icons.visibility : Icons.visibility_off,
                       color: AppTheme.green,
                     ),
                     onPressed: () {

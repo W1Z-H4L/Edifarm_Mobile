@@ -3,7 +3,10 @@ import 'package:Edifarm/aktivitas/chart_view.dart';
 import 'package:Edifarm/aktivitas/activity_date.dart';
 import 'package:Edifarm/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class activityPage extends StatefulWidget {
   const activityPage({Key? key, this.animationController}) : super(key: key);
@@ -58,7 +61,7 @@ class _activityPageState extends State<activityPage>
     const int count = 5;
 
     listViews.add(
-      WorkoutView(
+      ChartView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:

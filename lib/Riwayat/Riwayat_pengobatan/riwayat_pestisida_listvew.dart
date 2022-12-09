@@ -1,7 +1,6 @@
 import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayat_pestisida_data.dart';
-import 'package:Edifarm/aktivitas/activity_data.dart';
-import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayat_pupuk_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
@@ -109,132 +108,149 @@ class PestisidaAreaView extends StatelessWidget {
           return FadeTransition(
             opacity: animation!,
             child: Transform(
-              transform: Matrix4.translationValues(
-                  0.0, 50 * (1.0 - animation!.value), 0.0),
-              child: Container(
-                  child: DottedBorder(
-                      strokeWidth: 1,
-                      borderType: BorderType.RRect,
-                      radius: Radius.circular(25),
+                transform: Matrix4.translationValues(
+                    0.0, 50 * (1.0 - animation!.value), 0.0),
+                child: Container(
+                    child: DottedBorder(
+                        strokeWidth: 1,
+                        borderType: BorderType.RRect,
+                        radius: Radius.circular(25),
 
-                      // decoration: BoxDecoration(
+                        // decoration: BoxDecoration(
 
-                      color: Color.fromARGB(255, 1, 104, 97),
-                      // borderRadius: const BorderRadius.only(
-                      //     topLeft: Radius.circular(8.0),
-                      //     bottomLeft: Radius.circular(8.0),
-                      //     bottomRight: Radius.circular(8.0),
-                      //     topRight: Radius.circular(8.0)),
-                      // boxShadow: <BoxShadow>[
-                      //   BoxShadow(
-                      //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                      //       offset: const Offset(1.1, 1.1),
-                      //       blurRadius: 10.0),
-                      // ],),
-
-                      child: Material(
+                        color: Color.fromARGB(255, 1, 104, 97),
+                        child: Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            focusColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8.0)),
-                            splashColor:
-                                AppTheme.nearlyDarkBlue.withOpacity(0.2),
-                            onTap: () {},
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 8, left: 16, right: 16),
-                                      child: Expanded(
-                                          child: Padding(
+                              focusColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8.0)),
+                              splashColor:
+                                  AppTheme.nearlyDarkBlue.withOpacity(0.2),
+                              onTap: () {},
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 4, bottom: 2),
-                                        child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              Container(
-                                                  padding: EdgeInsets.only(
-                                                      top: 0, left: 0),
-                                                  child: Text(
-                                                      tabPestisidaList!
-                                                          .aktivitas,
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            AppTheme.fontName,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                        fontSize: 14,
-                                                        letterSpacing: 0.2,
-                                                        color: AppTheme.green,
-                                                      ))),
-                                              const Spacer(),
-                                              Container(
-                                                  alignment: Alignment.center,
-                                                  height: 20,
-                                                  width: 60,
-                                                  child: Text(
-                                                    'Selesai',
-                                                  )
-
-                                                  // alignment: Alignment.centerRight,
-                                                  // padding: EdgeInsets.only(
-                                                  //     bottom: 2, right: 6),
-                                                  // child: Checkbox(
-                                                  //   value: false,
-                                                  //   onChanged: (value) {},
-                                                  // ),
-                                                  )
-                                            ]),
-                                      ))),
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 8, left: 16, right: 16),
-                                      child: Expanded(
+                                            top: 8, left: 16, right: 16),
+                                        child: Expanded(
+                                            child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 4, bottom: 2),
                                           child: Row(
-                                        children: [
-                                          Container(
-                                              child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 0, left: 0),
-                                                  child: Text(
-                                                      tabPestisidaList!.tanggal,
-                                                      style: const TextStyle(
-                                                        fontFamily:
-                                                            AppTheme.fontName,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                        fontSize: 10,
-                                                        letterSpacing: 0.2,
-                                                        color: AppTheme.green,
-                                                      )))),
-                                          const Spacer(),
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                                right: 10),
-                                            child: Text(tabPestisidaList!.jam,
-                                                textAlign: TextAlign.start,
-                                                style: const TextStyle(
-                                                  fontFamily: AppTheme.fontName,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 10,
-                                                  letterSpacing: 0.2,
-                                                  color: AppTheme.green,
-                                                )),
-                                          )
-                                        ],
-                                      )))
-                                ]),
-                          )))),
-            ),
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Container(
+                                                    padding: EdgeInsets.only(
+                                                        top: 0, left: 0),
+                                                    child: Text(
+                                                        tabPestisidaList!
+                                                            .aktivitas,
+                                                        style: const TextStyle(
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 14,
+                                                          letterSpacing: 0.2,
+                                                          color: AppTheme.green,
+                                                        ))),
+                                                const Spacer(),
+                                                InkWell(
+                                                  child: Container(
+                                                      height: 20,
+                                                      width: 60,
+                                                      alignment:
+                                                          Alignment.center,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                            20,
+                                                          ),
+                                                          color:
+                                                              AppTheme.green),
+                                                      child: const Text(
+                                                          'Selesai',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontFamily: AppTheme
+                                                                .fontName,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                            fontSize: 10,
+                                                            letterSpacing: 0.2,
+                                                            color:
+                                                                AppTheme.white,
+                                                          ))),
+                                                  onTap: () {
+                                                    context:
+                                                    context;
+                                                    builder:
+                                                    (context) {
+                                                      return Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 20,
+                                                          width: 60,
+                                                          child: Text(
+                                                            'Selesai',
+                                                          ));
+                                                    };
+                                                  },
+                                                )
+                                              ]),
+                                        ))),
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8, left: 16, right: 16),
+                                        child: Expanded(
+                                            child: Row(
+                                          children: [
+                                            Container(
+                                                child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 0, left: 0),
+                                                    child: Text(
+                                                        tabPestisidaList!
+                                                            .tanggal,
+                                                        style: const TextStyle(
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.2,
+                                                          color: AppTheme.green,
+                                                        )))),
+                                            const Spacer(),
+                                            Container(
+                                              padding: const EdgeInsets.only(
+                                                  right: 10),
+                                              child: Text(tabPestisidaList!.jam,
+                                                  textAlign: TextAlign.start,
+                                                  style: const TextStyle(
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10,
+                                                    letterSpacing: 0.2,
+                                                    color: AppTheme.green,
+                                                  )),
+                                            )
+                                          ],
+                                        )))
+                                  ])),
+                        )))),
           );
         });
   }
