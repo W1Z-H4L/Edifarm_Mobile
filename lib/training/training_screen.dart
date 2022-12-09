@@ -1,24 +1,24 @@
-import 'package:edifarm/calender/calendar_popup_view.dart';
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/ui_view/area_list_view.dart';
-import 'package:edifarm/dashboard/ui_view/running_view.dart';
-import 'package:edifarm/dashboard/ui_view/title_view.dart';
-
+import 'package:edifarm/dashboard1/ui_view/area_list_view.dart';
+import 'package:edifarm/dashboard1/ui_view/chart_view.dart';
+import 'package:edifarm/dashboard1/ui_view/running_view.dart';
+import 'package:edifarm/dashboard1/ui_view/title_view.dart';
 import 'package:flutter/material.dart';
 
-class CalenderScreen extends StatefulWidget {
-  const CalenderScreen({Key? key, this.animationController}) : super(key: key);
+import '../dashboard/fitness_app_theme.dart';
+
+class TrainingScreen extends StatefulWidget {
+  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _CalenderScreenState createState() => _CalenderScreenState();
+  _TrainingScreenState createState() => _TrainingScreenState();
 }
 
-class _CalenderScreenState extends State<CalenderScreen>
+class _TrainingScreenState extends State<TrainingScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
-  List<Widget> gridViews = <Widget>[];
+  List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
 
@@ -58,24 +58,45 @@ class _CalenderScreenState extends State<CalenderScreen>
   void addAllListData() {
     const int count = 5;
 
-    gridViews.add(
-      TitleView(
-        titleTxt: 'Kalender Tanam',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    gridViews.add(
-      CalendarPopupView(
+    listViews.add(
+      WorkoutView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
                 Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      RunningView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleView(
+        titleTxt: 'yang harus kamu lakukan hari ini',
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      AreaListView(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController!,
+                curve: Interval((1 / count) * 5, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController!,
       ),
     );
   }
@@ -94,7 +115,6 @@ class _CalenderScreenState extends State<CalenderScreen>
         body: Stack(
           children: <Widget>[
             getMainListViewUI(),
-            const CalendarPopupView(),
             getAppBarUI(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
@@ -120,11 +140,11 @@ class _CalenderScreenState extends State<CalenderScreen>
                   24,
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
-            itemCount: gridViews.length,
-            scrollDirection: Axis.horizontal,
+            itemCount: listViews.length,
+            scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
               widget.animationController?.forward();
-              return gridViews[index];
+              return listViews[index];
             },
           );
         }
@@ -145,7 +165,7 @@ class _CalenderScreenState extends State<CalenderScreen>
                     0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 91, 86),
+                    color: FitnessAppTheme.green,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                       bottomRight: Radius.circular(32.0),
@@ -176,7 +196,7 @@ class _CalenderScreenState extends State<CalenderScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Jadwal',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,

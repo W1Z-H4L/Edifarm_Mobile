@@ -1,44 +1,48 @@
-class MealsListData {
-  MealsListData({
+class MenuListData {
+  MenuListData({
     this.imagePath = '',
     this.titleTxt = '',
     this.startColor = '',
     this.endColor = '',
-    this.meals,
+    this.deskripsi,
   });
 
   String imagePath;
   String titleTxt;
   String startColor;
   String endColor;
-  List<String>? meals;
+  List<String>? deskripsi;
 
-  static List<MealsListData> tabIconsList = <MealsListData>[
-    MealsListData(
+  static List<MenuListData> tabIconsList = <MenuListData>[
+    MenuListData(
       imagePath: 'assets/gambar_schedule.png',
       titleTxt: 'Jadwal',
-      meals: <String>['Lihat Ada', 'Jadwal Kegiatan', 'Apa Anda Hari Ini'],
+      deskripsi: <String>['Lihat Ada', 'Jadwal Kegiatan', 'Apa Anda Hari Ini'],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),
-    MealsListData(
+    MenuListData(
       imagePath: 'assets/gambar_variety.png',
       titleTxt: 'Jenis',
-      meals: <String>['Informasi Jenis', 'Padi Yang Sedang', 'Ditanam Dilahan'],
+      deskripsi: <String>[
+        'Informasi Jenis',
+        'Padi Yang Sedang',
+        'Ditanam Dilahan'
+      ],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),
-    MealsListData(
+    MenuListData(
       imagePath: 'assets/gambar_diagnose_hama.png',
       titleTxt: 'Hama',
-      meals: <String>['Diagnosa Padi', 'Laporkan Padi', 'Terserang Hama'],
+      deskripsi: <String>['Diagnosa Padi', 'Laporkan Padi', 'Terserang Hama'],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),
-    MealsListData(
+    MenuListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Cuaca',
-      meals: <String>[
+      deskripsi: <String>[
         'Diagnosa Padi ',
         'Laporkan Cuaca Buruk',
         'Akhir - Akhir Ini'
@@ -46,10 +50,14 @@ class MealsListData {
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),
-    MealsListData(
+    MenuListData(
       imagePath: 'assets/gambar_diagnose_cuaca.png',
       titleTxt: 'Diagnosa',
-      meals: <String>['Diagnosa Padi ', 'Laporkan Padi Rusak', 'Penyebabnya'],
+      deskripsi: <String>[
+        'Diagnosa Padi ',
+        'Laporkan Padi Rusak',
+        'Penyebabnya'
+      ],
       startColor: '#006B6C',
       endColor: '#CCE1E2',
     ),

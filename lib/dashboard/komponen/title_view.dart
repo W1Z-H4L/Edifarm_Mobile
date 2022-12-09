@@ -1,5 +1,5 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
+
 import 'package:flutter/material.dart';
 
 class TitleView extends StatelessWidget {
@@ -36,11 +36,11 @@ class TitleView extends StatelessWidget {
                         titleTxt,
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontFamily: FitnessAppTheme.fontName,
+                          fontFamily: AppTheme.fontName,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           letterSpacing: 0.5,
-                          color: FitnessAppTheme.lightText,
+                          color: AppTheme.lightText,
                         ),
                       ),
                     ),
@@ -56,17 +56,16 @@ class TitleView extends StatelessWidget {
                                 subTxt,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontFamily: FitnessAppTheme.fontName,
+                                  fontFamily: AppTheme.fontName,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16,
                                   letterSpacing: 0.5,
-                                  color: FitnessAppTheme.splash,
+                                  color: AppTheme.splash,
                                 ),
                               ),
                               onPressed: (() {
                                 Navigator.pushNamed(context, '/act');
                               }),
-                            
                             )
                             // SizedBox(
                             //   height: 38,

@@ -1,5 +1,5 @@
+import 'package:edifarm/dashboard1/theme.dart';
 import 'package:flutter/material.dart';
-import '../fitness_app_theme.dart';
 
 class RunningView extends StatelessWidget {
   final AnimationController? animationController;
@@ -73,13 +73,11 @@ class RunningView extends StatelessWidget {
                                           "Hari ini,",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                            fontFamily:
-                                                FitnessAppTheme.fontName,
+                                            fontFamily: AppTheme.fontName,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
                                             letterSpacing: 0.0,
-                                            color:
-                                                FitnessAppTheme.nearlyDarkBlue,
+                                            color: AppTheme.nearlyDarkBlue,
                                           ),
                                         ),
                                       ),

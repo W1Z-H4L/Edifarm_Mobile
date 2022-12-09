@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
+import 'package:edifarm/dashboard/Theme.dart';
 import 'package:edifarm/model/homelist.dart';
 import 'package:flutter/material.dart';
 
@@ -45,10 +43,10 @@ class SignInPage extends StatelessWidget {
           Text(
             'WELCOME !!',
             textAlign: TextAlign.center,
-            style: FitnessAppTheme.custom1.copyWith(
+            style: AppTheme.custom1.copyWith(
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              color: FitnessAppTheme.green,
+              color: AppTheme.green,
             ),
           ),
           Container(
@@ -77,10 +75,10 @@ class SignInPage extends StatelessWidget {
                 TextFormField(
                   showCursor: true,
                   cursorHeight: 25,
-                  style: FitnessAppTheme.custom2,
+                  style: AppTheme.custom2,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: FitnessAppTheme.green)),
+                        borderSide: BorderSide(color: AppTheme.green)),
                     labelText: 'Ussername',
                     hintText: 'Masukan Ussername Anda',
                     hintStyle: FitnessAppTheme.custom,

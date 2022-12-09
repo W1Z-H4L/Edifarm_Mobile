@@ -1,13 +1,11 @@
-import 'package:edifarm/main.dart';
+import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
 import 'package:flutter/material.dart';
 
-import '../fitness_app_theme.dart';
-
-class GlassView extends StatelessWidget {
+class MotivasiView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const GlassView({Key? key, this.animationController, this.animation})
+  const MotivasiView({Key? key, this.animationController, this.animation})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class GlassView extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 16),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: FitnessAppTheme.splash,
+                            color: AppTheme.splash,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(8.0),
                                 bottomLeft: Radius.circular(8.0),
@@ -53,12 +51,11 @@ class GlassView extends StatelessWidget {
                                   '   Anda Sudah Melakukan Semua Kegiatan Hari Ini \n   Tetap Pantau Padi Anda !',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
                                     letterSpacing: 0.0,
-                                    color:
-                                        FitnessAppTheme.green.withOpacity(0.6),
+                                    color: AppTheme.green.withOpacity(0.6),
                                   ),
                                 ),
                               ),

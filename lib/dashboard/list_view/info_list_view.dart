@@ -1,9 +1,6 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
 import 'package:edifarm/dashboard/models/info_data.dart';
-import 'package:edifarm/dashboard/models/meals_list_data.dart';
+import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
 
 class InfoListView extends StatefulWidget {
   const InfoListView(
@@ -111,10 +108,10 @@ class InfoView extends StatelessWidget {
                         top: 32, left: 8, right: 8, bottom: 16),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.white,
+                        color: AppTheme.white,
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: FitnessAppTheme.grey.withOpacity(0.2),
+                              color: AppTheme.grey.withOpacity(0.2),
                               offset: Offset(1.1, 1.1),
                               blurRadius: 10.0),
                         ],
@@ -136,11 +133,11 @@ class InfoView extends StatelessWidget {
                               infoListData!.link,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontFamily: FitnessAppTheme.fontName,
+                                fontFamily: AppTheme.fontName,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 letterSpacing: 0.2,
-                                color: FitnessAppTheme.black,
+                                color: AppTheme.black,
                               ),
                             ),
                             Expanded(
@@ -154,11 +151,11 @@ class InfoView extends StatelessWidget {
                                     Text(
                                       infoListData!.description!.join('\n'),
                                       style: TextStyle(
-                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 10,
                                         letterSpacing: 0.2,
-                                        color: FitnessAppTheme.black,
+                                        color: AppTheme.black,
                                       ),
                                     ),
                                   ],

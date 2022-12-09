@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:edifarm/dashboard/fitness_app_home_screen.dart';
-import 'package:edifarm/dashboard/training/training_screen.dart';
+import 'package:edifarm/dashboard1/fitness_app_home_screen.dart';
+import 'package:edifarm/training/training_screen.dart';
 import 'package:edifarm/jenispadi/jenispadi.dart';
 import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_scren.dart';
