@@ -1,25 +1,13 @@
-<<<<<<<< HEAD:lib/training/training_screen.dart
-import 'package:edifarm/dashboard1/ui_view/area_list_view.dart';
-import 'package:edifarm/dashboard1/ui_view/chart_view.dart';
-import 'package:edifarm/dashboard1/ui_view/running_view.dart';
-import 'package:edifarm/dashboard1/ui_view/title_view.dart';
-import 'package:flutter/material.dart';
-
-import '../dashboard/fitness_app_theme.dart';
-
-class TrainingScreen extends StatefulWidget {
-  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
-========
 import 'package:Edifarm/aktivitas/listview_activity.dart';
 import 'package:Edifarm/aktivitas/chart_view.dart';
 import 'package:Edifarm/aktivitas/activity_date.dart';
 import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/dashboard1/ui_view/chart_view.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
 class activityPage extends StatefulWidget {
   const activityPage({Key? key, this.animationController}) : super(key: key);
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/aktivitas/activity.dart
 
   final AnimationController? animationController;
   @override

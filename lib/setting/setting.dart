@@ -1,6 +1,7 @@
-import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
-import 'package:edifarm/model/homelist.dart';
-import 'package:edifarm/setting/edit_profil.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/widgets/buttons.dart';
+
 import 'package:flutter/material.dart';
 
 class SettingsUI extends StatelessWidget {

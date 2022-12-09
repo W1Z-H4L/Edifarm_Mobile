@@ -1,4 +1,5 @@
 import 'package:Edifarm/main.dart';
+import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -190,39 +191,39 @@ class themeitems {
 class fonts {
   TextStyle prosesSplash = GoogleFonts.montserrat(
       color: Color(0xff006B6C), fontSize: 24, fontWeight: FontWeight.w600);
-  // TextStyle blackTextStyle =
-  //     GoogleFonts.montserrat(color: blackColor, fontSize: 24);
-  // TextStyle blackTextStyle1 =
-  //     GoogleFonts.montserrat(color: blackColor, fontSize: 20);
-  // TextStyle whiteTextStyle = GoogleFonts.montserrat(
-  //     color: whiteColor, fontSize: 20, fontWeight: FontWeight.bold);
-  // TextStyle whiteTextStyle3 = GoogleFonts.montserrat(
-  //     color: whiteColor, fontSize: 15, fontWeight: FontWeight.bold);
-  // TextStyle greyTextStyle = GoogleFonts.montserrat(
-  //   color: greyColor,
-  // );
-  // TextStyle lightBlueTextStyle = GoogleFonts.montserrat(
-  //   color: lightBlueColor,
-  // );
-  // TextStyle greenTextStyle =
-  //     GoogleFonts.montserrat(color: greenColor, fontSize: 14);
-  // TextStyle karen = GoogleFonts.montserrat(color: whiteColor, fontSize: 12);
-  // TextStyle greenTextStyle2 =
-  //     GoogleFonts.montserrat(color: subtitleColor2, fontSize: 24);
-  // TextStyle blackTextStyle2 =
-  //     GoogleFonts.montserrat(color: Colors.black, fontSize: 14);
-  // TextStyle greenTextStyle3 =
-  //     GoogleFonts.montserrat(color: subtitleColor2, fontSize: 15);
-  // TextStyle greenTextStyle1 =
-  //     GoogleFonts.montserrat(color: subtitleColor2, fontSize: 24);
-  // TextStyle greenTextStyle4 = GoogleFonts.montserrat(
-  //     color: subtitleColor2, fontSize: 24, fontWeight: FontWeight.w600);
-  // TextStyle greenTextStyle5 = GoogleFonts.montserrat(
-  //     color: subtitleColor2, fontSize: 13, fontWeight: FontWeight.w500);
-  // TextStyle whiteTextStyle1 = GoogleFonts.montserrat(
-  //     color: whiteColor, fontSize: 17, fontWeight: FontWeight.w500);
-  // TextStyle whiteTextStyle6 = GoogleFonts.montserrat(
-  //     color: whiteColor, fontSize: 24, fontWeight: FontWeight.w600);
+  TextStyle blackTextStyle =
+      GoogleFonts.montserrat(color: blackColor, fontSize: 24);
+  TextStyle blackTextStyle1 =
+      GoogleFonts.montserrat(color: blackColor, fontSize: 20);
+  TextStyle whiteTextStyle = GoogleFonts.montserrat(
+      color: whiteColor, fontSize: 20, fontWeight: FontWeight.bold);
+  TextStyle whiteTextStyle3 = GoogleFonts.montserrat(
+      color: whiteColor, fontSize: 15, fontWeight: FontWeight.bold);
+  TextStyle greyTextStyle = GoogleFonts.montserrat(
+    color: greyColor,
+  );
+  TextStyle lightBlueTextStyle = GoogleFonts.montserrat(
+    color: lightBlueColor,
+  );
+  TextStyle greenTextStyle =
+      GoogleFonts.montserrat(color: greenColor, fontSize: 14);
+  TextStyle karen = GoogleFonts.montserrat(color: whiteColor, fontSize: 12);
+  TextStyle greenTextStyle2 =
+      GoogleFonts.montserrat(color: subtitleColor2, fontSize: 24);
+  TextStyle blackTextStyle2 =
+      GoogleFonts.montserrat(color: Colors.black, fontSize: 14);
+  TextStyle greenTextStyle3 =
+      GoogleFonts.montserrat(color: subtitleColor2, fontSize: 15);
+  TextStyle greenTextStyle1 =
+      GoogleFonts.montserrat(color: subtitleColor2, fontSize: 24);
+  TextStyle greenTextStyle4 = GoogleFonts.montserrat(
+      color: subtitleColor2, fontSize: 24, fontWeight: FontWeight.w600);
+  TextStyle greenTextStyle5 = GoogleFonts.montserrat(
+      color: subtitleColor2, fontSize: 13, fontWeight: FontWeight.w500);
+  TextStyle whiteTextStyle1 = GoogleFonts.montserrat(
+      color: whiteColor, fontSize: 17, fontWeight: FontWeight.w500);
+  TextStyle whiteTextStyle6 = GoogleFonts.montserrat(
+      color: whiteColor, fontSize: 24, fontWeight: FontWeight.w600);
 
   FontWeight light = FontWeight.w300;
   FontWeight regular = FontWeight.w400;

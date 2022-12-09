@@ -1,4 +1,4 @@
-
+import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:edifarm/dashboard/komponen/motivasi.dart';
 import 'package:edifarm/dashboard/komponen/title_view.dart';
 import 'package:edifarm/dashboard/list_view/info_list_view.dart';

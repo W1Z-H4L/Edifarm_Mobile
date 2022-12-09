@@ -1,5 +1,6 @@
-import 'package:edifarm/dashboard/models/menu_data.dart';
-import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../main.dart';

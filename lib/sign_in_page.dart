@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import 'package:edifarm/dashboard/Theme.dart';
-import 'package:edifarm/model/homelist.dart';
-=======
 import 'package:Edifarm/shared/Theme_App.dart';
 
 import 'package:Edifarm/ui/widgets/buttons.dart';
->>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,11 +47,7 @@ class SignInPage extends StatelessWidget {
             'Welcome !!',
             textAlign: TextAlign.center,
             style: AppTheme.custom1.copyWith(
-<<<<<<< HEAD
-              fontWeight: FontWeight.w600,
-=======
               fontWeight: FontWeight.w900,
->>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872
               fontSize: 20,
               color: AppTheme.green,
             ),
@@ -86,18 +78,6 @@ class SignInPage extends StatelessWidget {
                 TextFormField(
                   showCursor: true,
                   cursorHeight: 25,
-<<<<<<< HEAD
-                  style: AppTheme.custom2,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppTheme.green)),
-                    labelText: 'Ussername',
-                    hintText: 'Masukan Ussername Anda',
-                    hintStyle: FitnessAppTheme.custom,
-                    labelStyle: FitnessAppTheme.custom1,
-                    focusColor: FitnessAppTheme.green,
-                    fillColor: FitnessAppTheme.green,
-=======
                   style: GoogleFonts.montserrat(),
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -108,7 +88,6 @@ class SignInPage extends StatelessWidget {
                     labelStyle: AppTheme.custom1,
                     focusColor: AppTheme.green,
                     fillColor: AppTheme.green,
->>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872
                   ),
                 ),
                 const SizedBox(

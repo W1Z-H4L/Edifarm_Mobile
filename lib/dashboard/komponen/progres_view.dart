@@ -1,5 +1,6 @@
-import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
-import 'package:edifarm/main.dart';
+import 'package:Edifarm/main.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 

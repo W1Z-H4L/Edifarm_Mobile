@@ -103,9 +103,9 @@ class AreaView extends StatelessWidget {
   final Animation<double>? animation;
   final bool? isi;
 
-  cek(){
-    set
-  }
+  // cek(){
+  //   set
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -175,9 +175,9 @@ class AreaView extends StatelessWidget {
                                                 CheckboxListTile(
                                                   value: isi,
                                                   onChanged: (isi) {
-                                                    setState(() {
-                                                      isi = val;
-                                                    });
+                                                    // setState(() {
+                                                    //   isi = val;
+                                                    // });
                                                   },
                                                   activeColor: AppTheme.green,
                                                   title:
@@ -186,7 +186,7 @@ class AreaView extends StatelessWidget {
                                                       "12 September 2020 - 09.00 WIB"),
                                                 ),
                                                 CheckboxListTile(
-                                                  value: pup,
+                                                  value: isi,
                                                   onChanged: (value) {},
                                                   activeColor: AppTheme.green,
                                                   title: Text("Pupuk - NPK"),
@@ -233,4 +233,3 @@ class AreaView extends StatelessWidget {
         });
   }
 }
-
