@@ -1,15 +1,31 @@
-import 'dart:io';
+import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
+import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
+import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
+import 'package:Edifarm/aktivitas/activity.dart';
+import 'package:Edifarm/jenispadi/jenispadi.dart';
+import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/splash_screen.dart';
+import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
+import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/pages/setting/popup.dart';
+import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
+<<<<<<< HEAD
 import 'package:edifarm/dashboard1/fitness_app_home_screen.dart';
 import 'package:edifarm/training/training_screen.dart';
 import 'package:edifarm/jenispadi/jenispadi.dart';
 import 'package:edifarm/sign_in_page.dart';
 import 'package:edifarm/splash_scren.dart';
+=======
+>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main(List<String> args) => runApp(MyApp());
+
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
@@ -17,32 +33,64 @@ void main(List<String> args) => runApp(MyApp());
 //     DeviceOrientation.portraitDown
 //   ]).then((_) => runApp(MyApp()));
 // }
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key, this.animationController}) : super(key: key);
 
-class MyApp extends StatelessWidget {
+  final AnimationController? animationController;
+  @override
+  _MyApp createState() => _MyApp();
+}
+
+class _MyApp extends State<MyApp> with TickerProviderStateMixin {
+  AnimationController? animationController;
+  Animation<double>? animation;
+  @override
+  void initState() {
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 1000), vsync: this);
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: animationController!,
+        curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    //   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     statusBarIconBrightness: Brightness.dark,
-    //     statusBarBrightness:
-    //         !kIsWeb && Platform.isAndroid ? Brightness.dark : Brightness.light,
-    //     systemNavigationBarColor: Colors.white,
-    //     systemNavigationBarDividerColor: Colors.transparent,
-    //     systemNavigationBarIconBrightness: Brightness.dark,
-    //   ));
-    return MaterialApp(debugShowCheckedModeBanner: false,
-        // theme: ThemeData(
-        //   primarySwatch: Colors.blue,
-        //   textTheme: AppTheme.textTheme,
-        //   platform: TargetPlatform.iOS,
-        // ),
-        routes: {
-          '/': (context) => const SplashScreen(),
-          '/sign-in': (context) => SignInPage(),
-          '/home': (context) => FitnessAppHomeScreen(),
-          '/act': (context) => const TrainingScreen(),
-          '/jenis': (context) => const jenisPadi(),
-        });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/sign-in': (context) => SignInPage(),
+        '/home': (context) => BottomNavigator(),
+        '/edit-bio': (context) =>
+            EditProfilePage(animationController: animationController),
+        '/edit-pass': (context) => EditPassword(),
+        '/edit-user': (context) => EditUsername(),
+        '/riwayatpupuk': (context) => const RiwayatPupuk(),
+        '/diag': (context) =>
+            DiagnosaScreen(animationController: animationController),
+        '/lahan': (context) => CourseInfoScreen(
+              animationController: animationController,
+            ),
+        '/jenis': (context) => jenisPadi(
+              animationController: animationController,
+            ),
+        '/sett': (context) => SettingsPage(),
+        '/iri': (context) => RiwayatIrigasi(
+              animationController: animationController,
+            ),
+        '/obat': (context) => RiwayatPestisida(
+              animationController: animationController,
+            ),
+        '/pupuk': (context) => RiwayatPupuk(
+              animationController: animationController,
+            ),
+        '/act': (context) => activityPage(
+              animationController: animationController,
+            ),
+      },
+    );
   }
 }
 
@@ -57,4 +105,3 @@ class HexColor extends Color {
     return int.parse(hexColor, radix: 16);
   }
 }
-//

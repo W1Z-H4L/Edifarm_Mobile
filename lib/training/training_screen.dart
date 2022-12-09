@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:lib/training/training_screen.dart
 import 'package:edifarm/dashboard1/ui_view/area_list_view.dart';
 import 'package:edifarm/dashboard1/ui_view/chart_view.dart';
 import 'package:edifarm/dashboard1/ui_view/running_view.dart';
@@ -8,13 +9,24 @@ import '../dashboard/fitness_app_theme.dart';
 
 class TrainingScreen extends StatefulWidget {
   const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+========
+import 'package:Edifarm/aktivitas/listview_activity.dart';
+import 'package:Edifarm/aktivitas/chart_view.dart';
+import 'package:Edifarm/aktivitas/activity_date.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:flutter/material.dart';
+
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/aktivitas/activity.dart
 
   final AnimationController? animationController;
   @override
-  _TrainingScreenState createState() => _TrainingScreenState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _TrainingScreenState extends State<TrainingScreen>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -68,7 +80,7 @@ class _TrainingScreenState extends State<TrainingScreen>
       ),
     );
     listViews.add(
-      RunningView(
+      tanggalActivity(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -78,8 +90,9 @@ class _TrainingScreenState extends State<TrainingScreen>
     );
 
     listViews.add(
-      TitleView(
-        titleTxt: 'yang harus kamu lakukan hari ini',
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
         // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -90,7 +103,7 @@ class _TrainingScreenState extends State<TrainingScreen>
     );
 
     listViews.add(
-      AreaListView(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
@@ -109,7 +122,7 @@ class _TrainingScreenState extends State<TrainingScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -165,15 +178,14 @@ class _TrainingScreenState extends State<TrainingScreen>
                     0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FitnessAppTheme.green,
+                    color: AppTheme.green,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                       bottomRight: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -199,7 +211,7 @@ class _TrainingScreenState extends State<TrainingScreen>
                                   'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,

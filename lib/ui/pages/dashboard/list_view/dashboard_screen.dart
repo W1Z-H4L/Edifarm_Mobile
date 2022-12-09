@@ -1,0 +1,310 @@
+<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
+
+import 'package:edifarm/dashboard/list_view/menu_list_view.dart';
+import 'package:edifarm/dashboard1/ui_view/motivasi.dart';
+import 'package:edifarm/dashboard1/ui_view/progres_view.dart';
+import 'package:edifarm/dashboard1/ui_view/title_view.dart';
+========
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/motivasi.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/progres_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/komponen/title_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key, this.animationController}) : super(key: key);
+
+  final AnimationController? animationController;
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
+class _HomeScreenState extends State<HomeScreen>
+    with TickerProviderStateMixin {
+========
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
+  Animation<double>? topBarAnimation;
+
+  List<Widget> listViews = <Widget>[];
+  final ScrollController scrollController = ScrollController();
+  double topBarOpacity = 0.0;
+
+  @override
+  void initState() {
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: widget.animationController!,
+            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    addAllListData();
+
+    scrollController.addListener(() {
+      if (scrollController.offset >= 24) {
+        if (topBarOpacity != 1.0) {
+          setState(() {
+            topBarOpacity = 1.0;
+          });
+        }
+      } else if (scrollController.offset <= 24 &&
+          scrollController.offset >= 0) {
+        if (topBarOpacity != scrollController.offset / 24) {
+          setState(() {
+            topBarOpacity = scrollController.offset / 24;
+          });
+        }
+      } else if (scrollController.offset <= 0) {
+        if (topBarOpacity != 0.0) {
+          setState(() {
+            topBarOpacity = 0.0;
+          });
+        }
+      }
+    });
+    super.initState();
+  }
+
+  void addAllListData() {
+    const int count = 9;
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Progres Aktivitas',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      MediterranesnDietView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Menu',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
+      MenuListView(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController!,
+                curve: Interval((1 / count) * 3, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController,
+========
+      AktivitasDataView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
+      ),
+    );
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Informasi Fitur',
+        subTxt: 'Today',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      MenuListView(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController!,
+                curve: Interval((1 / count) * 3, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController,
+      ),
+    );
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Informasi',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      InfoListView(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController!,
+                curve: Interval((1 / count) * 7, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      MotivasiView(
+          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+              CurvedAnimation(
+                  parent: widget.animationController!,
+                  curve: Interval((1 / count) * 8, 1.0,
+                      curve: Curves.fastOutSlowIn))),
+          animationController: widget.animationController!),
+    );
+  }
+
+  Future<bool> getData() async {
+    await Future<dynamic>.delayed(const Duration(milliseconds: 50));
+    return true;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppTheme.background,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: <Widget>[
+            getMainListViewUI(),
+            getAppBarUI(),
+            SizedBox(
+              height: MediaQuery.of(context).padding.bottom,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getMainListViewUI() {
+    return FutureBuilder<bool>(
+      future: getData(),
+      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox();
+        } else {
+          return ListView.builder(
+            controller: scrollController,
+            padding: EdgeInsets.only(
+              top: AppBar().preferredSize.height +
+                  MediaQuery.of(context).padding.top +
+                  24,
+              bottom: 62 + MediaQuery.of(context).padding.bottom,
+            ),
+            itemCount: listViews.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              widget.animationController?.forward();
+              return listViews[index];
+            },
+          );
+        }
+      },
+    );
+  }
+
+  Widget getAppBarUI() {
+    return Column(
+      children: <Widget>[
+        AnimatedBuilder(
+          animation: widget.animationController!,
+          builder: (BuildContext context, Widget? child) {
+            return FadeTransition(
+              opacity: topBarAnimation!,
+              child: Transform(
+                transform: Matrix4.translationValues(
+                    0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppTheme.green.withOpacity(topBarOpacity),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(32),
+                      bottomRight: Radius.circular(32),
+                    ),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
+                          offset: const Offset(1.1, 1.1),
+                          blurRadius: 10.0),
+                    ],
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.top,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 16,
+                            right: 16,
+                            top: 16 - 8.0 * topBarOpacity,
+                            bottom: 12 - 8.0 * topBarOpacity),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Welcome To Edifarm',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: AppTheme.fontName,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 22 + 6 - 6 * topBarOpacity,
+                                      letterSpacing: 1.2,
+                                      color: AppTheme.white,
+                                      decorationColor: AppTheme.black),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 38,
+                              width: 38,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/potoprofil.png',
+                                    ),
+                                    alignment: Alignment.centerRight,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        )
+      ],
+    );
+  }
+}

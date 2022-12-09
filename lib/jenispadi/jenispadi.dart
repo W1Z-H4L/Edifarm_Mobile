@@ -1,8 +1,9 @@
-import 'package:edifarm/dashboard/fitness_app_theme.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:Edifarm/jenispadi/list_jenis_view.dart';
+import 'package:Edifarm/main.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
 
 class jenisPadi extends StatefulWidget {
   const jenisPadi({Key? key, this.animationController}) : super(key: key);
@@ -54,6 +55,18 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
   void addAllListData() {
     const int count = 5;
 
+    // listViews.add(
+    //   TitleActivity(
+    //     titleTxt: 'Yang harus kamu lakukan hari ini',
+    //     // subTxt: 'more',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController!,
+    //         curve:
+    //             Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController!,
+    //   ),
+    // );
+
     // @override
     // Widget build(BuildContext context) {
     //   return
@@ -76,13 +89,38 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+          ),
+          brightness: Brightness.dark,
+          toolbarHeight: 70,
+          title: const Text(
+            "Jenis Padi",
+            textAlign: TextAlign.center,
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+            ),
+          ),
+          centerTitle: true,
+          titleTextStyle: whiteTextStyle1,
+          titleSpacing: 20,
+          shadowColor: Color.fromARGB(255, 47, 101, 88),
+          backgroundColor: Color.fromARGB(255, 47, 101, 88),
+        ),
         backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
-            getMainListViewUI(),
             getAppBarUI(),
+            getMainListViewUI(),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
             )
@@ -93,30 +131,35 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
   }
 
   Widget getMainListViewUI() {
-    return FutureBuilder<bool>(
-      future: getData(),
-      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-        if (!snapshot.hasData) {
-          return const SizedBox();
-        } else {
-          return ListView.builder(
-            controller: scrollController,
-            padding: EdgeInsets.only(
-              top: AppBar().preferredSize.height +
-                  MediaQuery.of(context).padding.top +
-                  24,
-              bottom: 62 + MediaQuery.of(context).padding.bottom,
-            ),
-            itemCount: listViews.length,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index) {
-              widget.animationController?.forward();
-              return listViews[index];
-            },
-          );
-        }
-      },
-    );
+    return Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(32),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/gambar_jenispadi.png'),
+              fit: BoxFit.fill,
+              opacity: 90),
+        ),
+        child: Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            top: 500,
+            child: Container(
+              child: InfoDataView(),
+              width: 362,
+              // height: 361,
+              // alignment: Alignment.center,
+              // padding:
+              //     const EdgeInsets.only(bottom: 0, right: 0, left: 0, top: 500),
+              margin: const EdgeInsets.fromLTRB(0, 500, 0, 0),
+
+              decoration: const BoxDecoration(
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50))),
+            )));
   }
 
   Widget getAppBarUI() {
@@ -139,8 +182,7 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -166,7 +208,7 @@ class _jenisPadiState extends State<jenisPadi> with TickerProviderStateMixin {
                                   'Jenis Padi',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,

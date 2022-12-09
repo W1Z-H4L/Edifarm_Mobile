@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:lib/dashboard/komponen/motivasi.dart
 import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
+========
+import 'package:Edifarm/shared/Theme_App.dart';
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/motivasi.dart
 import 'package:flutter/material.dart';
 
 class MotivasiView extends StatelessWidget {
@@ -14,8 +18,8 @@ class MotivasiView extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation!,
-          child: new Transform(
-            transform: new Matrix4.translationValues(
+          child: Transform(
+            transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Column(
               children: <Widget>[
@@ -28,7 +32,11 @@ class MotivasiView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 16),
                         child: Container(
+<<<<<<<< HEAD:lib/dashboard/komponen/motivasi.dart
                           decoration: BoxDecoration(
+========
+                          decoration: const BoxDecoration(
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/motivasi.dart
                             color: AppTheme.splash,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(8.0),
@@ -53,7 +61,7 @@ class MotivasiView extends StatelessWidget {
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 14,
+                                    fontSize: 11,
                                     letterSpacing: 0.0,
                                     color: AppTheme.green.withOpacity(0.6),
                                   ),
