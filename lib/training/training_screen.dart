@@ -1,34 +1,33 @@
-<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
-
-import 'package:edifarm/dashboard/list_view/menu_list_view.dart';
-import 'package:edifarm/dashboard1/ui_view/motivasi.dart';
-import 'package:edifarm/dashboard1/ui_view/progres_view.dart';
+<<<<<<<< HEAD:lib/training/training_screen.dart
+import 'package:edifarm/dashboard1/ui_view/area_list_view.dart';
+import 'package:edifarm/dashboard1/ui_view/chart_view.dart';
+import 'package:edifarm/dashboard1/ui_view/running_view.dart';
 import 'package:edifarm/dashboard1/ui_view/title_view.dart';
-========
-import 'package:Edifarm/shared/Theme_App.dart';
-import 'package:Edifarm/ui/pages/dashboard/komponen/motivasi.dart';
-import 'package:Edifarm/ui/pages/dashboard/komponen/progres_view.dart';
-import 'package:Edifarm/ui/pages/dashboard/komponen/title_view.dart';
-import 'package:Edifarm/ui/pages/dashboard/list_view/info_list_view.dart';
-import 'package:Edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
-import 'package:Edifarm/ui/pages/dashboard/models/aktivitas_data.dart';
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, this.animationController}) : super(key: key);
+import '../dashboard/fitness_app_theme.dart';
+
+class TrainingScreen extends StatefulWidget {
+  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+========
+import 'package:Edifarm/aktivitas/listview_activity.dart';
+import 'package:Edifarm/aktivitas/chart_view.dart';
+import 'package:Edifarm/aktivitas/activity_date.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:flutter/material.dart';
+
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
+>>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/aktivitas/activity.dart
 
   final AnimationController? animationController;
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _activityPageState createState() => _activityPageState();
 }
 
-<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
-class _HomeScreenState extends State<HomeScreen>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
-========
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
   Animation<double>? topBarAnimation;
 
   List<Widget> listViews = <Widget>[];
@@ -69,30 +68,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void addAllListData() {
-    const int count = 9;
+    const int count = 5;
 
     listViews.add(
-      TitleActivity(
-        titleTxt: 'Progres Aktivitas',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      TitleActivity(
-        titleTxt: 'Menu',
+      WorkoutView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -101,28 +80,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
     );
     listViews.add(
-<<<<<<<< HEAD:lib/dashboard/dashboard_list_view/dashboard_screen.dart
-      MenuListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-========
-      AktivitasDataView(
+      tanggalActivity(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/list_view/dashboard_screen.dart
       ),
     );
+
     listViews.add(
       TitleActivity(
-        titleTxt: 'Informasi Fitur',
-        subTxt: 'Today',
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
+        // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -132,45 +103,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
 
     listViews.add(
-      MenuListView(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
-
-    listViews.add(
-      TitleActivity(
-        titleTxt: 'Informasi',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      InfoListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 7, 1.0,
+                curve: Interval((1 / count) * 5, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
       ),
-    );
-    listViews.add(
-      MotivasiView(
-          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                  parent: widget.animationController!,
-                  curve: Interval((1 / count) * 8, 1.0,
-                      curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController!),
     );
   }
 
@@ -238,10 +178,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     0.0, 30 * (1.0 - topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppTheme.green.withOpacity(topBarOpacity),
+                    color: AppTheme.green,
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(32),
-                      bottomRight: Radius.circular(32),
+                      bottomLeft: Radius.circular(32.0),
+                      bottomRight: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
@@ -268,32 +208,28 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Welcome To Edifarm',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontFamily: AppTheme.fontName,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 22 + 6 - 6 * topBarOpacity,
-                                      letterSpacing: 1.2,
-                                      color: AppTheme.white,
-                                      decorationColor: AppTheme.black),
+                                    fontFamily: AppTheme.fontName,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    letterSpacing: 1.2,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(
                               height: 38,
                               width: 38,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/potoprofil.png',
-                                    ),
-                                    alignment: Alignment.centerRight,
-                                  ),
-                                ),
+                              child: InkWell(
+                                highlightColor: Colors.transparent,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(32.0)),
+                                onTap: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )

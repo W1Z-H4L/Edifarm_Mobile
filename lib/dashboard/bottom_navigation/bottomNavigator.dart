@@ -13,7 +13,8 @@ import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dar
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
 import 'package:Edifarm/jenispadi/jenis_padi.dart';
-
+import 'package:Edifarm/jenispadi/list_data_padi.dart';
+import 'package:Edifarm/jenispadi/jenispadi.dart';
 import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calender_screen.dart';
@@ -128,17 +129,12 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-<<<<<<< HEAD
-                  tabBody =
-                      LahanScreen(animationController: animationController);
-=======
 <<<<<<<< HEAD:lib/dashboard/bottom_navigation/bottomNavigator.dart
                   tabBody = jenisPadi(animationController: animationController);
 ========
                   tabBody = CourseInfoScreen(
                       animationController: animationController);
 >>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
->>>>>>> 6a923c203f8c846fa977b18b3d7ad9c34f436801
                 });
               });
             } else if (index == 3) {
