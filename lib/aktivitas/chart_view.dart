@@ -2,11 +2,11 @@ import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-class WorkoutView extends StatelessWidget {
+class ChartView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const WorkoutView({Key? key, this.animationController, this.animation})
+  const ChartView({Key? key, this.animationController, this.animation})
       : super(key: key);
 
   @override

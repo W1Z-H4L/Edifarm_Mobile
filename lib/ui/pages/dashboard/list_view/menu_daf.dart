@@ -1,4 +1,5 @@
-import 'package:Edifarm/jenispadi/jenispadi.dart';
+import 'package:Edifarm/jenispadi/jenis_padi.dart';
+
 import 'package:Edifarm/main.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
@@ -37,7 +38,7 @@ class Menudaf extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             InkWell(
-                              onTap: () => const jenisPadi(),
+                              onTap: () => const JenisPadiPage(),
                               child: Container(
                                 decoration: BoxDecoration(
                                   boxShadow: <BoxShadow>[
@@ -135,7 +136,7 @@ class Menudaf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () => const jenisPadi(),
+                              onTap: () => const JenisPadiPage(),
                               child: Container(
                                 decoration: BoxDecoration(
                                   boxShadow: <BoxShadow>[
@@ -233,7 +234,7 @@ class Menudaf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () => const jenisPadi(),
+                              onTap: () => const JenisPadiPage(),
                               child: Container(
                                 decoration: BoxDecoration(
                                   boxShadow: <BoxShadow>[
@@ -331,7 +332,7 @@ class Menudaf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () => const jenisPadi(),
+                              onTap: () => const JenisPadiPage(),
                               child: Container(
                                 decoration: BoxDecoration(
                                   boxShadow: <BoxShadow>[
@@ -429,7 +430,7 @@ class Menudaf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () => const jenisPadi(),
+                              onTap: () => const JenisPadiPage(),
                               child: Container(
                                 decoration: BoxDecoration(
                                   boxShadow: <BoxShadow>[

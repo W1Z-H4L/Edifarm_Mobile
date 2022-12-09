@@ -1,16 +1,15 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
-class CourseInfoScreen extends StatefulWidget {
-  const CourseInfoScreen({Key? key, this.animationController})
-      : super(key: key);
+class LahanScreen extends StatefulWidget {
+  const LahanScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _CourseInfoScreenState createState() => _CourseInfoScreenState();
+  _LahanScreenState createState() => _LahanScreenState();
 }
 
-class _CourseInfoScreenState extends State<CourseInfoScreen>
+class _LahanScreenState extends State<LahanScreen>
     with TickerProviderStateMixin {
   final double infoHeight = 364.0;
   AnimationController? animationController;

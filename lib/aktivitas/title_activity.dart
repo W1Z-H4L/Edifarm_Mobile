@@ -36,27 +36,10 @@ class TitleActivity extends StatelessWidget {
                       child: Text(
                         titleTxt,
                         textAlign: TextAlign.left,
-
                         style: GoogleFonts.montserrat(
                             color: Color(0xff006B6C),
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
-
-                        // TextStyle(
-                        //   fontFamily: FitnessAppTheme.fontName,
-                        //   fontWeight: FontWeight.w500,
-                        //   fontSize: 18,
-                        //   letterSpacing: 0.5,
-                        //   color: FitnessAppTheme.lightText,
-                        // ),
-
-                        // style: TextStyle(
-                        //   fontFamily: AppTheme.fontName,
-                        //   fontWeight: FontWeight.w500,
-                        //   fontSize: 18,
-                        //   letterSpacing: 0.5,
-                        //   color: AppTheme.lightText,
-                        // ),
                       ),
                     ),
                     InkWell(
@@ -82,15 +65,6 @@ class TitleActivity extends StatelessWidget {
                                 Navigator.pushNamed(context, '/act');
                               }),
                             )
-                            // SizedBox(
-                            //   height: 38,
-                            //   width: 26,
-                            //   child: Icon(
-                            //     Icons.arrow_forward,
-                            //     color: FitnessAppTheme.darkText,
-                            //     size: 18,
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),

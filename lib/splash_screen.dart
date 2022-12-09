@@ -41,18 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 20,
           ),
 
-          //   children: <Widget>[
-          // Container(
-          //   width: 121,
-          //   height: 121,
-          //   margin: const EdgeInsets.only(top: 50),
-          //   decoration: const BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage('assets/logo.png'),
-          //     ),
-          //   ),
-          // ),
-
           Text(
             "Proses\n",
             textAlign: TextAlign.center,

@@ -16,9 +16,6 @@ class tanggalActivity extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation!,
-          // child: new Transform(
-          // transform: new Matrix4.translationValues(
-          //     0.0, 30 * (1.0 - animation!.value), 0.0),
           child: Column(
             children: <Widget>[
               Padding(
@@ -32,22 +29,13 @@ class tanggalActivity extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.transparent,
-
                           border: Border.all(color: Color(0xFF006B6C)),
-
                           borderRadius: BorderRadius.circular(20),
-
-                          // boxShadow: <BoxShadow>[
-                          //   BoxShadow(
-                          //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                          //       offset: Offset(1.1, 1.1),
-                          //       blurRadius: 10.0),
-                          // ],
                         ),
                         child: Stack(
                           alignment: Alignment.topLeft,
                           children: <Widget>[
-                            ClipRRect(
+                            const ClipRRect(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(8.0)),
                               child: SizedBox(
@@ -72,43 +60,17 @@ class tanggalActivity extends StatelessWidget {
                                       ),
                                       child: Text(
                                         "Sabtu, 23 - 11 - 22",
-
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.montserrat(
                                             color: Color(0xFF006B6C),
                                             fontSize: 15,
                                             fontWeight: FontWeight.w600),
-                                        // TextStyle(
-                                        //   fontFamily:
-                                        //       FitnessAppTheme.fontName,
-                                        //   fontWeight: FontWeight.w500,
-                                        //   fontSize: 14,
-                                        //   letterSpacing: 0.0,
-                                        //   color:
-                                        //       FitnessAppTheme.nearlyDarkBlue,
-                                        // ),
                                       ),
                                     ),
-                                    // Padding(
-                                    //   padding: const EdgeInsets.only(
-                                    //     left: 100,
-                                    //     bottom: 12,
-                                    //     top: 4,
-                                    //     right: 16,
-                                    //   ),
-                                    //   child: Text(
-                                    //     "selamat beraktivitas",
-                                    //     textAlign: TextAlign.left,
-                                    //     style: GoogleFonts.montserrat(
-                                    //         color: Color(0xff006B6C),
-                                    //         fontSize: 13,
-                                    //         fontWeight: FontWeight.w600),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
+                                const Padding(
+                                  padding: EdgeInsets.only(
                                     left: 100,
                                     bottom: 12,
                                     top: 4,

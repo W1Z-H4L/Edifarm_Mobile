@@ -18,6 +18,8 @@ class _ListViewActivityState extends State<ListViewActivity>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<ActListData> tabactList = ActListData.tabactList;
+  bool iri = false;
+  bool pup = false;
 
   @override
   void initState() {
@@ -88,16 +90,18 @@ class _ListViewActivityState extends State<ListViewActivity>
 }
 
 class AreaView extends StatelessWidget {
-  const AreaView({
-    Key? key,
-    this.tabactList,
-    this.animationController,
-    this.animation,
-  }) : super(key: key);
+  const AreaView(
+      {Key? key,
+      this.tabactList,
+      this.animationController,
+      this.animation,
+      this.isi})
+      : super(key: key);
 
   final ActListData? tabactList;
   final AnimationController? animationController;
   final Animation<double>? animation;
+  final bool? isi;
 
   @override
   Widget build(BuildContext context) {
@@ -114,22 +118,7 @@ class AreaView extends StatelessWidget {
                       strokeWidth: 1,
                       borderType: BorderType.RRect,
                       radius: Radius.circular(25),
-
-                      // decoration: BoxDecoration(
-
                       color: Color.fromARGB(255, 1, 104, 97),
-                      // borderRadius: const BorderRadius.only(
-                      //     topLeft: Radius.circular(8.0),
-                      //     bottomLeft: Radius.circular(8.0),
-                      //     bottomRight: Radius.circular(8.0),
-                      //     topRight: Radius.circular(8.0)),
-                      // boxShadow: <BoxShadow>[
-                      //   BoxShadow(
-                      //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                      //       offset: const Offset(1.1, 1.1),
-                      //       blurRadius: 10.0),
-                      // ],),
-
                       child: Material(
                           color: Colors.transparent,
                           child: InkWell(
@@ -173,15 +162,34 @@ class AreaView extends StatelessWidget {
                                                         color: AppTheme.green,
                                                       ))),
                                               const Spacer(),
-                                              Container(
-                                                // alignment: Alignment.centerRight,
-                                                padding: EdgeInsets.only(
-                                                    bottom: 2, right: 6),
-                                                child: Checkbox(
-                                                  value: false,
-                                                  onChanged: (value) {},
+                                              Scaffold(
+
+                                                  // alignment: Alignment.centerRight,
+                                                  // padding: EdgeInsets.only(
+                                                  //     bottom: 2, right: 6),
+                                                  body: Column(children: [
+                                                CheckboxListTile(
+                                                  value: iri,
+                                                  onChanged: (val) {
+                                                    setState(() {
+                                                      iri = val;
+                                                    });
+                                                  },
+                                                  activeColor: AppTheme.green,
+                                                  title:
+                                                      Text("Irigasi - Hujan"),
+                                                  subtitle: Text(
+                                                      "12 September 2020 - 09.00 WIB"),
                                                 ),
-                                              )
+                                                CheckboxListTile(
+                                                  value: pup,
+                                                  onChanged: (value) {},
+                                                  activeColor: AppTheme.green,
+                                                  title: Text("Pupuk - NPK"),
+                                                  subtitle: Text(
+                                                      "12 September 2020 - 09.00 WIB"),
+                                                ),
+                                              ]))
                                             ]),
                                       ))),
                                   Row(
@@ -221,3 +229,5 @@ class AreaView extends StatelessWidget {
         });
   }
 }
+
+final now = DateTime.now();

@@ -1,16 +1,24 @@
-import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayat_pupuk_listvew.dart';
+import 'package:Edifarm/aktivitas/activity.dart';
+import 'package:Edifarm/aktivitas/activity_data.dart';
+import 'package:Edifarm/aktivitas/listview_activity.dart';
+import 'package:Edifarm/aktivitas/chart_view.dart';
+import 'package:Edifarm/aktivitas/activity_date.dart';
+import 'package:Edifarm/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pie_chart/pie_chart.dart';
 
-class RiwayatPupuk extends StatefulWidget {
-  const RiwayatPupuk({Key? key, this.animationController}) : super(key: key);
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _RiwayatPupukState createState() => _RiwayatPupukState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _RiwayatPupukState extends State<RiwayatPupuk>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -55,7 +63,90 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
     const int count = 5;
 
     listViews.add(
-      ListRiwayatPupuk(
+      
+  class ChartView extends StatelessWidget {
+  final AnimationController? animationController;
+  final Animation<double>? animation;
+
+  const ChartView({Key? key, this.animationController, this.animation})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+        animation: animationController!,
+        builder: (BuildContext context, Widget? child) {
+          return FadeTransition(
+            opacity: animation!,
+            child: Transform(
+              transform: Matrix4.translationValues(
+                  0.0, 30 * (1.0 - animation!.value), 0.0),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 24, right: 24, top: 16, bottom: 18),
+                child: Container(
+                  height: 150,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                      Color.fromARGB(255, 255, 255, 255),
+                      Color.fromARGB(255, 255, 255, 255)
+                    ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        bottomLeft: Radius.circular(8.0),
+                        bottomRight: Radius.circular(8.0),
+                        topRight: Radius.circular(68.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey,
+                          offset: Offset(1.1, 1.1),
+                          blurRadius: 5.0),
+                    ],
+                  ),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    alignment: Alignment.centerLeft,
+                    child: pieChartView(),
+                  ),
+                ),
+              ),
+            ),
+          );
+        })
+      // ChartView(
+      //   animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+      //       parent: widget.animationController!,
+      //       curve:
+      //           Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+      //   animationController: widget.animationController!,
+      // ),
+  }});
+    listViews.add(
+      tanggalActivity(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
@@ -160,7 +251,7 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Riwayat Pupuk',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,

@@ -120,18 +120,6 @@ class IrigasiAreaView extends StatelessWidget {
                         // decoration: BoxDecoration(
 
                         color: Color.fromARGB(255, 1, 104, 97),
-                        // borderRadius: const BorderRadius.only(
-                        //     topLeft: Radius.circular(8.0),
-                        //     bottomLeft: Radius.circular(8.0),
-                        //     bottomRight: Radius.circular(8.0),
-                        //     topRight: Radius.circular(8.0)),
-                        // boxShadow: <BoxShadow>[
-                        //   BoxShadow(
-                        //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                        //       offset: const Offset(1.1, 1.1),
-                        //       blurRadius: 10.0),
-                        // ],),
-
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
@@ -203,16 +191,7 @@ class IrigasiAreaView extends StatelessWidget {
                                                             letterSpacing: 0.2,
                                                             color:
                                                                 AppTheme.white,
-                                                          ))
-
-                                                      // alignment: Alignment.centerRight,
-                                                      // padding: EdgeInsets.only(
-                                                      //     bottom: 2, right: 6),
-                                                      // child: Checkbox(
-                                                      //   value: false,
-                                                      //   onChanged: (value) {},
-                                                      // ),
-                                                      ),
+                                                          ))),
                                                   onTap: () {
                                                     context:
                                                     context;
