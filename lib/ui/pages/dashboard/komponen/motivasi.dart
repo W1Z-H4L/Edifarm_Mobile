@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:lib/dashboard/komponen/motivasi.dart
-import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
-========
 import 'package:Edifarm/shared/Theme_App.dart';
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/motivasi.dart
+
 import 'package:flutter/material.dart';
 
 class MotivasiView extends StatelessWidget {
@@ -32,11 +29,7 @@ class MotivasiView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 16),
                         child: Container(
-<<<<<<<< HEAD:lib/dashboard/komponen/motivasi.dart
-                          decoration: BoxDecoration(
-========
                           decoration: const BoxDecoration(
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/motivasi.dart
                             color: AppTheme.splash,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(8.0),

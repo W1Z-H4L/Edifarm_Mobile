@@ -15,14 +15,6 @@ import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
 import 'package:Edifarm/ui/pages/setting/popup.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
-<<<<<<< HEAD
-import 'package:edifarm/dashboard1/fitness_app_home_screen.dart';
-import 'package:edifarm/training/training_screen.dart';
-import 'package:edifarm/jenispadi/jenispadi.dart';
-import 'package:edifarm/sign_in_page.dart';
-import 'package:edifarm/splash_scren.dart';
-=======
->>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872
 import 'package:flutter/material.dart';
 
 void main(List<String> args) => runApp(MyApp());

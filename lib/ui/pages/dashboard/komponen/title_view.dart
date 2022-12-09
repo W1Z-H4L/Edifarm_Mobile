@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:lib/dashboard/komponen/title_view.dart
-import 'package:edifarm/dashboard1/ui_view/Theme_App.dart';
-
-========
 import 'package:Edifarm/shared/Theme_App.dart';
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/title_view.dart
+
 import 'package:flutter/material.dart';
 
 class TitleActivity extends StatelessWidget {
