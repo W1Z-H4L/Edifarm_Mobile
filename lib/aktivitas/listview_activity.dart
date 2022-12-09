@@ -103,6 +103,10 @@ class AreaView extends StatelessWidget {
   final Animation<double>? animation;
   final bool? isi;
 
+  cek(){
+    set
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -169,10 +173,10 @@ class AreaView extends StatelessWidget {
                                                   //     bottom: 2, right: 6),
                                                   body: Column(children: [
                                                 CheckboxListTile(
-                                                  value: iri,
-                                                  onChanged: (val) {
+                                                  value: isi,
+                                                  onChanged: (isi) {
                                                     setState(() {
-                                                      iri = val;
+                                                      isi = val;
                                                     });
                                                   },
                                                   activeColor: AppTheme.green,
@@ -230,4 +234,3 @@ class AreaView extends StatelessWidget {
   }
 }
 
-final now = DateTime.now();
