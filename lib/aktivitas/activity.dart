@@ -1,4 +1,3 @@
-import 'package:Edifarm/aktivitas/activity_data.dart';
 import 'package:Edifarm/aktivitas/listview_activity.dart';
 import 'package:Edifarm/aktivitas/chart_view.dart';
 import 'package:Edifarm/aktivitas/activity_date.dart';

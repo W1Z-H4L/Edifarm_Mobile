@@ -20,6 +20,13 @@ class _ListViewDiagState extends State<ListViewDiag>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<DiagnosaListData> tabDiagList = DiagnosaListData.tabDiagList;
+  bool _secureCek = true;
+
+  showCek() {
+    setState(() {
+      _secureCek = !_secureCek;
+    });
+  }
 
   @override
   void initState() {
@@ -183,8 +190,9 @@ class AreaView extends StatelessWidget {
                                           Container(
                                             // alignment: Alignment.centerRight,
                                             padding: EdgeInsets.only(top: 5),
-                                            child: Checkbox(
-                                              value: false,
+
+                                            child: CheckboxListTile(
+                                              value: true,
                                               onChanged: (value) {},
                                             ),
                                           )

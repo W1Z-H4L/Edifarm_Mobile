@@ -1,14 +1,3 @@
-<<<<<<<< HEAD:lib/dashboard/bottom_navigation/bottomNavigator.dart
-import 'package:edifarm/calender/calender_screen.dart';
-import 'package:edifarm/dashboard/dashboard_list_view/dashboard_screen.dart';
-import 'package:edifarm/dashboard/models/tabIcon_data.dart';
-import 'package:edifarm/dashboard1/theme.dart';
-import 'package:edifarm/setting/setting.dart';
-import 'package:flutter/material.dart';
-import '../../jenispadi/jenispadi.dart';
-import 'bottom_bar_view.dart';
-
-========
 import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
@@ -27,7 +16,6 @@ import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 
 import 'package:flutter/material.dart';
 
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
 class BottomNavigator extends StatefulWidget {
   @override
   _BottomNavigatorState createState() => _BottomNavigatorState();
@@ -128,17 +116,8 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-<<<<<<< HEAD
                   tabBody =
                       LahanScreen(animationController: animationController);
-=======
-<<<<<<<< HEAD:lib/dashboard/bottom_navigation/bottomNavigator.dart
-                  tabBody = jenisPadi(animationController: animationController);
-========
-                  tabBody = CourseInfoScreen(
-                      animationController: animationController);
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
->>>>>>> 6a923c203f8c846fa977b18b3d7ad9c34f436801
                 });
               });
             } else if (index == 3) {
@@ -147,10 +126,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-<<<<<<<< HEAD:lib/dashboard/bottom_navigation/bottomNavigator.dart
-                  tabBody =
-                      EditProfilePage(animationController: animationController);
-========
                   tabBody =
                       EditProfilePage(animationController: animationController);
                 });
@@ -163,7 +138,6 @@ class _BottomNavigatorState extends State<BottomNavigator>
                 setState(() {
                   tabBody =
                       activityPage(animationController: animationController);
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/widgets/bottom_navigation/bottomNavigator.dart
                 });
               });
             }

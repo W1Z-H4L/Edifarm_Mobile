@@ -1,19 +1,14 @@
-<<<<<<<< HEAD:lib/dashboard1/ui_view/mediterranean_diet_view.dart
-import 'package:edifarm/dashboard1/theme.dart';
-import 'package:edifarm/main.dart';
-========
 import 'package:Edifarm/main.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/progres_view.dart
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class MediterranesnDietView extends StatelessWidget {
+class infoActView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const MediterranesnDietView(
-      {Key? key, this.animationController, this.animation})
+  const infoActView({Key? key, this.animationController, this.animation})
       : super(key: key);
 
   @override
@@ -32,11 +27,7 @@ class MediterranesnDietView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppTheme.white,
-<<<<<<<< HEAD:lib/dashboard1/ui_view/mediterranean_diet_view.dart
-                  borderRadius: BorderRadius.only(
-========
                   borderRadius: const BorderRadius.only(
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/progres_view.dart
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
                       bottomRight: Radius.circular(8.0),
@@ -265,11 +256,7 @@ class MediterranesnDietView extends StatelessWidget {
                                       height: 100,
                                       decoration: BoxDecoration(
                                         color: AppTheme.white,
-<<<<<<<< HEAD:lib/dashboard1/ui_view/mediterranean_diet_view.dart
-                                        borderRadius: BorderRadius.all(
-========
                                         borderRadius: const BorderRadius.all(
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/progres_view.dart
                                           Radius.circular(100.0),
                                         ),
                                         border: Border.all(
@@ -286,11 +273,7 @@ class MediterranesnDietView extends StatelessWidget {
                                           Text(
                                             '${(1503 * animation!.value).toInt()}',
                                             textAlign: TextAlign.center,
-<<<<<<<< HEAD:lib/dashboard1/ui_view/mediterranean_diet_view.dart
-                                            style: TextStyle(
-========
                                             style: const TextStyle(
->>>>>>>> c0872997ecdcc3498b5b80e90fa2896f04cf7872:lib/ui/pages/dashboard/komponen/progres_view.dart
                                               fontFamily: AppTheme.fontName,
                                               fontWeight: FontWeight.normal,
                                               fontSize: 24,

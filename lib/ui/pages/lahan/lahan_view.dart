@@ -283,8 +283,8 @@ class _LahanScreenState extends State<LahanScreen>
                       borderRadius: BorderRadius.circular(100)),
                   elevation: 10.0,
                   child: Container(
-                    width: 120,
-                    height: 120,
+                    width: 80,
+                    height: 80,
                     child: Center(
                         child: Image.asset(
                       'assets/potoprofil.png',
