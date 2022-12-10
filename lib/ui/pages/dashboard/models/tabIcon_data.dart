@@ -28,8 +28,8 @@ class TabIconData {
       animationController: null,
     ),
     TabIconData(
-      imagePath: 'assets/icon_kalender.png',
-      selectedImagePath: 'assets/icon_kalender_selected.png',
+      imagePath: 'assets/icon_kalender_selected.png',
+      selectedImagePath: 'assets/icon_kalender.png',
       index: 1,
       isSelected: false,
       animationController: null,

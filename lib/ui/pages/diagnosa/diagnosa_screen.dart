@@ -1,7 +1,3 @@
-import 'package:Edifarm/aktivitas/listview_activity.dart';
-import 'package:Edifarm/aktivitas/chart_view.dart';
-import 'package:Edifarm/aktivitas/activity_date.dart';
-import 'package:Edifarm/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
 import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';

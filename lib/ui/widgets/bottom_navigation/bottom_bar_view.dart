@@ -9,7 +9,6 @@ class BottomBarView extends StatefulWidget {
   const BottomBarView(
       {Key? key, this.tabIconsList, this.changeIndex, this.addClick})
       : super(key: key);
-
   final Function(int index)? changeIndex;
   final Function()? addClick;
   final List<TabIconData>? tabIconsList;
@@ -20,7 +19,6 @@ class BottomBarView extends StatefulWidget {
 class _BottomBarViewState extends State<BottomBarView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-
   @override
   void initState() {
     animationController = AnimationController(
@@ -36,142 +34,223 @@ class _BottomBarViewState extends State<BottomBarView>
     final VoidCallback? onPressed;
 
     return Stack(
+// <<<<<<<< HEAD:lib/dashboard/bottom_navigation/bottom_bar_view.dart
+//       alignment: AlignmentDirectional.bottomCenter,
+//       children: <Widget>[
+//         AnimatedBuilder(
+//           animation: animationController!,
+//           builder: (BuildContext context, Widget? child) {
+//             return Transform(
+//               transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+//               child: PhysicalShape(
+//                 color: AppTheme.white,
+//                 elevation: 16.0,
+//                 clipper: TabClipper(
+//                     radius: Tween<double>(begin: 0.0, end: 1.0)
+//                             .animate(CurvedAnimation(
+//                                 parent: animationController!,
+//                                 curve: Curves.fastOutSlowIn))
+//                             .value *
+//                         38.0),
+//                 child: Column(
+//                   children: <Widget>[
+//                     SizedBox(
+//                       height: 62,
+//                       child: Padding(
+//                         padding:
+//                             const EdgeInsets.only(left: 8, right: 8, top: 4),
+//                         child: Row(
+//                           children: <Widget>[
+//                             Expanded(
+//                               child: TabIcons(
+//                                   tabIconData: widget.tabIconsList?[0],
+//                                   removeAllSelect: () {
+//                                     setRemoveAllSelection(
+//                                         widget.tabIconsList?[0]);
+//                                     widget.changeIndex!(0);
+//                                   }),
+//                             ),
+//                             Expanded(
+//                               child: TabIcons(
+//                                   tabIconData: widget.tabIconsList?[1],
+//                                   removeAllSelect: () {
+//                                     setRemoveAllSelection(
+//                                         widget.tabIconsList?[1]);
+//                                     widget.changeIndex!(1);
+//                                   }),
+//                             ),
+//                             SizedBox(
+//                               width: Tween<double>(begin: 0.0, end: 1.0)
+//                                       .animate(CurvedAnimation(
+//                                           parent: animationController!,
+//                                           curve: Curves.fastOutSlowIn))
+//                                       .value *
+//                                   64.0,
+//                             ),
+//                             Expanded(
+//                               child: TabIcons(
+//                                   tabIconData: widget.tabIconsList?[2],
+//                                   removeAllSelect: () {
+//                                     setRemoveAllSelection(
+//                                         widget.tabIconsList?[2]);
+//                                     widget.changeIndex!(2);
+//                                   }),
+//                             ),
+//                             Expanded(
+//                               child: TabIcons(
+//                                   tabIconData: widget.tabIconsList?[3],
+//                                   removeAllSelect: () {
+//                                     setRemoveAllSelection(
+//                                         widget.tabIconsList?[3]);
+//                                     widget.changeIndex!(3);
+//                                   }),
+//                             ),
+//                           ],
+// ========
         alignment: AlignmentDirectional.bottomCenter,
         children: <Widget>[
           AnimatedBuilder(
-              animation: animationController!,
-              builder: (BuildContext context, Widget? child) {
-                return Transform(
-                    transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                    child: PhysicalShape(
-                        color: AppTheme.white,
-                        elevation: 16.0,
-                        clipper: TabClipper(
-                            radius: Tween<double>(begin: 0.0, end: 1.0)
-                                    .animate(CurvedAnimation(
-                                        parent: animationController!,
-                                        curve: Curves.fastOutSlowIn))
-                                    .value *
-                                38.0),
-                        child: Column(children: <Widget>[
-                          SizedBox(
-                              height: 60,
-                              child: Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: MediaQuery.of(context)
-                                          .padding
-                                          .bottom),
-                                  child: SizedBox(
-                                      width: 38 * 2.0,
-                                      height: 38 + 62.0,
-                                      child: Container(
-                                          alignment: Alignment.topCenter,
-                                          color: Colors.transparent,
-                                          child: SizedBox(
-                                              width: 38 * 2.0,
-                                              height: 38 * 2.0,
-                                              child: Padding(
-                                                padding: EdgeInsets.only(
-                                                    bottom:
-                                                        MediaQuery.of(context)
-                                                            .padding
-                                                            .bottom),
-                                                child: SizedBox(
-                                                  width: 30 * 2.0,
-                                                  height: 30 + 54.0,
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    color: Colors.transparent,
-                                                    child: SizedBox(
-                                                      width: 30 * 2.0,
-                                                      height: 30 * 2.0,
-                                                      child: Padding(
-                                                        //bulet
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(4.0),
-                                                        child: ScaleTransition(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          scale: Tween<double>(
-                                                                  begin: 0.0,
-                                                                  end: 1.0)
-                                                              .animate(CurvedAnimation(
-                                                                  parent:
-                                                                      animationController!,
-                                                                  curve: Curves
-                                                                      .fastOutSlowIn)),
-                                                          child: Container(
-                                                            // alignment: Alignment.center,s
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: AppTheme
-                                                                  .green,
-                                                              gradient: LinearGradient(
-                                                                  colors: [
-                                                                    AppTheme
-                                                                        .green,
-                                                                    AppTheme
-                                                                        .green
-                                                                  ],
-                                                                  begin: Alignment
-                                                                      .topLeft,
-                                                                  end: Alignment
-                                                                      .bottomRight),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                              boxShadow: <
-                                                                  BoxShadow>[
-                                                                BoxShadow(
-                                                                    color: AppTheme
-                                                                        .green
-                                                                        .withOpacity(
-                                                                            0.4),
-                                                                    offset:
-                                                                        const Offset(
-                                                                            8.0,
-                                                                            16.0),
-                                                                    blurRadius:
-                                                                        16.0),
-                                                              ],
-                                                            ),
-                                                            child: Material(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .white
-                                                                    .withOpacity(
-                                                                        0.1),
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                onTap: widget
-                                                                    .addClick,
-                                                                child: Container(
-                                                                    padding: EdgeInsets.all(5),
-                                                                    child: TabIcons(
-                                                                        tabIconData: widget.tabIconsList?[4],
-                                                                        removeAllSelect: () {
-                                                                          setRemoveAllSelection(
-                                                                              widget.tabIconsList?[4]);
-                                                                          widget
-                                                                              .changeIndex!(4);
-                                                                        })),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))))))
-                        ])));
-              })
+            animation: animationController!,
+            builder: (BuildContext context, Widget? child) {
+              return Transform(
+                  transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                  child: PhysicalShape(
+                    color: AppTheme.white,
+                    elevation: 16.0,
+                    clipper: TabClipper(
+                        radius: Tween<double>(begin: 0.0, end: 1.0)
+                                .animate(CurvedAnimation(
+                                    parent: animationController!,
+                                    curve: Curves.fastOutSlowIn))
+                                .value *
+                            38.0),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 60,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8, right: 8, top: 8, bottom: 25),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: TabIcons(
+                                      tabIconData: widget.tabIconsList?[0],
+                                      removeAllSelect: () {
+                                        setRemoveAllSelection(
+                                            widget.tabIconsList?[0]);
+                                        widget.changeIndex!(0);
+                                      }),
+                                ),
+                                Expanded(
+                                  child: TabIcons(
+                                      tabIconData: widget.tabIconsList?[1],
+                                      removeAllSelect: () {
+                                        setRemoveAllSelection(
+                                            widget.tabIconsList?[1]);
+                                        widget.changeIndex!(1);
+                                      }),
+                                ),
+                                SizedBox(
+                                  width: Tween<double>(begin: 0.0, end: 1.0)
+                                          .animate(CurvedAnimation(
+                                              parent: animationController!,
+                                              curve: Curves.fastOutSlowIn))
+                                          .value *
+                                      64.0,
+                                ),
+                                Expanded(
+                                  child: TabIcons(
+                                      tabIconData: widget.tabIconsList?[2],
+                                      removeAllSelect: () {
+                                        setRemoveAllSelection(
+                                            widget.tabIconsList?[2]);
+                                        widget.changeIndex!(2);
+                                      }),
+                                ),
+                                Expanded(
+                                  child: TabIcons(
+                                      tabIconData: widget.tabIconsList?[3],
+                                      removeAllSelect: () {
+                                        setRemoveAllSelection(
+                                            widget.tabIconsList?[3]);
+                                        widget.changeIndex!(3);
+                                      }),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).padding.bottom,
+                        )
+                      ],
+                    ),
+                  ));
+            },
+          ),
+          Padding(
+            padding:
+                EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+            child: SizedBox(
+              width: 30 * 2.0,
+              height: 30 + 54.0,
+              child: Container(
+                alignment: Alignment.topCenter,
+                color: Colors.transparent,
+                child: SizedBox(
+                  width: 30 * 2.0,
+                  height: 30 * 2.0,
+                  child: Padding(
+                    //bulet
+                    padding: const EdgeInsets.all(4.0),
+                    child: ScaleTransition(
+                      alignment: Alignment.center,
+                      scale: Tween<double>(begin: 0.0, end: 1.0).animate(
+                          CurvedAnimation(
+                              parent: animationController!,
+                              curve: Curves.fastOutSlowIn)),
+                      child: Container(
+                        // alignment: Alignment.center,s
+                        decoration: BoxDecoration(
+                          color: AppTheme.green,
+                          gradient: LinearGradient(
+                              colors: [AppTheme.green, AppTheme.green],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight),
+                          shape: BoxShape.circle,
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                                color: AppTheme.green.withOpacity(0.4),
+                                offset: const Offset(8.0, 16.0),
+                                blurRadius: 16.0),
+                          ],
+                        ),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.white.withOpacity(0.1),
+                            highlightColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            onTap: widget.addClick,
+                            child: Container(
+                                padding: EdgeInsets.all(5),
+                                child: TabIcons(
+                                    tabIconData: widget.tabIconsList?[4],
+                                    removeAllSelect: () {
+                                      setRemoveAllSelection(
+                                          widget.tabIconsList?[4]);
+                                      widget.changeIndex!(4);
+                                    })),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
         ]);
   }
 
@@ -191,7 +270,6 @@ class _BottomBarViewState extends State<BottomBarView>
 class TabIcons extends StatefulWidget {
   const TabIcons({Key? key, this.tabIconData, this.removeAllSelect})
       : super(key: key);
-
   final TabIconData? tabIconData;
   final Function()? removeAllSelect;
   @override
@@ -322,13 +400,10 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
 
 class TabClipper extends CustomClipper<Path> {
   TabClipper({this.radius = 38.0});
-
   final double radius;
-
   @override
   Path getClip(Size size) {
     final Path path = Path();
-
     final double v = radius * 2;
     path.lineTo(0, 0);
     path.arcTo(Rect.fromLTWH(0, 0, radius, radius), degreeToRadians(180),
@@ -339,10 +414,8 @@ class TabClipper extends CustomClipper<Path> {
         degreeToRadians(270),
         degreeToRadians(70),
         false);
-
     path.arcTo(Rect.fromLTWH((size.width / 2) - v / 2, -v / 2, v, v),
         degreeToRadians(160), degreeToRadians(-140), false);
-
     path.arcTo(
         Rect.fromLTWH((size.width - ((size.width / 2) - v / 2)) - v * 0.04, 0,
             radius, radius),
@@ -354,14 +427,12 @@ class TabClipper extends CustomClipper<Path> {
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-
     path.close();
     return path;
   }
 
   @override
   bool shouldReclip(TabClipper oldClipper) => true;
-
   double degreeToRadians(double degree) {
     final double redian = (math.pi / 180) * degree;
     return redian;
