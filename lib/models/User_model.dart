@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 @JsonSerializable()
 class User {
-  String? idUser;
+  // String? id_user;
   String? username;
   String? nama;
   String? jenisKelamin;
@@ -18,7 +18,8 @@ class User {
   String? idLahan;
 
   User(
-      {this.idUser,
+      {
+      // this.id_user,
       this.username,
       this.nama,
       this.jenisKelamin,
@@ -32,9 +33,34 @@ class User {
       this.foto,
       this.idLahan});
 
+  Map<String, dynamic> toJson() => {
+        // 'id_user': id_user,
+        'nama': nama,
+        'password': password,
+        'alamat': alamat,
+        'jenisKelamin': jenisKelamin,
+        'tanggalLahir': tanggalLahir,
+        'caption': caption,
+        'lahan': idLahan,
+        'idLEvel': idLevel,
+        'foto': foto,
+        'username': username,
+        'email': email,
+        'noHp': noHp
+      };
+
+  //       factory User.fromJson(Map<String, dynamic> json) {
+  //   return User(
+  //     json['idUser'],
+  //     json['nama'],
+  //     json['password'],
+  //     json['no_hp'],
+  //   );
+  // }
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-        idUser: json['id_user'],
+        // id_user: json['id_user'],
         username: json['username'],
         nama: json['nama'],
         jenisKelamin: json['jenis_kelamin'],
@@ -49,21 +75,21 @@ class User {
         idLahan: json['id_lahan']);
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id_user'] = this.idUser;
-    data['username'] = this.username;
-    data['nama'] = this.nama;
-    data['jenis_kelamin'] = this.jenisKelamin;
-    data['alamat'] = this.alamat;
-    data['no_hp'] = this.noHp;
-    data['tanggal_lahir'] = this.tanggalLahir;
-    data['email'] = this.email;
-    data['password'] = this.password;
-    data['caption'] = this.caption;
-    data['id_level'] = this.idLevel;
-    data['Foto'] = this.foto;
-    data['id_lahan'] = this.idLahan;
-    return data;
-  }
+  // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = Map<String, dynamic>();
+  //   data['id_user'] = this.idUser;
+  //   data['username'] = this.username;
+  //   data['nama'] = this.nama;
+  //   data['jenis_kelamin'] = this.jenisKelamin;
+  //   data['alamat'] = this.alamat;
+  //   data['no_hp'] = this.noHp;
+  //   data['tanggal_lahir'] = this.tanggalLahir;
+  //   data['email'] = this.email;
+  //   data['password'] = this.password;
+  //   data['caption'] = this.caption;
+  //   data['id_level'] = this.idLevel;
+  //   data['Foto'] = this.foto;
+  //   data['id_lahan'] = this.idLahan;
+  //   return data;
+  // }
 }
