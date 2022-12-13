@@ -1,4 +1,4 @@
-import 'package:Edifarm/aktivitas/activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';

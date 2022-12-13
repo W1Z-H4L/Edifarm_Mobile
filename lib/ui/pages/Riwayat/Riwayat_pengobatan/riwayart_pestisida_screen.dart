@@ -1,16 +1,18 @@
-import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayat_irigasi_listvew.dart';
+import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pengobatan/riwayat_pestisida_listvew.dart';
+import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayat_pupuk_listvew.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
-class RiwayatIrigasi extends StatefulWidget {
-  const RiwayatIrigasi({Key? key, this.animationController}) : super(key: key);
+class RiwayatPestisida extends StatefulWidget {
+  const RiwayatPestisida({Key? key, this.animationController})
+      : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _RiwayatIrigasiState createState() => _RiwayatIrigasiState();
+  _RiwayatPestisidaState createState() => _RiwayatPestisidaState();
 }
 
-class _RiwayatIrigasiState extends State<RiwayatIrigasi>
+class _RiwayatPestisidaState extends State<RiwayatPestisida>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -55,7 +57,7 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
     const int count = 5;
 
     listViews.add(
-      ListRiwayatIrigasi(
+      ListRiwayatPestisida(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
@@ -160,7 +162,7 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Riwayat Irigasi',
+                                  'Riwayat Pengobatan',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,

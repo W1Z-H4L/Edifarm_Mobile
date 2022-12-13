@@ -1,5 +1,5 @@
-import 'package:Edifarm/aktivitas/activity.dart';
-import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calendar_popup_view.dart';
 import 'package:flutter/material.dart';

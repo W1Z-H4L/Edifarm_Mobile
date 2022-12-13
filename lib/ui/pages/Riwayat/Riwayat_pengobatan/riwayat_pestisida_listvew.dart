@@ -1,24 +1,24 @@
-import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayat_pupuk_data.dart';
+import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pengobatan/riwayat_pestisida_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ListRiwayatPupuk extends StatefulWidget {
-  const ListRiwayatPupuk(
+class ListRiwayatPestisida extends StatefulWidget {
+  const ListRiwayatPestisida(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _ListRiwayatPupukState createState() => _ListRiwayatPupukState();
+  _ListRiwayatPestisidaState createState() => _ListRiwayatPestisidaState();
 }
 
-class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
+class _ListRiwayatPestisidaState extends State<ListRiwayatPestisida>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<PupukListData> tabPupukList = PupukListData.tabPupukList;
+  List<PestisidaListData> tabPestisidaList = PestisidaListData.tabPestisidaList;
 
   @override
   void initState() {
@@ -53,9 +53,9 @@ class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    tabPupukList.length,
+                    tabPestisidaList.length,
                     (int index) {
-                      final int count = tabPupukList.length;
+                      final int count = tabPestisidaList.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -65,8 +65,8 @@ class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
                         ),
                       );
                       animationController?.forward();
-                      return PupukAreaView(
-                        tabPupukList: tabPupukList[index],
+                      return PestisidaAreaView(
+                        tabPestisidaList: tabPestisidaList[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -88,15 +88,15 @@ class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
   }
 }
 
-class PupukAreaView extends StatelessWidget {
-  const PupukAreaView({
+class PestisidaAreaView extends StatelessWidget {
+  const PestisidaAreaView({
     Key? key,
-    this.tabPupukList,
+    this.tabPestisidaList,
     this.animationController,
     this.animation,
   }) : super(key: key);
 
-  final PupukListData? tabPupukList;
+  final PestisidaListData? tabPestisidaList;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -151,7 +151,8 @@ class PupukAreaView extends StatelessWidget {
                                                     padding: EdgeInsets.only(
                                                         top: 0, left: 0),
                                                     child: Text(
-                                                        tabPupukList!.aktivitas,
+                                                        tabPestisidaList!
+                                                            .aktivitas,
                                                         style: const TextStyle(
                                                           fontFamily:
                                                               AppTheme.fontName,
@@ -220,7 +221,8 @@ class PupukAreaView extends StatelessWidget {
                                                         const EdgeInsets.only(
                                                             top: 0, left: 0),
                                                     child: Text(
-                                                        tabPupukList!.tanggal,
+                                                        tabPestisidaList!
+                                                            .tanggal,
                                                         style: const TextStyle(
                                                           fontFamily:
                                                               AppTheme.fontName,
@@ -234,7 +236,7 @@ class PupukAreaView extends StatelessWidget {
                                             Container(
                                               padding: const EdgeInsets.only(
                                                   right: 10),
-                                              child: Text(tabPupukList!.jam,
+                                              child: Text(tabPestisidaList!.jam,
                                                   textAlign: TextAlign.start,
                                                   style: const TextStyle(
                                                     fontFamily:

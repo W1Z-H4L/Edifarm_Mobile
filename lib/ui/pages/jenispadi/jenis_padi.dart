@@ -239,7 +239,8 @@ class _JenisPadiPageState extends State<JenisPadiPage>
 
   Widget getTimeBoxUI(String text1, String txt2) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      // scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.all(5.0),
       child: Container(
         decoration: BoxDecoration(
           color: Color(0xFFBDE2E7),
@@ -253,7 +254,7 @@ class _JenisPadiPageState extends State<JenisPadiPage>
         ),
         child: Padding(
           padding: const EdgeInsets.only(
-              left: 18.0, right: 18.0, top: 12.0, bottom: 12.0),
+              left: 5.0, right: 5.0, top: 12.0, bottom: 12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -262,9 +263,9 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                 text1,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w900,
                   fontFamily: AppTheme.fontName,
-                  fontSize: 14,
+                  fontSize: 10,
                   letterSpacing: 0.27,
                   color: AppTheme.green,
                 ),
@@ -273,9 +274,9 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                 txt2,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontWeight: FontWeight.w200,
+                  fontWeight: FontWeight.w400,
                   fontFamily: AppTheme.fontName,
-                  fontSize: 14,
+                  fontSize: 8,
                   letterSpacing: 0.27,
                   color: AppTheme.grey,
                 ),

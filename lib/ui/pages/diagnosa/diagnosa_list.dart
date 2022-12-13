@@ -1,4 +1,4 @@
-import 'package:Edifarm/aktivitas/activity_data.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/pertanyaan_data.dart';

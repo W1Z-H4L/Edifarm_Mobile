@@ -1,24 +1,25 @@
-import 'package:Edifarm/Riwayat/Riwayat_pengobatan/riwayat_pestisida_data.dart';
+import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayat_irigasi_data.dart';
+
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ListRiwayatPestisida extends StatefulWidget {
-  const ListRiwayatPestisida(
+class ListRiwayatIrigasi extends StatefulWidget {
+  const ListRiwayatIrigasi(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _ListRiwayatPestisidaState createState() => _ListRiwayatPestisidaState();
+  _ListRiwayatIrigasiState createState() => _ListRiwayatIrigasiState();
 }
 
-class _ListRiwayatPestisidaState extends State<ListRiwayatPestisida>
+class _ListRiwayatIrigasiState extends State<ListRiwayatIrigasi>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<PestisidaListData> tabPestisidaList = PestisidaListData.tabPestisidaList;
+  List<IrigasiListData> tabIrigasiList = IrigasiListData.tabIrigasiList;
 
   @override
   void initState() {
@@ -53,9 +54,9 @@ class _ListRiwayatPestisidaState extends State<ListRiwayatPestisida>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    tabPestisidaList.length,
+                    tabIrigasiList.length,
                     (int index) {
-                      final int count = tabPestisidaList.length;
+                      final int count = tabIrigasiList.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -65,8 +66,8 @@ class _ListRiwayatPestisidaState extends State<ListRiwayatPestisida>
                         ),
                       );
                       animationController?.forward();
-                      return PestisidaAreaView(
-                        tabPestisidaList: tabPestisidaList[index],
+                      return IrigasiAreaView(
+                        tabIrigasiList: tabIrigasiList[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -88,15 +89,15 @@ class _ListRiwayatPestisidaState extends State<ListRiwayatPestisida>
   }
 }
 
-class PestisidaAreaView extends StatelessWidget {
-  const PestisidaAreaView({
+class IrigasiAreaView extends StatelessWidget {
+  const IrigasiAreaView({
     Key? key,
-    this.tabPestisidaList,
+    this.tabIrigasiList,
     this.animationController,
     this.animation,
   }) : super(key: key);
 
-  final PestisidaListData? tabPestisidaList;
+  final IrigasiListData? tabIrigasiList;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -151,7 +152,7 @@ class PestisidaAreaView extends StatelessWidget {
                                                     padding: EdgeInsets.only(
                                                         top: 0, left: 0),
                                                     child: Text(
-                                                        tabPestisidaList!
+                                                        tabIrigasiList!
                                                             .aktivitas,
                                                         style: const TextStyle(
                                                           fontFamily:
@@ -221,8 +222,7 @@ class PestisidaAreaView extends StatelessWidget {
                                                         const EdgeInsets.only(
                                                             top: 0, left: 0),
                                                     child: Text(
-                                                        tabPestisidaList!
-                                                            .tanggal,
+                                                        tabIrigasiList!.tanggal,
                                                         style: const TextStyle(
                                                           fontFamily:
                                                               AppTheme.fontName,
@@ -236,7 +236,7 @@ class PestisidaAreaView extends StatelessWidget {
                                             Container(
                                               padding: const EdgeInsets.only(
                                                   right: 10),
-                                              child: Text(tabPestisidaList!.jam,
+                                              child: Text(tabIrigasiList!.jam,
                                                   textAlign: TextAlign.start,
                                                   style: const TextStyle(
                                                     fontFamily:

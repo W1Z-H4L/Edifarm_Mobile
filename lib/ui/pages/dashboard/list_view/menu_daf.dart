@@ -1,4 +1,4 @@
-import 'package:Edifarm/jenispadi/jenis_padi.dart';
+import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
 
 import 'package:Edifarm/main.dart';
 import 'package:Edifarm/shared/Theme_App.dart';

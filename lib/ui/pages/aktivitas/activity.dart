@@ -1,16 +1,22 @@
-import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayat_pupuk_listvew.dart';
+import 'package:Edifarm/ui/pages/aktivitas/listview_activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/chart_view.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity_date.dart';
+import 'package:Edifarm/ui/pages/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pie_chart/pie_chart.dart';
 
-class RiwayatPupuk extends StatefulWidget {
-  const RiwayatPupuk({Key? key, this.animationController}) : super(key: key);
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _RiwayatPupukState createState() => _RiwayatPupukState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _RiwayatPupukState extends State<RiwayatPupuk>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -55,7 +61,39 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
     const int count = 5;
 
     listViews.add(
-      ListRiwayatPupuk(
+      ChartView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      tanggalActivity(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
@@ -160,7 +198,7 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Riwayat Pupuk',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
