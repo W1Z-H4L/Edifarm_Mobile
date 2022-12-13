@@ -31,6 +31,7 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void initState() {
+    getPref();
     // TODO: implement initState
     super.initState();
     username = TextEditingController();
@@ -65,14 +66,14 @@ class _SignInPageState extends State<SignInPage> {
 
         body: ListView(
             padding: const EdgeInsets.only(
-              left: 24,
-              right: 24,
+              left: 30,
+              right: 30,
               bottom: 24,
             ),
             children: <Widget>[
           Container(
-            width: 121,
-            height: 121,
+            width: 161,
+            height: 161,
             margin: const EdgeInsets.only(top: 50),
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -81,17 +82,17 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           Text(
-            'Welcome !!',
+            'Selamat Datang !!',
             textAlign: TextAlign.center,
             style: AppTheme.custom1.copyWith(
               fontWeight: FontWeight.w900,
-              fontSize: 20,
+              fontSize: 26,
               color: AppTheme.green,
             ),
           ),
           Container(
-            width: 196,
-            height: 177,
+            width: 216,
+            height: 197,
             // margin: const EdgeInsets.only(top: 5, bottom: 55),
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -114,6 +115,7 @@ class _SignInPageState extends State<SignInPage> {
             children: <Widget>[
               // NOTE: INPUT EMAIL
               TextFormField(
+                controller: username,
                 showCursor: true,
                 cursorHeight: 25,
                 style: GoogleFonts.montserrat(),
@@ -165,22 +167,48 @@ class _SignInPageState extends State<SignInPage> {
               const SizedBox(
                 height: 90,
               ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(50),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppTheme.green,
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      )),
-                  child: Text('Login'),
-                  onPressed: () {
+              InkWell(
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                        top: 50, left: 75, bottom: 50, right: 75),
+                    child: Container(
+                      height: 40,
+                      width: 70,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: AppTheme.green,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: const Text(
+                        'Masuk',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                            fontFamily: AppTheme.fontName,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
                     verifyLogin();
-                  },
-                ),
-              ),
+                  }),
+              // Container(
+              //   alignment: Alignment.center,
+              //   padding: const EdgeInsets.only(
+              //       top: 40, right: 75, left: 75, bottom: 50),
+              //   child: ElevatedButton(
+              //     style: ElevatedButton.styleFrom(
+              //         backgroundColor: AppTheme.green,
+              //         shadowColor: Colors.transparent,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(20),
+              //         )),
+              //     child: Text('Login'),
+              //     onPressed: () {
+              //       verifyLogin();
+              //     },
+              //   ),
+              // ),
 
               const SizedBox(
                 height: 50,
@@ -223,10 +251,12 @@ class _SignInPageState extends State<SignInPage> {
           await RememberUser().storeUser(json.encode(userInfo));
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-          // sharePref(username);
-        } else {
-          snackBarFailed();
+          sharePref(username);
+        } else if (data['success'] == false) {
+          snackBarPass();
         }
+      } else {
+        snackBarFailed();
       }
     } catch (e) {
       Fluttertoast.showToast(msg: e.toString());
@@ -236,8 +266,29 @@ class _SignInPageState extends State<SignInPage> {
 
   snackBarFailed() {
     {
+      Container(
+        height: 50,
+        width: 50,
+        color: AppTheme.green,
+      );
       Fluttertoast.showToast(
         msg: 'Ussername Atau Password Salah \n Silahkan Login Kembali',
+        backgroundColor: Colors.red[300],
+        textColor: Colors.white,
+        fontSize: 12,
+      );
+    }
+  }
+
+  snackBarPass() {
+    {
+      Container(
+        height: 50,
+        width: 50,
+        color: AppTheme.green,
+      );
+      Fluttertoast.showToast(
+        msg: 'Password Salah \n Silahkan Login Kembali',
         backgroundColor: Colors.red[300],
         textColor: Colors.white,
         fontSize: 12,
@@ -262,19 +313,29 @@ class _SignInPageState extends State<SignInPage> {
   //   });
   // }
 
-  // var data;
-  // Future getPref() async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     data = data['success'] == true;
-  //     data == "success" ? BottomNavigator() : SignInPage();
-  //   });
-  // }
+  String? user = '';
+  String? pass = '';
 
-  safaedata() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  getPref() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.getString('username');
-    preferences.getString('password');
+    setState(() {
+      user = preferences.getString('username');
+      pass = preferences.getString("password");
+    });
   }
+
+  sharePref(username) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      preferences.setInt("username", username);
+      preferences.commit();
+    });
+  }
+
+  // safaedata() async {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   preferences.getString('username');
+  //   preferences.getString('password');
+  // }
 }
