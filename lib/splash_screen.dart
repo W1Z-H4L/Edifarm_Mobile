@@ -1,9 +1,16 @@
 import 'dart:async';
 
+import 'package:Edifarm/login.dart';
+import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+String? username;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,11 +22,22 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(
-      const Duration(seconds: 4),
-      () => Navigator.pushNamed(context, '/sign-in'),
-    );
+    getValidationData().whenComplete(() async {
+      Timer(const Duration(seconds: 4),
+          () => Get.to(username == null ? SignInPage() : HomeScreen()));
+      Navigator.pushNamed(context, '/sign-in');
+    });
     super.initState();
+  }
+
+  Future getValidationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var obtainedusername = sharedPreferences.getString('password');
+    setState(() {
+      username = obtainedusername;
+    });
+    print(username);
   }
 
   Widget build(BuildContext context) {
@@ -59,6 +77,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Color(0xff006B6C),
                 fontSize: 13,
                 fontWeight: FontWeight.w600),
+          ),
+          MaterialButton(
+            onPressed: () async {
+              final SharedPreferences sharedPreferences =
+                  await SharedPreferences.getInstance();
+              sharedPreferences.remove('password');
+              Get.to(SignInPage());
+            },
           ),
 
           SizedBox(

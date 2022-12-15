@@ -3,6 +3,7 @@ import 'package:Edifarm/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/aktivitas/activity.dart';
 import 'package:Edifarm/jenispadi/jenis_padi.dart';
+import 'package:Edifarm/login.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';

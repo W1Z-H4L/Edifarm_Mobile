@@ -1,3 +1,4 @@
+import 'package:Edifarm/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 
@@ -240,7 +241,7 @@ class _LahanScreenState extends State<LahanScreen>
                                       ),
                                       child: const Center(
                                         child: Text(
-                                          'Lihat Identitas Pemilik',
+                                          'Lihat Jenis Padi',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,
@@ -252,6 +253,7 @@ class _LahanScreenState extends State<LahanScreen>
                                         ),
                                       ),
                                     ),
+                                    onTap: () => JenisPadiPage,
                                   )),
                                   const SizedBox(
                                     height: 200,
