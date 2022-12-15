@@ -34,6 +34,15 @@ class _EditPassword extends State<EditPassword> {
                   bottomRight: Radius.circular(20)),
             ),
           ),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: AppTheme.white,
+                size: 20,
+              )),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),

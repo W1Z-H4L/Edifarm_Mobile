@@ -12,6 +12,7 @@ import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 
 import 'package:flutter/material.dart';
@@ -126,8 +127,7 @@ class _BottomNavigatorState extends State<BottomNavigator>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      EditProfilePage(animationController: animationController);
+                  tabBody = SettingsPage();
                 });
               });
             } else if (index == 4) {

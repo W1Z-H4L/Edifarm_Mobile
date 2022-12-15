@@ -222,11 +222,16 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                   child: InkWell(
                     borderRadius:
                         BorderRadius.circular(AppBar().preferredSize.height),
-                    child: const Icon(
-                      Icons.arrow_back_ios,
-                      color: AppTheme.nearlyBlack,
-                    ),
-                    onTap: () => const HomeScreen(),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: AppTheme.white,
+                          size: 20,
+                        )),
+                    // onTap: () => const HomeScreen(),
                   ),
                 ),
               ),

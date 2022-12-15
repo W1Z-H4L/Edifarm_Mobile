@@ -24,6 +24,15 @@ class _SettingsPage extends State<SettingsPage> {
         centerTitle: true,
         titleTextStyle: whiteTextStyle1,
         titleSpacing: 20,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/home');
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: AppTheme.white,
+              size: 20,
+            )),
         shadowColor: AppTheme.grey,
         backgroundColor: AppTheme.green,
         shape: const RoundedRectangleBorder(
@@ -77,7 +86,7 @@ class _SettingsPage extends State<SettingsPage> {
           ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(top: 25, right: 5, bottom: 6),
+              padding: EdgeInsets.only(top: 25, right: 18, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
@@ -94,7 +103,9 @@ class _SettingsPage extends State<SettingsPage> {
                 Container(
                     alignment: Alignment.centerRight,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/edit-user');
+                      },
                       icon: const Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: AppTheme.grey,
@@ -106,13 +117,14 @@ class _SettingsPage extends State<SettingsPage> {
           // ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(right: 5, bottom: 6),
+              padding: EdgeInsets.only(top: 25, right: 18, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
                     alignment: Alignment.centerLeft,
                     child: ButtonSetting(
-                        title: 'Edit Passsword',
+                        alignment: Alignment.centerLeft,
+                        title: 'Edit Username',
                         height: 40,
                         width: 300,
                         onPressed: () {
@@ -122,7 +134,38 @@ class _SettingsPage extends State<SettingsPage> {
                 Container(
                     alignment: Alignment.centerRight,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/edit-pass');
+                      },
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: AppTheme.grey,
+                      ),
+                    )),
+              ])),
+
+          Container(
+              color: AppTheme.background,
+              padding: EdgeInsets.only(top: 25, right: 18, bottom: 6),
+              alignment: Alignment.centerLeft,
+              child: Row(children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: ButtonSetting(
+                        alignment: Alignment.centerLeft,
+                        title: 'Edit Username',
+                        height: 40,
+                        width: 300,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/edit-pass');
+                        })),
+                Spacer(),
+                Container(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/edit-pass');
+                      },
                       icon: const Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: AppTheme.grey,

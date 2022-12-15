@@ -309,13 +309,18 @@ class _LahanScreenState extends State<LahanScreen>
                   child: InkWell(
                     borderRadius:
                         BorderRadius.circular(AppBar().preferredSize.height),
-                    child: const Icon(
-                      Icons.arrow_back_ios,
-                      color: AppTheme.nearlyBlack,
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: AppTheme.white,
+                          size: 20,
+                        )),
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    // },
                   ),
                 ),
               ),

@@ -156,6 +156,15 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/home');
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: AppTheme.white,
+                                  size: 20,
+                                )),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
