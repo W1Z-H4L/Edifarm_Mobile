@@ -41,5 +41,40 @@ class ActListData {
       aktivitas: 'Irigasi',
       jam: '08.00 WIB',
     ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
+    ActListData(
+      tanggal: '1 November 2022',
+      aktivitas: 'Irigasi',
+      jam: '08.00 WIB',
+    ),
   ];
 }

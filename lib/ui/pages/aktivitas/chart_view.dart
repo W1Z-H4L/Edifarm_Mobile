@@ -60,8 +60,8 @@ final dataMap = <String, double>{
 };
 
 final colorList = <Color>[
-  Color.fromARGB(255, 96, 150, 124),
-  Colors.brown,
+  AppTheme.green,
+  AppTheme.splash,
 ];
 
 @override
@@ -73,7 +73,7 @@ Widget pieChartView() {
       chartLegendSpacing: 100,
       chartRadius: 75,
       ringStrokeWidth: 20,
-      baseChartColor: Color.fromARGB(255, 174, 136, 136).withOpacity(0.15),
+      baseChartColor: AppTheme.splash,
       colorList: colorList,
       chartValuesOptions: const ChartValuesOptions(
           showChartValuesInPercentage: true,

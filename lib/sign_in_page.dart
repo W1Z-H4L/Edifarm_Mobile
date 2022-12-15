@@ -79,7 +79,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           Text(
-            'Selamat Datang !!',
+            'Hallo !',
             textAlign: TextAlign.center,
             style: AppTheme.custom1.copyWith(
               fontWeight: FontWeight.w900,
@@ -151,15 +151,10 @@ class _SignInPageState extends State<SignInPage> {
                   fillColor: AppTheme.green,
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
 
-              const SizedBox(
-                height: 90,
-              ),
               InkWell(
                   child: Container(
+                    alignment: Alignment.center,
                     padding: const EdgeInsets.only(
                         top: 50, left: 75, bottom: 50, right: 75),
                     child: Container(
@@ -182,8 +177,25 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   onTap: () {
                     verifyLogin();
-                    // Navigator.pushNamed(context, '/home');
                   }),
+              // Container(
+              //   alignment: Alignment.center,
+              //   padding: const EdgeInsets.only(
+              //       top: 40, right: 75, left: 75, bottom: 50),
+              //   child: ElevatedButton(
+              //     style: ElevatedButton.styleFrom(
+              //         backgroundColor: AppTheme.green,
+              //         shadowColor: Colors.transparent,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(20),
+              //         )),
+              //     child: Text('Login'),
+              //     onPressed: () {
+              //       verifyLogin();
+              //     },
+              //   ),
+              // ),
+
               const SizedBox(
                 height: 50,
               ),

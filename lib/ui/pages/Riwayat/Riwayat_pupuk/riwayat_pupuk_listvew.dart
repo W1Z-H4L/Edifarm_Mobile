@@ -1,25 +1,24 @@
-import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayat_irigasi_data.dart';
-
+import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayat_pupuk_data.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ListRiwayatIrigasi extends StatefulWidget {
-  const ListRiwayatIrigasi(
+class ListRiwayatPupuk extends StatefulWidget {
+  const ListRiwayatPupuk(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
   @override
-  _ListRiwayatIrigasiState createState() => _ListRiwayatIrigasiState();
+  _ListRiwayatPupukState createState() => _ListRiwayatPupukState();
 }
 
-class _ListRiwayatIrigasiState extends State<ListRiwayatIrigasi>
+class _ListRiwayatPupukState extends State<ListRiwayatPupuk>
     with TickerProviderStateMixin {
   AnimationController? animationController;
-  List<IrigasiListData> tabIrigasiList = IrigasiListData.tabIrigasiList;
+  List<PupukListData> tabPupukList = PupukListData.tabPupukList;
 
   @override
   void initState() {
@@ -54,9 +53,9 @@ class _ListRiwayatIrigasiState extends State<ListRiwayatIrigasi>
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: List<Widget>.generate(
-                    tabIrigasiList.length,
+                    tabPupukList.length,
                     (int index) {
-                      final int count = tabIrigasiList.length;
+                      final int count = tabPupukList.length;
                       final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
@@ -66,8 +65,8 @@ class _ListRiwayatIrigasiState extends State<ListRiwayatIrigasi>
                         ),
                       );
                       animationController?.forward();
-                      return IrigasiAreaView(
-                        tabIrigasiList: tabIrigasiList[index],
+                      return PupukAreaView(
+                        tabPupukList: tabPupukList[index],
                         animation: animation,
                         animationController: animationController!,
                       );
@@ -89,15 +88,15 @@ class _ListRiwayatIrigasiState extends State<ListRiwayatIrigasi>
   }
 }
 
-class IrigasiAreaView extends StatelessWidget {
-  const IrigasiAreaView({
+class PupukAreaView extends StatelessWidget {
+  const PupukAreaView({
     Key? key,
-    this.tabIrigasiList,
+    this.tabPupukList,
     this.animationController,
     this.animation,
   }) : super(key: key);
 
-  final IrigasiListData? tabIrigasiList;
+  final PupukListData? tabPupukList;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -152,8 +151,7 @@ class IrigasiAreaView extends StatelessWidget {
                                                     padding: EdgeInsets.only(
                                                         top: 0, left: 0),
                                                     child: Text(
-                                                        tabIrigasiList!
-                                                            .aktivitas,
+                                                        tabPupukList!.aktivitas,
                                                         style: const TextStyle(
                                                           fontFamily:
                                                               AppTheme.fontName,
@@ -222,7 +220,7 @@ class IrigasiAreaView extends StatelessWidget {
                                                         const EdgeInsets.only(
                                                             top: 0, left: 0),
                                                     child: Text(
-                                                        tabIrigasiList!.tanggal,
+                                                        tabPupukList!.tanggal,
                                                         style: const TextStyle(
                                                           fontFamily:
                                                               AppTheme.fontName,
@@ -236,7 +234,7 @@ class IrigasiAreaView extends StatelessWidget {
                                             Container(
                                               padding: const EdgeInsets.only(
                                                   right: 10),
-                                              child: Text(tabIrigasiList!.jam,
+                                              child: Text(tabPupukList!.jam,
                                                   textAlign: TextAlign.start,
                                                   style: const TextStyle(
                                                     fontFamily:

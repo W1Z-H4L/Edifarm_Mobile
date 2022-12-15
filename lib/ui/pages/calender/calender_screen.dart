@@ -1,5 +1,5 @@
-import 'package:Edifarm/aktivitas/activity.dart';
-import 'package:Edifarm/aktivitas/title_activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calendar_popup_view.dart';
 import 'package:flutter/material.dart';
@@ -169,6 +169,15 @@ class _CalenderScreenState extends State<CalenderScreen>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: AppTheme.white,
+                                  size: 20,
+                                )),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),

@@ -33,6 +33,15 @@ class _EditUsername extends State<EditUsername> {
                 bottomRight: Radius.circular(20)),
           ),
           centerTitle: true,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: AppTheme.white,
+                size: 20,
+              )),
           titleTextStyle: whiteTextStyle1,
           titleSpacing: 20,
           shadowColor: AppTheme.grey,

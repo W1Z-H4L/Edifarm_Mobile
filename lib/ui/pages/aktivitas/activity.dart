@@ -1,16 +1,22 @@
-import 'package:Edifarm/Riwayat/riwayat_irigasi/riwayat_irigasi_listvew.dart';
+import 'package:Edifarm/ui/pages/aktivitas/listview_activity.dart';
+import 'package:Edifarm/ui/pages/aktivitas/chart_view.dart';
+import 'package:Edifarm/ui/pages/aktivitas/activity_date.dart';
+import 'package:Edifarm/ui/pages/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pie_chart/pie_chart.dart';
 
-class RiwayatIrigasi extends StatefulWidget {
-  const RiwayatIrigasi({Key? key, this.animationController}) : super(key: key);
+class activityPage extends StatefulWidget {
+  const activityPage({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _RiwayatIrigasiState createState() => _RiwayatIrigasiState();
+  _activityPageState createState() => _activityPageState();
 }
 
-class _RiwayatIrigasiState extends State<RiwayatIrigasi>
+class _activityPageState extends State<activityPage>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -55,7 +61,39 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
     const int count = 5;
 
     listViews.add(
-      ListRiwayatIrigasi(
+      ChartView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+    listViews.add(
+      tanggalActivity(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleActivity(
+        titleTxt: 'Yang harus kamu lakukan hari ini',
+
+        // subTxt: 'more',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      ListViewActivity(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
@@ -156,11 +194,20 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: AppTheme.white,
+                                  size: 20,
+                                )),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Riwayat Irigasi',
+                                  'Activity',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
