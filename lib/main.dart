@@ -1,10 +1,10 @@
+import 'package:Edifarm/jenispadi/jenis_padi.dart';
+import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
-import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
-import 'package:Edifarm/sign_in_page.dart';
-import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/edit_akun.dart';

@@ -244,52 +244,50 @@ class _JenisPadiPageState extends State<JenisPadiPage>
 
   Widget getTimeBoxUI(String text1, String txt2) {
     return Padding(
-      // scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.all(5.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color(0xFFBDE2E7),
-          borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: AppTheme.grey.withOpacity(0.2),
-                offset: const Offset(1.1, 1.1),
-                blurRadius: 8.0),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-              left: 5.0, right: 5.0, top: 12.0, bottom: 12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                text1,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontFamily: AppTheme.fontName,
-                  fontSize: 10,
-                  letterSpacing: 0.27,
-                  color: AppTheme.green,
-                ),
+        // scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.all(5.0),
+        child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFFBDE2E7),
+              borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                    color: AppTheme.grey.withOpacity(0.2),
+                    offset: const Offset(1.1, 1.1),
+                    blurRadius: 8.0),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 5.0, right: 5.0, top: 12.0, bottom: 12.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    text1,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontFamily: AppTheme.fontName,
+                      fontSize: 10,
+                      letterSpacing: 0.27,
+                      color: AppTheme.green,
+                    ),
+                  ),
+                  Text(
+                    txt2,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontFamily: AppTheme.fontName,
+                      fontSize: 8,
+                      letterSpacing: 0.27,
+                      color: AppTheme.grey,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                txt2,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontFamily: AppTheme.fontName,
-                  fontSize: 8,
-                  letterSpacing: 0.27,
-                  color: AppTheme.grey,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+            )));
   }
 }

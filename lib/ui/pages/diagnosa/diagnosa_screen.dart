@@ -70,7 +70,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
     );
 
     listViews.add(
-      ListViewDiag(
+      DiagListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,

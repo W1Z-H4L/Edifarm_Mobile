@@ -4,6 +4,7 @@ import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/models/Remember_User.dart';
 import 'package:Edifarm/models/User_model.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:http/http.dart' as http;
@@ -19,9 +20,12 @@ class SignInPage extends StatefulWidget {
 
 final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
+// enum Loginstatus { notSignin, signin }
+
 class _SignInPageState extends State<SignInPage> {
   // const SignInPage({Key? key}) : super(key: key);
   bool _secureText = true;
+  // Loginstatus _loginstatus = Loginstatus.notSignin;
 
   showHide() {
     setState(() {
@@ -31,9 +35,10 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void initState() {
-    getPref();
+    // getPref();
     // TODO: implement initState
     super.initState();
+
     username = TextEditingController();
     password = TextEditingController();
   }
@@ -46,24 +51,16 @@ class _SignInPageState extends State<SignInPage> {
     password.dispose();
   }
 
+  bool _loading = false;
+
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    // switch (_loginstatus) {
+    //   case Loginstatus.notSignin:
     return Scaffold(
-        // appBar: AppBar(
-        //   brightness: Brightness.dark,
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        //   flexibleSpace: Container(
-        //       decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //       image: AssetImage('assets/logo.png'),
-        //     ),
-        //   )),
-        // ),
-
         body: ListView(
             padding: const EdgeInsets.only(
               left: 30,
@@ -104,12 +101,6 @@ class _SignInPageState extends State<SignInPage> {
             height: 5,
           ),
           Container(
-
-              // padding: const EdgeInsets.all(22),
-              // decoration: BoxDecoration(
-              //   borderRadius: BorderRadius.circular(0),
-              //   color: Colors.white,
-              // ),
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -178,11 +169,40 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                   ),
+<<<<<<< HEAD
                 ),
+=======
+                  onTap: () {
+                    verifyLogin();
+                  }),
+              // Container(
+              //   alignment: Alignment.center,
+              //   padding: const EdgeInsets.only(
+              //       top: 40, right: 75, left: 75, bottom: 50),
+              //   child: ElevatedButton(
+              //     style: ElevatedButton.styleFrom(
+              //         backgroundColor: AppTheme.green,
+              //         shadowColor: Colors.transparent,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(20),
+              //         )),
+              //     child: Text('Login'),
+              //     onPressed: () {
+              //       verifyLogin();
+              //     },
+              //   ),
+              // ),
+
+              const SizedBox(
+                height: 50,
+>>>>>>> f1fd9b12f954273d881202b9c9579894ef7729b2
               ),
             ],
           )),
         ]));
+    //   case Loginstatus.signin:
+    //     return HomeScreen();
+    // }
   }
 
   void verifyLogin() {
@@ -213,13 +233,16 @@ class _SignInPageState extends State<SignInPage> {
         final data = jsonDecode(response.body);
         if (data['success'] == true) {
           snackBarSucces();
-
-          User userInfo = User.fromJson(data['username']);
+          setState(() {
+            // _loginstatus = Loginstatus.signin;
+            // sharePref(data, username, password);
+          });
+          User userInfo = User.fromJson(data['user']);
           await RememberUser().storeUser(json.encode(userInfo));
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-          sharePref(username);
-        } else if (data['success'] == false) {
+          // sharePref(data, username, password);
+        } else {
           snackBarPass();
         }
       } else {
@@ -280,24 +303,25 @@ class _SignInPageState extends State<SignInPage> {
   //   });
   // }
 
-  String? user = '';
-  String? pass = '';
+  // String? user = '';
+  // String? pass = '';
+  // var data;
+  // getPref() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     data = preferences.getBool('success');
+  //     _loginstatus = data == true ? Loginstatus.signin : Loginstatus.notSignin;
+  //   });
+  // }
 
-  getPref() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    setState(() {
-      user = preferences.getString('username');
-      pass = preferences.getString("password");
-    });
-  }
-
-  sharePref(username) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    setState(() {
-      preferences.setInt("username", username);
-      preferences.commit();
-    });
-  }
+  // sharePref(data, username, password) async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     preferences.setBool("success", data);
+  //     preferences.setString('username', username);
+  //     preferences.setString('password', password);
+  //   });
+  // }
 
   // safaedata() async {
   //   WidgetsFlutterBinding.ensureInitialized();
