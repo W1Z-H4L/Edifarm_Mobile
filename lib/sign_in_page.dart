@@ -162,48 +162,24 @@ class _SignInPageState extends State<SignInPage> {
               ),
 
               InkWell(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.only(
-                        top: 50, left: 75, bottom: 50, right: 75),
-                    child: Container(
-                      height: 40,
-                      width: 70,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: AppTheme.green,
-                          borderRadius: BorderRadius.circular(30)),
-                      child: const Text(
-                        'Masuk',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
-                            fontFamily: AppTheme.fontName,
-                            fontWeight: FontWeight.w600),
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(
+                      top: 50, left: 75, bottom: 50, right: 75),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: AppTheme.green, onPrimary: Colors.white),
+                    onPressed: () => Navigator.pushNamed(context, '/home'),
+                    child: const Text(
+                      'Masuk',
+                      style: TextStyle(
+                        fontFamily: AppTheme.fontName,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  }),
-              // Container(
-              //   alignment: Alignment.center,
-              //   padding: const EdgeInsets.only(
-              //       top: 40, right: 75, left: 75, bottom: 50),
-              //   child: ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //         backgroundColor: AppTheme.green,
-              //         shadowColor: Colors.transparent,
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(20),
-              //         )),
-              //     child: Text('Login'),
-              //     onPressed: () {
-              //       verifyLogin();
-              //     },
-              //   ),
-              // ),
+                ),
+              ),
             ],
           )),
         ]));
