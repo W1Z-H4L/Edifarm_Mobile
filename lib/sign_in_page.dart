@@ -153,49 +153,29 @@ class _SignInPageState extends State<SignInPage> {
               ),
 
               InkWell(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(
-                      top: 50, left: 75, bottom: 50, right: 75),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: AppTheme.green, onPrimary: Colors.white),
-                    onPressed: () => Navigator.pushNamed(context, '/home'),
-                    child: const Text(
-                      'Masuk',
-                      style: TextStyle(
-                        fontFamily: AppTheme.fontName,
-                        fontWeight: FontWeight.w400,
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(
+                        top: 50, left: 75, bottom: 50, right: 75),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: AppTheme.green, onPrimary: Colors.white),
+                      onPressed: () => Navigator.pushNamed(context, '/home'),
+                      child: const Text(
+                        'Masuk',
+                        style: TextStyle(
+                          fontFamily: AppTheme.fontName,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
-<<<<<<< HEAD
-                ),
-=======
                   onTap: () {
                     verifyLogin();
                   }),
-              // Container(
-              //   alignment: Alignment.center,
-              //   padding: const EdgeInsets.only(
-              //       top: 40, right: 75, left: 75, bottom: 50),
-              //   child: ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //         backgroundColor: AppTheme.green,
-              //         shadowColor: Colors.transparent,
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(20),
-              //         )),
-              //     child: Text('Login'),
-              //     onPressed: () {
-              //       verifyLogin();
-              //     },
-              //   ),
-              // ),
 
               const SizedBox(
                 height: 50,
->>>>>>> f1fd9b12f954273d881202b9c9579894ef7729b2
               ),
             ],
           )),
