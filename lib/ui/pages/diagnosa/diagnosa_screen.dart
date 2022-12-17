@@ -1,5 +1,6 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_list.dart';
+import 'package:Edifarm/ui/pages/diagnosa/pertanyaan_data.dart';
 import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:Edifarm/ui/pages/diagnosa/upload_foto.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
 
     listViews.add(
       TextDiag(
-        titleTxt: 'Beri Chek List Apabila Gejala Yang Dialami Sama',
+        titleTxt: 'Cheklist jika gejala yang dialami sama :',
 
         // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -68,17 +69,18 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
         animationController: widget.animationController!,
       ),
     );
-
-    listViews.add(
-      DiagListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
+    listViews.add(const DataDiag());
+    // listViews.add(
+    //   DiagListView(
+    //     mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+    //         CurvedAnimation(
+    //             parent: widget.animationController!,
+    //             curve: Interval((1 / count) * 5, 1.0,
+    //                 curve: Curves.fastOutSlowIn))),
+    //     mainScreenAnimationController: widget.animationController!,
+    //   ),
+    // );
+    listViews.add(Deskrip());
     listViews.add(
       PotoPadi(),
     );
@@ -175,19 +177,14 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/home');
-                              },
-                              icon: IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back_ios_new,
-                                    color: AppTheme.white,
-                                    size: 20,
-                                  )),
-                            ),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/home');
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: AppTheme.white,
+                                  size: 20,
+                                )),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -208,7 +205,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
                               height: 38,
                               width: 38,
                               child: InkWell(
-                                highlightColor: Colors.transparent,
+                                highlightColor: AppTheme.green,
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(32.0)),
                                 onTap: () {},

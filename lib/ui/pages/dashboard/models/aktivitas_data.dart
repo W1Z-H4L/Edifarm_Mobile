@@ -284,7 +284,7 @@ class AktivitasDataView extends StatelessWidget {
                           height: 25,
                         ),
                         Text(
-                          'Riwayat Pupuk',
+                          'Pupuk',
                           style: TextStyle(
                             fontSize: 10,
                             color: AppTheme.black,
@@ -293,7 +293,7 @@ class AktivitasDataView extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Riwayat Irigasi',
+                          'Irigasi',
                           style: TextStyle(
                               fontSize: 10,
                               color: AppTheme.black,
@@ -301,7 +301,7 @@ class AktivitasDataView extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Riwayat Pestisida',
+                          'Pestisida',
                           style: TextStyle(
                               fontSize: 10,
                               color: AppTheme.black,

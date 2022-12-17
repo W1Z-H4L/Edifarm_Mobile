@@ -39,9 +39,7 @@ class _AnswerState extends State<Answer> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
         // alignment: Alignment.centerRight,
-        padding: EdgeInsets.only(
-          top: 5,
-        ),
+        padding: EdgeInsets.only(bottom: 2, right: 6),
         child: Checkbox(
           hoverColor: AppTheme.green,
           activeColor: AppTheme.green,

@@ -412,35 +412,38 @@ class AreaView extends StatelessWidget {
                                   // )
                                 ]),
                           ),
-                          Row(
-                            children: [
-                              Container(
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 1,
-                                      ),
-                                      child: Text(tabactList!.tanggal,
-                                          style: TextStyle(
-                                            fontFamily: AppTheme.fontName,
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 10,
-                                            letterSpacing: 0.2,
-                                            color: AppTheme.green,
-                                          )))),
-                              const Spacer(),
-                              Container(
-                                child: Text(tabactList!.jam,
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontFamily: AppTheme.fontName,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 10,
-                                      letterSpacing: 0.2,
-                                      color: AppTheme.green,
-                                    )),
-                              )
-                            ],
-                          )
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 16, right: 16),
+                              child: Row(
+                                children: [
+                                  Container(
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 1,
+                                          ),
+                                          child: Text(tabactList!.tanggal,
+                                              style: TextStyle(
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 10,
+                                                letterSpacing: 0.2,
+                                                color: AppTheme.green,
+                                              )))),
+                                  const Spacer(),
+                                  Container(
+                                    child: Text(tabactList!.jam,
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          fontFamily: AppTheme.fontName,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 10,
+                                          letterSpacing: 0.2,
+                                          color: AppTheme.green,
+                                        )),
+                                  )
+                                ],
+                              ))
                         ]),
                   ))));
         });

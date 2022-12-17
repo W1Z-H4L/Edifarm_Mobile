@@ -1,79 +1,154 @@
-import 'package:flutter/cupertino.dart';
+import 'package:Edifarm/API/Api_service.dart';
+import 'package:Edifarm/models/Pertanyaan_model.dart';
+import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/diagnosa/answer.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
 
-class DiagnosaListData {
-  DiagnosaListData({
-    this.no = '',
-    this.quetion = '',
-    this.answer = '',
-    this.description,
-  });
+class DataDiag extends StatefulWidget {
+  const DataDiag({Key? key}) : super(key: key);
 
-  String no;
-  String quetion;
-  String answer;
+  @override
+  State<DataDiag> createState() => _DataDiagState();
+}
 
-  List<String>? description;
+class _DataDiagState extends State<DataDiag> {
+  late Future listblog;
+  List<Diagnose> listblog1 = [];
+  // late Future listblog;
+  // ServiceApiDiag repository = ServiceApiDiag();
+  // getData() async {
+  //   print(listblog);
+  //   listblog = await repository.getData();
+  // }
 
-  static List<DiagnosaListData> tabDiagList = <DiagnosaListData>[
-    DiagnosaListData(
-      no: '1. ',
-      quetion: 'Ya',
-      answer: 'Apakah batang padi bagian tengah anakan terpotong ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '2. ',
-      quetion: 'Ya',
-      answer: 'Apakah tanaman padi anda berwarna kekuningan ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '3. ',
-      quetion: 'Ya',
-      answer: 'Apakah anda mengering ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '4. ',
-      quetion: 'Ya',
-      answer: 'Apakah tanaman anda mengalami kendala pertumbuhan ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '5. ',
-      quetion: 'Ya',
-      answer: 'Apakah daun padi terdapat lesi belah ketupat ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '6. ',
-      quetion: 'Ya',
-      answer: 'Apakah batang padi terdapat lesi berwarna coklat ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '7. ',
-      quetion: 'Ya',
-      answer: 'Apakah bibit tanaman padi anda hilang ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '8. ',
-      quetion: 'Ya',
-      answer: 'Apakah tanaman padi anda banyak dikerumuni semut ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '9. ',
-      quetion: 'Ya',
-      answer: 'Apakah waktu berbunga tertunda ?',
-      description: <String>[],
-    ),
-    DiagnosaListData(
-      no: '10. ',
-      quetion: 'Ya',
-      answer: 'Apakah tanaman padi anda anda rusak/habis ?',
-      description: <String>[],
-    ),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    listblog = ServiceApiDiag().getData();
+    listblog.then((value) {
+      setState(() {
+        listblog1 = value;
+      });
+    });
+  }
+
+  // Future<void> getData() async {
+  //   listblog = await repository.getData();
+  // }
+  bool isi = false;
+
+  data() {
+    setState(() {
+      isi = !isi;
+    });
+  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   () async {
+  //     await getData();
+  //   };
+  // }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 500,
+        child: listblog1.length == 0
+            ? Center(
+                child: CircularProgressIndicator(color: AppTheme.orange),
+              )
+            : ListView.builder(
+                itemCount: listblog1.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: const EdgeInsets.all(10),
+                    child: DottedBorder(
+                      color: AppTheme.green,
+                      strokeWidth: 1,
+                      borderType: BorderType.RRect,
+                      radius: Radius.circular(25),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                top: 16,
+                                left: 16,
+                              ),
+                              child: Expanded(
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                    // Text(
+                                    //     listblog1[index].idPertanyaan! + '. ',
+                                    //     style: const TextStyle(
+                                    //       fontFamily: AppTheme.fontName,
+                                    //       fontWeight: FontWeight.w500,
+                                    //       fontSize: 10,
+                                    //       letterSpacing: 0.2,
+                                    //       color: AppTheme.black,
+                                    //     )),
+                                    // Container(
+                                    //   width: 280,
+                                    //   child: CheckboxListTile(
+                                    //     value: isi,
+                                    //     onChanged: ((value) {
+                                    //       data();
+                                    //     }),
+                                    //     title: Text(
+                                    //       listblog1[index].idPertanyaan! +
+                                    //           '. ' +
+                                    //           listblog1[index].pertanyaan!,
+                                    //       style: const TextStyle(
+                                    //         fontFamily: AppTheme.fontName,
+                                    //         fontWeight: FontWeight.w500,
+                                    //         fontSize: 10,
+                                    //         letterSpacing: 0.2,
+                                    //         color: AppTheme.black,
+                                    //       ),
+                                    //     ),
+                                    //     checkColor: AppTheme.green,
+                                    //     activeColor: AppTheme.green,
+                                    //     selected: true,
+                                    //     selectedTileColor:
+                                    //         AppTheme.background,
+                                    //   ),
+                                    Container(
+                                      width: 220,
+                                      child: Text(
+                                        listblog1[index].pertanyaan!,
+                                        style: const TextStyle(
+                                          fontFamily: AppTheme.fontName,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 10,
+                                          letterSpacing: 0.2,
+                                          color: AppTheme.black,
+                                        ),
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    const Answer(),
+                                  ])))
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                // separatorBuilder: (context, index) {
+                //   return const Divider();
+                // },
+                // itemCount: listblog1.length));
+              ));
+  }
 }

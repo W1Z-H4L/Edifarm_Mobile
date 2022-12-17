@@ -29,17 +29,18 @@ class TextDiag extends StatelessWidget {
                 0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Container(
               child: Padding(
-                padding: const EdgeInsets.only(left: 24, right: 24),
+                padding: const EdgeInsets.only(
+                  left: 24,
+                ),
                 child: Row(
                   children: <Widget>[
                     Expanded(
                       child: Text(
                         titleTxt,
                         textAlign: TextAlign.left,
-
                         style: GoogleFonts.montserrat(
-                            color: Color(0xff006B6C),
-                            fontSize: 16,
+                            color: AppTheme.green,
+                            fontSize: 12,
                             fontWeight: FontWeight.w600),
 
                         // TextStyle(
@@ -73,7 +74,7 @@ class TextDiag extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: AppTheme.fontName,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: 16,
+                                  fontSize: 12,
                                   letterSpacing: 0.5,
                                   color: AppTheme.splash,
                                 ),

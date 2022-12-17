@@ -21,7 +21,7 @@ class _JenisPadiPageState extends State<JenisPadiPage>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
+        duration: const Duration(milliseconds: 100), vsync: this);
     animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: animationController!,
         curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
@@ -244,11 +244,12 @@ class _JenisPadiPageState extends State<JenisPadiPage>
 
   Widget getTimeBoxUI(String text1, String txt2) {
     return Padding(
+
         // scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(8.0),
         child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFFBDE2E7),
+              color: Colors.white,
               borderRadius: const BorderRadius.all(Radius.circular(16.0)),
               boxShadow: <BoxShadow>[
                 BoxShadow(

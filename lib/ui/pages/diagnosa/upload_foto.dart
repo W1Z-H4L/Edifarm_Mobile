@@ -225,16 +225,37 @@ class _PotoPadiState extends State<PotoPadi> {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () => _potoBottomSheet(),
-                          child: Container(
-                            height: 190,
-                            decoration: const BoxDecoration(
-                                color: Colors.transparent,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/camera.png'))),
-                          ),
-                        ),
+                        image == null
+                            ? InkWell(
+                                onTap: () => _potoBottomSheet(),
+                                child: Container(
+                                  height: 190,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.transparent,
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/camera.png'))),
+                                ))
+                            : InkWell(
+                                // onTap: () => _potoBottomSheet(),
+                                child: Container(
+                                  height: 190,
+                                  decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        // image: Image.file(
+                                        //   image ?? File(""),
+                                        // ) as ImageProvider<Object>),
+                                        image: FileImage(
+                                          image ?? File(""),
+                                        ),
+                                      )
+                                      // DecorationImage(
+                                      //     image: AssetImage('assets/camera.png')),
+                                      ),
+                                ),
+                              ),
                         const SizedBox(
                           height: 20,
                         ),
