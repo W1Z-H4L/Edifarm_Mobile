@@ -1,16 +1,12 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:Edifarm/controler/CurentUser.dart';
-import 'package:Edifarm/models/Remember_User.dart';
-import 'package:Edifarm/models/User_model.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
-import 'package:Edifarm/ui/pages/setting/popup.dart';
-import 'package:Edifarm/ui/widgets/buttons.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -238,7 +234,7 @@ class _EditProfilePageState extends State<EditProfilePage>
     );
   }
 
-  // final CurrentUser _currentUser = Get.put(CurrentUser());
+  final CurrentUser _currentUser = Get.put(CurrentUser());
 
   @override
   void dispose() {
@@ -263,20 +259,36 @@ class _EditProfilePageState extends State<EditProfilePage>
           },
           child: ListView(
             children: [
-              Container(
-                padding: EdgeInsets.only(right: 0),
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.settings,
-                    color: AppTheme.green,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => SettingsPage()));
-                  },
+              Row(children: [
+                Container(
+                  padding: EdgeInsets.only(right: 0),
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: AppTheme.green,
+                        size: 20,
+                      )),
                 ),
-              ),
+                const Spacer(),
+                Container(
+                  padding: EdgeInsets.only(right: 0),
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.settings,
+                      color: AppTheme.green,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => SettingsPage()));
+                    },
+                  ),
+                ),
+              ]),
               SizedBox(
                 height: 15,
               ),
@@ -360,181 +372,181 @@ class _EditProfilePageState extends State<EditProfilePage>
               SizedBox(
                 height: 35,
               ),
-              // Text(
-              //   _currentUser.user.nama!,
-              //   textAlign: TextAlign.center,
-              //   style: greenTextStyle2.copyWith(
-              //     fontWeight: extraBold,
-              //     fontSize: 20,
-              //     color: subtitleColor2,
-              //   ),
-              // ),
-              // Text(
-              //   _currentUser.user.username!,
-              //   textAlign: TextAlign.center,
-              //   style: greenTextStyle2.copyWith(
-              //     fontSize: 12,
-              //     color: subtitleColor2,
-              //   ),
-              // ),
-              // Text(
-              //   _currentUser.user.caption!,
-              //   textAlign: TextAlign.center,
-              //   style: greenTextStyle2.copyWith(
-              //     fontSize: 12,
-              //     color: Colors.black,
-              //   ),
-              // ),
-              // const SizedBox(
-              //   height: 8,
-              // ),
-              // Row(
-              //   children: [
-              //     Container(
-              //       height: 20,
-              //       width: 20,
-              //       decoration: const BoxDecoration(
-              //           image: DecorationImage(
-              //         image: AssetImage('assets/icon_edit_biodata.png'),
-              //       )),
-              //     ),
-              //     Container(
-              //         padding: EdgeInsets.only(left: 5, right: 45, bottom: 5),
-              //         child: Text(
-              //           'Edit Biodata',
-              //           textAlign: TextAlign.start,
-              //           style: greenTextStyle2.copyWith(
-              //             fontSize: 18,
-              //             fontWeight: extraBold,
-              //             color: subtitleColor2,
-              //           ),
-              //         )),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-              //     child: TextFormField(
-              //       controller: name,
-              //       showCursor: true,
-              //       cursorHeight: 20,
-              //       style: blackTextStyle2,
-              //       decoration: InputDecoration(
-              //         suffixIcon: IconButton(
-              //           icon: Icon(
-              //             Icons.edit_sharp,
-              //             color: subtitleColor2,
-              //           ),
-              //           onPressed: () {},
-              //         ),
-              //         floatingLabelBehavior: FloatingLabelBehavior.always,
-              //         labelText: 'Nama',
-              //         hintText: _currentUser.user.nama,
-              //         hintStyle: subtitleTextStyle,
-              //         labelStyle: greenTextStyle3,
-              //         focusColor: subtitleColor2,
-              //         fillColor: subtitleColor2,
-              //       ),
-              //     )),
-              // SizedBox(
-              //   height: 3,
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-              //     child: TextFormField(
-              //       controller: alamat,
-              //       showCursor: true,
-              //       cursorHeight: 25,
-              //       style: blackTextStyle2,
-              //       decoration: InputDecoration(
-              //         suffixIcon: IconButton(
-              //           icon: Icon(
-              //             Icons.edit_sharp,
-              //             color: subtitleColor2,
-              //           ),
-              //           onPressed: () {},
-              //         ),
-              //         floatingLabelBehavior: FloatingLabelBehavior.always,
-              //         labelText: 'Alamat',
-              //         hintText: _currentUser.user.alamat,
-              //         hintStyle: subtitleTextStyle,
-              //         labelStyle: greenTextStyle3,
-              //         focusColor: subtitleColor2,
-              //         fillColor: subtitleColor2,
-              //       ),
-              //     )),
-              // SizedBox(
-              //   height: 3,
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-              //     child: TextFormField(
-              //       controller: noHp,
-              //       showCursor: true,
-              //       cursorHeight: 20,
-              //       style: blackTextStyle2,
-              //       decoration: InputDecoration(
-              //         suffixIcon: IconButton(
-              //           icon: Icon(
-              //             Icons.edit_sharp,
-              //             color: subtitleColor2,
-              //           ),
-              //           onPressed: () {},
-              //         ),
-              //         floatingLabelBehavior: FloatingLabelBehavior.always,
-              //         labelText: 'Nomer Telepon',
-              //         hintText: _currentUser.user.noHp,
-              //         hintStyle: subtitleTextStyle,
-              //         labelStyle: greenTextStyle3,
-              //         focusColor: subtitleColor2,
-              //         fillColor: subtitleColor2,
-              //       ),
-              //     )),
-              // SizedBox(
-              //   height: 3,
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-              //     child: TextFormField(
-              //       enabled: false,
-              //       showCursor: true,
-              //       cursorHeight: 25,
-              //       style: blackTextStyle2,
-              //       decoration: InputDecoration(
-              //         floatingLabelBehavior: FloatingLabelBehavior.always,
-              //         labelText: 'Tanggal Lahir',
-              //         hintText: _currentUser.user.tanggalLahir,
-              //         hintStyle: subtitleTextStyle,
-              //         labelStyle: greenTextStyle3,
-              //         focusColor: subtitleColor2,
-              //         fillColor: subtitleColor2,
-              //       ),
-              //     )),
-              // SizedBox(
-              //   height: 3,
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
-              //     child: TextFormField(
-              //       enabled: false,
-              //       showCursor: true,
-              //       cursorHeight: 25,
-              //       style: blackTextStyle2,
-              //       decoration: InputDecoration(
-              //         floatingLabelBehavior: FloatingLabelBehavior.always,
-              //         labelText: 'Jenis Kelamin',
-              //         hintText: _currentUser.user.jenisKelamin,
-              //         hintStyle: subtitleTextStyle,
-              //         labelStyle: greenTextStyle3,
-              //         focusColor: subtitleColor2,
-              //         fillColor: subtitleColor2,
-              //       ),
-              //     )),
-              // SizedBox(
-              //   height: 30,
-              // ),
+              Text(
+                _currentUser.user.nama!,
+                textAlign: TextAlign.center,
+                style: greenTextStyle2.copyWith(
+                  fontWeight: extraBold,
+                  fontSize: 20,
+                  color: subtitleColor2,
+                ),
+              ),
+              Text(
+                _currentUser.user.username!,
+                textAlign: TextAlign.center,
+                style: greenTextStyle2.copyWith(
+                  fontSize: 12,
+                  color: subtitleColor2,
+                ),
+              ),
+              Text(
+                _currentUser.user.caption!,
+                textAlign: TextAlign.center,
+                style: greenTextStyle2.copyWith(
+                  fontSize: 12,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: [
+                  Container(
+                    height: 20,
+                    width: 20,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage('assets/icon_edit_biodata.png'),
+                    )),
+                  ),
+                  Container(
+                      padding: EdgeInsets.only(left: 5, right: 45, bottom: 5),
+                      child: Text(
+                        'Edit Biodata',
+                        textAlign: TextAlign.start,
+                        style: greenTextStyle2.copyWith(
+                          fontSize: 18,
+                          fontWeight: extraBold,
+                          color: subtitleColor2,
+                        ),
+                      )),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    controller: name,
+                    showCursor: true,
+                    cursorHeight: 20,
+                    style: blackTextStyle2,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          Icons.edit_sharp,
+                          color: subtitleColor2,
+                        ),
+                        onPressed: () {},
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Nama',
+                      hintText: _currentUser.user.nama,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 3,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    controller: alamat,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: blackTextStyle2,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          Icons.edit_sharp,
+                          color: subtitleColor2,
+                        ),
+                        onPressed: () {},
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Alamat',
+                      hintText: _currentUser.user.alamat,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 3,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    controller: noHp,
+                    showCursor: true,
+                    cursorHeight: 20,
+                    style: blackTextStyle2,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          Icons.edit_sharp,
+                          color: subtitleColor2,
+                        ),
+                        onPressed: () {},
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Nomer Telepon',
+                      hintText: _currentUser.user.noHp,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 3,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    enabled: false,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: blackTextStyle2,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Tanggal Lahir',
+                      hintText: _currentUser.user.tanggalLahir,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 3,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    enabled: false,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: blackTextStyle2,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Jenis Kelamin',
+                      hintText: _currentUser.user.jenisKelamin,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 30,
+              ),
               InkWell(
                 child: Container(
                   padding: const EdgeInsets.only(

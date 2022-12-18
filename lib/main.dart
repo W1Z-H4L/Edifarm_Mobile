@@ -11,7 +11,7 @@ import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
-import 'package:Edifarm/ui/pages/setting/popup.dart';
+
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
 import 'package:flutter/material.dart';

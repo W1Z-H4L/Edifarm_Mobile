@@ -20,7 +20,7 @@ class SignInPage extends StatefulWidget {
 
 final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-// enum Loginstatus { notSignin, signin }
+enum Loginstatus { notSignin, signin }
 
 class _SignInPageState extends State<SignInPage> {
   // const SignInPage({Key? key}) : super(key: key);
@@ -38,6 +38,7 @@ class _SignInPageState extends State<SignInPage> {
     // getPref();
     // TODO: implement initState
     super.initState();
+    // getPref();
 
     username = TextEditingController();
     password = TextEditingController();
@@ -136,7 +137,7 @@ class _SignInPageState extends State<SignInPage> {
                       borderSide: BorderSide(color: AppTheme.green)),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _secureText ? Icons.visibility : Icons.visibility_off,
+                      _secureText ? Icons.visibility_off : Icons.visibility,
                       color: AppTheme.green,
                     ),
                     onPressed: () {
@@ -154,16 +155,20 @@ class _SignInPageState extends State<SignInPage> {
 
               InkWell(
                   child: Container(
+                    height: 40,
+                    width: 70,
                     alignment: Alignment.center,
                     padding: const EdgeInsets.only(
                         top: 50, left: 75, bottom: 50, right: 75),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: AppTheme.green, onPrimary: Colors.white),
+                          primary: AppTheme.green, onPrimary: AppTheme.green),
                       onPressed: () => Navigator.pushNamed(context, '/home'),
                       child: const Text(
                         'Masuk',
                         style: TextStyle(
+                          fontSize: 12,
+                          color: AppTheme.white,
                           fontFamily: AppTheme.fontName,
                           fontWeight: FontWeight.w400,
                         ),
@@ -180,9 +185,8 @@ class _SignInPageState extends State<SignInPage> {
             ],
           )),
         ]));
-    //   case Loginstatus.signin:
-    //     return HomeScreen();
-    // }
+    // case Loginstatus.signin:
+    //   return HomeScreen();
   }
 
   void verifyLogin() {
@@ -210,20 +214,34 @@ class _SignInPageState extends State<SignInPage> {
       });
 
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        if (data['success'] == true) {
-          snackBarSucces();
-          setState(() {
-            // _loginstatus = Loginstatus.signin;
-            // sharePref(data, username, password);
-          });
-          User userInfo = User.fromJson(data['user']);
+        final user = jsonDecode(response.body);
+        if (user['success'] == true) {
+          if (user['success'] == false) {
+            setState(() {
+              _loading = false;
+            });
+            snackBarFailed();
+          } else {
+            setState(() {
+              _loading = true;
+            });
+          }
+
+          // setState(() {
+          //   _loginstatus = Loginstatus.signin;
+          //   // sharePref(data, username, password);
+          // });
+          User userInfo = User.fromJson(user['user']);
           await RememberUser().storeUser(json.encode(userInfo));
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-          // sharePref(data, username, password);
+          // sharePref(data, user, pass);
+          // _loginstatus = Loginstatus.signin;
         } else {
-          snackBarPass();
+          setState(() {
+            _loading = false;
+            snackBarFailed();
+          });
         }
       } else {
         snackBarFailed();
@@ -294,12 +312,12 @@ class _SignInPageState extends State<SignInPage> {
   //   });
   // }
 
-  // sharePref(data, username, password) async {
+  // sharePref(data, user, pass) async {
   //   SharedPreferences preferences = await SharedPreferences.getInstance();
   //   setState(() {
   //     preferences.setBool("success", data);
-  //     preferences.setString('username', username);
-  //     preferences.setString('password', password);
+  //     preferences.setString('username', user!);
+  //     preferences.setString('password', pass!);
   //   });
   // }
 

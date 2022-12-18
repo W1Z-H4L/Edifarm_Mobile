@@ -1,12 +1,14 @@
 class Diagnose {
-  String? idPertanyaan;
-  String? pertanyaan;
+  final String? idPertanyaan;
+  final String? pertanyaan;
 
   Diagnose({this.idPertanyaan, this.pertanyaan});
 
-  Diagnose.fromJson(Map<String, dynamic> json) {
-    idPertanyaan = json['id_pertanyaan'];
-    pertanyaan = json['pertanyaan'];
+  factory Diagnose.fromJson(Map<String, dynamic> json) {
+    return Diagnose(
+      idPertanyaan: json['id_pertanyaan'],
+      pertanyaan: json['pertanyaan'],
+    );
   }
 
   Map<String, dynamic> toJson() {

@@ -1,5 +1,8 @@
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/lahan/info_data.dart';
+import 'package:Edifarm/ui/pages/lahan/deskirpsi_lahan.dart';
+import 'package:Edifarm/ui/pages/lahan/nama_lahan.dart';
 import 'package:flutter/material.dart';
 
 class LahanScreen extends StatefulWidget {
@@ -99,7 +102,7 @@ class _LahanScreenState extends State<LahanScreen>
                         children: <Widget>[
                           const Padding(
                             padding:
-                                EdgeInsets.only(top: 32.0, left: 18, right: 16),
+                                EdgeInsets.only(top: 16.0, left: 18, right: 16),
                             child: Text(
                               'Informasi Mengenai \nLahan',
                               textAlign: TextAlign.left,
@@ -112,85 +115,68 @@ class _LahanScreenState extends State<LahanScreen>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16, right: 16, bottom: 8, top: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const <Widget>[
-                                Text(
-                                  'Lihat Lahanku',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontFamily: AppTheme.fontName,
-                                    fontSize: 22,
-                                    letterSpacing: 0.27,
-                                    color: AppTheme.green,
-                                  ),
-                                ),
-                                // Container(
-                                //   child: Row(
-                                //     children: <Widget>[
-                                //       const Text(
-                                //         '4.3',
-                                //         textAlign: TextAlign.left,
-                                //         style: TextStyle(
-                                //           fontWeight: FontWeight.w200,
-                                //           fontSize: 22,
-                                //           letterSpacing: 0.27,
-                                //           color: AppTheme.grey,
-                                //         ),
-                                //       ),
-                                //       Icon(
-                                //         Icons.star,
-                                //         color: DesignCourseAppTheme.nearlyBlue,
-                                //         size: 24,
-                                //       ),
-                                //     ],
-                                //   ),
-                                // )
-                              ],
-                            ),
-                          ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 500),
-                            opacity: opacity1,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Row(
-                                children: <Widget>[
-                                  getTimeBoxUI('Luas', '1000m²'),
-                                  getTimeBoxUI('Kota', 'Ponorogo'),
-                                  getTimeBoxUI('Pemilik', 'Lusy'),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity2,
-                              child: const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16, right: 16, top: 8, bottom: 8),
-                                child: Text(
-                                  'Lahan Lihat Lahanku Merupakan Lahan Yang Dimiliki Oleh Lusy Anjay. Lahan Ini Berlokasikan Di Jalan Pertulis, Babadan, Ponorogo, Saat ini Jenis Padi ciherang',
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontFamily: AppTheme.fontName,
-                                    fontSize: 14,
-                                    letterSpacing: 0.27,
-                                    color: AppTheme.grey,
-                                  ),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(
+                          //       left: 16, right: 16, top: 16),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: const <Widget>[
+                          //       Text(
+                          //         'Lihat Lahanku',
+                          //         textAlign: TextAlign.left,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 22,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.green,
+                          //         ),
+                          //       ),
+
+                          //     ],
+                          //   ),
+                          // ),
+                          const namaLahan(),
+                          const DataLahan(),
+                          // AnimatedOpacity(
+                          //   duration: const Duration(milliseconds: 500),
+                          //   opacity: opacity1,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8),
+                          //     child: Row(
+                          //       children: <Widget>[
+                          //         getTimeBoxUI('Luas', '1000m²'),
+                          //         getTimeBoxUI('Kota', 'Ponorogo'),
+                          //         getTimeBoxUI('Pemilik', 'Lusy'),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
+                          // Expanded(
+                          //   child: AnimatedOpacity(
+                          //     duration: const Duration(milliseconds: 500),
+                          //     opacity: opacity2,
+                          //     child: const Padding(
+                          //       padding: EdgeInsets.only(
+                          //           left: 16, right: 16, top: 8, bottom: 8),
+                          //       child: Text(
+                          //         'Lahan Lihat Lahanku Merupakan Lahan Yang Dimiliki Oleh Lusy Anjay. Lahan Ini Berlokasikan Di Jalan Pertulis, Babadan, Ponorogo, Saat ini Jenis Padi ciherang',
+                          //         textAlign: TextAlign.justify,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 14,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.grey,
+                          //         ),
+                          //         maxLines: 3,
+                          //         overflow: TextOverflow.ellipsis,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          const DeskripsiLahan(),
                           AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
                             opacity: opacity3,

@@ -95,7 +95,7 @@ class _SettingsPage extends State<SettingsPage> {
                         alignment: Alignment.centerLeft,
                         title: 'Edit Username',
                         height: 40,
-                        width: 300,
+                        width: 250,
                         onPressed: () {
                           Navigator.pushNamed(context, '/edit-user');
                         })),
@@ -117,16 +117,16 @@ class _SettingsPage extends State<SettingsPage> {
           // ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(top: 25, right: 18, bottom: 6),
+              padding: EdgeInsets.only(right: 18, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
                     alignment: Alignment.centerLeft,
                     child: ButtonSetting(
                         alignment: Alignment.centerLeft,
-                        title: 'Edit Username',
+                        title: 'Edit Password',
                         height: 40,
-                        width: 300,
+                        width: 250,
                         onPressed: () {
                           Navigator.pushNamed(context, '/edit-pass');
                         })),
@@ -146,25 +146,25 @@ class _SettingsPage extends State<SettingsPage> {
 
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(top: 25, right: 18, bottom: 6),
+              padding: EdgeInsets.only(right: 18, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
                     alignment: Alignment.centerLeft,
                     child: ButtonSetting(
                         alignment: Alignment.centerLeft,
-                        title: 'Edit Username',
+                        title: 'Edit Biodata',
                         height: 40,
-                        width: 300,
+                        width: 250,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/edit-pass');
+                          Navigator.pushNamed(context, '/edit-bio');
                         })),
                 Spacer(),
                 Container(
                     alignment: Alignment.centerRight,
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/edit-pass');
+                        Navigator.pushNamed(context, '/edit-bio');
                       },
                       icon: const Icon(
                         Icons.arrow_forward_ios_rounded,

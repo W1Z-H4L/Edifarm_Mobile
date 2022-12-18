@@ -196,7 +196,7 @@ class _activityPageState extends State<activityPage>
                           children: <Widget>[
                             IconButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  Navigator.pushNamed(context, '/home');
                                 },
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,

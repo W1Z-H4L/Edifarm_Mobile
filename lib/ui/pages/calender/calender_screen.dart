@@ -171,7 +171,7 @@ class _CalenderScreenState extends State<CalenderScreen>
                           children: <Widget>[
                             IconButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  Navigator.pushNamed(context, '/home');
                                 },
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,

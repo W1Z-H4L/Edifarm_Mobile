@@ -101,7 +101,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     listViews.add(
       TitleActivity(
         titleTxt: 'Informasi Fitur',
-        subTxt: 'Today',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -247,12 +246,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Welcome To Edifarm',
+                                  'Selamat Datang DiEdifarm',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: AppTheme.fontName,
                                       fontWeight: FontWeight.w700,
-                                      fontSize: 22 + 6 - 6 * topBarOpacity,
+                                      fontSize: 16 + 6 - 6 * topBarOpacity,
                                       letterSpacing: 1.2,
                                       color: AppTheme.white,
                                       decorationColor: AppTheme.black),
