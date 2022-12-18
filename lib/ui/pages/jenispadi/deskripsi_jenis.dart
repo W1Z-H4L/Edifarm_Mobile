@@ -42,8 +42,8 @@ class _DeskripsiJenisState extends State<DeskripsiJenis> {
                 itemCount: listdata1.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16, right: 16, top: 8, bottom: 8),
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 8),
                     child: Text(
                       listdata1[index].deskripsi!,
                       textAlign: TextAlign.justify,

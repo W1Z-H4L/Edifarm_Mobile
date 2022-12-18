@@ -1,13 +1,8 @@
-import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
 import 'package:Edifarm/main.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/calender/calender_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
-import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
-import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
-import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
-import 'package:Edifarm/ui/widgets/button_menu.dart';
 import 'package:flutter/material.dart';
 
 class MenuListView extends StatefulWidget {

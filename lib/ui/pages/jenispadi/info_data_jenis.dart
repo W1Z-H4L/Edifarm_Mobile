@@ -33,82 +33,91 @@ class _InfoLinkState extends State<InfoLink>
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(children: [
-        InkWell(
-          onTap: () {
-            launch("https://wa.me/+6289503415644");
-          },
-          child: Card(
+      Padding(
+        padding: EdgeInsets.only(left: 16, right: 16),
+        child: Row(children: [
+          InkWell(
+            onTap: () {
+              launch("https://wa.me/+6289503415644");
+            },
             child: Container(
-              height: 90,
-              width: 90,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('icon_jenis_kisaran.png'),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        AppTheme.orange,
+                        AppTheme.white,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                    'assets/icon_jenis_kisaran.png',
+                  ))),
+                )),
+          ),
+          const Spacer(),
+          InkWell(
+            onTap: () {
+              launch(
+                  "https://aceh.tribunnews.com/2016/03/16/padi-ciherang-tak-lagi-dianjurkan-tanam");
+            },
+            child: Card(
+              child: Container(
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage(''),
+                      opacity: 20,
+                    ),
+                    color: AppTheme.nearlyWhite,
+                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey.withOpacity(0.2),
+                          offset: const Offset(1.1, 1.1),
+                          blurRadius: 8.0),
+                    ]),
+              ),
             ),
           ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: () {
-            launch("https://wa.me/+6289503415644");
-          },
-          child: Card(
-            child: Container(
-              height: 90,
-              width: 90,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(''),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
+          const Spacer(),
+          InkWell(
+            onTap: () {
+              launch("https://wa.me/+6289503415644");
+            },
+            child: Card(
+              child: Container(
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage(''),
+                      opacity: 20,
+                    ),
+                    color: AppTheme.nearlyWhite,
+                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey.withOpacity(0.2),
+                          offset: const Offset(1.1, 1.1),
+                          blurRadius: 8.0),
+                    ]),
+              ),
             ),
           ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: () {
-            launch("https://wa.me/+6289503415644");
-          },
-          child: Card(
-            child: Container(
-              height: 90,
-              width: 90,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(''),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
-            ),
-          ),
-        ),
-      ]),
+        ]),
+      ),
       Row(
         children: [
           InkWell(

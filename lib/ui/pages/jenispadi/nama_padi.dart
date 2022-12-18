@@ -34,16 +34,16 @@ class _JenisPadiState extends State<JenisPadi> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50,
+        height: 60,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: listdata1.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(
+                  top: 10,
                   left: 16,
                   right: 16,
-                  bottom: 30,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,6 +1,7 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/jenispadi/deskripsi_jenis.dart';
+import 'package:Edifarm/ui/pages/jenispadi/info_data_jenis.dart';
 import 'package:Edifarm/ui/pages/jenispadi/nama_padi.dart';
 import 'package:flutter/material.dart';
 
@@ -141,6 +142,7 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                           //   ),
                           // ),
                           const DeskripsiJenis(),
+                          const InfoLink(),
                           // Expanded(
                           //   child: AnimatedOpacity(
                           //     duration: const Duration(milliseconds: 500),
@@ -177,24 +179,24 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                           //       ],
                           //     ),
                           //   ),
+                          // // ),
+                          // AnimatedOpacity(
+                          //   duration: const Duration(milliseconds: 500),
+                          //   opacity: opacity3,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.only(
+                          //         left: 16, bottom: 16, right: 16),
+                          //     child: Row(
+                          //       mainAxisAlignment: MainAxisAlignment.center,
+                          //       crossAxisAlignment: CrossAxisAlignment.center,
+                          //       children: const <Widget>[
+                          //         const SizedBox(
+                          //           height: 200,
+                          //         )
+                          //       ],
+                          //     ),
+                          //   ),
                           // ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 500),
-                            opacity: opacity3,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 16, bottom: 16, right: 16),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: const <Widget>[
-                                  const SizedBox(
-                                    height: 200,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
                           SizedBox(
                             height: MediaQuery.of(context).padding.bottom,
                           )
