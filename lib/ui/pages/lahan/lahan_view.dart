@@ -1,7 +1,8 @@
-import 'package:Edifarm/API/Api_lahan.dart';
-import 'package:Edifarm/models/Lahan_model.dart';
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/lahan/info_data.dart';
+import 'package:Edifarm/ui/pages/lahan/deskirpsi_lahan.dart';
+import 'package:Edifarm/ui/pages/lahan/nama_lahan.dart';
 import 'package:flutter/material.dart';
 
 class LahanScreen extends StatefulWidget {
@@ -20,9 +21,6 @@ class _LahanScreenState extends State<LahanScreen>
   double opacity1 = 0.0;
   double opacity2 = 0.0;
   double opacity3 = 0.0;
-  late Future dataLahan;
-  LahanModel? dataLahan1 = LahanModel();
-
   @override
   void initState() {
     animationController = AnimationController(
@@ -32,19 +30,6 @@ class _LahanScreenState extends State<LahanScreen>
         curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
     setData();
     super.initState();
-    dataLahan = ServiceApiLahan().getData();
-    dataLahan.then(
-      (value) {
-        setState(() {
-          dataLahan1 = value;
-        });
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   Future<void> setData() async {
@@ -68,358 +53,317 @@ class _LahanScreenState extends State<LahanScreen>
     final double tempHeight = MediaQuery.of(context).size.height -
         (MediaQuery.of(context).size.width / 1.2) +
         24.0;
-
-    return Scaffold(
+    return Container(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: dataLahan == 0
-            ? Center(
-                child: CircularProgressIndicator(color: AppTheme.orange),
-              )
-            // : ListView.separated(
-            // itemCount: dataLahan1.length,
-            // itemBuilder: (context, index) {
-            : Stack(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      AspectRatio(
-                        aspectRatio: 1.2,
-                        child: Image.asset(
-                          'assets/gambar_baground_jenis.jpg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
+        body: Stack(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                AspectRatio(
+                  aspectRatio: 1.2,
+                  child: Image.asset(
+                    'assets/gambar_baground_jenis.jpg',
+                    fit: BoxFit.fill,
                   ),
-                  Positioned(
-                    top: (MediaQuery.of(context).size.width / 1.2) - 24.0,
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
+                ),
+              ],
+            ),
+            Positioned(
+              top: (MediaQuery.of(context).size.width / 1.2) - 24.0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(32.0),
+                      topRight: Radius.circular(32.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: AppTheme.grey.withOpacity(0.2),
+                        offset: const Offset(1.1, 1.1),
+                        blurRadius: 10.0),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: SingleChildScrollView(
                     child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(32.0),
-                            topRight: Radius.circular(32.0)),
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                              color: AppTheme.grey.withOpacity(0.2),
-                              offset: const Offset(1.1, 1.1),
-                              blurRadius: 10.0),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8, right: 8),
-                        child: SingleChildScrollView(
-                          child: Container(
-                            constraints: BoxConstraints(
-                                minHeight: infoHeight,
-                                maxHeight: tempHeight > infoHeight
-                                    ? tempHeight
-                                    : infoHeight),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 32.0, left: 18, right: 16),
-                                  child: Text(
-                                    'Informasi Mengenai \nLahan',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: AppTheme.fontName,
-                                      fontSize: 22,
-                                      letterSpacing: 0.27,
-                                      color: AppTheme.darkerText,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 16, right: 16, bottom: 8, top: 16),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        dataLahan1!.namaLahan!,
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w200,
-                                          fontFamily: AppTheme.fontName,
-                                          fontSize: 22,
-                                          letterSpacing: 0.27,
-                                          color: AppTheme.green,
-                                        ),
-                                      ),
-                                      // Container(
-                                      //   child: Row(
-                                      //     children: <Widget>[
-                                      //       const Text(
-                                      //         '4.3',
-                                      //         textAlign: TextAlign.left,
-                                      //         style: TextStyle(
-                                      //           fontWeight: FontWeight.w200,
-                                      //           fontSize: 22,
-                                      //           letterSpacing: 0.27,
-                                      //           color: AppTheme.grey,
-                                      //         ),
-                                      //       ),
-                                      //       Icon(
-                                      //         Icons.star,
-                                      //         color: DesignCourseAppTheme.nearlyBlue,
-                                      //         size: 24,
-                                      //       ),
-                                      //     ],
-                                      //   ),
-                                      // )
-                                    ],
-                                  ),
-                                ),
-                                AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 500),
-                                  opacity: opacity1,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8),
-                                    child: Row(
-                                      children: <Widget>[
-                                        getTimeBoxUI('Luas',
-                                            dataLahan1!.luasLahan! + 'm2'),
-                                        getTimeBoxUI(
-                                            'Kota', dataLahan1!.tempat!),
-                                        getTimeBoxUI('Pemilik', 'Lusy'),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: AnimatedOpacity(
-                                    duration: const Duration(milliseconds: 500),
-                                    opacity: opacity2,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 16,
-                                          right: 16,
-                                          top: 8,
-                                          bottom: 8),
-                                      child: Text(
-                                        dataLahan1!.deskripsi!,
-                                        textAlign: TextAlign.justify,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w200,
-                                          fontFamily: AppTheme.fontName,
-                                          fontSize: 14,
-                                          letterSpacing: 0.27,
-                                          color: AppTheme.grey,
-                                        ),
-                                        maxLines: 3,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 500),
-                                  opacity: opacity3,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, bottom: 16, right: 16),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        // Container(
-                                        //   width: 48,
-                                        //   height: 48,
-                                        //   child: Container(
-                                        //     decoration: BoxDecoration(
-                                        //       color: AppTheme.nearlyWhite,
-                                        //       borderRadius: const BorderRadius.all(
-                                        //         Radius.circular(16.0),
-                                        //       ),
-                                        //       border: Border.all(
-                                        //           color: AppTheme.grey
-                                        //               .withOpacity(0.2)),
-                                        //     ),
-                                        //     // child: Icon(
-                                        //     //   Icons.add,
-                                        //     //   color: AppTheme.nearlyBlue,
-                                        //     //   size: 28,
-                                        //     // ),
-                                        //   ),
-                                        // ),
-
-                                        Expanded(
-                                            child: InkWell(
-                                          child: Container(
-                                            height: 48,
-                                            decoration: BoxDecoration(
-                                              color: AppTheme.green,
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                Radius.circular(16.0),
-                                              ),
-                                              boxShadow: <BoxShadow>[
-                                                BoxShadow(
-                                                    color: AppTheme.green
-                                                        .withOpacity(0.5),
-                                                    offset:
-                                                        const Offset(1.1, 1.1),
-                                                    blurRadius: 10.0),
-                                              ],
-                                            ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Lihat Jenis Padi',
-                                                textAlign: TextAlign.left,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontFamily: AppTheme.fontName,
-                                                  fontSize: 18,
-                                                  letterSpacing: 0.0,
-                                                  color: AppTheme.nearlyWhite,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          onTap: () {
-                                            Navigator.pushNamed(
-                                                context, '/jenis');
-                                          },
-                                        )),
-                                        const SizedBox(
-                                          height: 200,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).padding.bottom,
-                                )
-                              ],
+                      constraints: BoxConstraints(
+                          minHeight: infoHeight,
+                          maxHeight: tempHeight > infoHeight
+                              ? tempHeight
+                              : infoHeight),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          const Padding(
+                            padding:
+                                EdgeInsets.only(top: 16.0, left: 18, right: 16),
+                            child: Text(
+                              'Informasi Mengenai \nLahan',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: AppTheme.fontName,
+                                fontSize: 22,
+                                letterSpacing: 0.27,
+                                color: AppTheme.darkerText,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: (MediaQuery.of(context).size.width / 1.2) - 24.0 - 35,
-                    right: 35,
-                    child: ScaleTransition(
-                        alignment: Alignment.center,
-                        scale: CurvedAnimation(
-                            parent: animationController!,
-                            curve: Curves.fastOutSlowIn),
-                        child: Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 4,
-                                  color: Theme.of(context)
-                                      .scaffoldBackgroundColor),
-                              boxShadow: [
-                                BoxShadow(
-                                    spreadRadius: 2,
-                                    blurRadius: 10,
-                                    color: Colors.black.withOpacity(0.1),
-                                    offset: Offset(0, 10))
-                              ],
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                    "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                                  ))),
-                        )),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top),
-                    child: SizedBox(
-                      width: AppBar().preferredSize.height,
-                      height: AppBar().preferredSize.height,
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(
-                              AppBar().preferredSize.height),
-                          child: IconButton(
-                              onPressed: () {
-                                Navigator.pop(context, '/home');
-                              },
-                              icon: const Icon(
-                                Icons.arrow_back_ios_new,
-                                color: AppTheme.white,
-                                size: 20,
-                              )),
-                          // onTap: () {
-                          //   Navigator.pop(context);
-                          // },
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ));
-  }
-}
+                          // Padding(
+                          //   padding: const EdgeInsets.only(
+                          //       left: 16, right: 16, top: 16),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: const <Widget>[
+                          //       Text(
+                          //         'Lihat Lahanku',
+                          //         textAlign: TextAlign.left,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 22,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.green,
+                          //         ),
+                          //       ),
 
-Widget getTimeBoxUI(String text1, String txt2) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Container(
-      decoration: BoxDecoration(
-        color: AppTheme.nearlyWhite,
-        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-              color: AppTheme.grey.withOpacity(0.2),
-              offset: const Offset(1.1, 1.1),
-              blurRadius: 8.0),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-            left: 18.0, right: 18.0, top: 12.0, bottom: 12.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              text1,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontFamily: AppTheme.fontName,
-                fontSize: 14,
-                letterSpacing: 0.27,
-                color: AppTheme.green,
+                          //     ],
+                          //   ),
+                          // ),
+                          const namaLahan(),
+                          const DataLahan(),
+                          // AnimatedOpacity(
+                          //   duration: const Duration(milliseconds: 500),
+                          //   opacity: opacity1,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8),
+                          //     child: Row(
+                          //       children: <Widget>[
+                          //         getTimeBoxUI('Luas', '1000m²'),
+                          //         getTimeBoxUI('Kota', 'Ponorogo'),
+                          //         getTimeBoxUI('Pemilik', 'Lusy'),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
+                          // Expanded(
+                          //   child: AnimatedOpacity(
+                          //     duration: const Duration(milliseconds: 500),
+                          //     opacity: opacity2,
+                          //     child: const Padding(
+                          //       padding: EdgeInsets.only(
+                          //           left: 16, right: 16, top: 8, bottom: 8),
+                          //       child: Text(
+                          //         'Lahan Lihat Lahanku Merupakan Lahan Yang Dimiliki Oleh Lusy Anjay. Lahan Ini Berlokasikan Di Jalan Pertulis, Babadan, Ponorogo, Saat ini Jenis Padi ciherang',
+                          //         textAlign: TextAlign.justify,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 14,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.grey,
+                          //         ),
+                          //         maxLines: 3,
+                          //         overflow: TextOverflow.ellipsis,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          const DeskripsiLahan(),
+                          AnimatedOpacity(
+                            duration: const Duration(milliseconds: 500),
+                            opacity: opacity3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16, bottom: 16, right: 16),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  // Container(
+                                  //   width: 48,
+                                  //   height: 48,
+                                  //   child: Container(
+                                  //     decoration: BoxDecoration(
+                                  //       color: AppTheme.nearlyWhite,
+                                  //       borderRadius: const BorderRadius.all(
+                                  //         Radius.circular(16.0),
+                                  //       ),
+                                  //       border: Border.all(
+                                  //           color: AppTheme.grey
+                                  //               .withOpacity(0.2)),
+                                  //     ),
+                                  //     // child: Icon(
+                                  //     //   Icons.add,
+                                  //     //   color: AppTheme.nearlyBlue,
+                                  //     //   size: 28,
+                                  //     // ),
+                                  //   ),
+                                  // ),
+
+                                  Expanded(
+                                      child: InkWell(
+                                    child: Container(
+                                      height: 48,
+                                      decoration: BoxDecoration(
+                                        color: AppTheme.green,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(16.0),
+                                        ),
+                                        boxShadow: <BoxShadow>[
+                                          BoxShadow(
+                                              color: AppTheme.green
+                                                  .withOpacity(0.5),
+                                              offset: const Offset(1.1, 1.1),
+                                              blurRadius: 10.0),
+                                        ],
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'Lihat Jenis Padi',
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: AppTheme.fontName,
+                                            fontSize: 18,
+                                            letterSpacing: 0.0,
+                                            color: AppTheme.nearlyWhite,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/jenis');
+                                    },
+                                  )),
+                                  const SizedBox(
+                                    height: 200,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).padding.bottom,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-            Text(
-              txt2,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontWeight: FontWeight.w200,
-                fontFamily: AppTheme.fontName,
-                fontSize: 14,
-                letterSpacing: 0.27,
-                color: AppTheme.grey,
+            Positioned(
+              top: (MediaQuery.of(context).size.width / 1.2) - 24.0 - 35,
+              right: 35,
+              child: ScaleTransition(
+                alignment: Alignment.center,
+                scale: CurvedAnimation(
+                    parent: animationController!, curve: Curves.fastOutSlowIn),
+                child: Card(
+                  color: AppTheme.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100)),
+                  elevation: 10.0,
+                  child: Container(
+                    width: 80,
+                    height: 80,
+                    child: Center(
+                        child: Image.asset(
+                      'assets/potoprofil.png',
+                      height: 115,
+                      width: 115,
+                    )),
+                  ),
+                ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+              child: SizedBox(
+                width: AppBar().preferredSize.height,
+                height: AppBar().preferredSize.height,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius:
+                        BorderRadius.circular(AppBar().preferredSize.height),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: AppTheme.white,
+                          size: 20,
+                        )),
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    // },
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  Widget getTimeBoxUI(String text1, String txt2) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppTheme.nearlyWhite,
+          borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: AppTheme.grey.withOpacity(0.2),
+                offset: const Offset(1.1, 1.1),
+                blurRadius: 8.0),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(
+              left: 18.0, right: 18.0, top: 12.0, bottom: 12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                text1,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontFamily: AppTheme.fontName,
+                  fontSize: 14,
+                  letterSpacing: 0.27,
+                  color: AppTheme.green,
+                ),
+              ),
+              Text(
+                txt2,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontFamily: AppTheme.fontName,
+                  fontSize: 14,
+                  letterSpacing: 0.27,
+                  color: AppTheme.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:Edifarm/ui/pages/jenispadi/deskripsi_jenis.dart';
+import 'package:Edifarm/ui/pages/jenispadi/nama_padi.dart';
 import 'package:flutter/material.dart';
 
 class JenisPadiPage extends StatefulWidget {
@@ -55,17 +57,21 @@ class _JenisPadiPageState extends State<JenisPadiPage>
         backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                AspectRatio(
-                  aspectRatio: 1.2,
-                  child: Image.asset(
-                    'assets/gambar_baground_jp.jpg',
-                    fit: BoxFit.fill,
+            Image.asset('') == 0
+                ? Center(
+                    child: CircularProgressIndicator(color: AppTheme.orange),
+                  )
+                : Column(
+                    children: <Widget>[
+                      AspectRatio(
+                        aspectRatio: 1.2,
+                        child: Image.asset(
+                          'assets/gambar_baground_jp.jpg',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
             Positioned(
               top: (MediaQuery.of(context).size.width / 1.2) - 24.0,
               bottom: 0,
@@ -99,7 +105,7 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                         children: <Widget>[
                           const Padding(
                             padding:
-                                EdgeInsets.only(top: 32.0, left: 18, right: 16),
+                                EdgeInsets.only(top: 16.0, left: 18, right: 16),
                             child: Text(
                               'Informasi Mengenai \nJenis Padi',
                               textAlign: TextAlign.left,
@@ -112,64 +118,66 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16, right: 16, bottom: 8, top: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const <Widget>[
-                                Text(
-                                  'Padi Ciherang',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontFamily: AppTheme.fontName,
-                                    fontSize: 22,
-                                    letterSpacing: 0.27,
-                                    color: AppTheme.green,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity2,
-                              child: const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16, right: 16, top: 8, bottom: 8),
-                                child: Text(
-                                  'Padi Ciherang merupakan varietas padi unggul turunan dari IR64. Selain memiliki potensi hasil yang tinggi, bentuk gabah padi Ciherang adalah ramping panjang berwarna kuning bersih serta tekstur nasi yang pulen, menjadikan varietas ini masih diminati oleh petani dan konsumen.',
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontFamily: AppTheme.fontName,
-                                    fontSize: 14,
-                                    letterSpacing: 0.27,
-                                    color: AppTheme.grey,
-                                  ),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ),
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 500),
-                            opacity: opacity1,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Row(
-                                children: <Widget>[
-                                  getTimeBoxUI('Tanggal Tanam', '02/04/22'),
-                                  getTimeBoxUI('Lama Panen', '4 bulan'),
-                                  getTimeBoxUI('Tanggal Panen', '02/07/22'),
-                                ],
-                              ),
-                            ),
-                          ),
+                          const JenisPadi(),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(
+                          //       left: 16, right: 16, bottom: 8, top: 16),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //     crossAxisAlignment: CrossAxisAlignment.center,
+                          //     children: const <Widget>[
+                          //       Text(
+                          //         'Padi Ciherang',
+                          //         textAlign: TextAlign.left,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 22,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.green,
+                          //         ),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
+                          const DeskripsiJenis(),
+                          // Expanded(
+                          //   child: AnimatedOpacity(
+                          //     duration: const Duration(milliseconds: 500),
+                          //     opacity: opacity2,
+                          //     child: const Padding(
+                          //       padding: EdgeInsets.only(
+                          //           left: 16, right: 16, top: 8, bottom: 8),
+                          //       child: Text(
+                          //         'Padi Ciherang merupakan varietas padi unggul turunan dari IR64. Selain memiliki potensi hasil yang tinggi, bentuk gabah padi Ciherang adalah ramping panjang berwarna kuning bersih serta tekstur nasi yang pulen, menjadikan varietas ini masih diminati oleh petani dan konsumen.',
+                          //         textAlign: TextAlign.justify,
+                          //         style: TextStyle(
+                          //           fontWeight: FontWeight.w200,
+                          //           fontFamily: AppTheme.fontName,
+                          //           fontSize: 14,
+                          //           letterSpacing: 0.27,
+                          //           color: AppTheme.grey,
+                          //         ),
+                          //         maxLines: 3,
+                          //         overflow: TextOverflow.ellipsis,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // AnimatedOpacity(
+                          //   duration: const Duration(milliseconds: 500),
+                          //   opacity: opacity1,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8),
+                          //     child: Row(
+                          //       children: <Widget>[
+                          //         getTimeBoxUI('Tanggal Tanam', '02/04/22'),
+                          //         getTimeBoxUI('Lama Panen', '4 bulan'),
+                          //         getTimeBoxUI('Tanggal Panen', '02/07/22'),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
                           AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
                             opacity: opacity3,

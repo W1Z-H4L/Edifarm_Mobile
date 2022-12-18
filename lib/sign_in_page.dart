@@ -162,11 +162,13 @@ class _SignInPageState extends State<SignInPage> {
                         top: 50, left: 75, bottom: 50, right: 75),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: AppTheme.green, onPrimary: Colors.white),
+                          primary: AppTheme.green, onPrimary: AppTheme.green),
                       onPressed: () => Navigator.pushNamed(context, '/home'),
                       child: const Text(
                         'Masuk',
                         style: TextStyle(
+                          fontSize: 12,
+                          color: AppTheme.white,
                           fontFamily: AppTheme.fontName,
                           fontWeight: FontWeight.w400,
                         ),
@@ -212,21 +214,34 @@ class _SignInPageState extends State<SignInPage> {
       });
 
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        if (data['success'] == true) {
-          snackBarSucces();
+        final user = jsonDecode(response.body);
+        if (user['success'] == true) {
+          if (user['success'] == false) {
+            setState(() {
+              _loading = false;
+            });
+            snackBarFailed();
+          } else {
+            setState(() {
+              _loading = true;
+            });
+          }
+
           // setState(() {
           //   _loginstatus = Loginstatus.signin;
           //   // sharePref(data, username, password);
           // });
-          User userInfo = User.fromJson(data['user']);
+          User userInfo = User.fromJson(user['user']);
           await RememberUser().storeUser(json.encode(userInfo));
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
           // sharePref(data, user, pass);
           // _loginstatus = Loginstatus.signin;
         } else {
-          snackBarPass();
+          setState(() {
+            _loading = false;
+            snackBarFailed();
+          });
         }
       } else {
         snackBarFailed();
