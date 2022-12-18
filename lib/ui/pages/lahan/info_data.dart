@@ -39,6 +39,7 @@ class _DataLahanState extends State<DataLahan> {
                 child: CircularProgressIndicator(color: AppTheme.orange),
               )
             : ListView.builder(
+                scrollDirection: Axis.horizontal,
                 itemCount: listdata1.length,
                 itemBuilder: (context, index) {
                   return Row(

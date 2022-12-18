@@ -35,6 +35,7 @@ class _namaLahanState extends State<namaLahan> {
     return Container(
         height: 50,
         child: ListView.builder(
+            scrollDirection: Axis.horizontal,
             itemCount: listdata1.length,
             itemBuilder: (context, index) {
               return Padding(
