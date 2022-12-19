@@ -176,7 +176,8 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   onTap: () {
-                    verifyLogin();
+                    Navigator.pushNamed(context, '/home');
+                    // verifyLogin();
                   }),
 
               const SizedBox(
