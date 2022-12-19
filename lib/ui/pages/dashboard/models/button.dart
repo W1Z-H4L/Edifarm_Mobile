@@ -5,7 +5,7 @@ import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/menu_list_view.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/menu_data.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
-import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
 
 import 'package:flutter/material.dart';
 

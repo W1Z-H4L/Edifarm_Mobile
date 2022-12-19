@@ -1,7 +1,7 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/sign_in_page.dart';
-import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 

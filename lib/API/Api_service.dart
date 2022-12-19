@@ -63,3 +63,19 @@ class ServiceApiJenis {
     }
   }
 }
+
+class ServiceApiLogin {
+  Future getData() async {
+    try {
+      final response = await http.get(Uri.parse(ApiConnect.signin));
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<User> blog = it.map((e) => User.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}

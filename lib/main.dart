@@ -7,7 +7,7 @@ import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
-import 'package:Edifarm/ui/pages/setting/edit_akun.dart';
+import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';

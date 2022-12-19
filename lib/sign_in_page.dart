@@ -216,6 +216,7 @@ class _SignInPageState extends State<SignInPage> {
       if (response.statusCode == 200) {
         final user = jsonDecode(response.body);
         if (user['success'] == true) {
+          print(user);
           if (user['success'] == false) {
             setState(() {
               _loading = false;
