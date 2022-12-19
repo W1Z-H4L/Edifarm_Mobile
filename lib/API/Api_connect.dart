@@ -1,5 +1,6 @@
 class ApiConnect {
-  static const hostConnect = "https://ff71-103-3-58-46.ap.ngrok.io//EDIFARM";
+  static const hostConnect =
+      "https://2728-125-166-118-235.ap.ngrok.io//EDIFARM";
   static const connectApi = "$hostConnect/api";
 
   //login
