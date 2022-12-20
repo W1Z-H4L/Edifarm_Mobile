@@ -41,7 +41,17 @@ class _InfoLinkState extends State<InfoLink>
               launch(
                   "https:aceh.tribunnews.com/2016/03/16/padi-ciherang-tak-lagi-dianjurkan-tanam");
             },
-            child: Card(
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                  color: AppTheme.nearlyWhite,
+                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: AppTheme.grey.withOpacity(0.2),
+                        offset: const Offset(1.1, 1.1),
+                        blurRadius: 8.0),
+                  ]),
               child: Container(
                 padding: EdgeInsets.all(20),
                 height: 70,
@@ -98,7 +108,17 @@ class _InfoLinkState extends State<InfoLink>
               launch(
                   "https://regional.kompas.com/read/2011/10/25/20044528/~Regional~Jawa");
             },
-            child: Card(
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                  color: AppTheme.nearlyWhite,
+                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: AppTheme.grey.withOpacity(0.2),
+                        offset: const Offset(1.1, 1.1),
+                        blurRadius: 8.0),
+                  ]),
               child: Container(
                 padding: EdgeInsets.all(20),
                 height: 70,
@@ -125,7 +145,17 @@ class _InfoLinkState extends State<InfoLink>
               launch(
                   "https://www.kliktani.com/2018/08/menanam-padi-ciherang.html");
             },
-            child: Card(
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                  color: AppTheme.nearlyWhite,
+                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: AppTheme.grey.withOpacity(0.2),
+                        offset: const Offset(1.1, 1.1),
+                        blurRadius: 8.0),
+                  ]),
               child: Container(
                 padding: EdgeInsets.all(20),
                 height: 70,
@@ -154,7 +184,17 @@ class _InfoLinkState extends State<InfoLink>
             launch(
                 "https://jogjabenih.jogjaprov.go.id/read/bd1f9448de1a5f21070345d5c919b38d8165e4a7a6ee0ce9f1ace6cc7cca408e1773");
           },
-          child: Card(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                color: AppTheme.nearlyWhite,
+                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: AppTheme.grey.withOpacity(0.2),
+                      offset: const Offset(1.1, 1.1),
+                      blurRadius: 8.0),
+                ]),
             child: Container(
               padding: EdgeInsets.all(20),
               height: 70,
@@ -181,7 +221,17 @@ class _InfoLinkState extends State<InfoLink>
             launch(
                 "https://www.gatra.com/news-501633-ekonomi-tanam-padi-inpari-32-jurus-jitu-bangun-ketahanan-pangan-.html");
           },
-          child: Card(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                color: AppTheme.nearlyWhite,
+                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: AppTheme.grey.withOpacity(0.2),
+                      offset: const Offset(1.1, 1.1),
+                      blurRadius: 8.0),
+                ]),
             child: Container(
               padding: EdgeInsets.all(20),
               height: 70,
@@ -207,7 +257,17 @@ class _InfoLinkState extends State<InfoLink>
           onTap: () {
             launch("https://gdm.id/cara-pemupukan-padi-inpari/");
           },
-          child: Card(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                color: AppTheme.nearlyWhite,
+                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: AppTheme.grey.withOpacity(0.2),
+                      offset: const Offset(1.1, 1.1),
+                      blurRadius: 8.0),
+                ]),
             child: Container(
               padding: EdgeInsets.all(20),
               height: 70,
@@ -235,7 +295,17 @@ class _InfoLinkState extends State<InfoLink>
               onTap: () {
                 launch("https://wa.me/+6289503415644");
               },
-              child: Card(
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                    color: AppTheme.nearlyWhite,
+                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: AppTheme.grey.withOpacity(0.2),
+                          offset: const Offset(1.1, 1.1),
+                          blurRadius: 8.0),
+                    ]),
                 child: Container(
                   padding: EdgeInsets.all(20),
                   alignment: Alignment.center,

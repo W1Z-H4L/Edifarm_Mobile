@@ -158,9 +158,8 @@ class _SignInPageState extends State<SignInPage> {
                     height: 40,
                     width: 70,
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(8),
-                    // only(
-                    //     top: 50, left: 75, bottom: 50, right: 75),
+                    padding: const EdgeInsets.only(
+                        top: 50, left: 75, bottom: 50, right: 75),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: AppTheme.green, onPrimary: AppTheme.white),
