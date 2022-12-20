@@ -59,7 +59,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
 
     listViews.add(
       TextDiag(
-        titleTxt: 'Cheklist jika gejala yang dialami sama :',
+        titleTxt: 'Apa gejala yang dialami oleh padi anda :',
 
         // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -69,7 +69,7 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
         animationController: widget.animationController!,
       ),
     );
-    listViews.add(const DataDiag());
+    // listViews.add(const DataDiag());
     // listViews.add(
     //   DiagListView(
     //     mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(

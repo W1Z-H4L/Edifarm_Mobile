@@ -1,6 +1,6 @@
 class ApiConnect {
   static const hostConnect =
-      "https://2728-125-166-118-235.ap.ngrok.io//EDIFARM";
+      "https://ec6e-125-166-118-235.ap.ngrok.io//EDIFARM";
   static const connectApi = "$hostConnect/api";
 
   //login
@@ -14,4 +14,7 @@ class ApiConnect {
 
   //jenis padi
   static const jenis = "$connectApi/jenis_padi.php";
+
+  //lapor
+  static const lapor = "$connectApi/lapor.php";
 }

@@ -13,7 +13,7 @@ class ServiceApiDiag {
   // Future<List<Diagnose>> getDiag() async {
   Future getData() async {
     try {
-      final response = await http.get(Uri.parse(ApiConnect.pertanyaan));
+      final response = await http.patch(Uri.parse(ApiConnect.pertanyaan));
       if (response.statusCode == 200) {
         print(response.body);
         Iterable it = jsonDecode(response.body);

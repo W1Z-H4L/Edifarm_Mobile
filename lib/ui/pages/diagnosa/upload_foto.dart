@@ -1,10 +1,15 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -18,6 +23,7 @@ class PotoPadi extends StatefulWidget {
 class _PotoPadiState extends State<PotoPadi> {
   @override
   File? image;
+  TextEditingController isi = TextEditingController();
 
   Future<void> getImageGalerry() async {
     var galleryPermission = Permission.storage;
@@ -47,6 +53,7 @@ class _PotoPadiState extends State<PotoPadi> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    isi = TextEditingController();
   }
 
   Future getImageCamera() async {
@@ -169,9 +176,65 @@ class _PotoPadiState extends State<PotoPadi> {
     );
   }
 
+  // Future deskrip() async {
+  //   try {
+  //     var response = await http.post(Uri.parse(ApiConnect.pertanyaan), body: {
+  //       "deskripsi": deskripsi.text.trim(),
+  //     });
+
+  //     if (response.statusCode == 200) {
+  //       final data = jsonDecode(response.body);
+  //     }
+  //   } catch (e) {
+  //     Fluttertoast.showToast(msg: e.toString());
+  //     print(e.toString());
+  //   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    isi.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
+    return
+        // ListView(children: [
+        // Container(
+        //     padding:
+        //         const EdgeInsets.only(top: 32, right: 16, bottom: 16, left: 16),
+        //     child: DottedBorder(
+        //         color: AppTheme.green,
+        //         strokeWidth: 1,
+        //         borderType: BorderType.RRect,
+        //         radius: Radius.circular(25),
+        //         child: Column(
+        //             mainAxisAlignment: MainAxisAlignment.center,
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             children: <Widget>[
+        //               Padding(
+        //                   padding: const EdgeInsets.only(
+        //                     top: 16,
+        //                     left: 16,
+        //                   ),
+        //                   child: Expanded(
+        //                       child: Container(
+        //                     height: 100,
+        //                     child: TextFormField(
+        //                       controller: isi,
+        //                       cursorHeight: 25,
+        //                       style: GoogleFonts.montserrat(),
+        //                       decoration: const InputDecoration(
+        //                         hintText:
+        //                             'Berikan Penjelasan Tambahan Agar Admin Dapat Lebih Mengerti',
+        //                         hintStyle: AppTheme.custom,
+        //                       ),
+        //                       maxLength: 500,
+        //                       maxLines: 20,
+        //                     ),
+        //                   )))
+        //             ]))),
+        Column(children: <Widget>[
       Padding(
         padding: const EdgeInsets.only(left: 24, right: 24, top: 0, bottom: 0),
         child: Stack(
@@ -365,7 +428,7 @@ class _PotoPadiState extends State<PotoPadi> {
                                                           10)),
                                               child: TextButton(
                                                   onPressed: () {
-                                                    Navigator.pop(context);
+                                                    deskrip();
                                                   },
                                                   child: const Text(
                                                     "Ya",
@@ -399,5 +462,28 @@ class _PotoPadiState extends State<PotoPadi> {
         ),
       ),
     ]);
+  }
+
+  Future deskrip() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.lapor), body: {
+        "isi": isi.text.trim(),
+      });
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+      print(e.toString());
+    }
+  }
+
+  void verifyPindah(BuildContext context) {
+    if (isi.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Nama harus diisi");
+    } else {
+      deskrip();
+    }
   }
 }

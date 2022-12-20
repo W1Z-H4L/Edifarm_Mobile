@@ -958,14 +958,16 @@
 // //     );
 // //   }
 // // }
+import 'dart:convert';
+
+import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/animation/animation_controller.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:google_fonts/google_fonts.dart';
 
 class Deskrip extends StatefulWidget {
@@ -977,25 +979,27 @@ class Deskrip extends StatefulWidget {
 
 class _DeskripState extends State<Deskrip> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  TextEditingController deskripsi = TextEditingController();
+  TextEditingController isi = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
-    deskripsi = TextEditingController();
+    isi = TextEditingController();
   }
 
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
-    deskripsi.dispose();
+    isi.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding:
+            const EdgeInsets.only(top: 32, right: 16, bottom: 16, left: 16),
         child: DottedBorder(
             color: AppTheme.green,
             strokeWidth: 1,
@@ -1014,7 +1018,7 @@ class _DeskripState extends State<Deskrip> with SingleTickerProviderStateMixin {
                           child: Container(
                         height: 100,
                         child: TextFormField(
-                          controller: deskripsi,
+                          controller: isi,
                           cursorHeight: 25,
                           style: GoogleFonts.montserrat(),
                           decoration: const InputDecoration(
@@ -1022,8 +1026,175 @@ class _DeskripState extends State<Deskrip> with SingleTickerProviderStateMixin {
                                 'Berikan Penjelasan Tambahan Agar Admin Dapat Lebih Mengerti',
                             hintStyle: AppTheme.custom,
                           ),
+                          maxLength: 500,
+                          maxLines: 20,
                         ),
-                      )))
+                      ))),
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 80,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 30,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: AppTheme.green),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Text(
+                            'Cancel',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: AppTheme.green,
+                                fontFamily: AppTheme.fontName),
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      InkWell(
+                        child: Container(
+                          height: 30,
+                          width: 60,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: AppTheme.green,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Text(
+                            'Submit',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                fontFamily: AppTheme.fontName),
+                          ),
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Container(
+                                  padding: EdgeInsets.only(top: 50, bottom: 50),
+                                  height: 150,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: AlertDialog(
+                                    title: const Text(
+                                      "Apakah data yang anda masukan sudah sesuai ?",
+                                      selectionColor: Colors.white,
+                                      style: TextStyle(
+                                          color: AppTheme.black,
+                                          fontFamily: AppTheme.fontName,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    actions: [
+                                      Container(
+                                        height: 30,
+                                        width: 60,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.orange,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text(
+                                              "Tidak",
+                                              style: TextStyle(
+                                                  color: AppTheme.white,
+                                                  fontFamily: AppTheme.fontName,
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400),
+                                            )),
+                                      ),
+                                      Container(
+                                        height: 30,
+                                        width: 60,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.orange),
+                                            color: AppTheme.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextButton(
+                                            onPressed: () {
+                                              deskrip();
+                                            },
+                                            child: const Text(
+                                              "Ya",
+                                              style: TextStyle(
+                                                  color: AppTheme.orange,
+                                                  fontFamily: AppTheme.fontName,
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400),
+                                            )),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                      ),
+                      const SizedBox(
+                        width: 80,
+                      )
+                    ],
+                  )
                 ])));
   }
+
+  Future deskrip() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.lapor), body: {
+        "isi": isi.text.trim(),
+      });
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+
+        Navigator.pushNamed(context, '/diag');
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+      print(e.toString());
+    }
+  }
+
+  void verifyPindah(BuildContext context) {
+    if (isi.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Deskripsi Tidak Boleh Kosong");
+    } else {
+      deskrip();
+    }
+  }
 }
+// Future addDataSurat(BuildContext context, File imageFile) async {
+//     var uri = Uri.parse(ApiConnect.lapor);
+//     var stream = http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+//     var length = await imageFile.length();
+//     var req = http.MultipartRequest('POST', uri);
+//     req.fields['id_akun'] = _currentUser.user.idAkun;
+  
+//     var pic = http.MultipartFile("image", stream, length,
+//         filename: basename(imageFile.path));
+//     req.files.add(pic);
+//     var response = await req.send();
+//     if (response.statusCode == 200) {
+//       print("ok");
+//       showSuccessDialog(context);
+//     } else {
+//       print("Ga");
+//     }
+//   }

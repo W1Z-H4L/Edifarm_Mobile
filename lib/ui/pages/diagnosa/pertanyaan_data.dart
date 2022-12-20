@@ -127,7 +127,9 @@ class _DataDiagState extends State<DataDiag> {
                                     Container(
                                       width: 220,
                                       child: Text(
-                                        listblog1[index].pertanyaan!,
+                                        listblog1[index].idPertanyaan! +
+                                            ". " +
+                                            listblog1[index].pertanyaan!,
                                         style: const TextStyle(
                                           fontFamily: AppTheme.fontName,
                                           fontWeight: FontWeight.w500,

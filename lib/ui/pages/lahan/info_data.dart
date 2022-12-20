@@ -66,7 +66,7 @@ class _DataLahanState extends State<DataLahan> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  'Pemilik',
+                                  'Status',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w600,
@@ -77,7 +77,7 @@ class _DataLahanState extends State<DataLahan> {
                                   ),
                                 ),
                                 Text(
-                                  listdata1[index].pemilik!,
+                                  listdata1[index].status!,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w200,

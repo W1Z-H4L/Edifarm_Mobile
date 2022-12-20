@@ -4,7 +4,7 @@ class LahanModel {
   String? luasLahan;
   String? tempat;
   String? deskripsi;
-  String? pemilik;
+  String? status;
 
   LahanModel(
       {this.idLahan,
@@ -12,7 +12,7 @@ class LahanModel {
       this.luasLahan,
       this.tempat,
       this.deskripsi,
-      this.pemilik});
+      this.status});
 
   LahanModel.fromJson(Map<String, dynamic> json) {
     idLahan = json['id_lahan'];
@@ -20,7 +20,7 @@ class LahanModel {
     luasLahan = json['luas_lahan'];
     tempat = json['tempat'];
     deskripsi = json['deskripsi'];
-    pemilik = json['pemilik'];
+    status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -30,7 +30,7 @@ class LahanModel {
     data['luas_lahan'] = this.luasLahan;
     data['tempat'] = this.tempat;
     data['deskripsi'] = this.deskripsi;
-    data['pemilik'] = this.pemilik;
+    data['status'] = this.status;
     return data;
   }
 }

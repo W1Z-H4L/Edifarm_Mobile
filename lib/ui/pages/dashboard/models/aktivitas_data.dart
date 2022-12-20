@@ -1,8 +1,5 @@
 import 'package:Edifarm/shared/Theme_App.dart';
-import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
-import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
-import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
-import 'package:Edifarm/ui/widgets/buttons.dart';
+
 import 'package:flutter/material.dart';
 
 class AktivitasDataView extends StatelessWidget {
