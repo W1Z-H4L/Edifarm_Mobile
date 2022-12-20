@@ -43,7 +43,7 @@ class _InfoLinkState extends State<InfoLink>
             },
             child: Card(
               child: Container(
-                padding: EdgeInsets.all(30),
+                padding: EdgeInsets.all(20),
                 height: 70,
                 width: 70,
                 decoration: BoxDecoration(
@@ -100,7 +100,7 @@ class _InfoLinkState extends State<InfoLink>
             },
             child: Card(
               child: Container(
-                padding: EdgeInsets.all(30),
+                padding: EdgeInsets.all(20),
                 height: 70,
                 width: 70,
                 decoration: BoxDecoration(
@@ -127,6 +127,7 @@ class _InfoLinkState extends State<InfoLink>
             },
             child: Card(
               child: Container(
+                padding: EdgeInsets.all(20),
                 height: 70,
                 width: 70,
                 decoration: BoxDecoration(
@@ -155,6 +156,7 @@ class _InfoLinkState extends State<InfoLink>
           },
           child: Card(
             child: Container(
+              padding: EdgeInsets.all(20),
               height: 70,
               width: 70,
               decoration: BoxDecoration(
@@ -181,6 +183,7 @@ class _InfoLinkState extends State<InfoLink>
           },
           child: Card(
             child: Container(
+              padding: EdgeInsets.all(20),
               height: 70,
               width: 70,
               decoration: BoxDecoration(
@@ -206,6 +209,7 @@ class _InfoLinkState extends State<InfoLink>
           },
           child: Card(
             child: Container(
+              padding: EdgeInsets.all(20),
               height: 70,
               width: 70,
               decoration: BoxDecoration(
@@ -233,6 +237,7 @@ class _InfoLinkState extends State<InfoLink>
               },
               child: Card(
                 child: Container(
+                  padding: EdgeInsets.all(20),
                   alignment: Alignment.center,
                   height: 70,
                   width: 70,
