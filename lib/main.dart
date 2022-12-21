@@ -5,6 +5,7 @@ import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dar
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
+import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
 import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
@@ -60,8 +61,8 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
         '/riwayatpupuk': (context) => const RiwayatPupuk(),
-        '/diag': (context) =>
-            DiagnosaScreen(animationController: animationController),
+        '/diag': (context) => Field(),
+        // DiagnosaScreen(animationController: animationController),
         '/lahan': (context) => LahanScreen(
               animationController: animationController,
             ),

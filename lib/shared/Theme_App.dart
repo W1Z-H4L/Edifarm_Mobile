@@ -24,6 +24,7 @@ class AppTheme {
   static const Color green = Color(0xFF006B6C);
   static const Color black = Color(0xFF000000);
   static const Color orange = Color(0xFFFFA722);
+  static const Color camera = Color(0xFFD9E9E9);
   static const String fontName = 'Montserrat';
 
   static const TextTheme textTheme = TextTheme(

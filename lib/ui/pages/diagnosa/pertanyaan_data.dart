@@ -15,12 +15,6 @@ class DataDiag extends StatefulWidget {
 class _DataDiagState extends State<DataDiag> {
   late Future listblog;
   List<Diagnose> listblog1 = [];
-  // late Future listblog;
-  // ServiceApiDiag repository = ServiceApiDiag();
-  // getData() async {
-  //   print(listblog);
-  //   listblog = await repository.getData();
-  // }
 
   @override
   void initState() {

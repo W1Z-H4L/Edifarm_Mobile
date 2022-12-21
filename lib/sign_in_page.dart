@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:Edifarm/API/Api_connect.dart';
-import 'package:Edifarm/models/Remember_User.dart';
+import 'package:Edifarm/controler/Remember_User.dart';
 import 'package:Edifarm/models/User_model.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
@@ -25,7 +25,7 @@ enum Loginstatus { notSignin, signin }
 class _SignInPageState extends State<SignInPage> {
   // const SignInPage({Key? key}) : super(key: key);
   bool _secureText = true;
-  // Loginstatus _loginstatus = Loginstatus.notSignin;
+  Loginstatus _loginstatus = Loginstatus.notSignin;
 
   showHide() {
     setState(() {
@@ -59,135 +59,138 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    // switch (_loginstatus) {
-    //   case Loginstatus.notSignin:
-    return Scaffold(
-        body: ListView(
-            padding: const EdgeInsets.only(
-              left: 30,
-              right: 30,
-              bottom: 24,
-            ),
-            children: <Widget>[
-          Container(
-            width: 161,
-            height: 161,
-            margin: const EdgeInsets.only(top: 50),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/logo.png'),
+    switch (_loginstatus) {
+      case Loginstatus.notSignin:
+        return Scaffold(
+            body: ListView(
+                padding: const EdgeInsets.only(
+                  left: 30,
+                  right: 30,
+                  bottom: 24,
+                ),
+                children: <Widget>[
+              Container(
+                width: 161,
+                height: 161,
+                margin: const EdgeInsets.only(top: 50),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/logo.png'),
+                  ),
+                ),
               ),
-            ),
-          ),
-          Text(
-            'Hallo !',
-            textAlign: TextAlign.center,
-            style: AppTheme.custom1.copyWith(
-              fontWeight: FontWeight.w900,
-              fontSize: 26,
-              color: AppTheme.green,
-            ),
-          ),
-          Container(
-            width: 216,
-            height: 197,
-            // margin: const EdgeInsets.only(top: 5, bottom: 55),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/gambar_login.png'),
+              Text(
+                'Hallo !',
+                textAlign: TextAlign.center,
+                style: AppTheme.custom1.copyWith(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 26,
+                  color: AppTheme.green,
+                ),
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Container(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // NOTE: INPUT EMAIL
-              TextFormField(
-                controller: username,
-                showCursor: true,
-                cursorHeight: 25,
-                style: GoogleFonts.montserrat(),
-                decoration: const InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppTheme.green)),
-                  labelText: 'Username',
-                  hintText: 'Masukan Username Anda',
-                  hintStyle: AppTheme.custom,
-                  labelStyle: AppTheme.custom1,
-                  focusColor: AppTheme.green,
-                  fillColor: AppTheme.green,
+              Container(
+                width: 216,
+                height: 197,
+                // margin: const EdgeInsets.only(top: 5, bottom: 55),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/gambar_login.png'),
+                  ),
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 5,
               ),
-              // NOTE: INPUT PASSWORD
-              TextFormField(
-                controller: password,
-                showCursor: true,
-                cursorHeight: 25,
-                style: GoogleFonts.montserrat(),
-                obscureText: _secureText,
-                decoration: InputDecoration(
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: AppTheme.green)),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _secureText ? Icons.visibility_off : Icons.visibility,
-                      color: AppTheme.green,
+              Container(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  // NOTE: INPUT EMAIL
+                  TextFormField(
+                    controller: username,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: GoogleFonts.montserrat(),
+                    decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: AppTheme.green)),
+                      labelText: 'Username',
+                      hintText: 'Masukan Username Anda',
+                      hintStyle: AppTheme.custom,
+                      labelStyle: AppTheme.custom1,
+                      focusColor: AppTheme.green,
+                      fillColor: AppTheme.green,
                     ),
-                    onPressed: () {
-                      showHide();
-                    },
                   ),
-                  labelText: 'Password',
-                  hintText: 'Masukan Password Anda',
-                  hintStyle: AppTheme.custom,
-                  labelStyle: AppTheme.custom1,
-                  focusColor: AppTheme.green,
-                  fillColor: AppTheme.green,
-                ),
-              ),
-
-              InkWell(
-                  child: Container(
-                    height: 40,
-                    width: 70,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.only(
-                        top: 50, left: 75, bottom: 50, right: 75),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: AppTheme.green, onPrimary: AppTheme.white),
-                      onPressed: () => Navigator.pushNamed(context, '/home'),
-                      child: const Text(
-                        'Masuk',
-                        style: TextStyle(
-                          fontSize: 12,
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  // NOTE: INPUT PASSWORD
+                  TextFormField(
+                    controller: password,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: GoogleFonts.montserrat(),
+                    obscureText: _secureText,
+                    decoration: InputDecoration(
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: AppTheme.green)),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _secureText ? Icons.visibility_off : Icons.visibility,
                           color: AppTheme.green,
-                          fontFamily: AppTheme.fontName,
-                          fontWeight: FontWeight.w400,
+                        ),
+                        onPressed: () {
+                          showHide();
+                        },
+                      ),
+                      labelText: 'Password',
+                      hintText: 'Masukan Password Anda',
+                      hintStyle: AppTheme.custom,
+                      labelStyle: AppTheme.custom1,
+                      focusColor: AppTheme.green,
+                      fillColor: AppTheme.green,
+                    ),
+                  ),
+
+                  InkWell(
+                      child: Container(
+                        height: 40,
+                        width: 70,
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.only(
+                            top: 50, left: 75, bottom: 50, right: 75),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: AppTheme.green,
+                              onPrimary: AppTheme.white),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/home'),
+                          child: const Text(
+                            'Masuk',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: AppTheme.green,
+                              fontFamily: AppTheme.fontName,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                    // verifyLogin();
-                  }),
+                      onTap: () {
+                        // Navigator.pushNamed(context, '/home');
+                        verifyLogin();
+                      }),
 
-              const SizedBox(
-                height: 50,
-              ),
-            ],
-          )),
-        ]));
-    // case Loginstatus.signin:
-    //   return HomeScreen();
+                  const SizedBox(
+                    height: 50,
+                  ),
+                ],
+              )),
+            ]));
+      case Loginstatus.signin:
+        return HomeScreen();
+    }
   }
 
   void verifyLogin() {
@@ -210,8 +213,8 @@ class _SignInPageState extends State<SignInPage> {
   Future login() async {
     try {
       var response = await http.post(Uri.parse(ApiConnect.signin), body: {
-        "username": username.text.trim(),
-        "password": password.text.trim(),
+        "username": username.text,
+        "password": password.text,
       });
 
       if (response.statusCode == 200) {
@@ -227,23 +230,25 @@ class _SignInPageState extends State<SignInPage> {
             setState(() {
               _loading = true;
             });
-          }
+            snackBarSucces();
 
-          // setState(() {
-          //   _loginstatus = Loginstatus.signin;
-          //   // sharePref(data, username, password);
-          // });
-          User userInfo = User.fromJson(user['user']);
-          await RememberUser().storeUser(json.encode(userInfo));
-          // ignore: use_build_context_synchronously
-          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-          // sharePref(data, user, pass);
-          // _loginstatus = Loginstatus.signin;
-        } else {
-          setState(() {
-            _loading = false;
-            snackBarFailed();
-          });
+            setState(() {
+              _loginstatus = Loginstatus.signin;
+              // sharePref(data, username, password);
+            });
+            User userInfo = User.fromJson(user['user']);
+            await RememberUser().storeUser(json.encode(userInfo));
+            // ignore: use_build_context_synchronously
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/home', (route) => false);
+            // sharePref(data, user, pass);
+            // _loginstatus = Loginstatus.signin;
+            // } else {
+            //   setState(() {
+            //     _loading = false;
+            //     snackBarFailed();
+            //   });
+          }
         }
       } else {
         snackBarFailed();
@@ -305,14 +310,15 @@ class _SignInPageState extends State<SignInPage> {
 
   // String? user = '';
   // String? pass = '';
-  // var data;
-  // getPref() async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     data = preferences.getBool('success');
-  //     _loginstatus = data == true ? Loginstatus.signin : Loginstatus.notSignin;
-  //   });
-  // }
+  var data;
+  getPref() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    safaedata(username, password);
+    setState(() {
+      data = preferences.getBool('success');
+      _loginstatus = data == true ? Loginstatus.signin : Loginstatus.notSignin;
+    });
+  }
 
   // sharePref(data, user, pass) async {
   //   SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -323,10 +329,10 @@ class _SignInPageState extends State<SignInPage> {
   //   });
   // }
 
-  // safaedata() async {
-  //   WidgetsFlutterBinding.ensureInitialized();
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   preferences.getString('username');
-  //   preferences.getString('password');
-  // }
+  safaedata(username, password) async {
+    WidgetsFlutterBinding.ensureInitialized();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString('username', username);
+    preferences.setString('password', password);
+  }
 }

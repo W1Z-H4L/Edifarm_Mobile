@@ -45,7 +45,7 @@ class _DataLahanState extends State<DataLahan> {
                   return Row(
                     children: [
                       Container(
-                          height: 60,
+                          height: 100,
                           width: 100,
                           decoration: BoxDecoration(
                               // borderRadius: BorderRadius.circular(10),

@@ -2,12 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:Edifarm/API/Api_connect.dart';
+import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -235,8 +237,19 @@ class _PotoPadiState extends State<PotoPadi> {
         //                   )))
         //             ]))),
         Column(children: <Widget>[
+      const Padding(
+        padding: EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 0),
+        child: Text(
+          'Isikan deskripsi sesuai keadaan padi dan kirimkan gambar asli padi',
+          style: TextStyle(
+              color: AppTheme.green,
+              fontFamily: AppTheme.fontName,
+              fontSize: 15,
+              fontWeight: FontWeight.w800),
+        ),
+      ),
       Padding(
-        padding: const EdgeInsets.only(left: 24, right: 24, top: 0, bottom: 0),
+        padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 0),
         child: Stack(
           clipBehavior: Clip.none,
           children: <Widget>[
@@ -244,7 +257,7 @@ class _PotoPadiState extends State<PotoPadi> {
               padding: const EdgeInsets.only(top: 50, bottom: 16),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.transparent,
+                  color: AppTheme.camera,
 
                   border: Border.all(color: Color(0xFF006B6C)),
 
@@ -282,7 +295,7 @@ class _PotoPadiState extends State<PotoPadi> {
                             style: TextStyle(
                               fontFamily: AppTheme.fontName,
                               fontWeight: FontWeight.w800,
-                              fontSize: 10,
+                              fontSize: 13,
                               letterSpacing: 0.2,
                               color: AppTheme.grey,
                             ),
@@ -322,136 +335,167 @@ class _PotoPadiState extends State<PotoPadi> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          children: [
-                            const SizedBox(
-                              width: 80,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 30,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    border: Border.all(color: AppTheme.green),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: const Text(
-                                  'Cancel',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: AppTheme.green,
-                                      fontFamily: AppTheme.fontName),
-                                ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 24, right: 24, top: 24, bottom: 0),
+                          child: Container(
+                            height: 100,
+                            child: TextFormField(
+                              controller: isi,
+                              cursorHeight: 25,
+                              style: GoogleFonts.montserrat(),
+                              decoration: const InputDecoration(
+                                hintText:
+                                    'Berikan Penjelasan Tambahan Agar Admin Dapat Lebih Mengerti',
+                                hintStyle: AppTheme.custom,
                               ),
+                              maxLength: 500,
+                              maxLines: 20,
                             ),
-                            const Spacer(),
-                            InkWell(
-                              child: Container(
-                                height: 30,
-                                width: 60,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    color: AppTheme.green,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: const Text(
-                                  'Submit',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.white,
-                                      fontFamily: AppTheme.fontName),
+                          ),
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only(
+                                left: 14, right: 14, top: 14, bottom: 32),
+                            child: Row(
+                              children: [
+                                const SizedBox(
+                                  width: 80,
                                 ),
-                              ),
-                              onTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Container(
-                                        padding: EdgeInsets.only(
-                                            top: 50, bottom: 50),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: AlertDialog(
-                                          title: const Text(
-                                            "Apakah data yang anda masukan sudah sesuai ?",
-                                            selectionColor: Colors.white,
-                                            style: TextStyle(
-                                                color: AppTheme.black,
-                                                fontFamily: AppTheme.fontName,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                          actions: [
-                                            Container(
-                                              height: 30,
-                                              width: 60,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  color: AppTheme.orange,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
-                                              child: TextButton(
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: const Text(
-                                                    "Tidak",
-                                                    style: TextStyle(
-                                                        color: AppTheme.white,
-                                                        fontFamily:
-                                                            AppTheme.fontName,
-                                                        fontSize: 10,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  )),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 30,
+                                    width: 60,
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border:
+                                            Border.all(color: AppTheme.green),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: const Text(
+                                      'Cancel',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: AppTheme.green,
+                                          fontFamily: AppTheme.fontName),
+                                    ),
+                                  ),
+                                ),
+                                const Spacer(),
+                                InkWell(
+                                  child: Container(
+                                    height: 30,
+                                    width: 60,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        color: AppTheme.green,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: const Text(
+                                      'Submit',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Colors.white,
+                                          fontFamily: AppTheme.fontName),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Container(
+                                            padding: EdgeInsets.only(
+                                                top: 50, bottom: 50),
+                                            height: 150,
+                                            width: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
                                             ),
-                                            Container(
-                                              height: 30,
-                                              width: 60,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.orange),
-                                                  color: AppTheme.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
-                                              child: TextButton(
-                                                  onPressed: () {
-                                                    deskrip();
-                                                  },
-                                                  child: const Text(
-                                                    "Ya",
-                                                    style: TextStyle(
-                                                        color: AppTheme.orange,
-                                                        fontFamily:
-                                                            AppTheme.fontName,
-                                                        fontSize: 10,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  )),
+                                            child: AlertDialog(
+                                              title: const Text(
+                                                "Apakah data yang anda masukan sudah sesuai ?",
+                                                selectionColor: Colors.white,
+                                                style: TextStyle(
+                                                    color: AppTheme.black,
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              actions: [
+                                                Container(
+                                                  height: 30,
+                                                  width: 60,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: AppTheme.orange,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10)),
+                                                  child: TextButton(
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: const Text(
+                                                        "Tidak",
+                                                        style: TextStyle(
+                                                            color:
+                                                                AppTheme.white,
+                                                            fontFamily: AppTheme
+                                                                .fontName,
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                      )),
+                                                ),
+                                                Container(
+                                                  height: 30,
+                                                  width: 60,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: Colors.orange),
+                                                      color: AppTheme.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10)),
+                                                  child: TextButton(
+                                                      onPressed: () {
+                                                        deskrip();
+                                                      },
+                                                      child: const Text(
+                                                        "Ya",
+                                                        style: TextStyle(
+                                                            color:
+                                                                AppTheme.orange,
+                                                            fontFamily: AppTheme
+                                                                .fontName,
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                      )),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      );
-                                    });
-                              },
-                            ),
-                            const SizedBox(
-                              width: 80,
-                            )
-                          ],
-                        )
+                                          );
+                                        });
+                                  },
+                                ),
+                                const SizedBox(
+                                  width: 80,
+                                )
+                              ],
+                            ))
                       ],
                     ),
                   ],
@@ -464,14 +508,19 @@ class _PotoPadiState extends State<PotoPadi> {
     ]);
   }
 
+  final CurrentUser _currentUser = Get.put(CurrentUser());
   Future deskrip() async {
     try {
       var response = await http.post(Uri.parse(ApiConnect.lapor), body: {
         "isi": isi.text.trim(),
+        "tanggal_consul": DateTime.now().toString(),
+        "id_user": _currentUser.user.idUser.toString()
       });
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+
+        Navigator.pushNamed(context, '/diag');
       }
     } catch (e) {
       Fluttertoast.showToast(msg: e.toString());
@@ -481,7 +530,7 @@ class _PotoPadiState extends State<PotoPadi> {
 
   void verifyPindah(BuildContext context) {
     if (isi.text.isEmpty) {
-      Fluttertoast.showToast(msg: "Nama harus diisi");
+      Fluttertoast.showToast(msg: "Deskripsi Tidak Boleh Kosong");
     } else {
       deskrip();
     }

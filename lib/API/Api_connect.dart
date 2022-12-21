@@ -17,4 +17,16 @@ class ApiConnect {
 
   //lapor
   static const lapor = "$connectApi/lapor.php";
+
+  //aktivitas
+  static const aktiv = "$connectApi/jadwal.php";
+
+  //misi
+  static const misi = "$connectApi/aktivitas.php";
+
+  //ganti biodata
+  static const bio = "$connectApi/update_data.php";
+
+  //edit password
+  static const pass = "$connectApi/update_pass.php";
 }

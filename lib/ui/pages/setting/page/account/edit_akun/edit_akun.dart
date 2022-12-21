@@ -1,5 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
+import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/controler/CurentUser.dart';
+import 'package:Edifarm/controler/Remember_User.dart';
+import 'package:Edifarm/models/User_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -73,6 +78,7 @@ class _EditProfilePageState extends State<EditProfilePage>
     name = TextEditingController();
     alamat = TextEditingController();
     noHp = TextEditingController();
+    password = TextEditingController();
   }
 
   void addAllListData() {
@@ -234,8 +240,6 @@ class _EditProfilePageState extends State<EditProfilePage>
     );
   }
 
-  final CurrentUser _currentUser = Get.put(CurrentUser());
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -243,11 +247,13 @@ class _EditProfilePageState extends State<EditProfilePage>
     name.dispose();
     noHp.dispose();
     alamat.dispose();
+    password.dispose();
   }
 
   TextEditingController name = TextEditingController();
   TextEditingController alamat = TextEditingController();
   TextEditingController noHp = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -620,7 +626,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                                     borderRadius: BorderRadius.circular(10)),
                                 child: TextButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(context, '/sign-in');
+                                      verifyUpdate();
                                     },
                                     child: const Text(
                                       "Ya",
@@ -679,27 +685,52 @@ class _EditProfilePageState extends State<EditProfilePage>
     );
   }
 
-//   Future profil() async {
-//     try {
-//       var response = await http.get(
-//         Uri.parse(
-//             "https://a4b1-125-166-116-224.ap.ngrok.io//EDIFARM/api/login.php"),
-//       );
+  void verifyUpdate() {
+    if (name.text.isEmpty) {
+      Fluttertoast.showToast(
+        msg: "Nama Harus Diisi",
+        backgroundColor: Colors.red[300],
+        fontSize: 12,
+      );
+    } else if (alamat.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Alamat Harus Diisi",
+          backgroundColor: Colors.red[300],
+          fontSize: 12);
+    } else if (noHp.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Nomor HP Harus Diisi",
+          backgroundColor: Colors.red[300],
+          fontSize: 12);
+    } else if (password.text != _currentUser.user.password) {
+      Fluttertoast.showToast(
+          msg: "Password Salah",
+          backgroundColor: Colors.red[300],
+          fontSize: 12);
+    } else {
+      update();
+    }
+  }
 
-//       if (response.statusCode == 200) {
-//         final data = jsonDecode(response.body);
-//         if (data['success'] == true) {
-//           User userInfo = User.fromJson(data['user']);
-//           await RememberUser().storeUser(json.encode(userInfo));
-//           // ignore: use_build_context_synchronously
-//           Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => true);
-//           // sharePref(username);
-//         } else {}
-//       }
-//     } catch (e) {
-//       Fluttertoast.showToast(msg: e.toString());
-//       print(e.toString());
-//     }
-//   }
-// }
+  final CurrentUser _currentUser = Get.put(CurrentUser());
+  Future update() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.bio), body: {
+        "nama": name.text.toString(),
+        "id_user": _currentUser.user.idUser.toString(),
+        "alamat": alamat.text.toString(),
+        "no_hp": noHp.text.toString(),
+        "password": password.text.toString()
+      });
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+
+        Navigator.pushNamed(context, '/sign-in');
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+      print(e.toString());
+    }
+  }
 }

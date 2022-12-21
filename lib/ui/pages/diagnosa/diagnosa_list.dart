@@ -961,11 +961,13 @@
 import 'dart:convert';
 
 import 'package:Edifarm/API/Api_connect.dart';
+import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:dotted_border/dotted_border.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:google_fonts/google_fonts.dart';
@@ -1151,14 +1153,17 @@ class _DeskripState extends State<Deskrip> with SingleTickerProviderStateMixin {
                         width: 80,
                       )
                     ],
-                  )
+                  ),
                 ])));
   }
 
+  final CurrentUser _currentUser = Get.put(CurrentUser());
   Future deskrip() async {
     try {
       var response = await http.post(Uri.parse(ApiConnect.lapor), body: {
         "isi": isi.text.trim(),
+        "tanggal_consul": DateTime.now().toString(),
+        "id_user": _currentUser.user.idUser.toString()
       });
 
       if (response.statusCode == 200) {

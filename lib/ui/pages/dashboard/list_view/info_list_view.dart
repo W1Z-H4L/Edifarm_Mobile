@@ -2,6 +2,7 @@ import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/dashboard/models/info_data.dart';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InfoListView extends StatefulWidget {
   const InfoListView(
@@ -172,20 +173,25 @@ class InfoView extends StatelessWidget {
                     top: 20,
                     left: 8,
                     right: 8,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(8.0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topRight: Radius.circular(68.0)),
-                      child: Image.asset(
-                        infoListData!.imagePath,
-                        width: 450,
-                        height: 145,
-                        fit: BoxFit.cover,
+                    child: InkWell(
+                      onTap: () {
+                        launch(infoListData!.inpo);
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8.0),
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topRight: Radius.circular(68.0)),
+                        child: Image.asset(
+                          infoListData!.imagePath,
+                          width: 450,
+                          height: 145,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
+                  )
                 ]),
               ),
             ),

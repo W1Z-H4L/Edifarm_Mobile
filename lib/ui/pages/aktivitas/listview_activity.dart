@@ -363,22 +363,7 @@ class AreaView extends StatelessWidget {
                     strokeWidth: 1,
                     borderType: BorderType.RRect,
                     radius: Radius.circular(25),
-
-                    // decoration: BoxDecoration(
-
                     color: Color.fromARGB(255, 1, 104, 97),
-                    // borderRadius: const BorderRadius.only(
-                    //     topLeft: Radius.circular(8.0),
-                    //     bottomLeft: Radius.circular(8.0),
-                    //     bottomRight: Radius.circular(8.0),
-                    //     topRight: Radius.circular(8.0)),
-                    // boxShadow: <BoxShadow>[
-                    //   BoxShadow(
-                    //       color: FitnessAppTheme.grey.withOpacity(0.4),
-                    //       offset: const Offset(1.1, 1.1),
-                    //       blurRadius: 10.0),
-                    // ],),
-
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -401,15 +386,7 @@ class AreaView extends StatelessWidget {
                                             color: AppTheme.green,
                                           ))),
                                   const Spacer(),
-                                  cek(),
-                                  // Container(
-                                  //   // alignment: Alignment.centerRight,
-                                  //   padding: EdgeInsets.only(
-                                  //       bottom: 2, right: 6),
-                                  //   child: Checkbox(
-                                  //       value: false,
-                                  //       onChanged: (value) => true),
-                                  // )
+                                  // cek1(),
                                 ]),
                           ),
                           Padding(

@@ -57,18 +57,18 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
   void addAllListData() {
     const int count = 5;
 
-    listViews.add(
-      TextDiag(
-        titleTxt: 'Apa gejala yang dialami oleh padi anda :',
+    listViews.add(Field());
+    //   TextDiag(
+    //     titleTxt: 'Apa gejala yang dialami oleh padi anda :',
 
-        // subTxt: 'more',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
+    //     // subTxt: 'more',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController!,
+    //         curve:
+    //             Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController!,
+    //   ),
+    // );
     // listViews.add(const DataDiag());
     // listViews.add(
     //   DiagListView(
@@ -80,10 +80,10 @@ class _DiagnosaScreenState extends State<DiagnosaScreen>
     //     mainScreenAnimationController: widget.animationController!,
     //   ),
     // );
-    listViews.add(Deskrip());
-    listViews.add(
-      PotoPadi(),
-    );
+    // listViews.add(Deskrip());
+    // listViews.add(
+    //   PotoPadi(),
+    // );
   }
 
   Future<bool> getData() async {

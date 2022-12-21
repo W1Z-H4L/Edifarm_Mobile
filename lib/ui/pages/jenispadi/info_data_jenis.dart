@@ -34,7 +34,7 @@ class _InfoLinkState extends State<InfoLink>
   Widget build(BuildContext context) {
     return Column(children: [
       Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, bottom: 0),
+        padding: EdgeInsets.only(left: 24, right: 24, bottom: 0),
         child: Row(children: [
           InkWell(
             onTap: () {
@@ -54,21 +54,14 @@ class _InfoLinkState extends State<InfoLink>
                   ]),
               child: Container(
                 padding: EdgeInsets.all(20),
-                height: 70,
-                width: 70,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage('assets/icon_ciherang_hama.png'),
-                      opacity: 20,
-                    ),
-                    color: AppTheme.nearlyWhite,
-                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: AppTheme.grey.withOpacity(0.2),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 8.0),
-                    ]),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/icon_ciherang_hama.png'),
+                    opacity: 100,
+                  ),
+                ),
               ),
             ),
           ),
@@ -121,21 +114,14 @@ class _InfoLinkState extends State<InfoLink>
                   ]),
               child: Container(
                 padding: EdgeInsets.all(20),
-                height: 70,
-                width: 70,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage('assets/icon_ciherang_masa2.png'),
-                      opacity: 20,
-                    ),
-                    color: AppTheme.nearlyWhite,
-                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: AppTheme.grey.withOpacity(0.2),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 8.0),
-                    ]),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/icon_ciherang_masa2.png'),
+                    opacity: 100,
+                  ),
+                ),
               ),
             ),
           ),
@@ -158,164 +144,34 @@ class _InfoLinkState extends State<InfoLink>
                   ]),
               child: Container(
                 padding: EdgeInsets.all(20),
-                height: 70,
-                width: 70,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage('assets/icon_ciherang_perawatan3.png'),
-                      opacity: 20,
-                    ),
-                    color: AppTheme.nearlyWhite,
-                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: AppTheme.grey.withOpacity(0.2),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 8.0),
-                    ]),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/icon_ciherang_perawatan3.png'),
+                    opacity: 100,
+                  ),
+                ),
               ),
             ),
           ),
         ]),
       ),
-      Row(children: [
-        InkWell(
-          onTap: () {
-            launch(
-                "https://jogjabenih.jogjaprov.go.id/read/bd1f9448de1a5f21070345d5c919b38d8165e4a7a6ee0ce9f1ace6cc7cca408e1773");
-          },
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: AppTheme.nearlyWhite,
-                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: AppTheme.grey.withOpacity(0.2),
-                      offset: const Offset(1.1, 1.1),
-                      blurRadius: 8.0),
-                ]),
-            child: Container(
-              padding: EdgeInsets.all(20),
-              height: 70,
-              width: 70,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('assets/icon_inpari_hama.png'),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
-            ),
-          ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: () {
-            launch(
-                "https://www.gatra.com/news-501633-ekonomi-tanam-padi-inpari-32-jurus-jitu-bangun-ketahanan-pangan-.html");
-          },
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: AppTheme.nearlyWhite,
-                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: AppTheme.grey.withOpacity(0.2),
-                      offset: const Offset(1.1, 1.1),
-                      blurRadius: 8.0),
-                ]),
-            child: Container(
-              padding: EdgeInsets.all(20),
-              height: 70,
-              width: 70,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('assets/icon_inpari_masa2.png'),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
-            ),
-          ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: () {
-            launch("https://gdm.id/cara-pemupukan-padi-inpari/");
-          },
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: AppTheme.nearlyWhite,
-                borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: AppTheme.grey.withOpacity(0.2),
-                      offset: const Offset(1.1, 1.1),
-                      blurRadius: 8.0),
-                ]),
-            child: Container(
-              padding: EdgeInsets.all(20),
-              height: 70,
-              width: 70,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage('assets/icon_inpari_masa3.png'),
-                    opacity: 20,
-                  ),
-                  color: AppTheme.nearlyWhite,
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: AppTheme.grey.withOpacity(0.2),
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 8.0),
-                  ]),
-            ),
-          ),
-        ),
-        const Spacer(),
-        Row(
-          children: [
-            InkWell(
-              onTap: () {
-                launch("https://wa.me/+6289503415644");
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    color: AppTheme.nearlyWhite,
-                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: AppTheme.grey.withOpacity(0.2),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 8.0),
-                    ]),
+      const SizedBox(
+        height: 16,
+      ),
+      Padding(
+          padding: EdgeInsets.only(left: 24, right: 24, bottom: 0),
+          child: Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  launch(
+                      "https://jogjabenih.jogjaprov.go.id/read/bd1f9448de1a5f21070345d5c919b38d8165e4a7a6ee0ce9f1ace6cc7cca408e1773");
+                },
                 child: Container(
-                  padding: EdgeInsets.all(20),
-                  alignment: Alignment.center,
-                  height: 70,
-                  width: 70,
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/whatsapp.png'),
-                        opacity: 20,
-                      ),
                       color: AppTheme.nearlyWhite,
                       borderRadius:
                           const BorderRadius.all(Radius.circular(16.0)),
@@ -325,12 +181,83 @@ class _InfoLinkState extends State<InfoLink>
                             offset: const Offset(1.1, 1.1),
                             blurRadius: 8.0),
                       ]),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('assets/icon_inpari_hama.png'),
+                        opacity: 100,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
-        )
-      ])
+              const Spacer(),
+              InkWell(
+                onTap: () {
+                  launch(
+                      "https://www.gatra.com/news-501633-ekonomi-tanam-padi-inpari-32-jurus-jitu-bangun-ketahanan-pangan-.html");
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                      color: AppTheme.nearlyWhite,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(16.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: AppTheme.grey.withOpacity(0.2),
+                            offset: const Offset(1.1, 1.1),
+                            blurRadius: 8.0),
+                      ]),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('assets/icon_inpari_masa2.png'),
+                        opacity: 100,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+              InkWell(
+                onTap: () {
+                  launch("https://wa.me/+6289503415644");
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                      color: AppTheme.nearlyWhite,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(16.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: AppTheme.grey.withOpacity(0.2),
+                            offset: const Offset(1.1, 1.1),
+                            blurRadius: 8.0),
+                      ]),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('assets/whatsapp.png'),
+                        opacity: 100,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ))
     ]);
   }
 }

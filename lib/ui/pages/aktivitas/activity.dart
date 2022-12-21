@@ -1,8 +1,10 @@
+import 'package:Edifarm/ui/pages/aktivitas/aktivitas.dart';
 import 'package:Edifarm/ui/pages/aktivitas/listview_activity.dart';
 import 'package:Edifarm/ui/pages/aktivitas/chart_view.dart';
 import 'package:Edifarm/ui/pages/aktivitas/activity_date.dart';
 import 'package:Edifarm/ui/pages/aktivitas/title_activity.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/dashboard/models/button.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -92,16 +94,16 @@ class _activityPageState extends State<activityPage>
       ),
     );
 
-    listViews.add(
-      ListViewActivity(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
+    listViews.add(const Aktivitas()
+        // ListViewActivity(
+        //   mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+        //       CurvedAnimation(
+        //           parent: widget.animationController!,
+        //           curve: Interval((1 / count) * 5, 1.0,
+        //               curve: Curves.fastOutSlowIn))),
+        //   mainScreenAnimationController: widget.animationController!,
+        // ),
+        );
   }
 
   Future<bool> getData() async {
