@@ -5,6 +5,7 @@ import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/models/Aktivitas.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/aktivitas/aktivitas.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -48,6 +49,8 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
   DateTime? endDate;
   double topBarOpacity = 0.0;
   Animation<double>? topBarAnimation;
+  late Future listblog;
+  List<Aktivitas1> listblog1 = [];
 
   @override
   void initState() {
@@ -61,6 +64,12 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
     }
     animationController?.forward();
     super.initState();
+    listblog = getData();
+    listblog.then((value) {
+      setState(() {
+        listblog1 = value;
+      });
+    });
   }
 
   @override
@@ -337,7 +346,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                                                         10)),
                                                         child: TextButton(
                                                             onPressed: () {
-                                                              getData();
+                                                              Pop();
                                                             },
                                                             child: const Text(
                                                               "Ya",
@@ -383,18 +392,177 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
     try {
       final response = await http.post(Uri.parse(ApiConnect.kalender), body: {
         "id_lahan": _currentUser.user.idLahan.toString(),
-        "tanggal_mulai": startDate.toString(),
-        "tanggal_selesai": endDate.toString()
+        "tanggal_mulai": DateFormat('yyyy-MM-dd').format(startDate!).toString(),
+        "tanggal_selesai": DateFormat('yyyy-MM-dd').format(endDate!).toString()
       });
       if (response.statusCode == 200) {
         print(response.body);
         Iterable it = jsonDecode(response.body);
         List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
-        Navigator.pushNamed(context, '/act');
+
         return blog;
       }
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  Future Pop() {
+    return showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) {
+          return SingleChildScrollView(
+              child: Container(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: Container(
+                      height: 500,
+                      padding: const EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(40),
+                          topLeft: Radius.circular(40),
+                        ),
+                      ),
+                      child: Container(
+                          height: 800,
+                          child: listblog1.length == 0
+                              ? Center(
+                                  child: Text(
+                                    'Belum Ada Kegiatan Apapun' +
+                                        DateFormat('yyyy-MM-dd')
+                                            .format(startDate!)
+                                            .toString(),
+                                    style: TextStyle(
+                                        color: AppTheme.darkText,
+                                        fontFamily: AppTheme.fontName,
+                                        fontSize: 12),
+                                  ),
+                                )
+                              : ListView.builder(
+                                  itemCount: listblog1.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 32,
+                                          left: 32,
+                                          top: 24,
+                                        ),
+                                        child: DottedBorder(
+                                          strokeWidth: 1,
+                                          borderType: BorderType.RRect,
+                                          radius: Radius.circular(25),
+                                          color:
+                                              Color.fromARGB(255, 1, 104, 97),
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    top: 16,
+                                                    left: 16,
+                                                    right: 16,
+                                                  ),
+                                                  child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: <Widget>[
+                                                        Container(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    top: 0,
+                                                                    left: 0),
+                                                            child: Text(
+                                                                listblog1[index]
+                                                                    .kegiatan!,
+                                                                style:
+                                                                    const TextStyle(
+                                                                  fontFamily:
+                                                                      AppTheme
+                                                                          .fontName,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.2,
+                                                                  color: AppTheme
+                                                                      .green,
+                                                                ))),
+                                                        const Spacer(),
+                                                        Container(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    top: 0,
+                                                                    left: 0),
+                                                            child: Text(
+                                                                listblog1[index]
+                                                                    .status!,
+                                                                style:
+                                                                    const TextStyle(
+                                                                  fontFamily:
+                                                                      AppTheme
+                                                                          .fontName,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.2,
+                                                                  color: AppTheme
+                                                                      .green,
+                                                                ))),
+                                                      ]),
+                                                ),
+                                                Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 16,
+                                                            right: 16),
+                                                    child: Row(
+                                                      children: [
+                                                        Container(
+                                                            child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .only(
+                                                                  top: 1,
+                                                                ),
+                                                                child: Text(
+                                                                    listblog1[
+                                                                            index]
+                                                                        .tanggalSelesai!,
+                                                                    style:
+                                                                        const TextStyle(
+                                                                      fontFamily:
+                                                                          AppTheme
+                                                                              .fontName,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w800,
+                                                                      fontSize:
+                                                                          10,
+                                                                      letterSpacing:
+                                                                          0.2,
+                                                                      color: AppTheme
+                                                                          .green,
+                                                                    )))),
+                                                        const Spacer(),
+                                                      ],
+                                                    ))
+                                              ]),
+                                        ));
+                                  })))));
+        });
   }
 }

@@ -1,3 +1,4 @@
+import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayat_pupuk_data.dart';
 import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayat_pupuk_listvew.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
@@ -54,16 +55,7 @@ class _RiwayatPupukState extends State<RiwayatPupuk>
   void addAllListData() {
     const int count = 5;
 
-    listViews.add(
-      ListRiwayatPupuk(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
+    listViews.add(const Pupuk());
   }
 
   Future<bool> getData() async {

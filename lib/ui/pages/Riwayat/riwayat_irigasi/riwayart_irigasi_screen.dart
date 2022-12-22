@@ -1,3 +1,4 @@
+import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayat_irigasi_data.dart';
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayat_irigasi_listvew.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
@@ -54,16 +55,16 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
   void addAllListData() {
     const int count = 5;
 
-    listViews.add(
-      ListRiwayatIrigasi(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
+    listViews.add(Irigasi()
+        // ListRiwayatIrigasi(
+        //   mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+        //       CurvedAnimation(
+        //           parent: widget.animationController!,
+        //           curve: Interval((1 / count) * 5, 1.0,
+        //               curve: Curves.fastOutSlowIn))),
+        //   mainScreenAnimationController: widget.animationController!,
+        // ),
+        );
   }
 
   Future<bool> getData() async {

@@ -1,6 +1,7 @@
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class tanggalActivity extends StatelessWidget {
   final AnimationController? animationController;
@@ -25,7 +26,7 @@ class tanggalActivity extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 16),
+                      padding: const EdgeInsets.only(top: 20, bottom: 16),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.transparent,
@@ -59,7 +60,8 @@ class tanggalActivity extends StatelessWidget {
                                         top: 16,
                                       ),
                                       child: Text(
-                                        "Sabtu, 23 - 11 - 22",
+                                        DateFormat('cccc, dd MMMM yyyy')
+                                            .format(DateTime.now()),
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.montserrat(
                                             color: Color(0xFF006B6C),
@@ -95,11 +97,11 @@ class tanggalActivity extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: -5,
-                      left: 0,
+                      top: -25,
+                      left: -10,
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 80,
+                        height: 80,
                         child: Image.asset("assets/gambar_tani_act.png"),
                       ),
                     )

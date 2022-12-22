@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/controler/CurentUser.dart';
+import 'package:Edifarm/controler/Remember_jadwal.dart';
 import 'package:Edifarm/models/Aktivitas.dart';
 import 'package:Edifarm/models/Jenis_Model.dart';
 import 'package:Edifarm/models/Lahan_model.dart';
@@ -44,13 +45,19 @@ class ServiceApiAktiv {
       final response = await http.post(Uri.parse(ApiConnect.aktiv), body: {
         "id_user": _currentUser.user.idUser.toString(),
         "tanggal_mulai":
-            DateFormat('yyyy mm dd').format(DateTime.now()).toString()
+            DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
       });
 
       if (response.statusCode == 200) {
         print(response.body);
         Iterable it = jsonDecode(response.body);
         List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        // final jadwal = jsonDecode(response.body);
+
+        // // ignore: non_constant_identifier_names
+        // Aktivitas1 JadwalInfo = Aktivitas1.fromJson(jadwal['jadwal']);
+        // await RememberJadwal().storeJadwal(json.encode(JadwalInfo));
+
         return blog;
       }
     } catch (e) {
@@ -80,6 +87,40 @@ class ServiceApiIri {
   Future getData() async {
     try {
       var response = await http.post(Uri.parse(ApiConnect.irigasi),
+          body: {"id_lahan": _currentUser.user.idLahan.toString()});
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiPupuk {
+  Future getData() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.pupuk),
+          body: {"id_lahan": _currentUser.user.idLahan.toString()});
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiPestisida {
+  Future getData() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.pestisida),
           body: {"id_lahan": _currentUser.user.idLahan.toString()});
       if (response.statusCode == 200) {
         print(response.body);

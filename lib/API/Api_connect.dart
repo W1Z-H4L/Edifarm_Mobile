@@ -35,4 +35,13 @@ class ApiConnect {
 
   //riwayat irigasi
   static const irigasi = "$connectApi/riwayat_irigasi.php";
+
+  //riwayat pupuk
+  static const pupuk = "$connectApi/riwayat_pemupukan.php";
+
+  //riwayat pestisida
+  static const pestisida = "$connectApi/riwayat_pestisida.php";
+
+  //chart
+  static const chart = "$connectApi/chart.php";
 }

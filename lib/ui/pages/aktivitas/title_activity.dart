@@ -56,7 +56,7 @@ class TitleActivity extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: AppTheme.fontName,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   letterSpacing: 0.5,
                                   color: AppTheme.splash,
                                 ),
