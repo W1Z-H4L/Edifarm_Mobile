@@ -10,6 +10,7 @@ import 'package:Edifarm/models/User_model.dart';
 import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class ServiceApiDiag {
   //get data berita
@@ -40,8 +41,11 @@ final CurrentUser _currentUser = Get.put(CurrentUser());
 class ServiceApiAktiv {
   Future getData() async {
     try {
-      final response = await http.post(Uri.parse(ApiConnect.aktiv),
-          body: {"id_user": _currentUser.user.idUser.toString()});
+      final response = await http.post(Uri.parse(ApiConnect.aktiv), body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "tanggal_mulai":
+            DateFormat('yyyy mm dd').format(DateTime.now()).toString()
+      });
 
       if (response.statusCode == 200) {
         print(response.body);

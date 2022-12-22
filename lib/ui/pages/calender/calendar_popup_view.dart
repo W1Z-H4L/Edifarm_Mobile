@@ -1,8 +1,16 @@
+import 'dart:convert';
+
+import 'package:Edifarm/API/Api_connect.dart';
+import 'package:Edifarm/controler/CurentUser.dart';
+import 'package:Edifarm/models/Aktivitas.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/aktivitas/aktivitas.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import 'custom_calendar.dart';
+import 'package:http/http.dart' as http;
 
 class CalendarPopupView extends StatefulWidget {
   const CalendarPopupView(
@@ -329,10 +337,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                                                         10)),
                                                         child: TextButton(
                                                             onPressed: () {
-                                                              Navigator
-                                                                  .pushNamed(
-                                                                      context,
-                                                                      '/act');
+                                                              getData();
                                                             },
                                                             child: const Text(
                                                               "Ya",
@@ -371,5 +376,25 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
         ),
       ),
     );
+  }
+
+  final CurrentUser _currentUser = Get.put(CurrentUser());
+  Future getData() async {
+    try {
+      final response = await http.post(Uri.parse(ApiConnect.kalender), body: {
+        "id_lahan": _currentUser.user.idLahan.toString(),
+        "tanggal_mulai": startDate.toString(),
+        "tanggal_selesai": endDate.toString()
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        Navigator.pushNamed(context, '/act');
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

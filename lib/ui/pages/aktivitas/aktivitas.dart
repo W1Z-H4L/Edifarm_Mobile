@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/API/Api_service.dart';
 import 'package:Edifarm/controler/CurrentJadwal.dart';
+import 'package:Edifarm/controler/Remember_jadwal.dart';
 import 'package:Edifarm/models/Aktivitas.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/ui/pages/aktivitas/cek.dart';
@@ -167,18 +168,17 @@ class _AktivitasState extends State<Aktivitas>
                 }));
   }
 
-  int isi = 28;
   final CurrentJadwal _currentJadwal = Get.put(CurrentJadwal());
   Future aktiv() async {
     try {
       var response = await http.patch(Uri.parse(ApiConnect.aktiv), body: {
-        "id_jadwal": isi.toString(),
+        "id_jadwal": _currentJadwal.jadwal.idJadwal.toString(),
       });
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-
-        Navigator.pushNamed(context, '/diag');
+        Aktivitas1 JadwalInfo = Aktivitas1.fromJson(data['jadwal']);
+        await RememberJadwal().storeJadwal(json.encode(JadwalInfo));
       }
     } catch (e) {
       Fluttertoast.showToast(msg: e.toString());
