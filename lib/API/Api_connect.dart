@@ -32,4 +32,7 @@ class ApiConnect {
 
   //search kalender
   static const kalender = "$connectApi/kalender.php";
+
+  //riwayat irigasi
+  static const irigasi = "$connectApi/riwayat_irigasi.php";
 }

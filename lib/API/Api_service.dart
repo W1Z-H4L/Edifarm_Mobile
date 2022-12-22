@@ -76,6 +76,23 @@ class ServiceApiLahan {
   }
 }
 
+class ServiceApiIri {
+  Future getData() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.irigasi),
+          body: {"id_lahan": _currentUser.user.idLahan.toString()});
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
 class ServiceApiJenis {
   Future getData() async {
     try {
