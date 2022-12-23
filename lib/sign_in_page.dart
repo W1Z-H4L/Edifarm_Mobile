@@ -35,6 +35,7 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void initState() {
+    cekLogin();
     // getPref();
     // TODO: implement initState
     super.initState();
@@ -42,6 +43,18 @@ class _SignInPageState extends State<SignInPage> {
 
     username = TextEditingController();
     password = TextEditingController();
+  }
+
+  Future cekLogin() async {
+    FutureBuilder(
+        future: RememberUser.readUser(),
+        builder: (context, snapshot) {
+          if (snapshot.data == null) {
+            return SignInPage();
+          } else {
+            return const HomeScreen();
+          }
+        });
   }
 
   @override
@@ -152,35 +165,30 @@ class _SignInPageState extends State<SignInPage> {
                       fillColor: AppTheme.green,
                     ),
                   ),
-
-                  InkWell(
-                      child: Container(
-                        height: 40,
-                        width: 70,
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.only(
-                            top: 50, left: 75, bottom: 50, right: 75),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: AppTheme.green,
-                              onPrimary: AppTheme.white),
-                          onPressed: () =>
-                              Navigator.pushNamed(context, '/home'),
-                          child: const Text(
-                            'Masuk',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppTheme.green,
-                              fontFamily: AppTheme.fontName,
-                              fontWeight: FontWeight.w400,
-                            ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 40,
+                      width: 70,
+                      alignment: Alignment.center,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: AppTheme.green, onPrimary: AppTheme.white),
+                        onPressed: () => verifyLogin(),
+                        child: const Text(
+                          'Masuk',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: AppTheme.white,
+                            fontFamily: AppTheme.fontName,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
-                      onTap: () {
-                        // Navigator.pushNamed(context, '/home');
-                        verifyLogin();
-                      }),
+                    ),
+                  ),
 
                   const SizedBox(
                     height: 50,
@@ -310,15 +318,15 @@ class _SignInPageState extends State<SignInPage> {
 
   // String? user = '';
   // String? pass = '';
-  var data;
-  getPref() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    safaedata(username, password);
-    setState(() {
-      data = preferences.getBool('success');
-      _loginstatus = data == true ? Loginstatus.signin : Loginstatus.notSignin;
-    });
-  }
+  // var data;
+  // getPref() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   safaedata(username, password);
+  //   setState(() {
+  //     data = preferences.getBool('success');
+  //     _loginstatus = data == true ? Loginstatus.signin : Loginstatus.notSignin;
+  //   });
+  // }
 
   // sharePref(data, user, pass) async {
   //   SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -329,10 +337,10 @@ class _SignInPageState extends State<SignInPage> {
   //   });
   // }
 
-  safaedata(username, password) async {
-    WidgetsFlutterBinding.ensureInitialized();
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.setString('username', username);
-    preferences.setString('password', password);
-  }
+  // safaedata(username, password) async {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   preferences.setString('username', username);
+  //   preferences.setString('password', password);
+  // }
 }

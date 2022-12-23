@@ -2,6 +2,7 @@ import 'package:Edifarm/shared/Theme_App.dart';
 
 import 'package:Edifarm/ui/pages/lahan/deskirpsi_lahan.dart';
 import 'package:Edifarm/ui/pages/lahan/info_data.dart';
+import 'package:Edifarm/ui/pages/lahan/info_lahan.dart';
 import 'package:Edifarm/ui/pages/lahan/nama_lahan.dart';
 import 'package:flutter/material.dart';
 
@@ -138,7 +139,7 @@ class _LahanScreenState extends State<LahanScreen>
                           //   ),
                           // ),
                           const namaLahan(),
-                          DataLahan(),
+                          InfoLahan(),
                           // AnimatedOpacity(
                           //   duration: const Duration(milliseconds: 500),
                           //   opacity: opacity1,

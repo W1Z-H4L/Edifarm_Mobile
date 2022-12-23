@@ -1,9 +1,14 @@
+import 'dart:async';
+
+import 'package:Edifarm/controler/Remember_User.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 import 'package:Edifarm/shared/theme.dart';
 import 'package:Edifarm/sign_in_page.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
 import 'package:Edifarm/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -249,7 +254,20 @@ class _SettingsPage extends State<SettingsPage> {
                                 borderRadius: BorderRadius.circular(10)),
                             child: TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, '/sign-in');
+                                  setState(() {
+                                    RememberUser.removeUserSessions().then(
+                                        (value) => Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SignInPage())));
+                                    Fluttertoast.showToast(
+                                      msg: 'Berhasil Logout',
+                                      backgroundColor: Colors.red[300],
+                                      textColor: Colors.white,
+                                      fontSize: 12,
+                                    );
+                                  });
                                 },
                                 child: const Text(
                                   "Ya",

@@ -55,7 +55,7 @@ class tanggalActivity extends StatelessWidget {
                                   children: <Widget>[
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                        left: 100,
+                                        left: 80,
                                         right: 16,
                                         top: 16,
                                       ),
@@ -73,7 +73,7 @@ class tanggalActivity extends StatelessWidget {
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.only(
-                                    left: 100,
+                                    left: 80,
                                     bottom: 12,
                                     top: 4,
                                     right: 16,
@@ -97,7 +97,7 @@ class tanggalActivity extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: -25,
+                      top: -15,
                       left: -10,
                       child: SizedBox(
                         width: 80,

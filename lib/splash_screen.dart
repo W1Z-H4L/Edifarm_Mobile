@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:Edifarm/controler/Remember_User.dart';
 import 'package:Edifarm/login.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
@@ -23,20 +24,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 7),
-      () => Navigator.pushNamed(context, '/sign-in'),
+      Duration(seconds: 4),
+      () => Navigator.pushNamed(context, '/home'),
     );
     super.initState();
   }
 
-  Future getValidationData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    var obtainedusername = sharedPreferences.getString('password');
-    setState(() {
-      username = obtainedusername;
-    });
-    print(username);
+  Future cekLogin() async {
+    FutureBuilder(
+        future: RememberUser.readUser(),
+        builder: (context, snapshot) {
+          if (snapshot.data == null) {
+            return SignInPage();
+          } else {
+            return const HomeScreen();
+          }
+        });
   }
 
   Widget build(BuildContext context) {
@@ -77,14 +80,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontSize: 13,
                 fontWeight: FontWeight.w600),
           ),
-          MaterialButton(
-            onPressed: () async {
-              final SharedPreferences sharedPreferences =
-                  await SharedPreferences.getInstance();
-              sharedPreferences.remove('password');
-              Get.to(SignInPage());
-            },
-          ),
 
           SizedBox(
             height: 25,
@@ -97,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
             percent: 1.0,
             progressColor: Color(0xff006B6C),
             backgroundColor: Color.fromARGB(219, 189, 226, 231),
-          ),
+          )
           // Container(
           //     height: 30,
           //     padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),

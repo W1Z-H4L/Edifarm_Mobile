@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'dart:async';
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
@@ -26,6 +27,7 @@ class _PotoPadiState extends State<PotoPadi> {
   @override
   File? image;
   TextEditingController isi = TextEditingController();
+  TextEditingController Foto = TextEditingController();
 
   Future<void> getImageGalerry() async {
     var galleryPermission = Permission.storage;
@@ -178,20 +180,6 @@ class _PotoPadiState extends State<PotoPadi> {
     );
   }
 
-  // Future deskrip() async {
-  //   try {
-  //     var response = await http.post(Uri.parse(ApiConnect.pertanyaan), body: {
-  //       "deskripsi": deskripsi.text.trim(),
-  //     });
-
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //     }
-  //   } catch (e) {
-  //     Fluttertoast.showToast(msg: e.toString());
-  //     print(e.toString());
-  //   }
-
   @override
   void dispose() {
     super.dispose();
@@ -200,43 +188,7 @@ class _PotoPadiState extends State<PotoPadi> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // ListView(children: [
-        // Container(
-        //     padding:
-        //         const EdgeInsets.only(top: 32, right: 16, bottom: 16, left: 16),
-        //     child: DottedBorder(
-        //         color: AppTheme.green,
-        //         strokeWidth: 1,
-        //         borderType: BorderType.RRect,
-        //         radius: Radius.circular(25),
-        //         child: Column(
-        //             mainAxisAlignment: MainAxisAlignment.center,
-        //             crossAxisAlignment: CrossAxisAlignment.start,
-        //             children: <Widget>[
-        //               Padding(
-        //                   padding: const EdgeInsets.only(
-        //                     top: 16,
-        //                     left: 16,
-        //                   ),
-        //                   child: Expanded(
-        //                       child: Container(
-        //                     height: 100,
-        //                     child: TextFormField(
-        //                       controller: isi,
-        //                       cursorHeight: 25,
-        //                       style: GoogleFonts.montserrat(),
-        //                       decoration: const InputDecoration(
-        //                         hintText:
-        //                             'Berikan Penjelasan Tambahan Agar Admin Dapat Lebih Mengerti',
-        //                         hintStyle: AppTheme.custom,
-        //                       ),
-        //                       maxLength: 500,
-        //                       maxLines: 20,
-        //                     ),
-        //                   )))
-        //             ]))),
-        Column(children: <Widget>[
+    return Column(children: <Widget>[
       const Padding(
         padding: EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 0),
         child: Text(
@@ -509,30 +461,65 @@ class _PotoPadiState extends State<PotoPadi> {
   }
 
   final CurrentUser _currentUser = Get.put(CurrentUser());
+
   Future deskrip() async {
-    try {
-      var response = await http.post(Uri.parse(ApiConnect.lapor), body: {
-        "isi": isi.text.trim(),
-        "tanggal_consul": DateTime.now().toString(),
-        "id_user": _currentUser.user.idUser.toString()
-      });
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-
-        Navigator.pushNamed(context, '/diag');
-      }
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString());
-      print(e.toString());
+    var response = Uri.parse(ApiConnect.lapor);
+    var request = http.MultipartRequest('POST', response);
+    var pic = await http.MultipartFile.fromPath("image", image!.path);
+    request.fields['id_user'] = _currentUser.user.idUser.toString();
+    request.fields['isi'] = isi.text.trim();
+    request.fields['tanggal_consul'] = DateTime.now().toString();
+    request.fields['Foto'] = Foto.text;
+    request.files.add(pic);
+    var responsen = await request.send();
+    if (responsen.statusCode == 200) {
+      print("Image Uploaded");
+      Navigator.pop(context);
+      succes();
+    } else {
+      print("Image Not Uploded");
+      failed();
     }
   }
 
-  void verifyPindah(BuildContext context) {
+  void verifyLapor() {
     if (isi.text.isEmpty) {
-      Fluttertoast.showToast(msg: "Deskripsi Tidak Boleh Kosong");
+      Fluttertoast.showToast(
+        msg: "Harus Menyertakan Deskripsi",
+        backgroundColor: Colors.red[300],
+        fontSize: 12,
+      );
+    } else if (image! == null) {
+      Fluttertoast.showToast(
+          msg: "Harus Menyetakan Gambar",
+          backgroundColor: Colors.red[300],
+          fontSize: 12);
     } else {
       deskrip();
     }
+  }
+
+  void succes() async {
+    Center(
+      child: CircularProgressIndicator(color: AppTheme.orange),
+    );
+
+    Fluttertoast.showToast(
+      msg: "Berhasil Mengunggah Laporan",
+      backgroundColor: Colors.green[300],
+      fontSize: 12,
+    );
+  }
+
+  void failed() async {
+    Center(
+      child: CircularProgressIndicator(color: AppTheme.orange),
+    );
+
+    Fluttertoast.showToast(
+      msg: "Gagal Mengunggah Laporan",
+      backgroundColor: Colors.red[300],
+      fontSize: 12,
+    );
   }
 }

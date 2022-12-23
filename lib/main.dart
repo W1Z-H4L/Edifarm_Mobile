@@ -1,9 +1,12 @@
+import 'package:Edifarm/cek_Login.dart';
+import 'package:Edifarm/controler/Remember_User.dart';
 import 'package:Edifarm/sign_in_page.dart';
 import 'package:Edifarm/splash_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pengobatan/riwayart_pestisida_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dart';
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
+import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
@@ -44,6 +47,17 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
     animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: animationController!,
         curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
+    Future cekLogin() async {
+      FutureBuilder(
+          future: RememberUser.readUser(),
+          builder: (context, snapshot) {
+            if (snapshot.data == null) {
+              return SignInPage();
+            } else {
+              return const HomeScreen();
+            }
+          });
+    }
 
     super.initState();
   }
@@ -53,6 +67,7 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
+        '.': (context) => const CekLogin(),
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),

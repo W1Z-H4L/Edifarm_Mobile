@@ -4,14 +4,14 @@ import 'package:Edifarm/shared/Theme_App.dart';
 
 import 'package:flutter/material.dart';
 
-class DataLahan extends StatefulWidget {
-  const DataLahan({Key? key}) : super(key: key);
+class InfoLahan extends StatefulWidget {
+  const InfoLahan({Key? key}) : super(key: key);
 
   @override
-  State<DataLahan> createState() => _DataLahanState();
+  State<InfoLahan> createState() => _DataLahanState();
 }
 
-class _DataLahanState extends State<DataLahan> {
+class _DataLahanState extends State<InfoLahan> {
   late Future listdata;
   List<LahanModel> listdata1 = [];
   @override
@@ -45,7 +45,7 @@ class _DataLahanState extends State<DataLahan> {
                   return Row(
                     children: [
                       Container(
-                          height: 100,
+                          height: 60,
                           width: 100,
                           decoration: BoxDecoration(
                               // borderRadius: BorderRadius.circular(10),

@@ -78,6 +78,26 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
     super.dispose();
   }
 
+  final CurrentUser _currentUser = Get.put(CurrentUser());
+  Future getData() async {
+    try {
+      final response = await http.post(Uri.parse(ApiConnect.kalender), body: {
+        "id_lahan": _currentUser.user.idLahan.toString(),
+        "tanggal_mulai": widget.initialStartDate.toString(),
+        "tanggal_selesai": widget.initialEndDate.toString()
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -385,26 +405,6 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
         ),
       ),
     );
-  }
-
-  final CurrentUser _currentUser = Get.put(CurrentUser());
-  Future getData() async {
-    try {
-      final response = await http.post(Uri.parse(ApiConnect.kalender), body: {
-        "id_lahan": _currentUser.user.idLahan.toString(),
-        "tanggal_mulai": DateFormat('yyyy-MM-dd').format(startDate!).toString(),
-        "tanggal_selesai": DateFormat('yyyy-MM-dd').format(endDate!).toString()
-      });
-      if (response.statusCode == 200) {
-        print(response.body);
-        Iterable it = jsonDecode(response.body);
-        List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
-
-        return blog;
-      }
-    } catch (e) {
-      print(e.toString());
-    }
   }
 
   Future Pop() {

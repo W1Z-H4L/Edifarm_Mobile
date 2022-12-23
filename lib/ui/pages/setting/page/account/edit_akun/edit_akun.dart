@@ -4,6 +4,7 @@ import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/controler/Remember_User.dart';
 import 'package:Edifarm/models/User_model.dart';
+import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:get/get.dart';
@@ -34,6 +35,11 @@ class _EditProfilePageState extends State<EditProfilePage>
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
+  TextEditingController nama = TextEditingController();
+  TextEditingController alamat = TextEditingController();
+  TextEditingController noHp = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController Foto = TextEditingController();
   // User user = User();
 
   // void data() async {
@@ -75,10 +81,17 @@ class _EditProfilePageState extends State<EditProfilePage>
       }
     });
     super.initState();
-    name = TextEditingController();
+    nama = TextEditingController();
     alamat = TextEditingController();
     noHp = TextEditingController();
     password = TextEditingController();
+  }
+
+  bool secureText2 = true;
+  showHide2() {
+    setState(() {
+      secureText2 = !secureText2;
+    });
   }
 
   void addAllListData() {
@@ -244,16 +257,12 @@ class _EditProfilePageState extends State<EditProfilePage>
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    name.dispose();
+    nama.dispose();
     noHp.dispose();
     alamat.dispose();
     password.dispose();
   }
 
-  TextEditingController name = TextEditingController();
-  TextEditingController alamat = TextEditingController();
-  TextEditingController noHp = TextEditingController();
-  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -321,7 +330,8 @@ class _EditProfilePageState extends State<EditProfilePage>
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
-                                      "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                                      "https://d126-125-166-118-235.ap.ngrok.io//EDIFARM/api/image_profil/" +
+                                          _currentUser.user.foto!.toString(),
                                     ))),
                           )
                         : Container(
@@ -346,7 +356,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                                   //   image ?? File(""),
                                   // ) as ImageProvider<Object>),
                                   image: FileImage(
-                                    image ?? File(""),
+                                    image ?? File(_currentUser.user.foto!),
                                   ),
                                 )),
                           ),
@@ -435,7 +445,7 @@ class _EditProfilePageState extends State<EditProfilePage>
               Container(
                   padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
                   child: TextFormField(
-                    controller: name,
+                    controller: nama,
                     showCursor: true,
                     cursorHeight: 20,
                     style: blackTextStyle2,
@@ -544,6 +554,36 @@ class _EditProfilePageState extends State<EditProfilePage>
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelText: 'Jenis Kelamin',
                       hintText: _currentUser.user.jenisKelamin,
+                      hintStyle: subtitleTextStyle,
+                      labelStyle: greenTextStyle3,
+                      focusColor: subtitleColor2,
+                      fillColor: subtitleColor2,
+                    ),
+                  )),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),
+                  child: TextFormField(
+                    controller: password,
+                    showCursor: true,
+                    cursorHeight: 25,
+                    style: blackTextStyle2,
+                    obscureText: secureText2,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          secureText2 ? Icons.visibility_off : Icons.visibility,
+                          color: AppTheme.green,
+                        ),
+                        onPressed: () {
+                          showHide2();
+                        },
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelText: 'Password',
+                      hintText: 'Masukan Password Lama',
                       hintStyle: subtitleTextStyle,
                       labelStyle: greenTextStyle3,
                       focusColor: subtitleColor2,
@@ -686,7 +726,7 @@ class _EditProfilePageState extends State<EditProfilePage>
   }
 
   void verifyUpdate() {
-    if (name.text.isEmpty) {
+    if (nama.text.isEmpty) {
       Fluttertoast.showToast(
         msg: "Nama Harus Diisi",
         backgroundColor: Colors.red[300],
@@ -707,6 +747,9 @@ class _EditProfilePageState extends State<EditProfilePage>
           msg: "Password Salah",
           backgroundColor: Colors.red[300],
           fontSize: 12);
+    } else if (image! == null) {
+      Fluttertoast.showToast(
+          msg: "Foto Kosong", backgroundColor: Colors.red[300], fontSize: 12);
     } else {
       update();
     }
@@ -714,23 +757,76 @@ class _EditProfilePageState extends State<EditProfilePage>
 
   final CurrentUser _currentUser = Get.put(CurrentUser());
   Future update() async {
-    try {
-      var response = await http.post(Uri.parse(ApiConnect.bio), body: {
-        "nama": name.text.toString(),
-        "id_user": _currentUser.user.idUser.toString(),
-        "alamat": alamat.text.toString(),
-        "no_hp": noHp.text.toString(),
-        "password": password.text.toString()
-      });
+    var response = Uri.parse(ApiConnect.bio);
+    var request = http.MultipartRequest('POST', response);
+    var pic = await http.MultipartFile.fromPath("image", image!.path);
+    request.fields['id_user'] = _currentUser.user.idUser.toString();
+    request.fields['nama'] = nama.text.toString();
+    request.fields['password'] = password.text.toString();
+    request.fields['no_hp'] = noHp.text.toString();
+    request.fields['alamat'] = alamat.text.toString();
+    request.fields['Foto'] = Foto.text;
+    request.files.add(pic);
+    var responsen = await request.send();
+    if (responsen.statusCode == 200) {
+      print("Image Uploaded");
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-
-        Navigator.pushNamed(context, '/sign-in');
-      }
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString());
-      print(e.toString());
+      succes();
+    } else {
+      print("Image Not Uploded");
+      failed();
     }
   }
+
+  void succes() {
+    Fluttertoast.showToast(
+      msg: "Perubahan Data Berhasil Disimpan",
+      backgroundColor: Colors.green[300],
+      fontSize: 12,
+    );
+    Fluttertoast.showToast(
+      msg: "Perubahan Login Berhasil Disimpan",
+      backgroundColor: Colors.orange[300],
+      fontSize: 12,
+    );
+    Navigator.pushNamed(context, 'sign-in');
+  }
+
+  void failed() {
+    const Center(
+      child: CircularProgressIndicator(color: AppTheme.orange),
+    );
+    Fluttertoast.showToast(
+      msg: "Perubahan Data Gagal Berhasil Disimpan",
+      backgroundColor: Colors.red[300],
+      fontSize: 12,
+    );
+
+    Fluttertoast.showToast(
+      msg: "Silahkan Coba Kembali",
+      backgroundColor: Colors.red[300],
+      fontSize: 12,
+    );
+  }
+
+  // Future update() async {
+  //   try {
+  //     var response = await http.post(Uri.parse(ApiConnect.bio), body: {
+  //       "nama": name.text.toString(),
+  //       "id_user": _currentUser.user.idUser.toString(),
+  //       "alamat": alamat.text.toString(),
+  //       "no_hp": noHp.text.toString(),
+  //       "password": password.text.toString()
+  //     });
+
+  //     if (response.statusCode == 200) {
+  //       final data = jsonDecode(response.body);
+
+  //       Navigator.pushNamed(context, '/sign-in');
+  //     }
+  //   } catch (e) {
+  //     Fluttertoast.showToast(msg: e.toString());
+  //     print(e.toString());
+  //   }
+  // }
 }

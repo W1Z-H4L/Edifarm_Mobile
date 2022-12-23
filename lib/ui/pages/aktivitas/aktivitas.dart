@@ -1,6 +1,7 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
-
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/API/Api_service.dart';
 import 'package:Edifarm/controler/CurrentJadwal.dart';
@@ -28,6 +29,7 @@ class _AktivitasState extends State<Aktivitas>
   late AnimationController _controller;
   late Future listblog;
   List<Aktivitas1> listblog1 = [];
+  DateTime? _currentTime;
 
   @override
   void initState() {
@@ -36,6 +38,13 @@ class _AktivitasState extends State<Aktivitas>
     listblog.then((value) {
       setState(() {
         listblog1 = value;
+      });
+    });
+    initializeDateFormatting();
+    _currentTime = DateTime.now();
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        _currentTime = DateTime.now();
       });
     });
   }
@@ -76,53 +85,184 @@ class _AktivitasState extends State<Aktivitas>
                         left: 32,
                         top: 24,
                       ),
-                      child: InkWell(
-                          onTap: () {
-                            aktiv();
-                          },
-                          child: DottedBorder(
-                            strokeWidth: 1,
-                            borderType: BorderType.RRect,
-                            radius: Radius.circular(25),
-                            color: Color.fromARGB(255, 1, 104, 97),
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 16,
-                                      left: 16,
-                                      right: 16,
-                                    ),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Container(
-                                              padding: EdgeInsets.only(
-                                                  top: 0, left: 0),
+                      child: DottedBorder(
+                        strokeWidth: 1,
+                        borderType: BorderType.RRect,
+                        radius: Radius.circular(25),
+                        color: Color.fromARGB(255, 1, 104, 97),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 16,
+                                  left: 16,
+                                  right: 16,
+                                ),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                          padding:
+                                              EdgeInsets.only(top: 0, left: 0),
+                                          child: Text(
+                                              listblog1[index].kegiatan!,
+                                              style: const TextStyle(
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 16,
+                                                letterSpacing: 0.2,
+                                                color: AppTheme.green,
+                                              ))),
+                                      const Spacer(),
+                                      listblog1[index].status! == 'Selesai'
+                                          ? Container(
+                                              padding: EdgeInsets.all(8),
+                                              decoration: BoxDecoration(
+                                                  color: AppTheme.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  boxShadow: <BoxShadow>[
+                                                    BoxShadow(
+                                                        color: AppTheme.green
+                                                            .withOpacity(0.2),
+                                                        offset: const Offset(
+                                                            1.1, 1.1),
+                                                        blurRadius: 8.0),
+                                                  ]),
                                               child: Text(
-                                                  listblog1[index].kegiatan!,
+                                                  listblog1[index].status!,
                                                   style: const TextStyle(
                                                     fontFamily:
                                                         AppTheme.fontName,
                                                     fontWeight: FontWeight.w800,
-                                                    fontSize: 16,
+                                                    fontSize: 12,
                                                     letterSpacing: 0.2,
                                                     color: AppTheme.green,
-                                                  ))),
-                                          const Spacer(),
-                                          listblog1[index].status == 'Selesai'
-                                              ? Container(
+                                                  )))
+                                          : InkWell(
+                                              onTap: () {
+                                                showDialog(
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return Container(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                top: 50,
+                                                                bottom: 50),
+                                                        height: 150,
+                                                        width: 150,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(30),
+                                                        ),
+                                                        child: AlertDialog(
+                                                          title: Text(
+                                                            "Apakah Anda Sudah Melakukan " +
+                                                                listblog1[index]
+                                                                    .kegiatan! +
+                                                                " ?",
+                                                            selectionColor:
+                                                                Colors.white,
+                                                            style: TextStyle(
+                                                                color: AppTheme
+                                                                    .black,
+                                                                fontFamily:
+                                                                    AppTheme
+                                                                        .fontName,
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400),
+                                                          ),
+                                                          actions: [
+                                                            Container(
+                                                              height: 30,
+                                                              width: 60,
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                              decoration: BoxDecoration(
+                                                                  color: AppTheme
+                                                                      .orange,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10)),
+                                                              child: TextButton(
+                                                                  onPressed:
+                                                                      () {
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  },
+                                                                  child:
+                                                                      const Text(
+                                                                    "Tidak",
+                                                                    style: TextStyle(
+                                                                        color: AppTheme
+                                                                            .white,
+                                                                        fontFamily:
+                                                                            AppTheme
+                                                                                .fontName,
+                                                                        fontSize:
+                                                                            10,
+                                                                        fontWeight:
+                                                                            FontWeight.w400),
+                                                                  )),
+                                                            ),
+                                                            Container(
+                                                              height: 30,
+                                                              width: 60,
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                              decoration: BoxDecoration(
+                                                                  border: Border.all(
+                                                                      color: Colors
+                                                                          .orange),
+                                                                  color: AppTheme
+                                                                      .white,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10)),
+                                                              child: TextButton(
+                                                                  onPressed:
+                                                                      () {
+                                                                    aktiv();
+                                                                  },
+                                                                  child:
+                                                                      const Text(
+                                                                    "Ya",
+                                                                    style: TextStyle(
+                                                                        color: AppTheme
+                                                                            .orange,
+                                                                        fontFamily:
+                                                                            AppTheme
+                                                                                .fontName,
+                                                                        fontSize:
+                                                                            10,
+                                                                        fontWeight:
+                                                                            FontWeight.w400),
+                                                                  )),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    });
+                                              },
+                                              child: Container(
                                                   padding: EdgeInsets.all(8),
                                                   decoration: BoxDecoration(
-                                                      color: AppTheme.white,
+                                                      color: AppTheme.green,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              8),
                                                       boxShadow: <BoxShadow>[
                                                         BoxShadow(
                                                             color: AppTheme
@@ -141,217 +281,68 @@ class _AktivitasState extends State<Aktivitas>
                                                             AppTheme.fontName,
                                                         fontWeight:
                                                             FontWeight.w800,
-                                                        fontSize: 14,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.2,
-                                                        color: AppTheme.green,
-                                                      )))
-                                              : InkWell(
-                                                  onTap: () {
-                                                    showDialog(
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return Container(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    top: 50,
-                                                                    bottom: 50),
-                                                            height: 150,
-                                                            width: 150,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          30),
-                                                            ),
-                                                            child: AlertDialog(
-                                                              title: Text(
-                                                                "Apakah Anda Sudah Melakukan " +
-                                                                    listblog1[
-                                                                            index]
-                                                                        .kegiatan! +
-                                                                    " ?",
-                                                                selectionColor:
-                                                                    Colors
-                                                                        .white,
-                                                                style: TextStyle(
-                                                                    color: AppTheme
-                                                                        .black,
-                                                                    fontFamily:
-                                                                        AppTheme
-                                                                            .fontName,
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w400),
-                                                              ),
-                                                              actions: [
-                                                                Container(
-                                                                  height: 30,
-                                                                  width: 60,
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  decoration: BoxDecoration(
-                                                                      color: AppTheme
-                                                                          .orange,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              10)),
-                                                                  child:
-                                                                      TextButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            Navigator.pop(context);
-                                                                          },
-                                                                          child:
-                                                                              const Text(
-                                                                            "Tidak",
-                                                                            style: TextStyle(
-                                                                                color: AppTheme.white,
-                                                                                fontFamily: AppTheme.fontName,
-                                                                                fontSize: 10,
-                                                                                fontWeight: FontWeight.w400),
-                                                                          )),
-                                                                ),
-                                                                Container(
-                                                                  height: 30,
-                                                                  width: 60,
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  decoration: BoxDecoration(
-                                                                      border: Border.all(
-                                                                          color: Colors
-                                                                              .orange),
-                                                                      color: AppTheme
-                                                                          .white,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              10)),
-                                                                  child:
-                                                                      TextButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            aktiv();
-                                                                          },
-                                                                          child:
-                                                                              const Text(
-                                                                            "Ya",
-                                                                            style: TextStyle(
-                                                                                color: AppTheme.orange,
-                                                                                fontFamily: AppTheme.fontName,
-                                                                                fontSize: 10,
-                                                                                fontWeight: FontWeight.w400),
-                                                                          )),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        });
-                                                  },
-                                                  child: Container(
-                                                      padding:
-                                                          EdgeInsets.all(8),
-                                                      decoration: BoxDecoration(
-                                                          color: AppTheme.green,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                          boxShadow: <
-                                                              BoxShadow>[
-                                                            BoxShadow(
-                                                                color: AppTheme
-                                                                    .green
-                                                                    .withOpacity(
-                                                                        0.2),
-                                                                offset:
-                                                                    const Offset(
-                                                                        1.1,
-                                                                        1.1),
-                                                                blurRadius:
-                                                                    8.0),
-                                                          ]),
-                                                      child: Text(
-                                                          listblog1[index]
-                                                              .status!,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontFamily: AppTheme
-                                                                .fontName,
-                                                            fontWeight:
-                                                                FontWeight.w800,
-                                                            fontSize: 14,
-                                                            letterSpacing: 0.2,
-                                                            color:
-                                                                AppTheme.white,
-                                                          ))),
+                                                        color: AppTheme.white,
+                                                      ))),
 
-                                                  // Checkbox(
-                                                  //   value: _currentJadwal.jadwal.status,
-                                                  //   onChanged: (value) {
-                                                  //     data();
-                                                  //   },
-                                                  //   checkColor: AppTheme.white,
-                                                  //   hoverColor: AppTheme.green,
-                                                  //   activeColor: AppTheme.green,
-                                                  // )
-                                                )
-                                        ]),
-                                  ),
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 16,
-                                          left: 16,
-                                          right: 16,
-                                          bottom: 16),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                              child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 1,
-                                                  ),
-                                                  child: Text(
-                                                      DateFormat('dd-MM-yyyy')
-                                                          .format(
-                                                              DateTime.now()),
-                                                      style: const TextStyle(
-                                                        fontFamily:
-                                                            AppTheme.fontName,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                        fontSize: 10,
-                                                        letterSpacing: 0.2,
-                                                        color: AppTheme.green,
-                                                      )))),
-                                          const Spacer(),
-                                          Container(
-                                            child: Text(
-                                                DateTime.now().hour.toString() +
-                                                    " : " +
-                                                    DateTime.now()
-                                                        .minute
-                                                        .toString(),
-                                                textAlign: TextAlign.start,
-                                                style: const TextStyle(
-                                                  fontFamily: AppTheme.fontName,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 10,
-                                                  letterSpacing: 0.2,
-                                                  color: AppTheme.green,
-                                                )),
-                                          )
-                                        ],
-                                      ))
-                                ]),
-                          )));
+                                              // Checkbox(
+                                              //   value: _currentJadwal.jadwal.status,
+                                              //   onChanged: (value) {
+                                              //     data();
+                                              //   },
+                                              //   checkColor: AppTheme.white,
+                                              //   hoverColor: AppTheme.green,
+                                              //   activeColor: AppTheme.green,
+                                              // )
+                                            )
+                                    ]),
+                              ),
+                              Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 16, left: 16, right: 16, bottom: 16),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                          child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 1,
+                                              ),
+                                              child: Text(
+                                                  DateFormat('dd-MM-yyyy')
+                                                      .format(_currentTime!),
+                                                  style: const TextStyle(
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontWeight: FontWeight.w800,
+                                                    fontSize: 10,
+                                                    letterSpacing: 0.2,
+                                                    color: AppTheme.green,
+                                                  )))),
+                                      const Spacer(),
+                                      Container(
+                                        child: Text(
+                                            DateTime.now().hour.toString() +
+                                                " : " +
+                                                DateTime.now()
+                                                    .minute
+                                                    .toString(),
+                                            textAlign: TextAlign.start,
+                                            style: const TextStyle(
+                                              fontFamily: AppTheme.fontName,
+                                              fontWeight: FontWeight.w800,
+                                              fontSize: 14,
+                                              letterSpacing: 0.2,
+                                              color: AppTheme.green,
+                                            )),
+                                      )
+                                    ],
+                                  ))
+                            ]),
+                      ));
                 }));
   }
 
-  final CurrentJadwal _currentJadwal = Get.put(CurrentJadwal());
   Future aktiv() async {
     try {
       var response = await http.patch(Uri.parse(ApiConnect.aktiv), body: {
