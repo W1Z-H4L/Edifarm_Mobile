@@ -35,7 +35,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void initState() {
-    cekLogin();
     // getPref();
     // TODO: implement initState
     super.initState();
@@ -43,18 +42,6 @@ class _SignInPageState extends State<SignInPage> {
 
     username = TextEditingController();
     password = TextEditingController();
-  }
-
-  Future cekLogin() async {
-    FutureBuilder(
-        future: RememberUser.readUser(),
-        builder: (context, snapshot) {
-          if (snapshot.data == null) {
-            return SignInPage();
-          } else {
-            return const HomeScreen();
-          }
-        });
   }
 
   @override

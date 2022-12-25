@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
+import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/API/Api_service.dart';
@@ -234,7 +235,36 @@ class _AktivitasState extends State<Aktivitas>
                                                               child: TextButton(
                                                                   onPressed:
                                                                       () {
-                                                                    aktiv();
+                                                                    setState(
+                                                                        () {
+                                                                      listblog1[index]
+                                                                              .status =
+                                                                          "Selesai";
+                                                                    });
+                                                                    Future
+                                                                        aktiv() async {
+                                                                      try {
+                                                                        var response = await http.post(
+                                                                            Uri.parse(ApiConnect.kegiatan),
+                                                                            body: {
+                                                                              "id_jadwal": listblog1[index].idJadwal!.toString(),
+                                                                            });
+
+                                                                        if (response.statusCode ==
+                                                                            200) {
+                                                                          print(
+                                                                              response.body);
+                                                                          final data =
+                                                                              jsonDecode(response.body);
+                                                                        }
+                                                                      } catch (e) {
+                                                                        Fluttertoast.showToast(
+                                                                            msg:
+                                                                                e.toString());
+                                                                        print(e
+                                                                            .toString());
+                                                                      }
+                                                                    }
                                                                   },
                                                                   child:
                                                                       const Text(
@@ -343,20 +373,20 @@ class _AktivitasState extends State<Aktivitas>
                 }));
   }
 
-  Future aktiv() async {
-    try {
-      var response = await http.patch(Uri.parse(ApiConnect.aktiv), body: {
-        "id_jadwal": listblog1,
-      });
+  // final CurrentUser _currentUser = Get.put(CurrentUser());
+  // Future aktiv() async {
+  //   try {
+  //     var response = await http.post(Uri.parse(ApiConnect.kegiatan), body: {
+  //       "id_user": _currentUser.user.idUser.toString(),
+  //     });
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        Aktivitas1 JadwalInfo = Aktivitas1.fromJson(data['jadwal']);
-        await RememberJadwal().storeJadwal(json.encode(JadwalInfo));
-      }
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString());
-      print(e.toString());
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       print(response.body);
+  //       final data = jsonDecode(response.body);
+  //     }
+  //   } catch (e) {
+  //     Fluttertoast.showToast(msg: e.toString());
+  //     print(e.toString());
+  //   }
+  // }
 }

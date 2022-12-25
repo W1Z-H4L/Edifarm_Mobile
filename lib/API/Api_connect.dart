@@ -1,3 +1,5 @@
+import 'package:Edifarm/models/Counting.dart';
+
 class ApiConnect {
   static const hostConnect =
       "https://d126-125-166-118-235.ap.ngrok.io//EDIFARM";
@@ -36,6 +38,9 @@ class ApiConnect {
   //riwayat irigasi
   static const irigasi = "$connectApi/riwayat_irigasi.php";
 
+  //riwayat kegiatan
+  static const kegiatan = "$connectApi/aktivitas.php";
+
   //riwayat pupuk
   static const pupuk = "$connectApi/riwayat_pemupukan.php";
 
@@ -44,4 +49,25 @@ class ApiConnect {
 
   //chart
   static const chart = "$connectApi/chart.php";
+
+  //chart
+  static const count = "$connectApi/counting.php";
+
+  //chart
+  static const counti = "$connectApi/counting_iri.php";
+
+  //chart
+  static const countp = "$connectApi/counting_pes.php";
+
+  //chart
+  static const countpp = "$connectApi/counting_pem.php";
+
+  //chart
+  static const countpro = "$connectApi/prosentase.php";
+
+  //profil
+  static const profil = "$connectApi/image_profil/.php";
+
+  //profil
+  static const countbel = "$connectApi/counting_bel.php";
 }

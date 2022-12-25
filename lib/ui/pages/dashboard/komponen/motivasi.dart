@@ -1,6 +1,8 @@
+import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MotivasiView extends StatelessWidget {
   final AnimationController? animationController;
@@ -8,6 +10,7 @@ class MotivasiView extends StatelessWidget {
 
   const MotivasiView({Key? key, this.animationController, this.animation})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -49,7 +52,7 @@ class MotivasiView extends StatelessWidget {
                                 padding: const EdgeInsets.only(
                                     left: 68, bottom: 12, right: 16, top: 12),
                                 child: Text(
-                                  '   Anda Sudah Melakukan Semua Kegiatan Hari Ini \n   Tetap Pantau Padi Anda !',
+                                  '   Semangat Untuk Bertani',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,

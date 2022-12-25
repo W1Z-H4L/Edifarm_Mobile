@@ -47,17 +47,6 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
     animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: animationController!,
         curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
-    Future cekLogin() async {
-      FutureBuilder(
-          future: RememberUser.readUser(),
-          builder: (context, snapshot) {
-            if (snapshot.data == null) {
-              return SignInPage();
-            } else {
-              return const HomeScreen();
-            }
-          });
-    }
 
     super.initState();
   }
@@ -67,7 +56,6 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '.': (context) => const CekLogin(),
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => SignInPage(),
         '/home': (context) => BottomNavigator(),

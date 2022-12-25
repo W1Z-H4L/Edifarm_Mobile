@@ -23,23 +23,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(
-      Duration(seconds: 4),
-      () => Navigator.pushNamed(context, '/home'),
-    );
+    RememberUser.readUser == null
+        ? Timer(
+            Duration(seconds: 9),
+            () => Navigator.pushNamed(context, '/sign-in'),
+          )
+        : Timer(
+            Duration(seconds: 4),
+            () => Navigator.pushNamed(context, '/home'),
+          );
     super.initState();
-  }
-
-  Future cekLogin() async {
-    FutureBuilder(
-        future: RememberUser.readUser(),
-        builder: (context, snapshot) {
-          if (snapshot.data == null) {
-            return SignInPage();
-          } else {
-            return const HomeScreen();
-          }
-        });
   }
 
   Widget build(BuildContext context) {

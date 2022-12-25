@@ -98,7 +98,7 @@ class tanggalActivity extends StatelessWidget {
                     ),
                     Positioned(
                       top: -15,
-                      left: -10,
+                      left: -18,
                       child: SizedBox(
                         width: 80,
                         height: 80,

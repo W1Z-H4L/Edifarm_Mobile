@@ -135,7 +135,8 @@ class _EditPassword extends State<EditPassword> {
                             image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
-                                  "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                                  "https://d126-125-166-118-235.ap.ngrok.io//EDIFARM/api/image_profil/" +
+                                      _currentUser.user.foto!.toString(),
                                 ))),
                       )
                       // body: ListView(children: <Widget>[
