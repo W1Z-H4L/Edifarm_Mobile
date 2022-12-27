@@ -61,7 +61,7 @@ class _CountState extends State<CountActL> with SingleTickerProviderStateMixin {
                     width: 130,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: HexColor('#C2CEF0')),
+                        color: HexColor('#D1B4DC')),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,7 +70,7 @@ class _CountState extends State<CountActL> with SingleTickerProviderStateMixin {
                           width: 10,
                         ),
                         Text(
-                          "Irigasi",
+                          "Lainnya",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: AppTheme.fontName,

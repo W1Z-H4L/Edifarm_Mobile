@@ -62,7 +62,7 @@ class _CountState extends State<CountActPP>
                     width: 130,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: HexColor('#C2CEF0')),
+                        color: HexColor('#FAB8CD')),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +71,7 @@ class _CountState extends State<CountActPP>
                           width: 10,
                         ),
                         Text(
-                          "Irigasi",
+                          "Pemupukan",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: AppTheme.fontName,
