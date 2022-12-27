@@ -294,3 +294,91 @@ class ServiceApiLogin {
     }
   }
 }
+
+class ServiceApiCountActPes {
+  Future getData() async {
+    try {
+      final response =
+          await http.post(Uri.parse(ApiConnect.countpessact), body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "tanggal_mulai":
+            DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Count_Model> blog =
+            it.map((e) => Count_Model.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiCountActPem {
+  Future getData() async {
+    try {
+      final response =
+          await http.post(Uri.parse(ApiConnect.countpemact), body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "tanggal_mulai":
+            DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Count_Model> blog =
+            it.map((e) => Count_Model.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiCountActIri {
+  Future getData() async {
+    try {
+      final response =
+          await http.post(Uri.parse(ApiConnect.countiriact), body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "tanggal_mulai":
+            DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Count_Model> blog =
+            it.map((e) => Count_Model.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiCountActLain {
+  Future getData() async {
+    try {
+      final response =
+          await http.post(Uri.parse(ApiConnect.countlainact), body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "tanggal_mulai":
+            DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
+      });
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Count_Model> blog =
+            it.map((e) => Count_Model.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}

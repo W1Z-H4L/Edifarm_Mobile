@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'package:Edifarm/API/Api_connect.dart';
 import 'package:Edifarm/controler/CurentUser.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/aktivitas/count_iri.dart';
+import 'package:Edifarm/ui/pages/aktivitas/count_lain.dart';
+import 'package:Edifarm/ui/pages/aktivitas/count_pem.dart';
+import 'package:Edifarm/ui/pages/aktivitas/count_pess.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -37,42 +41,72 @@ class _ChartViewState extends State<ChartView> {
         animation: widget.animationController!,
         builder: (BuildContext context, Widget? child) {
           return FadeTransition(
-            opacity: widget.animation!,
-            child: Transform(
-              transform: Matrix4.translationValues(
-                  0.0, 30 * (1.0 - widget.animation!.value), 0.0),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 24, right: 24, top: 16, bottom: 18),
-                child: Container(
-                  height: 150,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(colors: [
-                      Color.fromARGB(255, 255, 255, 255),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        bottomLeft: Radius.circular(8.0),
-                        bottomRight: Radius.circular(8.0),
-                        topRight: Radius.circular(68.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: AppTheme.grey,
-                          offset: Offset(1.1, 1.1),
-                          blurRadius: 5.0),
-                    ],
-                  ),
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                    alignment: Alignment.centerLeft,
-                    child: pieChartView(),
-                  ),
-                ),
-              ),
-            ),
-          );
+              opacity: widget.animation!,
+              child: Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, 30 * (1.0 - widget.animation!.value), 0.0),
+                  child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 24, right: 24, top: 16, bottom: 18),
+                      child: Container(
+                        height: 150,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(255, 255, 255, 255),
+                                Color.fromARGB(255, 255, 255, 255)
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8.0),
+                              bottomLeft: Radius.circular(8.0),
+                              bottomRight: Radius.circular(8.0),
+                              topRight: Radius.circular(68.0)),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                                color: AppTheme.grey,
+                                offset: Offset(1.1, 1.1),
+                                blurRadius: 5.0),
+                          ],
+                        ),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Row(children: [
+                              Column(children: [
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                CountActI(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                CountActP(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                CountActPP(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                CountActL(),
+                              ]),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              SizedBox(
+                                width: 120,
+                                height: 120,
+                                child: Image.asset("assets/farmer.png"),
+                              ),
+                            ]),
+                          ),
+                        ),
+                      ))));
         });
   }
 

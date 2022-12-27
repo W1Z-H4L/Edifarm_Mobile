@@ -235,36 +235,49 @@ class _AktivitasState extends State<Aktivitas>
                                                               child: TextButton(
                                                                   onPressed:
                                                                       () {
+                                                                    Future
+                                                                        aktiv1() async {
+                                                                      // for (var i = 0; i < listblog1.length; i++) {
+                                                                      http.post(
+                                                                        Uri.parse(
+                                                                            ApiConnect.kegiatan),
+                                                                        body: {
+                                                                          "id_user": _currentUser
+                                                                              .user
+                                                                              .idUser
+                                                                              .toString(),
+                                                                          "id_jadwal": listblog1[index]
+                                                                              .idJadwal
+                                                                              .toString(),
+                                                                        },
+                                                                      );
+
+                                                                      Future
+                                                                          .wait(
+                                                                        listblog1
+                                                                            .map((jadwal) async {
+                                                                          return await http
+                                                                              .post(
+                                                                            Uri.parse(ApiConnect.kegiatan),
+                                                                            body: {
+                                                                              "id_user": _currentUser.user.idUser.toString(),
+                                                                              "id_jadwal": jadwal.idJadwal.toString(),
+                                                                            },
+                                                                          );
+                                                                        }),
+                                                                      );
+                                                                    }
+
                                                                     setState(
                                                                         () {
                                                                       listblog1[index]
                                                                               .status =
                                                                           "Selesai";
                                                                     });
-                                                                    Future
-                                                                        aktiv() async {
-                                                                      try {
-                                                                        var response = await http.post(
-                                                                            Uri.parse(ApiConnect.kegiatan),
-                                                                            body: {
-                                                                              "id_jadwal": listblog1[index].idJadwal!.toString(),
-                                                                            });
 
-                                                                        if (response.statusCode ==
-                                                                            200) {
-                                                                          print(
-                                                                              response.body);
-                                                                          final data =
-                                                                              jsonDecode(response.body);
-                                                                        }
-                                                                      } catch (e) {
-                                                                        Fluttertoast.showToast(
-                                                                            msg:
-                                                                                e.toString());
-                                                                        print(e
-                                                                            .toString());
-                                                                      }
-                                                                    }
+                                                                    ;
+                                                                    Navigator.pop(
+                                                                        context);
                                                                   },
                                                                   child:
                                                                       const Text(
@@ -373,20 +386,51 @@ class _AktivitasState extends State<Aktivitas>
                 }));
   }
 
-  // final CurrentUser _currentUser = Get.put(CurrentUser());
-  // Future aktiv() async {
-  //   try {
-  //     var response = await http.post(Uri.parse(ApiConnect.kegiatan), body: {
-  //       "id_user": _currentUser.user.idUser.toString(),
-  //     });
+  final CurrentUser _currentUser = Get.put(CurrentUser());
+  Future aktiv() async {
+    // for (var i = 0; i < listblog1.length; i++) {
+    await http.post(
+      Uri.parse(ApiConnect.kegiatan),
+      body: {
+        "id_user": _currentUser.user.idUser.toString(),
+        "id_jadwal": listblog1[1].idJadwal.toString(),
+      },
+    );
+    // }
+    // mempost data id_jadwal tergantung pada id_jadwal yang dipilih
+// await http.post(
+//   Uri.parse(ApiConnect.kegiatan),
+//   body: {
+//     "id_user": _currentUser.user.idUser.toString(),
+//     "id_jadwal": idJadwal.toString(),
+//   },
+// );
 
-  //     if (response.statusCode == 200) {
-  //       print(response.body);
-  //       final data = jsonDecode(response.body);
-  //     }
-  //   } catch (e) {
-  //     Fluttertoast.showToast(msg: e.toString());
-  //     print(e.toString());
-  //   }
-  // }
+    await Future.wait(
+      listblog1.map((jadwal) async {
+        return await http.post(
+          Uri.parse(ApiConnect.kegiatan),
+          body: {
+            "id_user": _currentUser.user.idUser.toString(),
+            "id_jadwal": jadwal.idJadwal.toString(),
+          },
+        );
+      }),
+    );
+
+    // try {
+    //   var response = await http.post(Uri.parse(ApiConnect.kegiatan), body: {
+    //     "id_user": _currentUser.user.idUser.toString(),
+    //     "id_jadwal": listblog1[index].idJadwal.toString(),
+    //   });
+
+    //   if (response.statusCode == 200) {
+    //     print(response.body);
+    //     final data = jsonDecode(response.body);
+    //   }
+    // } catch (e) {
+    //   Fluttertoast.showToast(msg: e.toString());
+    //   print(e.toString());
+    // }
+  }
 }

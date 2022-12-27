@@ -2,7 +2,7 @@ import 'package:Edifarm/models/Counting.dart';
 
 class ApiConnect {
   static const hostConnect =
-      "https://d126-125-166-118-235.ap.ngrok.io//EDIFARM";
+      "https://bae4-103-109-209-244.ap.ngrok.io//EDIFARM";
   static const connectApi = "$hostConnect/api";
 
   //login
@@ -70,4 +70,16 @@ class ApiConnect {
 
   //profil
   static const countbel = "$connectApi/counting_bel.php";
+
+  //act
+  static const countpessact = "$connectApi/counting_act_pess.php";
+
+  //act
+  static const countpemact = "$connectApi/counting_act_pem.php";
+
+  //act
+  static const countiriact = "$connectApi/counting_act_iri.php";
+
+  //act
+  static const countlainact = "$connectApi/counting_act_lain.php";
 }
