@@ -32,7 +32,7 @@ class _DeskripsiLahanState extends State<DeskripsiLahan> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 90,
+        height: 150,
         child: listdata1.length == 0
             ? Center(
                 child: CircularProgressIndicator(color: AppTheme.orange),

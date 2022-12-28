@@ -1,8 +1,7 @@
 import 'package:Edifarm/models/Counting.dart';
 
 class ApiConnect {
-  static const hostConnect =
-      "https://bae4-103-109-209-244.ap.ngrok.io//EDIFARM";
+  static const hostConnect = "https://a2af-140-213-219-45.ap.ngrok.io//EDIFARM";
   static const connectApi = "$hostConnect/api";
 
   //login

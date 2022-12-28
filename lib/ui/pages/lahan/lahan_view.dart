@@ -244,9 +244,6 @@ class _LahanScreenState extends State<LahanScreen>
                                       Navigator.pushNamed(context, '/jenis');
                                     },
                                   )),
-                                  const SizedBox(
-                                    height: 200,
-                                  )
                                 ],
                               ),
                             ),

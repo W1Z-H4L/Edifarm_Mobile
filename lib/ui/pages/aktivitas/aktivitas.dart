@@ -235,44 +235,16 @@ class _AktivitasState extends State<Aktivitas>
                                                               child: TextButton(
                                                                   onPressed:
                                                                       () {
-                                                                    Future
-                                                                        aktiv1() async {
-                                                                      // for (var i = 0; i < listblog1.length; i++) {
-                                                                      http.post(
-                                                                        Uri.parse(
-                                                                            ApiConnect.kegiatan),
-                                                                        body: {
-                                                                          "id_user": _currentUser
-                                                                              .user
-                                                                              .idUser
-                                                                              .toString(),
-                                                                          "id_jadwal": listblog1[index]
-                                                                              .idJadwal
-                                                                              .toString(),
-                                                                        },
-                                                                      );
-
-                                                                      Future
-                                                                          .wait(
-                                                                        listblog1
-                                                                            .map((jadwal) async {
-                                                                          return await http
-                                                                              .post(
-                                                                            Uri.parse(ApiConnect.kegiatan),
-                                                                            body: {
-                                                                              "id_user": _currentUser.user.idUser.toString(),
-                                                                              "id_jadwal": jadwal.idJadwal.toString(),
-                                                                            },
-                                                                          );
-                                                                        }),
-                                                                      );
-                                                                    }
-
+                                                                    aktiv(
+                                                                        index);
                                                                     setState(
                                                                         () {
-                                                                      listblog1[index]
-                                                                              .status =
-                                                                          "Selesai";
+                                                                      if (listblog1[index]
+                                                                              .status !=
+                                                                          "Selesai") {
+                                                                        listblog1[index].status =
+                                                                            "Selesai";
+                                                                      }
                                                                     });
 
                                                                     ;
@@ -386,37 +358,49 @@ class _AktivitasState extends State<Aktivitas>
                 }));
   }
 
+// Future aktiv() async {
+//   int currentIndex = 0;
+//   bool isRunning = false;
+
+//   while (true) {
+//     if (isRunning && currentIndex < listblog1.length) {
+//       await http.post(
+//         Uri.parse(ApiConnect.kegiatan),
+//         body: {
+//           "id_user": _currentUser.user.idUser.toString(),
+//           "id_jadwal": listblog1[currentIndex].idJadwal.toString(),
+//         },
+//       );
+
+//       currentIndex++;
+//     }
+
+//     // Pause the loop until the isRunning variable is set to true again
+//     await Future.delayed(Duration(seconds: 1));
+//   }
+// }
+
   final CurrentUser _currentUser = Get.put(CurrentUser());
-  Future aktiv() async {
-    // for (var i = 0; i < listblog1.length; i++) {
+  Future aktiv(int i) async {
     await http.post(
       Uri.parse(ApiConnect.kegiatan),
       body: {
         "id_user": _currentUser.user.idUser.toString(),
-        "id_jadwal": listblog1[1].idJadwal.toString(),
+        "id_jadwal": listblog1[i].idJadwal.toString(),
       },
     );
-    // }
-    // mempost data id_jadwal tergantung pada id_jadwal yang dipilih
-// await http.post(
-//   Uri.parse(ApiConnect.kegiatan),
-//   body: {
-//     "id_user": _currentUser.user.idUser.toString(),
-//     "id_jadwal": idJadwal.toString(),
-//   },
-// );
 
-    await Future.wait(
-      listblog1.map((jadwal) async {
-        return await http.post(
-          Uri.parse(ApiConnect.kegiatan),
-          body: {
-            "id_user": _currentUser.user.idUser.toString(),
-            "id_jadwal": jadwal.idJadwal.toString(),
-          },
-        );
-      }),
-    );
+    // await Future.wait(
+    //   listblog1.map((jadwal) async {
+    //     return await http.post(
+    //       Uri.parse(ApiConnect.kegiatan),
+    //       body: {
+    //         "id_user": _currentUser.user.idUser.toString(),
+    //         "id_jadwal": jadwal.idJadwal.toString(),
+    //       },
+    //     );
+    //   }),
+    // );
 
     // try {
     //   var response = await http.post(Uri.parse(ApiConnect.kegiatan), body: {

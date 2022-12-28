@@ -135,7 +135,7 @@ class _EditPassword extends State<EditPassword> {
                             image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
-                                  "https://bae4-103-109-209-244.ap.ngrok.io//EDIFARM/api/image_profil/" +
+                                  "https://021c-125-166-118-234.ap.ngrok.io//EDIFARM/api/image_profil/" +
                                       _currentUser.user.foto!.toString(),
                                 ))),
                       )
