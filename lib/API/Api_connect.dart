@@ -1,7 +1,7 @@
 import 'package:Edifarm/models/Counting.dart';
 
 class ApiConnect {
-  static const hostConnect = "https://a2af-140-213-219-45.ap.ngrok.io//EDIFARM";
+  static const hostConnect = "http://edifarm.wstif3d.id";
   static const connectApi = "$hostConnect/api";
 
   //login
@@ -81,4 +81,10 @@ class ApiConnect {
 
   //act
   static const countlainact = "$connectApi/counting_act_lain.php";
+
+  //act
+  static const consul = "$connectApi/consul.php";
+
+  //
+  static const fot = "$connectApi/image_diag/";
 }

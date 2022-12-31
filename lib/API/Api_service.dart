@@ -10,6 +10,7 @@ import 'package:Edifarm/models/Lahan_model.dart';
 import 'package:Edifarm/models/Pertanyaan_model.dart';
 import 'package:Edifarm/models/Prosentase.dart';
 import 'package:Edifarm/models/User_model.dart';
+import 'package:Edifarm/models/consul.dart';
 import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
@@ -111,6 +112,24 @@ class ServiceApiPupuk {
         print(response.body);
         Iterable it = jsonDecode(response.body);
         List<Aktivitas1> blog = it.map((e) => Aktivitas1.fromJson(e)).toList();
+        return blog;
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+
+class ServiceApiConsul {
+  Future getData() async {
+    try {
+      var response = await http.post(Uri.parse(ApiConnect.consul),
+          body: {"id_user": _currentUser.user.idUser.toString()});
+      if (response.statusCode == 200) {
+        print(response.body);
+        Iterable it = jsonDecode(response.body);
+        List<Consul_Model> blog =
+            it.map((e) => Consul_Model.fromJson(e)).toList();
         return blog;
       }
     } catch (e) {
