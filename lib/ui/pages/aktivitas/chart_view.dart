@@ -75,7 +75,8 @@ class _ChartViewState extends State<ChartView> {
                           width: 50,
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                            padding: EdgeInsets.only(top: 20, left: 20),
+                            padding:
+                                EdgeInsets.only(top: 28, left: 20, bottom: 30),
                             child: Row(children: [
                               Column(children: [
                                 SizedBox(

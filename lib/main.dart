@@ -7,6 +7,7 @@ import 'package:Edifarm/ui/pages/Riwayat/Riwayat_pupuk/riwayart_pupuk_screen.dar
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayart_irigasi_screen.dart';
 import 'package:Edifarm/ui/pages/aktivitas/activity.dart';
 import 'package:Edifarm/ui/pages/dashboard/list_view/dashboard_screen.dart';
+import 'package:Edifarm/ui/pages/diagnosa/Riwayat_diagnosa/riwayat_diag_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/diagnosa_screen.dart';
 import 'package:Edifarm/ui/pages/diagnosa/textbellow.dart';
 import 'package:Edifarm/ui/pages/jenispadi/jenis_padi.dart';
@@ -83,6 +84,9 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
               animationController: animationController,
             ),
         '/act': (context) => activityPage(
+              animationController: animationController,
+            ),
+        '/con': (context) => RiwayatConsul(
               animationController: animationController,
             ),
       },

@@ -45,7 +45,7 @@ class _CountState extends State<CountB> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
         height: 35,
-        width: 95,
+        width: 100,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: listblog1.length,

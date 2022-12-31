@@ -109,7 +109,7 @@ class AktivitasDataView extends StatelessWidget {
                       const Spacer(),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, '/sett');
+                          Navigator.pushNamed(context, '/con');
                         },
                         child: Container(
                             alignment: Alignment.center,

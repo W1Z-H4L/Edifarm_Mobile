@@ -15,6 +15,7 @@ class RememberUser {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? userInfo = preferences.getString('user');
     if (userInfo != null) {
+      print(userInfo);
       Map<String, dynamic> userDataMap = jsonDecode(userInfo);
       currentUserInfo = User.fromJson(userDataMap);
     }

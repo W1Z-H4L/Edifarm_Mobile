@@ -83,19 +83,7 @@ class _CountState extends State<CountActPP>
                         ),
                         Spacer(),
                         Text(
-                          ":",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: AppTheme.fontName,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            letterSpacing: -0.2,
-                            color: AppTheme.grey.withOpacity(0.5),
-                          ),
-                        ),
-                        Spacer(),
-                        Text(
-                          listblog1[index].cOUNTKegiatan!,
+                          ": " + listblog1[index].cOUNTKegiatan!,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: AppTheme.fontName,

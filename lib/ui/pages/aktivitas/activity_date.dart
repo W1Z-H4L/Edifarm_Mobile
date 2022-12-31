@@ -55,8 +55,8 @@ class tanggalActivity extends StatelessWidget {
                                   children: <Widget>[
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                        left: 80,
-                                        right: 10,
+                                        left: 70,
+                                        right: 5,
                                         top: 16,
                                       ),
                                       child: Text(
@@ -65,7 +65,7 @@ class tanggalActivity extends StatelessWidget {
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.montserrat(
                                             color: Color(0xFF006B6C),
-                                            fontSize: 15,
+                                            fontSize: 14,
                                             fontWeight: FontWeight.w600),
                                       ),
                                     ),
@@ -73,7 +73,7 @@ class tanggalActivity extends StatelessWidget {
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.only(
-                                    left: 80,
+                                    left: 70,
                                     bottom: 12,
                                     top: 4,
                                     right: 16,
@@ -98,7 +98,7 @@ class tanggalActivity extends StatelessWidget {
                     ),
                     Positioned(
                       top: -15,
-                      left: -12,
+                      left: -18,
                       child: SizedBox(
                         width: 80,
                         height: 80,

@@ -46,38 +46,50 @@ class _CountState extends State<Count> with SingleTickerProviderStateMixin {
     return Container(
         height: 35,
         width: 95,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: listblog1.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(
-                  left: 0,
-                  right: 0,
+        child: listblog1.length == 0
+            ? Text(
+                "____",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: AppTheme.fontName,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  letterSpacing: -0.2,
+                  color: AppTheme.grey.withOpacity(0.5),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      width: 28,
-                      height: 28,
-                      child: Image.asset("assets/icon_pupuk.png"),
+              )
+            : ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: listblog1.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                      left: 0,
+                      right: 0,
                     ),
-                    Text(
-                      listblog1[index].cOUNTKegiatan! + " Kegiatan",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: AppTheme.fontName,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                        letterSpacing: -0.2,
-                        color: AppTheme.grey.withOpacity(0.5),
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(
+                          width: 28,
+                          height: 28,
+                          child: Image.asset("assets/icon_pupuk.png"),
+                        ),
+                        Text(
+                          listblog1[index].cOUNTKegiatan! + " Kegiatan",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: AppTheme.fontName,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            letterSpacing: -0.2,
+                            color: AppTheme.grey.withOpacity(0.5),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              );
-            }));
+                  );
+                }));
   }
 }
