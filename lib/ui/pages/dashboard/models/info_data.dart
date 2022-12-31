@@ -37,7 +37,7 @@ class InfoListData {
         Color: '#FFFFFF',
         inpo: 'https://www.kliktani.com/2018/11/padi-ciherang.html'),
     InfoListData(
-        imagePath: 'assets/gambar_gambar3.jpg',
+        imagePath: 'assets/gambar_padi3.jpg',
         link: 'umur padi?',
         description: <String>[
           'Pemerintah telah mencanangkan gerakan peningkatan produksi'

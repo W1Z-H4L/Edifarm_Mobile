@@ -258,20 +258,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      'assets/potoprofil.png',
-                                    ),
-                                    alignment: Alignment.centerRight,
-                                  ),
-                                ),
-                              ),
-                            )
                           ],
                         ),
                       )

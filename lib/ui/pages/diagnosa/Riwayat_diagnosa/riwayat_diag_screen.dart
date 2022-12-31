@@ -56,7 +56,7 @@ class _RiwayatConsulState extends State<RiwayatConsul>
 
   void addAllListData() {
     const int count = 5;
-    listViews.add(const i());
+    // listViews.add(const i());
     listViews.add(const Riwayat_Consul()
         // ListRiwayatIrigasi(
         //   mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(

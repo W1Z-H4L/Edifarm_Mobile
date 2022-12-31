@@ -561,7 +561,7 @@ class _EditProfilePageState extends State<EditProfilePage>
                     ),
                   )),
               SizedBox(
-                height: 30,
+                height: 3,
               ),
               Container(
                   padding: EdgeInsets.only(left: 25, right: 25, bottom: 5),

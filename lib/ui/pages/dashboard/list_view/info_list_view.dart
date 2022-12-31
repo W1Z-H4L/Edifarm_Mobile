@@ -150,16 +150,19 @@ class InfoView extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(
-                                      infoListData!.description!.join('\n'),
-                                      style: TextStyle(
-                                        fontFamily: AppTheme.fontName,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 10,
-                                        letterSpacing: 0.2,
-                                        color: AppTheme.black,
+                                    Container(
+                                      width: 400,
+                                      child: Text(
+                                        infoListData!.description!.join('\n'),
+                                        style: TextStyle(
+                                          fontFamily: AppTheme.fontName,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 10,
+                                          letterSpacing: 0.2,
+                                          color: AppTheme.black,
+                                        ),
                                       ),
-                                    ),
+                                    )
                                   ],
                                 ),
                               ),

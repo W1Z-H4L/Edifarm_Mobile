@@ -48,7 +48,7 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 680,
+        height: 600,
         child: listblog1.length == 0
             ? const Center(
                 child: Text(
@@ -63,194 +63,158 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
                 itemCount: listblog1.length,
                 itemBuilder: (context, index) {
                   return SizedBox(
-                    width: 400,
-                    height: 200,
-                    child: Stack(children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 20, left: 32, right: 32, bottom: 16),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppTheme.white,
-                            boxShadow: <BoxShadow>[
-                              BoxShadow(
-                                  color: AppTheme.grey.withOpacity(0.2),
-                                  offset: Offset(1.1, 1.1),
-                                  blurRadius: 10.0),
-                            ],
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(8.0),
-                              bottomLeft: Radius.circular(8.0),
-                              bottomRight: Radius.circular(8.0),
-                              topRight: Radius.circular(68.0),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 100, left: 16, right: 16, bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  listblog1[index].tanggalConsul!,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: AppTheme.fontName,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    letterSpacing: 0.2,
-                                    color: AppTheme.black,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 8, bottom: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          listblog1[index].isi!,
-                                          style: TextStyle(
-                                            fontFamily: AppTheme.fontName,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 10,
-                                            letterSpacing: 0.2,
-                                            color: AppTheme.black,
+                      width: 400,
+                      height: 150,
+                      child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20, right: 20, left: 20),
+                          child: InkWell(
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Container(
+                                          padding: EdgeInsets.only(
+                                              top: 50, bottom: 50),
+                                          height: 120,
+                                          width: 150,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
                                           ),
-                                        ),
-                                      ],
-                                    ),
+                                          child: AlertDialog(
+                                            title: Text(
+                                              "Detail Diagnosa Diagnosa Pada Tanggal " +
+                                                  listblog1[index]
+                                                      .tanggalConsul!,
+                                              selectionColor: Colors.white,
+                                              style: const TextStyle(
+                                                  color: AppTheme.black,
+                                                  fontFamily: AppTheme.fontName,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                            content: ListView(children: [
+                                              Text(
+                                                listblog1[index].isi!,
+                                                style: const TextStyle(
+                                                    color: AppTheme.black,
+                                                    fontFamily:
+                                                        AppTheme.fontName,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Image.network(
+                                                  "http://edifarm.wstif3d.id/api/image_diag/" +
+                                                      listblog1[index]
+                                                          .foto_consul!)
+                                            ]),
+                                            actions: [
+                                              Container(
+                                                height: 30,
+                                                width: 60,
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    color: AppTheme.orange,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                child: TextButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: const Text(
+                                                      "Kembali",
+                                                      style: TextStyle(
+                                                          color: AppTheme.white,
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontSize: 10,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    )),
+                                              ),
+                                            ],
+                                          ));
+                                    });
+                              },
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: AppTheme.white,
+                                    boxShadow: <BoxShadow>[
+                                      BoxShadow(
+                                          color: AppTheme.grey.withOpacity(0.2),
+                                          offset: Offset(1.1, 1.1),
+                                          blurRadius: 10.0),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 20,
-                        left: 32,
-                        right: 32,
-                        child: InkWell(
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Container(
-                                      padding:
-                                          EdgeInsets.only(top: 50, bottom: 50),
-                                      height: 120,
-                                      width: 150,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                        "http://edifarm.wstif3d.id/api/image_diag/" +
+                                            listblog1[index].foto_consul!,
+                                        height: 200,
+                                        width: 150,
+                                        fit: BoxFit.cover,
                                       ),
-                                      child: AlertDialog(
-                                        title: Text(
-                                          "Detail Diagnosa Diagnosa Pada Tanggal " +
-                                              listblog1[index].tanggalConsul!,
-                                          selectionColor: Colors.white,
-                                          style: const TextStyle(
-                                              color: AppTheme.black,
-                                              fontFamily: AppTheme.fontName,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400),
-                                        ),
-                                        content: ListView(children: [
-                                          Text(
-                                            listblog1[index].isi!,
-                                            style: const TextStyle(
-                                                color: AppTheme.black,
-                                                fontFamily: AppTheme.fontName,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 30,
                                           ),
-                                          const SizedBox(
+                                          const Text(
+                                            "pengiriman konsultasi\ndilakukan pada tanggal",
+                                            style: TextStyle(
+                                                color: Color.fromARGB(
+                                                    179, 0, 0, 0),
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10),
+                                          ),
+                                          SizedBox(
                                             height: 10,
                                           ),
-                                          Image.network(
-                                              "http://edifarm.wstif3d.id/api/image_diag/" +
-                                                  listblog1[index].foto_consul!)
-                                        ]),
-                                        actions: [
-                                          Container(
-                                            height: 30,
-                                            width: 60,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: AppTheme.orange,
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            child: TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: const Text(
-                                                  "Kembali",
-                                                  style: TextStyle(
-                                                      color: AppTheme.white,
-                                                      fontFamily:
-                                                          AppTheme.fontName,
-                                                      fontSize: 10,
-                                                      fontWeight:
-                                                          FontWeight.w400),
-                                                )),
+                                          Text(
+                                            listblog1[index].tanggalConsul!,
+                                            style: const TextStyle(
+                                                color: Color.fromARGB(
+                                                    179, 0, 0, 0),
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 14),
                                           ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            "Status Diagnosa: " +
+                                                listblog1[index].status! +
+                                                " Ditangani",
+                                            style: TextStyle(
+                                                color: Color.fromARGB(
+                                                    179, 0, 0, 0),
+                                                fontFamily: AppTheme.fontName,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10),
+                                          )
                                         ],
-                                      ));
-                                });
-                          },
-                          child: listblog1[index].foto_consul == null
-                              ? Center(
-                                  child: CircularProgressIndicator(
-                                      color: AppTheme.orange),
-                                )
-                              : ClipRRect(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8.0),
-                                      bottomLeft: Radius.circular(0),
-                                      bottomRight: Radius.circular(0),
-                                      topRight: Radius.circular(68.0)),
-                                  child: Image.network(
-                                    "http://edifarm.wstif3d.id/api/image_diag/" +
-                                        listblog1[index].foto_consul!,
-                                    width: 450,
-                                    height: 95,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 142,
-                        left: 260,
-                        right: 40,
-                        child: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: AppTheme.green,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                      color: AppTheme.green.withOpacity(0.2),
-                                      offset: const Offset(1.1, 1.1),
-                                      blurRadius: 8.0),
-                                ]),
-                            child: Text(listblog1[index].status!,
-                                style: const TextStyle(
-                                  fontFamily: AppTheme.fontName,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 12,
-                                  letterSpacing: 0.2,
-                                  color: AppTheme.white,
-                                ))),
-                      ),
-                    ]),
-                  );
+                                      )
+//gambar box fit
+//column isi tulisan
+                                    ],
+                                  )))));
                 }));
   }
 }
