@@ -132,7 +132,7 @@ class AktivitasDataView extends StatelessWidget {
                               decoration: const BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(
-                                'assets/icon_menu_setting.png',
+                                'assets/icon_menu_riwayat_diag.png',
                               ))),
                             )),
                       ),
@@ -163,7 +163,7 @@ class AktivitasDataView extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Setting',
+                          'Konsultasi',
                           style: TextStyle(
                               fontSize: 10,
                               color: AppTheme.black,

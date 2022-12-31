@@ -124,7 +124,7 @@ class _DataLahanState extends State<InfoLahan> {
                                   ),
                                 ),
                                 Text(
-                                  listdata1[index].luasLahan!,
+                                  listdata1[index].luasLahan! + " Ha",
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w200,

@@ -164,7 +164,7 @@ class infoActView extends StatelessWidget {
                                     children: <Widget>[
                                       const CountPro(),
                                       Text(
-                                        'Prosentase Progres',
+                                        'Persentasi Progres',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: AppTheme.fontName,

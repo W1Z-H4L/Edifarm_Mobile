@@ -168,7 +168,7 @@ class _RiwayatConsulState extends State<RiwayatConsul>
                                   color: AppTheme.white,
                                   size: 20,
                                 )),
-                            Expanded(
+                            const Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
@@ -177,7 +177,7 @@ class _RiwayatConsulState extends State<RiwayatConsul>
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    fontSize: 22,
                                     letterSpacing: 1.2,
                                     color: Colors.white,
                                   ),

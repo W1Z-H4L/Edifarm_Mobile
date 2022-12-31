@@ -275,7 +275,7 @@ class _LahanScreenState extends State<LahanScreen>
                     height: 80,
                     child: Center(
                         child: Image.asset(
-                      'assets/potoprofil.png',
+                      'assets/icon_lahan_selected.png',
                       height: 115,
                       width: 115,
                     )),
@@ -295,7 +295,7 @@ class _LahanScreenState extends State<LahanScreen>
                         BorderRadius.circular(AppBar().preferredSize.height),
                     child: IconButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pushNamed(context, '/home');
                         },
                         icon: const Icon(
                           Icons.arrow_back_ios_new,

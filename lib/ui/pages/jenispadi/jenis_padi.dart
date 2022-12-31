@@ -67,7 +67,7 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                       AspectRatio(
                         aspectRatio: 1.2,
                         child: Image.asset(
-                          'assets/gambar_baground_jp.jpg',
+                          'assets/gambar_back_jenis.jpg',
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -142,6 +142,20 @@ class _JenisPadiPageState extends State<JenisPadiPage>
                           //   ),
                           // ),
                           const DeskripsiJenis(),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Text(
+                            "  Informasi mengenai pengembang",
+                            style: TextStyle(
+                                color: AppTheme.green,
+                                fontFamily: AppTheme.fontName,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           const InfoLink(),
                           // Expanded(
                           //   child: AnimatedOpacity(

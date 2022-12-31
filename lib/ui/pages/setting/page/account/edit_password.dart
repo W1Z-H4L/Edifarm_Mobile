@@ -75,21 +75,30 @@ class _EditPassword extends State<EditPassword> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           brightness: Brightness.dark,
-          toolbarHeight: 70,
+          toolbarHeight: 78,
           title: const Text(
             "Edit Password",
             textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.fontName,
+              fontWeight: FontWeight.w700,
+              fontSize: 22,
+              letterSpacing: 1.2,
+              color: Colors.white,
+            ),
           ),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20)),
+              borderRadius: BorderRadius.all(
+                Radius.circular(32),
+              ),
             ),
           ),
           leading: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pop(
+                  context,
+                );
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,
@@ -97,9 +106,9 @@ class _EditPassword extends State<EditPassword> {
                 size: 20,
               )),
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
+            borderRadius: BorderRadius.all(
+              Radius.circular(32),
+            ),
           ),
           centerTitle: true,
           titleTextStyle: whiteTextStyle1,
@@ -116,6 +125,9 @@ class _EditPassword extends State<EditPassword> {
                 child: ListView(children: [
                   Center(
                     child: Stack(children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         width: 130,
                         height: 130,
@@ -202,7 +214,7 @@ class _EditPassword extends State<EditPassword> {
                   //     ))
 
                   SizedBox(
-                    height: 80,
+                    height: 20,
                   ),
                   Text(
                     _currentUser.user.nama!,

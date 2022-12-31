@@ -33,7 +33,7 @@ class _DeskripsiJenisState extends State<DeskripsiJenis> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 180,
+        height: 200,
         child: listdata1.length == 0
             ? Center(
                 child: CircularProgressIndicator(color: AppTheme.orange),

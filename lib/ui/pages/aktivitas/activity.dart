@@ -209,7 +209,7 @@ class _activityPageState extends State<activityPage>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Activity',
+                                  'Aktivitas',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,

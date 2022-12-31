@@ -84,22 +84,52 @@ class _PupukState extends State<Pupuk> with SingleTickerProviderStateMixin {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Container(
-                                          padding:
-                                              EdgeInsets.only(top: 0, left: 0),
-                                          child: Text(
-                                              listblog1[index].kegiatan!,
-                                              style: const TextStyle(
-                                                fontFamily: AppTheme.fontName,
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: 14,
-                                                letterSpacing: 0.2,
-                                                color: AppTheme.green,
-                                              ))),
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                                padding: EdgeInsets.only(
+                                                    top: 0, left: 0),
+                                                child: Text(
+                                                    listblog1[index].kegiatan!,
+                                                    style: const TextStyle(
+                                                      fontFamily:
+                                                          AppTheme.fontName,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontSize: 14,
+                                                      letterSpacing: 0.2,
+                                                      color: AppTheme.green,
+                                                    ))),
+                                            const SizedBox(
+                                              height: 18,
+                                            ),
+                                            Container(
+                                                child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 1,
+                                                    ),
+                                                    child: Text(
+                                                        listblog1[index]
+                                                            .tanggalSelesai!,
+                                                        style: const TextStyle(
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.2,
+                                                          color: AppTheme.green,
+                                                        )))),
+                                          ]),
                                       const Spacer(),
                                       Container(
-                                          padding:
-                                              EdgeInsets.only(top: 0, left: 0),
+                                          padding: EdgeInsets.only(
+                                              top: 16, left: 0, bottom: 16),
                                           child: Text(listblog1[index].status!,
                                               style: const TextStyle(
                                                 fontFamily: AppTheme.fontName,
@@ -110,34 +140,34 @@ class _PupukState extends State<Pupuk> with SingleTickerProviderStateMixin {
                                               ))),
                                     ]),
                               ),
-                              Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 16,
-                                    left: 16,
-                                    right: 16,
-                                    bottom: 16,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                          child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                top: 1,
-                                              ),
-                                              child: Text(
-                                                  listblog1[index]
-                                                      .tanggalSelesai!,
-                                                  style: const TextStyle(
-                                                    fontFamily:
-                                                        AppTheme.fontName,
-                                                    fontWeight: FontWeight.w800,
-                                                    fontSize: 10,
-                                                    letterSpacing: 0.2,
-                                                    color: AppTheme.green,
-                                                  )))),
-                                      const Spacer(),
-                                    ],
-                                  ))
+                              // Padding(
+                              //     padding: const EdgeInsets.only(
+                              //       top: 16,
+                              //       left: 16,
+                              //       right: 16,
+                              //       bottom: 16,
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         Container(
+                              //             child: Padding(
+                              //                 padding: const EdgeInsets.only(
+                              //                   top: 1,
+                              //                 ),
+                              //                 child: Text(
+                              //                     listblog1[index]
+                              //                         .tanggalSelesai!,
+                              //                     style: const TextStyle(
+                              //                       fontFamily:
+                              //                           AppTheme.fontName,
+                              //                       fontWeight: FontWeight.w800,
+                              //                       fontSize: 10,
+                              //                       letterSpacing: 0.2,
+                              //                       color: AppTheme.green,
+                              //                     )))),
+                              //         const Spacer(),
+                              //       ],
+                              //     ))
                             ]),
                       ));
                 }));

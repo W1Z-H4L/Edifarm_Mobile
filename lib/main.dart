@@ -16,6 +16,7 @@ import 'package:Edifarm/ui/pages/setting/page/account/edit_akun/edit_akun.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_password.dart';
 import 'package:Edifarm/ui/pages/setting/page/account/edit_username.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan_screen.dart';
 
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottomNavigator.dart';
 
@@ -65,7 +66,7 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
         '/edit-pass': (context) => EditPassword(),
         '/edit-user': (context) => EditUsername(),
         '/riwayatpupuk': (context) => const RiwayatPupuk(),
-        '/diag': (context) => Field(),
+        '/diag': (context) => const Field(),
         // DiagnosaScreen(animationController: animationController),
         '/lahan': (context) => LahanScreen(
               animationController: animationController,
@@ -73,7 +74,7 @@ class _MyApp extends State<MyApp> with TickerProviderStateMixin {
         '/jenis': (context) => JenisPadiPage(
               animationController: animationController,
             ),
-        '/sett': (context) => SettingsPage(),
+        '/sett': (context) => const Pengaturan_Screen(),
         '/iri': (context) => RiwayatIrigasi(
               animationController: animationController,
             ),

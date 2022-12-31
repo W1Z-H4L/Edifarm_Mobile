@@ -23,7 +23,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    RememberUser.readUser == null && RememberUser.readUser.isBlank!
+    RememberUser.readUser == "" && RememberUser.readUser.isBlank!
         ? Timer(
             Duration(seconds: 9),
             () => Navigator.pushNamed(context, '/sign-in'),

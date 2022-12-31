@@ -1,17 +1,20 @@
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayat_irigasi_data.dart';
 import 'package:Edifarm/ui/pages/Riwayat/riwayat_irigasi/riwayat_irigasi_listvew.dart';
 import 'package:Edifarm/shared/Theme_App.dart';
+import 'package:Edifarm/ui/pages/setting/Setting_page.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
 import 'package:flutter/material.dart';
 
-class RiwayatIrigasi extends StatefulWidget {
-  const RiwayatIrigasi({Key? key, this.animationController}) : super(key: key);
+class Pengaturan_Screen extends StatefulWidget {
+  const Pengaturan_Screen({Key? key, this.animationController})
+      : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _RiwayatIrigasiState createState() => _RiwayatIrigasiState();
+  _Pengaturan_ScreenState createState() => _Pengaturan_ScreenState();
 }
 
-class _RiwayatIrigasiState extends State<RiwayatIrigasi>
+class _Pengaturan_ScreenState extends State<Pengaturan_Screen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -53,18 +56,7 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
   }
 
   void addAllListData() {
-    const int count = 5;
-
-    listViews.add(Irigasi()
-        // ListRiwayatIrigasi(
-        //   mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-        //       CurvedAnimation(
-        //           parent: widget.animationController!,
-        //           curve: Interval((1 / count) * 5, 1.0,
-        //               curve: Curves.fastOutSlowIn))),
-        //   mainScreenAnimationController: widget.animationController!,
-        // ),
-        );
+    listViews.add(const Setting());
   }
 
   Future<bool> getData() async {
@@ -166,16 +158,16 @@ class _RiwayatIrigasiState extends State<RiwayatIrigasi>
                                   color: AppTheme.white,
                                   size: 20,
                                 )),
-                            const Expanded(
+                            Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Riwayat Irigasi',
+                                  'Pengaturan',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 22,
+                                    fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
                                     color: Colors.white,
                                   ),

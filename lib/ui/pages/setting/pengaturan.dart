@@ -20,15 +20,27 @@ class _SettingsPage extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         brightness: Brightness.dark,
-        toolbarHeight: 70,
+        toolbarHeight: 78,
         title: const Text(
           "Pengaturan",
           textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.fontName,
+            fontWeight: FontWeight.w700,
+            fontSize: 22,
+            letterSpacing: 1.2,
+            color: Colors.white,
+          ),
         ),
-        centerTitle: true,
-        titleTextStyle: whiteTextStyle1,
-        titleSpacing: 20,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(32),
+            ),
+          ),
+        ),
         leading: IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/home');
@@ -38,21 +50,16 @@ class _SettingsPage extends State<SettingsPage> {
               color: AppTheme.white,
               size: 20,
             )),
-        shadowColor: AppTheme.grey,
-        backgroundColor: AppTheme.green,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(50),
-              bottomRight: Radius.circular(50),
-            ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(32),
           ),
         ),
+        centerTitle: true,
+        titleTextStyle: whiteTextStyle1,
+        titleSpacing: 20,
+        shadowColor: AppTheme.grey,
+        backgroundColor: AppTheme.green,
       ),
       backgroundColor: AppTheme.background,
       body: ListView(
@@ -122,7 +129,7 @@ class _SettingsPage extends State<SettingsPage> {
           // ),
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(left: 18, bottom: 6),
+              padding: EdgeInsets.only(left: 15, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(
@@ -151,7 +158,7 @@ class _SettingsPage extends State<SettingsPage> {
 
           Container(
               color: AppTheme.background,
-              padding: EdgeInsets.only(left: 18, bottom: 6),
+              padding: EdgeInsets.only(left: 9, bottom: 6),
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Container(

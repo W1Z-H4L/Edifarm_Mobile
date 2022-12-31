@@ -48,7 +48,7 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 600,
+        height: 650,
         child: listblog1.length == 0
             ? const Center(
                 child: Text(
@@ -84,7 +84,7 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
                                           ),
                                           child: AlertDialog(
                                             title: Text(
-                                              "Detail Diagnosa Diagnosa Pada Tanggal " +
+                                              "Detail konsultasi pada tanggal " +
                                                   listblog1[index]
                                                       .tanggalConsul!,
                                               selectionColor: Colors.white,
@@ -175,7 +175,7 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
                                             height: 30,
                                           ),
                                           const Text(
-                                            "pengiriman konsultasi\ndilakukan pada tanggal",
+                                            "Pengiriman diagnosa\ndilakukan pada tanggal",
                                             style: TextStyle(
                                                 color: Color.fromARGB(
                                                     179, 0, 0, 0),
@@ -199,9 +199,9 @@ class _Riwayat_ConsulState extends State<Riwayat_Consul>
                                             height: 10,
                                           ),
                                           Text(
-                                            "Status Diagnosa: " +
+                                            "Status konsultasi: " +
                                                 listblog1[index].status! +
-                                                " Ditangani",
+                                                " ditangani",
                                             style: TextStyle(
                                                 color: Color.fromARGB(
                                                     179, 0, 0, 0),

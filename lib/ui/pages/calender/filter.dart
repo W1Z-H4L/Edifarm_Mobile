@@ -26,10 +26,25 @@ class _PestisidaState extends State<Filter>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: AppTheme.background,
-        height: 800,
-        child: widget.blog.length == 0
+    return Scaffold(
+        appBar: AppBar(
+          brightness: Brightness.dark,
+          toolbarHeight: 70,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: AppTheme.green,
+                size: 20,
+              )),
+          elevation: 0,
+          shadowColor: AppTheme.white,
+          backgroundColor: AppTheme.white,
+        ),
+        backgroundColor: AppTheme.white,
+        body: widget.blog.length == 0
             ? const Center(
                 child: Text(
                   'Belum Melakukan Kegiatan Apapun',
@@ -69,22 +84,53 @@ class _PestisidaState extends State<Filter>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Container(
-                                          padding:
-                                              EdgeInsets.only(top: 0, left: 0),
-                                          child: Text(
-                                              widget.blog[index].kegiatan!,
-                                              style: const TextStyle(
-                                                fontFamily: AppTheme.fontName,
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: 14,
-                                                letterSpacing: 0.2,
-                                                color: AppTheme.green,
-                                              ))),
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                                padding: EdgeInsets.only(
+                                                    top: 0, left: 0),
+                                                child: Text(
+                                                    widget
+                                                        .blog[index].kegiatan!,
+                                                    style: const TextStyle(
+                                                      fontFamily:
+                                                          AppTheme.fontName,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontSize: 14,
+                                                      letterSpacing: 0.2,
+                                                      color: AppTheme.green,
+                                                    ))),
+                                            const SizedBox(
+                                              height: 18,
+                                            ),
+                                            Container(
+                                                child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 1,
+                                                    ),
+                                                    child: Text(
+                                                        widget.blog[index]
+                                                            .tanggalSelesai!,
+                                                        style: const TextStyle(
+                                                          fontFamily:
+                                                              AppTheme.fontName,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontSize: 10,
+                                                          letterSpacing: 0.2,
+                                                          color: AppTheme.green,
+                                                        )))),
+                                          ]),
                                       const Spacer(),
                                       Container(
-                                          padding:
-                                              EdgeInsets.only(top: 0, left: 0),
+                                          padding: EdgeInsets.only(
+                                              top: 16, left: 0, bottom: 16),
                                           child: Text(
                                               widget.blog[index].status!,
                                               style: const TextStyle(
@@ -96,34 +142,34 @@ class _PestisidaState extends State<Filter>
                                               ))),
                                     ]),
                               ),
-                              Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 16,
-                                    left: 16,
-                                    right: 16,
-                                    bottom: 16,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                          child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                top: 1,
-                                              ),
-                                              child: Text(
-                                                  widget.blog[index]
-                                                      .tanggalSelesai!,
-                                                  style: const TextStyle(
-                                                    fontFamily:
-                                                        AppTheme.fontName,
-                                                    fontWeight: FontWeight.w800,
-                                                    fontSize: 10,
-                                                    letterSpacing: 0.2,
-                                                    color: AppTheme.green,
-                                                  )))),
-                                      const Spacer(),
-                                    ],
-                                  ))
+                              // Padding(
+                              //     padding: const EdgeInsets.only(
+                              //       top: 16,
+                              //       left: 16,
+                              //       right: 16,
+                              //       bottom: 16,
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         Container(
+                              //             child: Padding(
+                              //                 padding: const EdgeInsets.only(
+                              //                   top: 1,
+                              //                 ),
+                              //                 child: Text(
+                              //                     widget.blog[index]
+                              //                         .tanggalSelesai!,
+                              //                     style: const TextStyle(
+                              //                       fontFamily:
+                              //                           AppTheme.fontName,
+                              //                       fontWeight: FontWeight.w800,
+                              //                       fontSize: 10,
+                              //                       letterSpacing: 0.2,
+                              //                       color: AppTheme.green,
+                              //                     )))),
+                              //         const Spacer(),
+                              //       ],
+                              //     ))
                             ]),
                       ));
                 }));

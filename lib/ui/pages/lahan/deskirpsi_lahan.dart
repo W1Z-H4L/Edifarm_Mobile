@@ -44,7 +44,7 @@ class _DeskripsiLahanState extends State<DeskripsiLahan> {
                     padding: const EdgeInsets.only(
                         left: 16, right: 16, top: 8, bottom: 8),
                     child: Text(
-                      listdata1[index].deskripsi!,
+                      "Deskripsi lahan : " + listdata1[index].deskripsi!,
                       textAlign: TextAlign.justify,
                       style: const TextStyle(
                         fontWeight: FontWeight.w200,

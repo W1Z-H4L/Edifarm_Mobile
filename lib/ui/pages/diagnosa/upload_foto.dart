@@ -111,7 +111,7 @@ class _PotoPadiState extends State<PotoPadi> {
                         color: AppTheme.green.withOpacity(0.1),
                       ),
                       child: const Icon(
-                        Icons.camera_alt,
+                        Icons.image,
                         color: AppTheme.green,
                       ),
                     ),
@@ -147,7 +147,7 @@ class _PotoPadiState extends State<PotoPadi> {
                         color: AppTheme.green.withOpacity(0.1),
                       ),
                       child: const Icon(
-                        Icons.image,
+                        Icons.camera_alt,
                         color: AppTheme.green,
                       ),
                     ),
@@ -423,6 +423,7 @@ class _PotoPadiState extends State<PotoPadi> {
                                                   child: TextButton(
                                                       onPressed: () {
                                                         deskrip();
+                                                        Navigator.pop(context);
                                                       },
                                                       child: const Text(
                                                         "Ya",

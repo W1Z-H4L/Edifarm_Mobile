@@ -262,7 +262,7 @@ class _SignInPageState extends State<SignInPage> {
         color: AppTheme.green,
       );
       Fluttertoast.showToast(
-        msg: 'Ussername Atau Password Salah \n Silahkan Login Kembali',
+        msg: 'Username Atau Password Salah \n Silahkan Login Kembali',
         backgroundColor: Colors.red[300],
         textColor: Colors.white,
         fontSize: 12,

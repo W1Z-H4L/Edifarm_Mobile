@@ -7,6 +7,7 @@ import 'package:Edifarm/ui/pages/dashboard/models/tabIcon_data.dart';
 import 'package:Edifarm/ui/pages/lahan/deskirpsi_lahan.dart';
 import 'package:Edifarm/ui/pages/lahan/lahan_view.dart';
 import 'package:Edifarm/ui/pages/setting/pengaturan.dart';
+import 'package:Edifarm/ui/pages/setting/pengaturan_screen.dart';
 
 import 'package:Edifarm/ui/widgets/bottom_navigation/bottom_bar_view.dart';
 

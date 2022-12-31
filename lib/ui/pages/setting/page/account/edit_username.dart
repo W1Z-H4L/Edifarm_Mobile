@@ -61,41 +61,53 @@ class _EditUsername extends State<EditUsername> {
     final top = coverHeight - profileHeight / 2;
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           brightness: Brightness.dark,
-          toolbarHeight: 70,
-          title: Text(
+          toolbarHeight: 78,
+          title: const Text(
             "Edit Username",
             textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.fontName,
+              fontWeight: FontWeight.w700,
+              fontSize: 22,
+              letterSpacing: 1.2,
+              color: Colors.white,
+            ),
           ),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(32),
+              ),
+            ),
           ),
-          centerTitle: true,
           leading: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pop(
+                  context,
+                );
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,
                 color: AppTheme.white,
                 size: 20,
               )),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(32),
+            ),
+          ),
+          centerTitle: true,
           titleTextStyle: whiteTextStyle1,
           titleSpacing: 20,
           shadowColor: AppTheme.grey,
           backgroundColor: AppTheme.green,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50),
-              ),
-            ),
-          ),
         ),
         body: ListView(children: <Widget>[
+          SizedBox(
+            height: 20,
+          ),
           Center(
             child: Stack(children: [
               Container(
@@ -183,7 +195,7 @@ class _EditUsername extends State<EditUsername> {
           //     ))
 
           SizedBox(
-            height: 80,
+            height: 20,
           ),
           Text(
             _currentUser.user.nama!,
